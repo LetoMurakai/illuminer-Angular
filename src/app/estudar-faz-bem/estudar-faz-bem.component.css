@@ -1,0 +1,12 @@
+#bg {
+    background-image: linear-gradient(to bottom right, #65C1E5, white);
+    background-size: cover;
+  }
+
+.img {
+    border-radius: 50%;
+    width: 500px;
+    height: 500px;
+
+}
+
