@@ -1,0 +1,66 @@
+.bg-invisible{
+    background: rgba(35, 156, 171, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.01);
+    box-shadow: 0px 5px 4px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 20px rgba(0, 0, 0, 0.02);
+    backdrop-filter: blur(15px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 10px;
+}
+a{
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.199);
+}
+.active-btn{
+    background: rgba(28, 154, 168, 0.3);
+    border-radius: 50px;
+    padding: 2px 10px;
+}
+.bg-form{
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 2px 50px rgba(0, 0, 0, 0.05);
+    border-radius: 50px;
+    border: none;
+}
+.btn-login{
+    background: #1C9AA8;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.50), inset 0px 1px 5px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    border: none;
+}
+.btn-social{
+    background: #e4e1db;
+    border-radius: 50px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+    border: none;
+}
+.mp-10{
+    margin: 6.5rem 0;
+    width: 30%;
+}
+#bg{
+    background-image: url(https://source.unsplash.com/1600x900/?school);
+    background-size: cover;
+    padding: auto;
+    height: 620px;
+}
+
+/**Midia Queries**/
+@media only screen and (max-width: 500px) {
+    .mp-10{
+        margin: 0;
+        width: 100%;
+    }
+  }
+@media only screen and (max-width: 768px) {
+    .mp-10{
+        margin: 0;
+        width: 100%;
+    }
+  }
+  @media only screen and (min-width: 768.1) {
+    .mp-10{
+        margin: 0;
+        width: 100%;
+    }
+  }
