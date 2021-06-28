@@ -5,8 +5,28 @@
 
 .img {
     border-radius: 50%;
-    width: 500px;
-    height: 500px;
+    width: 30rem;
+    height: 30rem;
 
 }
 
+@media (max-width:2000px){
+    .img {
+        width: 25rem;
+        height: 25rem;
+    }
+}
+
+@media (max-width:1068px){
+    .img {
+        width: 20rem;
+        height: 20rem;
+    }
+}
+
+@media (max-width:500px){
+    .img {
+        width: 15rem;
+        height: 15rem;
+    }
+}
