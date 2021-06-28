@@ -10,20 +10,20 @@ import { EstudarFazBemComponent } from './estudar-faz-bem/estudar-faz-bem.compon
 import { ContatosComponent } from './contatos/contatos.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
+import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
-    elielthon-footer-componente,
+    MenuComponent,
     LoginComponent,
     FooterComponent,
-    dafhne-cadastro,
     CadastroComponent,
     EstudarFazBemComponent,
     ContatosComponent,
     SobreComponent,
-    CabecalhoComponent
+    CabecalhoComponent,
+    PaginaInicioComponent
   ],
   imports: [
     BrowserModule,
