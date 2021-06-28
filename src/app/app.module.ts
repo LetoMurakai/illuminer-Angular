@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
@@ -10,10 +11,10 @@ import { ContatosComponent } from './contatos/contatos.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
+    MenuComponent
     elielthon-footer-componente,
     LoginComponent,
     FooterComponent,
