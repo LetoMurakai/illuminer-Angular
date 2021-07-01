@@ -1,6 +1,9 @@
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
@@ -11,6 +14,8 @@ import { ContatosComponent } from './contatos/contatos.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
+import { FeedComponent } from './feed/feed.component';
+
 
 @NgModule({
   declarations: [
@@ -23,11 +28,14 @@ import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
     ContatosComponent,
     SobreComponent,
     CabecalhoComponent,
-    PaginaInicioComponent
+    PaginaInicioComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

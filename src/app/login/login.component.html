@@ -16,12 +16,12 @@
                     <form class="py-2 px-3">
                         <div>
                             <label for="usuario" class="text-white px-3">USUARIO</label>
-                            <input type="email" class="form-control bg-form" id="usuario"
+                            <input [(ngModel)]='usuarioLogin.email' name="email" type="email" class="form-control bg-form" id="usuario"
                                 placeholder="nome@exemplo.com">
                         </div>
                         <div class="py-2">
                             <label for="senha" class="text-white px-3">SENHA</label>
-                            <input type="password" class="form-control bg-form" id="senha"
+                            <input [(ngModel)]='usuarioLogin.senha' name="senha" type="password" class="form-control bg-form" id="senha"
                                 placeholder="Senha">
                         </div>
 
@@ -39,7 +39,7 @@
     
                             <button class="btn btn-social rounded-pill mx-1 col-2" type="submit">O</button>
     
-                            <button class="btn btn-login text-white mx-4 col-4" type="submit">entrar</button>
+                            <button (click)='login()' class="btn btn-login text-white mx-4 col-4" type="submit">entrar</button>
                         </div>
                         <a href="" class="small mx-4">esqueci meu usuario/senha!</a>
                     </div>
