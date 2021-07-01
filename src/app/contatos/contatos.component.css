@@ -6,7 +6,8 @@
 
 }
 .corFundo{
-    background: linear-gradient(135deg, #86ffef,#82daf0,#4de2d6,#10a6dd);
+    background: linear-gradient(135deg, #65C1E5,#afe6fb,#e6f8ff, rgb(255, 253, 133));
+    
 }
 .container{
     margin-left: auto;
@@ -14,7 +15,7 @@
 }
 
 .card{
-    box-shadow: 2px 2px 10px black;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.493);
     position: relative;
     width: 450px;
     height: 300px;
@@ -23,7 +24,7 @@
     justify-content: flex-start;
     align-items: center;
     border-radius: 20px;
-    background: linear-gradient(135deg, #5e22eb,#434eee,rgb(40, 19, 236),rgb(66, 0, 221));
+    background: linear-gradient(135deg, #2f77b3,#52ebde,rgb(236, 230, 139));
 }
 .card img{
     position: absolute;

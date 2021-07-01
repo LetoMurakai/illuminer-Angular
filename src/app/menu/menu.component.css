@@ -1,13 +1,41 @@
-.cor{
-    background-color: #a1d7ec;
+.container-fluid{
+    padding:0;
 }
-.cor2{
-    background: #a1d7ec;
-    border-radius: 60px;
-
+.nav{
+    background-image: linear-gradient(135deg, #9dd7ee,#91d0e9,#6cc3e6,#52b6dd);
 }
-.cor3{
-    background: #FAE154;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 60px;
+.float-right{
+    margin-left: auto!important;
+}
+.botao-login{
+    margin-left: 5px;
+    margin-right: 5px;
+    background: rgb(255, 241, 46);
+    border-radius: 5px 10px;
+    border: 2px rgba(0, 0, 0, 0.472) solid;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.418);
+}
+.botaoCadastro{
+    margin-left: 5px;
+    margin-right: 5px;
+    background: rgb(46, 224, 255);
+    border-radius: 10px 5px;
+    border: 2px rgba(0, 0, 0, 0.472) solid;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.418);
+}
+@media (max-width:991px){
+    .float-right{
+        float: right;
+    }
+    .botao-login,.botaoCadastro{
+        transform: translateY(-200%);
+        margin-bottom: 10px;
+    }
+    .botao-login  {
+        margin-left: 18px;
+    }
+    .navbar-collapse, .collapsing{
+        height: 100px;
+    }
+    
 }

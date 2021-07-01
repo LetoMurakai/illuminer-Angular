@@ -1,16 +1,16 @@
 .bg-header {
   background-image: url('../../assets/img/lapis-farol.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
+  border-radius:  0px 0px 200px 0px;
 }
 
 #header {
-  height: 30rem;
+  height: 40rem;
 }
 
 .title {
- padding-top: 7.5rem;
+ padding-top: 13rem;
  font-size: 48px;
  text-transform: uppercase;
  color: #fff;
@@ -32,16 +32,20 @@
 
 .btn-login {
   background: #65C1E5;
+  float: right;
+  margin-top: 5rem;
 }
 
 .btn-cadastro {
   background-color: #f0d108;
   text-shadow: 2px 2px 10px #fff;
+  margin-top: 5rem;
 }
 
 .btn-login:hover {
   background: #40add8;
   text-shadow: none;
+  float: right;
 }
 
 .btn-cadastro:hover {
@@ -50,16 +54,76 @@
   text-shadow: none;
 }
 
-@media only screen and (max-width: 767px) { 
+@media (max-width: 1109px) { 
   .title {
-    padding-top: 6.5rem;
-    font-size: 40px;
+    padding-top: 14rem;
+    font-size: 42px;
+  }
+}
+@media (max-width: 975px) { 
+  .title {
+    padding-top: 14rem;
+    font-size: 38px;
+  }
+}
+@media (max-width: 885px) { 
+  .title {
+    padding-top: 14rem;
+    font-size: 34px;
+  }
+}
+@media (max-width: 767px) { 
+  .title {
+    padding-top: 13rem;
+    font-size: 30px;
+    display: flex;
+    justify-content: start;
+  }
+  .col-md-6{
+    display: flex;
+    justify-content: center;
+  }
+  .btn{
+    margin-top: 10px;
+  }
+  .bg-header{
+    border-radius:  0px 0px 100px 0px;
+  }
+}
+@media (max-width: 767px) { 
+  .title {
+    padding-top: 17rem;
+    font-size: 30px;
+    display: flex;
+    justify-content: start;
+  }
+  .col-md-6{
+    display: flex;
+    justify-content: center;
+  }
+  .btn{
+    margin-top: 10px;
+  }
+  .bg-header{
+    border-radius:  0px 0px 100px 0px;
+  }
+}
+@media (max-width: 490px) { 
+  .title {
+    padding-top: 16rem;
+    font-size: 30px;
+    display: flex;
+    justify-content: start;
+  }
+  .col-md-6{
+    display: flex;
+    justify-content: center;
+  }
+  .btn{
+    margin-top: 10px;
+  }
+  .bg-header{
+    border-radius:  0px 0px 100px 0px;
   }
 }
 
-@media only screen and (max-width: 320px) { 
-  .title {
-    padding-top: 6.5rem;
-    font-size: 36px;
-  }
-}
