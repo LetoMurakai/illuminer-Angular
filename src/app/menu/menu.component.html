@@ -1,31 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-light cor">
-    <div class="container">
-      <a class="navbar-brand text-light" href="#">ILLUMINER</a>
+<section class="container-fluid">
+  <nav class="nav navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-3">ILLUMINER</a>
+      <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse ms-3 f-right" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contatos</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Sobre nós
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#illuminer">Sobre a illuminer</a></li>
+              <li><a class="dropdown-item" href="#footer">Redes sociais</a></li>
+              
+            </ul>
+            
+          </li>
+          
+        </ul>
+        <ul class="navbar-nav mb-2 mb-lg-0  float-right">
+          <li class="nav-item">
+            <button class="btn botao-login">Logar</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn botaoCadastro">Cadastrar</button>
+          </li>
+        </ul>
+      </div>
     </div>
-    
-    <button routerLink="/login" type="button" class="btn cor2 text-light">Login</button>
-    <button routerLink="/cadastrar" type="button" class="btn cor3 text-light">Cadastro</button>
-       
   </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</section>

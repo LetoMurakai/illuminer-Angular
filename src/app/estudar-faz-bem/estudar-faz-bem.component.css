@@ -1,7 +1,13 @@
 #bg {
-    background-image: linear-gradient(to bottom right, #65C1E5, white);
+    background-image: linear-gradient(135deg, #9dd7ee,#65C1E5,#c0e5f3, white);
     background-size: cover;
   }
+h1{
+    font-size: 54px;
+}
+.t-justify{
+    text-align: justify;
+}
 
 .img {
     border-radius: 50%;
@@ -10,23 +16,19 @@
 
 }
 
-@media (max-width:2000px){
-    .img {
-        width: 25rem;
-        height: 25rem;
+@media (max-width:766px){
+   svg{
+        width: 80%;
+        height: 80%;
+   }
+ 
+}
+
+@media (max-width:600px){
+    svg{
+        width: 90%;
+        height: 90%;
     }
 }
 
-@media (max-width:1068px){
-    .img {
-        width: 20rem;
-        height: 20rem;
-    }
-}
 
-@media (max-width:500px){
-    .img {
-        width: 15rem;
-        height: 15rem;
-    }
-}
