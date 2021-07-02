@@ -2,12 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-
 }
 .corFundo{
     background: linear-gradient(135deg, #65C1E5,#afe6fb,#e6f8ff, rgb(255, 253, 133));
-    
+    box-shadow: 0 2px 25px 20px rgba(0, 0, 0, 0.150);
 }
 .container{
     margin-left: auto;
@@ -64,7 +62,7 @@
 .card .content p{
     text-align: justify;
     color: #fff;
-    
+
 }
 .card .content a{
     position: relative;
@@ -76,7 +74,7 @@
     margin-top: 10px;
     text-decoration: none;
 
-    
+
 }
 @media(max-width: 1200px){
     .card{

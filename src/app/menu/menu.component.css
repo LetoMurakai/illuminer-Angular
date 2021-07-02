@@ -1,27 +1,37 @@
 .container-fluid{
     padding:0;
 }
-.nav{
-    background-image: linear-gradient(135deg, #9dd7ee,#91d0e9,#6cc3e6,#52b6dd);
-}
 .float-right{
     margin-left: auto!important;
 }
 .botao-login{
     margin-left: 5px;
     margin-right: 5px;
-    background: rgb(255, 241, 46);
+    background: #F4D624;
     border-radius: 5px 10px;
-    border: 2px rgba(0, 0, 0, 0.472) solid;
-    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.418);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.400);
+    transition: 0.4s cubic-bezier(0.10, 0.10, 0.10, 0.0);
+}
+.botao-login:hover{
+  background: #fddb19;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.418);
 }
 .botaoCadastro{
     margin-left: 5px;
     margin-right: 5px;
-    background: rgb(46, 224, 255);
+    background: #69BEE2;
     border-radius: 10px 5px;
-    border: 2px rgba(0, 0, 0, 0.472) solid;
-    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.418);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.400);
+    transition: 0.4s cubic-bezier(0.10, 0.10, 0.10, 0.0);
+}
+.botaoCadastro:hover{
+  background: #4fb2dd;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.418);
+}
+.text-white-bold{
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.200);
 }
 @media (max-width:991px){
     .float-right{
@@ -37,5 +47,5 @@
     .navbar-collapse, .collapsing{
         height: 100px;
     }
-    
+
 }

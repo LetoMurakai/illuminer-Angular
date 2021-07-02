@@ -1,11 +1,10 @@
 .container{
   margin: 0;
-  padding: 0%;
+  padding: 0;
 }
 .bg-linear{
-  
-  background-image: linear-gradient(-75deg, #fffd6f,#fdfded, #8adbfb);
-    }
+  background: linear-gradient(126deg, #CEEAF6 9.53%, #FFFFFF 19.42%, #FCF1B0 43.19%, #F6D61E 91.37%);
+}
 .t-justify{
   text-align: justify;
 }
@@ -48,7 +47,7 @@
   transition: 0.5s;
 }
 
-@media only screen and (max-width: 767px) { 
+@media only screen and (max-width: 767px) {
   svg {
       margin-top: 30px;
   }

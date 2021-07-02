@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+body,html{
+  scroll-behavior: smooth;
+  font-family: 'Baloo 2', cursive;
+}
+p{
+  font-family: 'Baloo 2', cursive;
+}
+h1,h2,h3,h4,h5{
+  font-family: 'Baloo 2', cursive;
+}
+a{
+    font-family: 'Baloo 2', cursive;
+}
+::-webkit-scrollbar {
+  width:8px;
+  height: 10px;
+  }
+
+  /* aqui é para personalizar o fundo da barra, neste caso estou colocando um fundo cinza escuro*/
+  ::-webkit-scrollbar-track {
+  background:rgba(51, 51, 51, 0);
+  }
+
+  /* aqui é a alça da barra, que demonstra a altura que você está na página
+  estou colocando uma cor azul clara nela e adicionando uma borda arredondada*/
+  ::-webkit-scrollbar-thumb {
+  background: #2e9dd8;
+  border-radius: 15px;
+  }
+
+.bg-invisible{
+  background: rgba(35, 156, 171, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.01);
+  box-shadow: 0px 5px 4px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 20px rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 10px;
+}
