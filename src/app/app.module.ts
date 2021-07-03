@@ -15,6 +15,7 @@ import { SobreComponent } from './sobre/sobre.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
 import { FeedComponent } from './feed/feed.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { FeedComponent } from './feed/feed.component';
     SobreComponent,
     CabecalhoComponent,
     PaginaInicioComponent,
-    FeedComponent
+    FeedComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
