@@ -15,6 +15,9 @@ import { SobreComponent } from './sobre/sobre.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
 import { FeedComponent } from './feed/feed.component';
+import { PostagemComponent } from './postagem/postagem.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ComentarioComponent } from './comentario/comentario.component';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { FeedComponent } from './feed/feed.component';
     SobreComponent,
     CabecalhoComponent,
     PaginaInicioComponent,
-    FeedComponent
+    FeedComponent,
+    PostagemComponent,
+    ComentarioComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,10 @@ import { FeedComponent } from './feed/feed.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
