@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
+import { Usuario } from '../model/Usuario';
 import { PostagemService } from '../service/postagem.service';
 
 @Component({
@@ -12,10 +13,10 @@ import { PostagemService } from '../service/postagem.service';
 export class PostagemComponent implements OnInit {
 
   postagem: Postagem = new Postagem
-  foto = environment.foto
-  nome = environment.nome
+  usuario: Usuario = new Usuario
+  nomeUsuario = environment.nome
+  nome = this.postagem.usuario.nome
   data = this.postagem.data
-  texto = this.postagem.texto
   midia = this.postagem.midia
   displayComentarios = "none"
   listaPostagem: Postagem[]
@@ -44,4 +45,15 @@ export class PostagemComponent implements OnInit {
       this.listaPostagem = resp
     })
   }
+  publicar(){
+      
+    this.postagem.usuario.id = environment.id
+    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
+    this.postagem = resp
+    alert('Postagem feita com sucesso')
+    this.findAllPostagens()
+    this.postagem = new Postagem()
+
+  })
+}
 }

@@ -34,14 +34,21 @@ export class FazerPostagemComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
     this.PostagemService.refreshToken()
+    this.findAllPostagens()
+  }
+  findAllPostagens(){
+    this.PostagemService.getAllPostagem().subscribe((resp: Postagem[])=>{
+      this.listaPostagem = resp
+    })
   }
   publicar(){
       
-      this.postagem.usuario.id = environment.id
       this.PostagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
       this.postagem = resp
       alert('Postagem feita com sucesso')
+      this.findAllPostagens()
       this.postagem = new Postagem()
+
     })
   }
 

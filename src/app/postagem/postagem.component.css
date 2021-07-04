@@ -2,7 +2,7 @@
 /* classe que engloba toda a div de postagem */
 .postagem {
   border: #000 solid 1px;
-  max-width: 500px;
+  width: 100%;
   background-color: #EFF3EB;
   margin: 5rem auto;
   border-radius: 5px;
@@ -222,5 +222,78 @@
 
   .data-postagem {
     font-size: 14px;
+  }
+}
+
+
+/* TODA A PARTE DE FAZER POSTAGEM  */
+#fazerPostagem{
+  height: 320px;
+  background: yellow;
+  
+  border-radius: 10px;
+}
+.form-group{
+  height: 260px;
+}
+textarea{
+  height: 260px;
+  border: 0px;
+  width: 100%;
+  resize: none;
+}
+input{
+  height: 30px;
+  border: none;
+  width: 133.4%;
+}
+.botaoPublicar{
+  height: 145px;
+  border-radius: 0px 10px 0px 0px;
+}
+.botaoCancelar{
+  height: 145px;
+  border-radius: 0px 0px 10px 0px;
+}
+
+.row {
+  --bs-gutter-x: 0rem;
+}
+@media (max-width: 767px){
+  #fazerPostagem{
+      height: 310px;
+      background: yellow;
+      border-radius: 10px;
+  }
+  .form-group{
+      height: 120px;
+  }
+  textarea{
+      height: 140px;
+      border: 0px;
+      width: 100%;
+      resize: none;
+  }
+  input{
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid;
+    height: 30px;
+  }
+ 
+  .botaoPublicar{
+      border-radius: 0px 0px 0px 0px;
+      height: 55px;
+  }
+  .botaoCancelar{
+      border-radius: 0px 0px 10px 10px;
+      height: 55px;
+  }
+  
+  .row {
+      --bs-gutter-x: 0rem;
+  }
+  .h-50{
+      height: 50px!important;
   }
 }

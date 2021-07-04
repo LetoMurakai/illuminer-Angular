@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment.prod';
 import { Comentario } from '../model/Comentario';
 import { Usuario } from '../model/Usuario';
+import { ComentarioService } from '../service/comentario.service';
 
 @Component({
   selector: 'app-comentario',
@@ -12,14 +12,19 @@ export class ComentarioComponent implements OnInit {
   
   comentario: Comentario = new Comentario
   usuario: Usuario = new Usuario
-  fotoUsuario = this.comentario.usuario.foto
-  nomeUsuario = this.comentario.usuario.nome
   textoDoComentario = this.comentario.texto
-  
+  listaComentario: Comentario[] 
   displayComentarios = "none"
-  constructor() { }
+  constructor(
+    private comentarioService: ComentarioService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
-
+  findAllComentarios(){
+    this.comentarioService.getAllComentario().subscribe((resp: Comentario[])=>{
+      this.listaComentario = resp
+  }
+    )}
 }
+

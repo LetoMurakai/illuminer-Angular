@@ -1,12 +1,12 @@
-<div class="comentarios" class=".comentarios">
+<div class="comentarios" class=".comentarios" *ngFor='let comentario of listaComentario'>
   <!-- Lista de comentários onde cada li é um comentário com nome do usuário, texto e botões de editar e apagar-->
-  <ul class="flex-sem-padding" *ngFor='let comentario of comentario'> 
+  <ul class="flex-sem-padding" > 
     <li class="flex flex-sem-padding">
       <!-- Foto do usuário autor do comentário -->
-      <img class="foto-autor-comentario" src="{{comentario.fotoUsuario}}" alt="Foto autor do comentário">
+      <img class="foto-autor-comentario" src="" alt="Foto autor do comentário">
       <!-- Corpo do comentário -->
       <div class="bg-comentario">
-        <p class="nome-autor-comentario">{{comentario.nomeUsuario}}
+        <p class="nome-autor-comentario">NOME DO USUARIO
         </p>
         <!-- Botões de apagar e editar comentário -->
         <div class="btns-edit-delete btns-edit-delete-comentario">
@@ -41,7 +41,7 @@
 
   <!-- Div para fazer um novo comentário -->
   <div class="fazer-comentario"> 
-    <img class="foto-autor-comentario" src="https://psicoter.com.br/wp-content/uploads/2019/01/pessoa-flexivel-seja-mais-flexivel-800x533.jpg" alt="">
+    <img class="foto-autor-comentario" src="" alt="">
     <input id="fazerComentario" class="input-comentario " type="text" placeholder="Escreva um comentário...">
     <button class="btn-comentario">OK</button>
   </div>
@@ -81,7 +81,7 @@
         <form>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Texto:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <textarea class="form-control" class="message-text"></textarea>
           </div>
         </form>
       </div>

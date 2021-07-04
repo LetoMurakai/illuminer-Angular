@@ -1,13 +1,68 @@
+<section class="container" id="fazerPostagem">
+  <div class="row">
+      <div class="col-md-12 md-auto">
+          
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+              Olá,{{nomeUsuario}}
+            </div>
+                  <div class="row">
+                      <div class="col-md-9">
+                        <div class="row">
+                          <div class="form-group align-text-top">
+                              
+                                  <textarea [(ngModel)]='postagem.texto' class="texto" type="text" name="texto" id="postagem" placeholder="No que você está pensando hoje?"></textarea>
+
+                            </div>
+                            <div class="row">
+                              <div class="col-md-9">
+                                <div class="">
+                                        
+                                  <input [(ngModel)]='postagem.midia' class="midia" type="text" name="midia" id="postagem" placeholder="Insira o link de uma foto aqui">
+          
+                          </div>
+                              </div>
+                            </div>
+
+                        </div>
+                      </div>
+                      
+                      <div class="col-md-3 h-100">
+                          <div class="row d-flex justify-content-center h-50">
+                              <button class=" botaoPublicar btn btn-primary" (click)='publicar()'>Publicar</button>
+                          </div>
+                          
+                          <div class="row d-flex justify-content-center h-50">
+                              <button class="botaoCancelar btn btn-success">
+                                  Cancelar
+                              </button>
+
+                          </div>
+                      </div>
+                      
+                </div>
+                
+                 
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
 
 <!-- Div da postagem inteira -->
-<div class="postagem" >
+<div class="container">
+  <div class="row">
+  <div class="col-md-12 md-auto">
+<div class="postagem" *ngFor='let postagem of listaPostagem'>
   
   <!-- Dados da postagem Nome do Usuário/Data e botões de apagar e editar -->
   <div class="flex">
-    <img class="foto-usuario" src="{{foto}}" alt="Foto do usuário">
+    <img class="foto-usuario" src="" alt="Foto do usuário">
     <div class="postagem-info">
-      <h4 class="autor-postagem">{{nome}}</h4>
-      <h6 class="data-postagem">{{data}}</h6>
+      <h4 class="autor-postagem">{{postagem.usuario.nome}}</h4>
+      <h6 class="data-postagem">{{postagem.data}}</h6>
     </div>
 
     <!-- Botões de editar e apagar -->
@@ -25,9 +80,13 @@
   <!-- Corpo do texto da postagem -->
 
   <div class="bg-texto-postagem">
-    <p class="texto-postagem-comentario">{{texto}}</p>
-    <div class="midia-postagem">
-      <img src="{{midia}}" alt="">
+    <p class="texto-postagem-comentario">{{postagem.texto}}</p>
+    <div class="midia-postagem" *ngIf= postagem.midia !=null
+    {
+      {{postagem.midia}}
+    }>
+      
+      <img src="{{postagem.midia}}" alt="">
     </div>
   </div>
 
@@ -36,7 +95,7 @@
   <!-- botões de números de curtidas e números de comentários -->
 
   <div class="engajamento">
-    <a class="comentar" href="#fazerComentario" (click)='comentar()'>
+    <a class="comentar" (click)='comentar()'>
       <i class="far fa-comment-dots"></i> Comentar
     </a>
     <a class="ver-comentarios" (click)='verComentarios()'>
@@ -137,8 +196,8 @@
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <label for="message-text" class="col-form-label">Texto:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <label for="text" class="col-form-label">Texto:</label>
+            <textarea class="form-control"></textarea>
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Midia:</label>
@@ -154,6 +213,5 @@
   </div>
 </div>
 
-
-
-
+</div>
+</div></div>
