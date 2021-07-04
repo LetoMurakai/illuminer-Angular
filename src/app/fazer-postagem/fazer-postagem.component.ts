@@ -18,7 +18,11 @@ export class FazerPostagemComponent implements OnInit {
   postagem: Postagem = new Postagem()
   listaPostagem: Postagem[]
   usuario: Usuario = new Usuario()
+
+  nome = environment.nome
+  foto = environment.foto
   id = environment.id
+
   constructor(
     private router: Router,
     private PostagemService: PostagemService
@@ -32,8 +36,10 @@ export class FazerPostagemComponent implements OnInit {
     this.PostagemService.refreshToken()
   }
   publicar(){
-    this.PostagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
-      this.usuario.id = this.id
+      
+    this.postagem.usuario.id = environment.id
+    
+      this.PostagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
       this.postagem = resp
       alert('Postagem feita com sucesso')
       this.postagem = new Postagem()
