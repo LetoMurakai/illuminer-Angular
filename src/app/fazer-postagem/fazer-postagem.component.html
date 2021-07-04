@@ -1,0 +1,37 @@
+<section class="container" id="fazerPostagem">
+    <div class="row">
+        <div class="col-md-12 md-auto">
+            
+            <div class="row">
+                Olá,
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group align-text-top">
+                                
+                                    <textarea [(ngModel)]='postagem.texto' class="texto" type="text" name="texto" id="postagem" placeholder="No que você está pensando hoje?"></textarea>
+
+                                
+                                
+                            </div>
+                        </div>
+                                
+                        <div class="col-md-3 h-100">
+                            <div class="row d-flex justify-content-center h-50">
+                                <button class=" botaoPublicar btn btn-primary" (click)='publicar()'>Publicar</button>
+                            </div>
+                            
+                            <div class="row d-flex justify-content-center h-50">
+                                <button class="botaoCancelar btn btn-success">
+                                    Cancelar
+                                </button>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+

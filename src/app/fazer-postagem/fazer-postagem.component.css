@@ -1,0 +1,56 @@
+#fazerPostagem{
+    height: 320px;
+    background: yellow;
+    
+    border-radius: 10px;
+}
+.form-group{
+    height: 290px;
+}
+textarea{
+    height: 290px;
+    border: 0px;
+    width: 100%;
+    resize: none;
+}
+.botaoPublicar{
+    border-radius: 0px 10px 0px 0px;
+}
+.botaoCancelar{
+    border-radius: 0px 0px 10px 0px;
+}
+
+.row {
+    --bs-gutter-x: 0rem;
+}
+@media (max-width: 767px){
+    #fazerPostagem{
+        height: 320px;
+        background: yellow;
+        border-radius: 10px;
+    }
+    .form-group{
+        height: 190px;
+    }
+    textarea{
+        height: 290px;
+        border: 0px;
+        width: 100%;
+        resize: none;
+    }
+    .botaoPublicar{
+        border-radius: 0px 0px 0px 0px;
+        height: 50px;
+    }
+    .botaoCancelar{
+        border-radius: 0px 0px 10px 10px;
+        height: 50px;
+    }
+    
+    .row {
+        --bs-gutter-x: 0rem;
+    }
+    .h-50{
+        height: 50px!important;
+    }
+}
