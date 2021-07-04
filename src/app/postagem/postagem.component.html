@@ -26,9 +26,6 @@
 
   <div class="bg-texto-postagem">
     <p class="texto-postagem-comentario">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora voluptatibus accusantium earum nisi recusandae ex explicabo nam deleniti, in eaque, itaque facilis voluptates quasi fugit sequi dolores iure, at magnam maiores nulla enim harum consectetur quidem tenetur? Qui, facilis illum tempore doloremque aperiam officia neque accusantium eaque similique expedita nulla quas rerum ipsam est mollitia quod vel ipsum ullam laboriosam labore reiciendis fuga. Vitae ipsa quos repudiandae facere autem quasi sunt labore. Quasi, autem temporibus cum modi explicabo, ullam, accusamus consequatur eos unde quaerat in veritatis? Laudantium repudiandae fuga deleniti eveniet quas placeat? Et vitae deserunt praesentium maxime eum eius.</p>
-    <div>
-      <iframe class="midia-postagem" src="https://www.youtube.com/embed/8mei6uVttho" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
     <div class="midia-postagem">
       <img src="https://automacaoforadacaixa.files.wordpress.com/2018/06/oo03_01.png" alt="">
     </div>
@@ -39,26 +36,13 @@
   <!-- botões de números de curtidas e números de comentários -->
 
   <div class="engajamento">
-    <a class="curtidas" data-bs-toggle="modal" data-bs-target="#curtidasModal">
-      <i id="icon-curtidas" class="fas fa-thumbs-up"></i>
-      <!--<i class="far fa-heart"></i>-->
-      <span id="qtd-curtidas">9</span>
+    <a class="comentar" href="#fazerComentario" (click)='comentar()'>
+      <i class="far fa-comment-dots"></i> Comentar
     </a>
     <a class="ver-comentarios" (click)='verComentarios()'>
       5 comentários
     </a>
   </div>
-
-  <!-- botões para curtir e comentar -->
-  <div class="interacao">
-    <a class="curtidas item-interacao">
-      <i class="far fa-thumbs-up"></i> <span id="curtir">Curtir</span>
-    </a>
-    <a class="comentar item-interacao" href="#fazerComentario" (click)='verComentarios()'>
-      <i class="far fa-comment-dots"></i> Comentar
-    </a>
-  </div>
-
 
   <!-- componente dos comentários  -->
   <app-comentario [ngStyle]="{'display': displayComentarios}" ></app-comentario>

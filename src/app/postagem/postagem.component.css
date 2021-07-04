@@ -109,7 +109,6 @@
   display: flex;
   justify-content: space-around;
   margin: 1rem auto;
-  border-bottom: #000 solid 1px;
 }
 
 /* Configurações básicas do tamanho dos botões curtidas, ver comentários, curtir e comentar */
@@ -158,17 +157,19 @@
 
 /* Link do botão comentar  */
 .comentar {
-  color: #000;
   font-size: 1.3rem;
-  align-self: center;
   text-decoration: none;
-  padding: 5px;
+  flex: 1;
+  text-align: center;
 } 
 
+.comentar:hover {
+  text-decoration: underline;
+}
 
 /*botão de total de comentários */
 .ver-comentarios {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   align-self: center;
   text-decoration: none;
   flex: 1;

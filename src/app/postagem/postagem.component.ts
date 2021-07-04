@@ -14,6 +14,10 @@ export class PostagemComponent implements OnInit {
   ngOnInit(){
   }
 
+  comentar() {
+    this.displayComentarios = "block"
+  }
+
   verComentarios() {
     if(this.displayComentarios == "none") {
       this.displayComentarios = "block"
