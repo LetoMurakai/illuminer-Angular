@@ -18,6 +18,8 @@ import { FeedComponent } from './feed/feed.component';
 import { PostagemComponent } from './postagem/postagem.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ComentarioComponent } from './comentario/comentario.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { ComentarioComponent } from './comentario/comentario.component';
     FeedComponent,
     PostagemComponent,
     ComentarioComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
