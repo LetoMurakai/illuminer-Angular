@@ -3,7 +3,7 @@
 .postagem {
   border: rgba(0, 0, 0, 0.100) solid 1px;
   max-width: 650px;
-  background-color: #F5F5F5;
+  background-color: #fcfcfc;
   margin: 3rem auto;
   border-radius: 10px;
 }
@@ -162,10 +162,15 @@
   text-decoration: none;
   flex: 1;
   text-align: center;
+  color: cadetblue;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .comentar:hover {
-  text-decoration: underline;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: rgba(125, 155, 156, 0.400);
+  border-radius: 30px;
 }
 
 /*botão de total de comentários */
@@ -175,11 +180,15 @@
   text-decoration: none;
   flex: 1;
   text-align: center;
+  color: cadetblue;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .ver-comentarios:hover {
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
+  background-color: rgba(125, 155, 156, 0.400);
+  border-radius: 30px;
 }
 
 /* Estilizando foto do autor de uma curtida */

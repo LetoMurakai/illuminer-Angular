@@ -1,6 +1,6 @@
 #fazerPostagem{
     max-height: 290px;
-    background: #F5F5F5;
+    background: #fcfcfc;
     border-radius: 10px;
   }
   .form-group{
@@ -26,12 +26,22 @@
     border-radius: 0px 20px 0px 0px;
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.100);
   }
+  .botaoCancelar:hover{
+    border: 1px solid #f05050;
+    background: #e24545;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.100);
+  }
   .botaoPublicar{
     min-height: 150px;
     border: none;
     background: #85F4AB;
     border-radius: 0px 0px 20px 0px;
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.100);
+  }
+  .botaoPublicar:hover{
+    border: 1px solid #97e7b3;
+    background: #84e9a8;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.100);
   }
 
   .row {

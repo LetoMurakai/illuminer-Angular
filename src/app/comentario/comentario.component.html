@@ -1,12 +1,13 @@
 <div class="comentarios" id="comentarios">
   <!-- Lista de comentários onde cada li é um comentário com nome do usuário, texto e botões de editar e apagar-->
-  <ul class="flex-sem-padding"> 
+  <ul class="flex-sem-padding">
     <li class="flex flex-sem-padding">
       <!-- Foto do usuário autor do comentário -->
       <img class="foto-autor-comentario" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
       <!-- Corpo do comentário -->
       <div class="bg-comentario">
         <p class="nome-autor-comentario">Nome do Usuário</p>
+        <p class="data-postagem small"> data comentário</p>
         <!-- Botões de apagar e editar comentário -->
         <div class="btns-edit-delete btns-edit-delete-comentario">
           <a href="" data-bs-toggle="modal" data-bs-target="#editarModalComentario" >
@@ -87,7 +88,7 @@
   </ul>
 
   <!-- Div para fazer um novo comentário -->
-  <div class="fazer-comentario"> 
+  <div class="fazer-comentario">
     <img class="foto-autor-comentario" src="https://psicoter.com.br/wp-content/uploads/2019/01/pessoa-flexivel-seja-mais-flexivel-800x533.jpg" alt="">
     <input id="fazerComentario" class="input-comentario " type="text" placeholder="Escreva um comentário...">
     <button class="btn-comentario">OK</button>
