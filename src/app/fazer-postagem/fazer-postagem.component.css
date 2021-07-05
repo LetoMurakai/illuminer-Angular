@@ -1,15 +1,14 @@
 #fazerPostagem{
-    height: 360px;
-    background: rgb(106, 231, 231);
-    
+    max-height: 290px;
+    background: #F5F5F5;
     border-radius: 10px;
   }
   .form-group{
-    height: 260px;
+    height: 210px;
   }
   textarea{
-    height: 260px;
-    border-radius: 10px 0px 0px 0px;
+    min-height: 200px;
+    border-radius: 10px 0px 0px 10px;
     border: none;
     width: 100%;
     resize: none;
@@ -17,57 +16,56 @@
   input{
     height: 30px;
     border: none;
-    border-radius: 0px 0px 0px 10px;
+    border-radius: 10px 0px 0px 10px;
     width: 133.4%;
   }
   .botaoCancelar{
     height: 90px;
     border: none;
-    border-radius: 0px 10px 0px 0px;
-    background: rgb(255, 47, 47);
+    background: #EB3B3B;
+    border-radius: 0px 20px 0px 0px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.100);
   }
   .botaoPublicar{
-    height:200px;
+    min-height: 150px;
     border: none;
-    background: rgb(29, 155, 17);
-    border-radius: 0px 0px 10px 0px;
+    background: #85F4AB;
+    border-radius: 0px 0px 20px 0px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.100);
   }
-  
+
   .row {
     --bs-gutter-x: 0rem;
   }
   @media (max-width: 767px){
     #fazerPostagem{
-        height: 330px;
-        background: rgb(106, 231, 231);
+        max-height: 330px;
         border-radius: 10px;
     }
     .form-group{
         height: 120px;
     }
     textarea{
-        height: 140px;
+        min-height: 110px;
         border-radius: 10px 10px 0px 0px;
         width: 100%;
         resize: none;
     }
     input{
       width: 100%;
-      margin-top: 20px;
       border-radius: 0px;
-      
-      height: 30px;
+      min-height: 30px;
     }
-   
+
     .botaoPublicar{
-        border-radius: 0px 0px 0px 0px;
-        height: 55px;
+        border-radius: 0px 0px 10px 10px;
+        min-height: 40px;
     }
     .botaoCancelar{
-        border-radius: 0px 0px 10px 10px;
-        height: 55px;
+        border-radius: 0px 0px 0px 0px;
+        min-height: 40px;
     }
-    
+
     .row {
         --bs-gutter-x: 0rem;
     }

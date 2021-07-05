@@ -1,20 +1,22 @@
 
 .um{
-    
-    margin-top: 15vh;/*alterar tamanho, conforme height da navbar*/
-    
-    
+  margin-top: 15vh;/*alterar tamanho, conforme height da navbar*/
 }
 
-.color{
-    background-color: teal;
-    flex-flow: row-reverse;
+.bg-branco{
+  background: #F5F5F5;
+}
+
+.flex-flow{
+  flex-flow: row-reverse;
 }
 
 .cor{
-    color: cadetblue;
+  color: cadetblue;
 }
-
+.z-index{
+  z-index: 2;
+}
 
 
 

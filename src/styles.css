@@ -37,3 +37,7 @@ a{
   /* Note: backdrop-filter has minimal browser support */
   border-radius: 10px;
 }
+
+.marcador{
+  border: 1px solid red;
+}

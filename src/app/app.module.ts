@@ -41,14 +41,12 @@ import { FazerPostagemComponent } from './fazer-postagem/fazer-postagem.componen
     CabecalhoComponent,
     PaginaInicioComponent,
     FeedComponent,
-
     NavbarComponent,
     MiniPerfilComponent,
     PostagemComponent,
     ComentarioComponent,
     EngajamentoComponent,
     FazerPostagemComponent
-
 
   ],
   imports: [
