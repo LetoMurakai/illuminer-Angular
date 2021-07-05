@@ -19,6 +19,7 @@ import { PostagemComponent } from './postagem/postagem.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ComentarioComponent } from './comentario/comentario.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MiniPerfilComponent } from './mini-perfil/mini-perfil.component';
 
 import { EngajamentoComponent } from './engajamento/engajamento.component';
 
@@ -40,11 +41,14 @@ import { FazerPostagemComponent } from './fazer-postagem/fazer-postagem.componen
     CabecalhoComponent,
     PaginaInicioComponent,
     FeedComponent,
+
+    NavbarComponent,
+    MiniPerfilComponent,
     PostagemComponent,
     ComentarioComponent,
     EngajamentoComponent,
-
     FazerPostagemComponent
+
 
   ],
   imports: [
