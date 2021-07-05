@@ -16,6 +16,7 @@ import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
 import { FeedComponent } from './feed/feed.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MiniPerfilComponent } from './mini-perfil/mini-perfil.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     CabecalhoComponent,
     PaginaInicioComponent,
     FeedComponent,
-    NavbarComponent
+    NavbarComponent,
+    MiniPerfilComponent
   ],
   imports: [
     BrowserModule,
