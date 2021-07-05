@@ -14,6 +14,7 @@ import { ContatosComponent } from './contatos/contatos.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
+import { UserPerfilComponent } from './user-perfil/user-perfil.component';
 import { FeedComponent } from './feed/feed.component';
 import { PostagemComponent } from './postagem/postagem.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -24,8 +25,6 @@ import { MiniPerfilComponent } from './mini-perfil/mini-perfil.component';
 import { EngajamentoComponent } from './engajamento/engajamento.component';
 
 import { FazerPostagemComponent } from './fazer-postagem/fazer-postagem.component';
-
-
 
 
 @NgModule({
@@ -40,6 +39,7 @@ import { FazerPostagemComponent } from './fazer-postagem/fazer-postagem.componen
     SobreComponent,
     CabecalhoComponent,
     PaginaInicioComponent,
+    UserPerfilComponent,
     FeedComponent,
 
     NavbarComponent,
