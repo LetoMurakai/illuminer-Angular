@@ -1,0 +1,159 @@
+
+<!-- Div da postagem inteira -->
+<div class="postagem">
+  
+  <!-- Dados da postagem Nome do Usuário/Data e botões de apagar e editar -->
+  <div class="flex">
+    <img class="foto-usuario" src="https://media-manager.noticiasaominuto.com/1920/1556264539/naom_5cb7221409201.jpg?crop_params=eyJsYW5kc2NhcGUiOnsiY3JvcFdpZHRoIjozNzYwLCJjcm9wSGVpZ2h0IjoyMTE1LCJjcm9wWCI6MCwiY3JvcFkiOjEzN30sInBvcnRyYWl0Ijp7ImNyb3BXaWR0aCI6MTQ4OSwiY3JvcEhlaWdodCI6MjY0OCwiY3JvcFgiOjExNTksImNyb3BZIjowfX0=" alt="Foto do usuário">
+    <div class="postagem-info">
+      <h4 class="autor-postagem">Nome do usuário</h4>
+      <h6 class="data-postagem">Data da publicação</h6>
+    </div>
+
+    <!-- Botões de editar e apagar -->
+    <div class="btns-edit-delete btns-edit-delete-responsivo">
+
+      <a data-bs-toggle="modal" data-bs-target="#editarModal" >
+        <i class="fas fa-edit btn-reponsivo"></i>
+      </a>
+      <a href="" data-bs-toggle="modal" data-bs-target="#cancelarModal">
+        <i class="fas fa-trash-alt btn-reponsivo"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Corpo do texto da postagem -->
+
+  <div class="bg-texto-postagem">
+    <p class="texto-postagem-comentario">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora voluptatibus accusantium earum nisi recusandae ex explicabo nam deleniti, in eaque, itaque facilis voluptates quasi fugit sequi dolores iure, at magnam maiores nulla enim harum consectetur quidem tenetur? Qui, facilis illum tempore doloremque aperiam officia neque accusantium eaque similique expedita nulla quas rerum ipsam est mollitia quod vel ipsum ullam laboriosam labore reiciendis fuga. Vitae ipsa quos repudiandae facere autem quasi sunt labore. Quasi, autem temporibus cum modi explicabo, ullam, accusamus consequatur eos unde quaerat in veritatis? Laudantium repudiandae fuga deleniti eveniet quas placeat? Et vitae deserunt praesentium maxime eum eius.</p>
+    <div class="midia-postagem">
+      <img src="https://automacaoforadacaixa.files.wordpress.com/2018/06/oo03_01.png" alt="">
+    </div>
+  </div>
+
+  
+
+  <!-- botões de números de curtidas e números de comentários -->
+
+  <div class="engajamento">
+    <a class="comentar" href="#fazerComentario" (click)='comentar()'>
+      <i class="far fa-comment-dots"></i> Comentar
+    </a>
+    <a class="ver-comentarios" (click)='verComentarios()'>
+      5 comentários
+    </a>
+  </div>
+
+  <!-- componente dos comentários  -->
+  <app-comentario [ngStyle]="{'display': displayComentarios}" ></app-comentario>
+</div>
+
+
+<!-- Modal Curtidas -->
+<div class="modal fade" id="curtidasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="align-self: center;">Curtidas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="flex-sem-padding">
+          <li class="flex flex-sem-padding">
+            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
+            <p class="nome-autor-curtida">Nome do usuário</p>
+          </li>
+          <li class="flex flex-sem-padding">
+            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
+            <p class="nome-autor-curtida">Nome do usuário</p>
+          </li>
+          <li class="flex flex-sem-padding">
+            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
+            <p class="nome-autor-curtida">Nome do usuário</p>
+          </li>
+          <li class="flex flex-sem-padding">
+            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
+            <p class="nome-autor-curtida">Nome do usuário</p>
+          </li>
+          <li class="flex flex-sem-padding">
+            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
+            <p class="nome-autor-curtida">Nome do usuário</p>
+          </li>
+          <li class="flex flex-sem-padding">
+            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
+            <p class="nome-autor-curtida">Nome do usuário</p>
+          </li>
+          <li class="flex flex-sem-padding">
+            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
+            <p class="nome-autor-curtida">Nome do usuário</p>
+          </li>
+          <li class="flex flex-sem-padding">
+            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
+            <p class="nome-autor-curtida">Nome do usuário</p>
+          </li>
+          <li class="flex flex-sem-padding">
+            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
+            <p class="nome-autor-curtida">Nome do usuário</p>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal cancelar Postagem -->
+
+<div class="modal fade" id="cancelarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Apagar postagem</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Você tem certeza que deseja apagar essa postagem?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger">Apagar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Editar Postagem -->
+
+<div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Postagem</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Texto:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Midia:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Atualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

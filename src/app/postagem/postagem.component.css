@@ -1,0 +1,226 @@
+
+/* classe que engloba toda a div de postagem */
+.postagem {
+  border: #000 solid 1px;
+  max-width: 500px;
+  background-color: #EFF3EB;
+  margin: 5rem auto;
+  border-radius: 5px;
+}
+
+/* Usada para nome do usuário e data da publicação da postagem */
+.postagem-info {
+  align-self: center;
+  padding: .5em;
+}
+
+/* Estilizar foto do autor da postagem */
+.foto-usuario {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+}
+
+/* Estilizar texto do nome do autor */
+.autor-postagem {
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+/* Estilizar texto da data da postagem*/
+.data-postagem {
+  font-weight: 400;
+  padding-left: 1px;
+}
+
+/* Posicionando os botões de editar e apagar*/
+.btns-edit-delete {
+  padding: 10px;
+  text-align: right;
+  flex: 1;
+}
+/* Estilizando os botões de editar e apagar*/
+.fa-edit {
+  margin-right: 15px;
+  font-size: 1.5rem;
+}
+
+.fa-trash-alt {
+  font-size: 1.5rem;
+  color: red;
+}
+
+/* Hover dos botões de editar e apagar*/
+.fa-edit:hover, .fa-trash-alt:hover {
+  cursor: pointer;
+}
+
+.fa-edit:hover {
+  color: #7c7c7c;
+}
+
+.fa-trash-alt:hover {
+  color: rgb(184, 15, 15);
+}
+
+
+/* Diminuindo o tamanho dos icones dos botões de apagar e deletar para caber nos comentários*/
+.btns-edit-delete-menor {
+  font-size: 1.2rem;
+}
+
+/* Usada para determinar que uma div é display flex para os itens ficaram lado a lado */
+.flex {
+  display: flex;
+  padding: 1rem;
+}
+
+/* Tirando o padding de uma div com classe acima flex*/
+.flex-sem-padding {
+  padding-left: 0px;
+  align-items: flex-start;
+}
+
+/* Estilizando o background do corpo do texto da postagem */
+.bg-texto-postagem {
+  background-color: #fff;
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 3%;
+  padding: 1rem;
+}
+
+/* Estilizando o texto da postagem e do comentário  */
+.texto-postagem-comentario {
+  letter-spacing: .7px;
+}
+
+/* midia da postagem */
+.midia-postagem, .midia-postagem img {
+  width: 100%;
+  height: 50vh;
+  border-radius: 5px;
+}
+
+
+/* Configurando div dos botões de curtidas, ver comentários, curtir e comentar */
+.engajamento, .interacao {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem auto;
+}
+
+/* Configurações básicas do tamanho dos botões curtidas, ver comentários, curtir e comentar */
+.curtidas {
+  font-size: 1.6rem;
+  text-decoration: none;
+  flex: 1;
+  text-align: center;
+}
+
+/* Tentativa de alinhar o botão de curtidas com o botão curtir que fica embaixo */
+#icon-curtidas {
+  margin-left: -2.4rem;
+}
+
+/* Texto que aparece do lado dos icones de curtidas e curtir*/
+#qtd-curtidas, #curtir {
+  font-size: 1.3rem;
+  color: #000;
+  margin: 5px;
+  padding-bottom: 25px;
+}
+
+/* Hover para o texto que aparece do lado do icone de curtidas*/
+#qtd-curtidas:hover {
+ text-decoration: underline;
+ cursor: pointer;
+}
+
+/* Tirando borda da parte de baixo dos icones de curtir e comentar */
+.interacao {
+  border-bottom: none;
+}
+
+/* Posicionando icones de curtir e comentar ao centro */
+.item-interacao {
+  flex: 1;
+  text-align: center;
+}
+
+/* Escurecendo botões curtir e comentar ao passar com mouse em cima */
+.item-interacao:hover {
+  background-color: #7c7c7c;
+  cursor: pointer;
+}
+
+/* Link do botão comentar  */
+.comentar {
+  font-size: 1.3rem;
+  text-decoration: none;
+  flex: 1;
+  text-align: center;
+} 
+
+.comentar:hover {
+  text-decoration: underline;
+}
+
+/*botão de total de comentários */
+.ver-comentarios {
+  font-size: 1.3rem;
+  align-self: center;
+  text-decoration: none;
+  flex: 1;
+  text-align: center;
+}
+
+.ver-comentarios:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Estilizando foto do autor de uma curtida */
+.foto-autor-curtida {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Estizando nome do autor de uma curtida*/
+.nome-autor-curtida {
+  font-weight: 500;
+  margin-bottom: 1px;
+}
+
+/* Texto do nome do autor de uma curtida */
+.nome-autor-curtida {
+  align-self: center;
+  padding-left: 10px;
+}
+
+
+/* Responsividade */
+
+@media (max-width: 373px) {
+.btns-edit-delete-responsivo {
+  text-align: start;
+}
+
+  .btn-reponsivo {
+    font-size: 1.3rem;
+    padding: 0px;
+    padding-left: 10px;
+    padding-top: 8px;
+    margin-right: 0px;
+  }
+
+  .autor-postagem {
+    font-size: 18px;
+  }
+
+  .data-postagem {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,77 @@
+#fazerPostagem{
+    height: 360px;
+    background: rgb(106, 231, 231);
+    
+    border-radius: 10px;
+  }
+  .form-group{
+    height: 260px;
+  }
+  textarea{
+    height: 260px;
+    border-radius: 10px 0px 0px 0px;
+    border: none;
+    width: 100%;
+    resize: none;
+  }
+  input{
+    height: 30px;
+    border: none;
+    border-radius: 0px 0px 0px 10px;
+    width: 133.4%;
+  }
+  .botaoCancelar{
+    height: 90px;
+    border: none;
+    border-radius: 0px 10px 0px 0px;
+    background: rgb(255, 47, 47);
+  }
+  .botaoPublicar{
+    height:200px;
+    border: none;
+    background: rgb(29, 155, 17);
+    border-radius: 0px 0px 10px 0px;
+  }
+  
+  .row {
+    --bs-gutter-x: 0rem;
+  }
+  @media (max-width: 767px){
+    #fazerPostagem{
+        height: 330px;
+        background: rgb(106, 231, 231);
+        border-radius: 10px;
+    }
+    .form-group{
+        height: 120px;
+    }
+    textarea{
+        height: 140px;
+        border-radius: 10px 10px 0px 0px;
+        width: 100%;
+        resize: none;
+    }
+    input{
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 0px;
+      
+      height: 30px;
+    }
+   
+    .botaoPublicar{
+        border-radius: 0px 0px 0px 0px;
+        height: 55px;
+    }
+    .botaoCancelar{
+        border-radius: 0px 0px 10px 10px;
+        height: 55px;
+    }
+    
+    .row {
+        --bs-gutter-x: 0rem;
+    }
+    .h-50{
+        height: 50px!important;
+    }
+  }
