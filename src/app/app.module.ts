@@ -11,6 +11,7 @@ import { ContatosComponent } from './contatos/contatos.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
+import { UserPerfilComponent } from './user-perfil/user-perfil.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
     ContatosComponent,
     SobreComponent,
     CabecalhoComponent,
-    PaginaInicioComponent
+    PaginaInicioComponent,
+    UserPerfilComponent
   ],
   imports: [
     BrowserModule,
