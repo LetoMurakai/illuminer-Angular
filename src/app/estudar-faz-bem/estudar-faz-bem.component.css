@@ -1,32 +1,32 @@
 #bg {
-    background-image: linear-gradient(to bottom right, #65C1E5, white);
-    background-size: cover;
+  background: conic-gradient(from 204.99deg at 100% -46.03%, #FFFFFF -2.89deg, #85CCE9 10.82deg, #FFFFFF 357.11deg, #85CCE9 370.82deg);
   }
+h1{
+    font-size: 54px;
+}
+.t-justify{
+    text-align: justify;
+}
 
 .img {
     border-radius: 50%;
     width: 30rem;
     height: 30rem;
+}
+
+@media (max-width:766px){
+   svg{
+        width: 80%;
+        height: 80%;
+   }
 
 }
 
-@media (max-width:2000px){
-    .img {
-        width: 25rem;
-        height: 25rem;
+@media (max-width:600px){
+    svg{
+        width: 90%;
+        height: 90%;
     }
 }
 
-@media (max-width:1068px){
-    .img {
-        width: 20rem;
-        height: 20rem;
-    }
-}
 
-@media (max-width:500px){
-    .img {
-        width: 15rem;
-        height: 15rem;
-    }
-}

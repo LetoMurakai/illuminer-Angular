@@ -1,0 +1,51 @@
+<section class="container mt-3 mb-2" id="fazerPostagem">
+    <div class="row">
+        <div class="col-md-12 md-auto">
+            
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                <h1>Olá, {{nomeUsuarioLogado}}</h1>
+              </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                          <div class="row">
+                            <div class="form-group align-text-top">
+                                
+                                    <textarea [(ngModel)]='postagem.texto' class="texto" type="text" name="texto" id="postagem" placeholder="No que você está pensando hoje?"></textarea>
+  
+                              </div>
+                              <div class="row">
+                                <div class="col-md-9">
+                                  <div class="">
+                                          
+                                    <input [(ngModel)]='postagem.midia' class="midia" type="text" name="midia" id="postagem" placeholder="Insira o link de uma foto aqui">
+            
+                            </div>
+                                </div>
+                              </div>
+  
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-2 h-100">
+                            <div class="row d-flex justify-content-center h-50">
+                                <button class="botaoCancelar btn btn-danger" (click)='cancelar()'>Cancelar</button>
+                            </div>
+                            
+                            <div class="row d-flex justify-content-center h-50">
+                                <button class="botaoPublicar btn btn-success" (click)='publicar()'>
+                                    Publicar
+                                </button>
+  
+                            </div>
+                        </div>
+                        
+                  </div>
+                  
+                   
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>

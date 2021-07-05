@@ -1,3 +1,54 @@
-.sobre-bg {
-  background: linear-gradient(143.8deg, #FFFFFF 43.23%, #FDE142 68%);
+.container{
+  margin: 0;
+  padding: 0;
+}
+.bg-linear{
+  background: linear-gradient(126deg, #CEEAF6 9.53%, #FFFFFF 19.42%, #FCF1B0 43.19%, #F6D61E 91.37%);
+}
+.t-justify{
+  text-align: justify;
+}
+#fundoLampada{
+  background-color: linear-gradient(135deg, #86ffef,#82daf0,#4de2d6,#10a6dd);
+}
+#centroLampada,#tracinhoMeio,#tracinhoDireita{
+  fill: rgba(0, 0, 0, 0);
+  transition: 0.2s linear;
+}
+#fio2,#fio1{
+  fill: #FFC15F;
+  transition: 0.5s;
+}
+#centroLampada:hover ~ #fio1{
+  fill:rgb(255, 255, 98);
+
+}
+#centroLampada:hover ~ #fio2{
+  fill:rgb(255, 255, 98);
+
+}
+#centroLampada:hover ~ #tracinhoMeio{
+  fill:rgb(255, 255, 98);
+}
+#centroLampada:hover ~ #tracinhoDireita{
+  fill:rgb(255, 255, 98);
+}
+#centroLampada:hover ~ #esquerda{
+  fill: yellow;
+}
+#centroLampada:hover{
+  fill:rgb(255, 255, 98);
+}
+#centroLampada:hover ~ .filamento{
+  fill:rgb(240, 240, 0);
+}
+.filamento{
+  fill: #E6E6E6;
+  transition: 0.5s;
+}
+
+@media only screen and (max-width: 767px) {
+  svg {
+      margin-top: 30px;
+  }
 }

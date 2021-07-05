@@ -1,22 +1,20 @@
 .bg-header {
   background-image: url('../../assets/img/lapis-farol.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
+  border-radius:  0px 0px 200px 0px;
 }
 
 #header {
-  height: 30rem;
+  height: 40rem;
 }
 
 .title {
- padding-top: 7.5rem;
+ padding-top: 13rem;
  font-size: 48px;
  text-transform: uppercase;
  color: #fff;
  text-align: center;
- text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
- font-family: Red Hat Text;
 }
 
 .btn {
@@ -31,21 +29,104 @@
 }
 
 .btn-login {
-  background: #65C1E5;
+  background: #69BEE2;
+  float: right;
+  margin-top: 5rem;
+  transition: 0.4s cubic-bezier(0.10, 0.10, 0.10, 0.0);
 }
 
 .btn-cadastro {
-  background-color: #f0d108;
-  text-shadow: 2px 2px 10px #fff;
+  background: #F4D624;
+  margin-top: 5rem;
+  transition: 0.4s cubic-bezier(0.10, 0.10, 0.10, 0.0);
 }
 
 .btn-login:hover {
-  background: #40add8;
-  text-shadow: none;
+  background: #4fb2dd;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.418);
 }
 
 .btn-cadastro:hover {
-  background-color: #f0d000bd;
-  color: #000;
-  text-shadow: none;
+  background: #ebcb18;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.418);
 }
+.text-white-bold{
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.200);
+}
+
+/****Responsividade*****/
+@media (max-width: 1109px) {
+  .title {
+    padding-top: 14rem;
+    font-size: 42px;
+  }
+}
+@media (max-width: 975px) {
+  .title {
+    padding-top: 14rem;
+    font-size: 38px;
+  }
+}
+@media (max-width: 885px) {
+  .title {
+    padding-top: 14rem;
+    font-size: 34px;
+  }
+}
+@media (max-width: 767px) {
+  .title {
+    padding-top: 13rem;
+    font-size: 30px;
+    display: flex;
+    justify-content: start;
+  }
+  .col-md-6{
+    display: flex;
+    justify-content: center;
+  }
+  .btn{
+    margin-top: 10px;
+  }
+  .bg-header{
+    border-radius:  0px 0px 100px 0px;
+  }
+}
+@media (max-width: 767px) {
+  .title {
+    padding-top: 17rem;
+    font-size: 30px;
+    display: flex;
+    justify-content: start;
+  }
+  .col-md-6{
+    display: flex;
+    justify-content: center;
+  }
+  .btn{
+    margin-top: 10px;
+  }
+  .bg-header{
+    border-radius:  0px 0px 100px 0px;
+  }
+}
+@media (max-width: 490px) {
+  .title {
+    padding-top: 16rem;
+    font-size: 30px;
+    display: flex;
+    justify-content: start;
+  }
+  .col-md-6{
+    display: flex;
+    justify-content: center;
+  }
+  .btn{
+    margin-top: 10px;
+  }
+  .bg-header{
+    border-radius:  0px 0px 100px 0px;
+  }
+}
+

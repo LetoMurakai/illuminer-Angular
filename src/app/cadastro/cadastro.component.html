@@ -1,40 +1,48 @@
 <section class="d-flex" id="bg">
 
     <div class="container-fluid">
-        <div class="row d-flex justify-content-center m-4">
-            <div class="container col-4 m-5 p-4" id="bg-blur">
+        <div class="row d-flex justify-content-center m-0 m-md-4">
+            <div class="container col-12 col-md-4 m-5 p-4" id="bg-blur">
                 <div class="d-md-block">
-                    <h1 class="text-center text-white">Cadastro</h1>
+                    <div class="">
+                        <p>
+                          <a routerLink="/pagina-inicio" class="me-3"><i class="fas fa-door-open"></i></a>
+                            <a routerLink="/login" class="small"> Login </a>
+                            <span class="mx-2 text-white"> | </span>
+                            <a class="small me-3 active-btn"> Cadastrar-se </a>
+                        </p>
+                      </div>
+                    <h3 class="text-center text-white m-0">CADASTRO</h3>
 
                     <div class="form-group">
-                        <label for="nome"></label>
-                        <input class="form-control bg-form" type="text" name="nome" id="nome" placeholder="Nome">
+                        <label for="nome" class="text-white px-3">USUARIO</label>
+                        <input  [(ngModel)]='usuario.nome' class="form-control bg-form" type="text" name="nome" id="nome" placeholder="Nome">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group px-3">
                         <label for="usuario"></label>
-                        <input class="form-control bg-form" type="text" name="usuario" id="usuario" placeholder="Usuário">
+                        <input [(ngModel)]='usuario.email' class="form-control bg-form" type="text" name="usuario" id="usuario" placeholder="nome@exemplo.com">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group px-3">
                         <label for="foto"></label>
-                        <input class="form-control bg-form" type="foto" name="foto" id="foto" placeholder="Link da foto">
+                        <input [(ngModel)]='usuario.foto' class="form-control bg-form" type="foto" name="foto" id="foto" placeholder="Link da foto">
                     </div>
 
-                    <div class="form-group">
-                        <label for="senha"></label>
-                        <input class="form-control bg-form" type="password" name="senha" id="senha" placeholder="Senha">
+                    <div class="form-group py-2">
+                        <label for="senha" class="text-white px-3">SENHA</label>
+                        <input (input)='confirmarSenha($event)' class="form-control bg-form" type="password" name="senha" id="senha" placeholder="Senha">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group px-3">
                         <label for="confirmarSenha"></label>
-                        <input class="form-control bg-form" type="password" name="confirmarSenha" id="confirmarSenha"
+                        <input [(ngModel)]='usuario.senha' class="form-control bg-form" type="password" name="confirmarSenha" id="confirmarSenha"
                             placeholder="Confirmar Senha">
                     </div>
 
-                    <div class="mt-5 d-flex justify-content-center">
-                        <button routerLink="/login"  type="submit" class="btn btn-danger btr me-4">Cancelar</button>
-                        <button type="submit" class="btn btn-success btr ms-4">Cadastrar</button>
+                    <div class="mt-4 d-flex justify-content-center">
+                        <button routerLink="/login"  type="submit" class="btn btn-outline-light rounded-pill me-4">Cancelar</button>
+                        <button type="submit" class="btn btn-login rounded-pill ms-4" (click)='cadastrar()' >Cadastrar</button>
                     </div>
 
                 </div>
