@@ -1,0 +1,23 @@
+
+.um{
+    
+    margin-top: 15vh;/*alterar tamanho, conforme height da navbar*/
+    
+    
+}
+
+.color{
+    background-color: teal;
+    flex-flow: row-reverse;
+}
+
+.cor{
+    color: cadetblue;
+}
+
+
+
+
+
+
+
