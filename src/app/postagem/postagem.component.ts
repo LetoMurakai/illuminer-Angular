@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Postagem } from '../model/Postagem';
-import { PostagemService } from '../service/postagem.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-postagem',
@@ -10,19 +9,12 @@ import { PostagemService } from '../service/postagem.service';
 export class PostagemComponent implements OnInit {
 
   displayComentarios = "none"
-  postagem: Postagem = new Postagem
-  listaPostagem: Postagem[]
-  constructor(
-    private postagemService: PostagemService
-  ) { }
+  idPostagem = environment.idPostagem
+  constructor() { }
 
   ngOnInit(){
   }
-  findAllPostagens(){
-    this.postagemService.getAllPostagem().subscribe((resp: Postagem[])=>{
-      this.listaPostagem = resp
-    })
-  }
+
   comentar() {
     this.displayComentarios = "block"
   }

@@ -15,6 +15,7 @@ export class ComentarioComponent implements OnInit {
   comentario : Comentario = new Comentario
   listaComentario: Comentario[]
   foto = environment.foto
+  idPostagem = environment.idPostagem
   constructor(
     private comentarioService: ComentarioService,
     private router: Router,
@@ -23,8 +24,8 @@ export class ComentarioComponent implements OnInit {
 
   ngOnInit(){
   }
-  findAllComentario(id:number){
-    this.postagemService.getAllComentarios(id).subscribe((resp: Comentario[])=>{
+  findAllComentario(idPostagem: number){
+    this.postagemService.getAllComentarios(idPostagem).subscribe((resp: Comentario[])=>{
       this.listaComentario = resp
     })
   }

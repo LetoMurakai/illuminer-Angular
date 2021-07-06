@@ -16,7 +16,7 @@ export class FazerPostagemComponent implements OnInit {
   usuario: Usuario = new Usuario
   nomeUsuarioLogado = environment.nome
   listaPostagem: Postagem[]
-
+  tipoMidia: string
   constructor(
     private router: Router,
     private postagemService: PostagemService
@@ -45,6 +45,9 @@ export class FazerPostagemComponent implements OnInit {
     this.postagem = new Postagem()
 
   })
+}
+  selecionaMidia(event: any){
+    this.tipoMidia = event.target.value
 }
 }
 

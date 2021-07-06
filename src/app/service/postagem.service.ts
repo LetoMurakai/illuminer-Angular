@@ -12,6 +12,7 @@ import { Postagem } from '../model/Postagem';
 
 export class PostagemService {
   uri = environment.uri
+  idPostagem = environment.idPostagem
   token ={
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
@@ -35,11 +36,11 @@ export class PostagemService {
 
   /* ========================================================================== */
   /* ===============================COMENTARIOS================================ */
-  getAllComentarios(id : number):Observable<Comentario[]>{
-    return this.http.get<Comentario[]>(`${this.uri}/${id}/comentarios`, this.token)
+  getAllComentarios(idPostagem:number):Observable<Comentario[]>{
+    return this.http.get<Comentario[]>(`${this.uri}/${idPostagem}/comentarios`, this.token)
   }
-  getComentariosPaginado(id: number):Observable<Comentario[]>{
-    return this.http.get<Comentario[]>(`${this.uri}/${id}/comentarios/paginado`)
+  getComentariosPaginado(idPostagem:number):Observable<Comentario[]>{
+    return this.http.get<Comentario[]>(`${this.uri}/${idPostagem}/comentarios/paginado`)
     
   }
 }
