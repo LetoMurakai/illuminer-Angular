@@ -1,12 +1,12 @@
 <div class="comentarios" id="comentarios">
   <!-- Lista de comentários onde cada li é um comentário com nome do usuário, texto e botões de editar e apagar-->
   <ul class="flex-sem-padding"> 
-    <li class="flex flex-sem-padding">
+    <li class="flex flex-sem-padding" *ngFor='let comentario of listaComentario'>
       <!-- Foto do usuário autor do comentário -->
       <img class="foto-autor-comentario" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
       <!-- Corpo do comentário -->
       <div class="bg-comentario">
-        <p class="nome-autor-comentario">Nome do Usuário</p>
+        <p class="nome-autor-comentario">{{comentario.usuario.nome}}</p>
         <!-- Botões de apagar e editar comentário -->
         <div class="btns-edit-delete btns-edit-delete-comentario">
           <a href="" data-bs-toggle="modal" data-bs-target="#editarModalComentario" >
@@ -17,82 +17,19 @@
           </a>
         </div>
         <!-- Texto do comentário -->
-        <p class="texto-postagem-comentario">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate incidunt ad ipsa ea, reprehenderit deserunt vel. Nesciunt velit soluta ratione.</p>
+        <p class="texto-postagem-comentario">{{comentario.texto}}</p>
       </div>
     </li>
 
-    <li class="flex flex-sem-padding">
-      <img class="foto-autor-comentario" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
-      <div class="bg-comentario">
-        <p class="nome-autor-comentario">Nome do Usuário</p>
-        <div class="btns-edit-delete btns-edit-delete-comentario">
-          <a href="" data-bs-toggle="modal" data-bs-target="#editarModalComentario" >
-            <i class="fas fa-edit btns-edit-delete-menor"></i>
-          </a>
-          <a href="" data-bs-toggle="modal" data-bs-target="#cancelarModalComentario">
-            <i class="fas fa-trash-alt btns-edit-delete-menor"></i>
-          </a>
-        </div>
-        <p class="texto-postagem-comentario">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate incidunt ad ipsa ea, reprehenderit deserunt vel. Nesciunt velit soluta ratione.</p>
-      </div>
-    </li>
-
-    <li class="flex flex-sem-padding">
-      <img class="foto-autor-comentario" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
-      <div class="bg-comentario">
-        <p class="nome-autor-comentario">Nome do Usuário</p>
-        <div class="btns-edit-delete btns-edit-delete-comentario">
-          <a href="" data-bs-toggle="modal" data-bs-target="#editarModalComentario" >
-            <i class="fas fa-edit btns-edit-delete-menor"></i>
-          </a>
-          <a href="" data-bs-toggle="modal" data-bs-target="#cancelarModalComentario">
-            <i class="fas fa-trash-alt btns-edit-delete-menor"></i>
-          </a>
-        </div>
-        <p class="texto-postagem-comentario">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate incidunt ad ipsa ea, reprehenderit deserunt vel. Nesciunt velit soluta ratione.</p>
-      </div>
-    </li>
-
-    <li class="flex flex-sem-padding">
-      <img class="foto-autor-comentario" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
-      <div class="bg-comentario">
-        <p class="nome-autor-comentario">Nome do Usuário</p>
-        <div class="btns-edit-delete btns-edit-delete-comentario">
-          <a href="" data-bs-toggle="modal" data-bs-target="#editarModalComentario" >
-            <i class="fas fa-edit btns-edit-delete-menor"></i>
-          </a>
-          <a href="" data-bs-toggle="modal" data-bs-target="#cancelarModalComentario">
-            <i class="fas fa-trash-alt btns-edit-delete-menor"></i>
-          </a>
-        </div>
-        <p class="texto-postagem-comentario">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate incidunt ad ipsa ea, reprehenderit deserunt vel. Nesciunt velit soluta ratione.</p>
-      </div>
-    </li>
-
-    <li class="flex flex-sem-padding">
-      <img class="foto-autor-comentario" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
-      <div class="bg-comentario">
-        <p class="nome-autor-comentario">Nome do Usuário</p>
-        <div class="btns-edit-delete btns-edit-delete-comentario">
-          <a href="" data-bs-toggle="modal" data-bs-target="#editarModalComentario" >
-            <i class="fas fa-edit btns-edit-delete-menor"></i>
-          </a>
-          <a href="" data-bs-toggle="modal" data-bs-target="#cancelarModalComentario">
-            <i class="fas fa-trash-alt btns-edit-delete-menor"></i>
-          </a>
-        </div>
-        <p class="texto-postagem-comentario">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate incidunt ad ipsa ea, reprehenderit deserunt vel. Nesciunt velit soluta ratione.</p>
-      </div>
-    </li>
-  </ul>
+  
 
   <!-- Div para fazer um novo comentário -->
   <div class="fazer-comentario"> 
-    <img class="foto-autor-comentario" src="https://psicoter.com.br/wp-content/uploads/2019/01/pessoa-flexivel-seja-mais-flexivel-800x533.jpg" alt="">
-    <input id="fazerComentario" class="input-comentario " type="text" placeholder="Escreva um comentário...">
-    <button class="btn-comentario">OK</button>
+    <img class="foto-autor-comentario" src="{{foto}}" alt="">
+    <input id="fazerComentario" class="input-comentario " type="text" placeholder="Escreva um comentário..." [(ngModel)]='comentario.texto'>
+    <button class="btn-comentario" (click)='publicarComentario'>Comentar</button>
   </div>
-</div>
+
 
 
 <!-- Modal cancelar Comentário -->

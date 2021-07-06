@@ -4,5 +4,8 @@ export const environment = {
   id: 0,
   nome: '',
   token: '',
-  foto:''
+  foto:'',
+  tipo:'',
+  uri: 'http://localhost:8080',
+  idPostagem: 0
 };

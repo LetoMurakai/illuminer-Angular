@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { environment } from 'src/environments/environment.prod';
 import { PaginaPostagem } from '../model/PaginaPostagem';
 import { Postagem } from '../model/Postagem';
 import { PostagemService } from '../service/postagem.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-postagem',
@@ -16,16 +18,19 @@ import { DatePipe } from '@angular/common';
 export class PostagemComponent implements OnInit {
 
   displayComentarios = "none"
+
   paginaPostagem: PaginaPostagem
   idUsuarioLogado = environment.id
   postagem = new Postagem()
-
+  idPostagem = environment.idPostagem
+  
   constructor(
     private postagemService: PostagemService,
     private router: Router,
     public sanitizer: DomSanitizer,
     private dateTipe: DatePipe
   ) { }
+  
 
   ngOnInit() {
     if (environment.token == '') {
