@@ -6,7 +6,8 @@ export class Postagem {
     public texto: string
     public data: Date
     public midia: string
+    public tipoMidia: string
     public localizacao: string
     public comentarios: Comentario
-    public usuario: Usuario 
+    public usuario = new Usuario()
 }
