@@ -25,12 +25,11 @@
 
                             <div class="col-md-4">
                             
-                              <select name="" id="" class="form-control" (change)='selecionaMidia($event)'>
-                                    <option>Clique aqui e Selecione o tipo de midia</option>
-                                    <option value="Foto">Foto
-                                    </option>
-                                    <option value="Video">Video</option>
-                                  </select>
+                              <select [(ngModel)]='postagem.tipoMidia' class="form-select" aria-label=".form-select-lg example" name='select-opcao' id='select-opcao' (change)='definirTipoMidiaPostagem($event)'>
+                                <option selected>Selecione uma opção</option>
+                                <option value="video">Vídeo</option>
+                                <option value="imagem">Imagem</option>
+                              </select>
 
                                   
                                 </div>
