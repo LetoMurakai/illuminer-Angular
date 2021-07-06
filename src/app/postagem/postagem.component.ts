@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-postagem',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class PostagemComponent implements OnInit {
 
   displayComentarios = "none"
-
+  idPostagem = environment.idPostagem
   constructor() { }
 
   ngOnInit(){
