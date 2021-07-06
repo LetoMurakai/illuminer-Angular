@@ -32,6 +32,9 @@ export class PostagemService {
     return this.http.get<PaginaPostagem>(`${environment.uri}/postagens/pagina?page=${pagina}&size=${size}&sort=data,desc`, this.token)
   }
 
+  getById(id: number): Observable<Postagem> {
+    return this.http.get<Postagem>(`${environment.uri}/postagens/${id}`, this.token)
+  }  
   getAllPostagem(): Observable<Postagem[]>{
     return this.http.get<Postagem[]>(`${environment.uri}/postagens`, this.token)
   }
@@ -49,5 +52,13 @@ export class PostagemService {
   getComentariosPaginado(idPostagem:number):Observable<Comentario[]>{
     return this.http.get<Comentario[]>(`${this.uri}/${idPostagem}/comentarios/paginado`)
 
+  }
+
+  putPostagem(postagem: Postagem): Observable<Postagem> {
+    return this.http.put<Postagem>(`${environment.uri}/postagens`, postagem, this.token)
+  }
+
+  deletePostagem(id: number) {
+    return this.http.delete(`${environment.uri}/postagens/${id}`, this.token)
   }
 }

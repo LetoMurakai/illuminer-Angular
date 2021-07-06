@@ -27,10 +27,10 @@
     <!-- Botões de editar e apagar -->
     <div *ngIf='postagem.usuario.id == idUsuarioLogado' class="btns-edit-delete btns-edit-delete-responsivo">
 
-      <a data-bs-toggle="modal" data-bs-target="#editarModal" >
+      <a (click)="definirIdPostagem(postagem.id)" data-bs-toggle="modal" data-bs-target="#editarModal" >
         <i class="fas fa-edit btn-reponsivo"></i>
       </a>
-      <a href="" data-bs-toggle="modal" data-bs-target="#cancelarModal">
+      <a (click)="definirIdPostagem(postagem.id)" href="" data-bs-toggle="modal" data-bs-target="#cancelarModal">
         <i class="fas fa-trash-alt btn-reponsivo"></i>
       </a>
     </div>
@@ -41,8 +41,7 @@
   <div class="bg-texto-postagem">
     <p class="texto-postagem-comentario">{{postagem.texto}}</p>
     <div *ngIf="postagem.midia != '' && postagem.tipoMidia == 'video'">
-      <p class="texto-postagem-comentario">{{postagem.midia}}</p>
-      <iframe class="midia-postagem"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe class="midia-postagem" [src]="postagem.midia"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div *ngIf="postagem.midia != '' && postagem.tipoMidia == 'imagem'" class="midia-postagem">
       <img src="{{postagem.midia}}">
@@ -136,7 +135,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-danger">Apagar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+         (click)="excluirPostagem()">Apagar</button>
       </div>
     </div>
   </div>
@@ -153,20 +153,29 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="mb-3">
+          <div class="form-group mb-3">
             <label for="message-text" class="col-form-label">Texto:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <textarea  class="form-control" id="message-text" required
+            [(ngModel)]='postagem.texto' name="message-text"></textarea>
           </div>
-          <div class="mb-3">
+          <div class="form-group mb-3">
             <label for="recipient-name" class="col-form-label">Midia:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" name="midia" 
+            [(ngModel)]='postagem.midia'>
           </div>
-        </form>
+          <div class="form-group mb-3">
+            <label for="select-opcao">Tipo de mídia:</label>
+            <select [(ngModel)]='postagem.tipoMidia' class="form-select" aria-label=".form-select-lg example" name='select-opcao' id='select-opcao' (change)='definirTipoMidiaPostagem($event)'>
+              <option selected>Selecione uma opção</option>
+              <option value="video">Vídeo</option>
+              <option value="imagem">Imagem</option>
+            </select>
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Atualizar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" 
+        (click)='atualizarPostagem()'>Atualizar</button>
       </div>
     </div>
   </div>
