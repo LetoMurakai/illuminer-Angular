@@ -201,6 +201,11 @@
 }
 
 
+/* Botão de paginação */
+.page-link:hover {
+  cursor: pointer;
+}
+
 /* Responsividade */
 
 @media (max-width: 373px) {

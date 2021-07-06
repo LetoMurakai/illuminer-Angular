@@ -9,6 +9,7 @@ export class Postagem {
     public midia: string
     public tipoMidia: string
     public localizacao: string
-    public comentarios: Comentario[]
-    public usuario: Usuario = new Usuario
+    public comentarios: Comentario
+    public usuario = new Usuario()
+
 }
