@@ -1,5 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
 
 @Component({
@@ -9,13 +10,14 @@ import { Usuario } from '../model/Usuario';
 })
 export class MiniPerfilComponent implements OnInit {
 
-  usuario: Usuario = new Usuario
+  nome = environment.nome
+  foto = environment.foto
+  tipo = environment.tipo
 
-  constructor(
-    public http: HttpHeaders
-  ) { }
 
-  ngOnInit(){
+  constructor() { }
+
+  ngOnInit() {
   }
 
 }

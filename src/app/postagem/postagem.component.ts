@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { environment } from 'src/environments/environment.prod';
 import { PaginaPostagem } from '../model/PaginaPostagem';
 import { Postagem } from '../model/Postagem';
 import { PostagemService } from '../service/postagem.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-postagem',
@@ -13,13 +15,15 @@ import { PostagemService } from '../service/postagem.service';
 export class PostagemComponent implements OnInit {
 
   displayComentarios = "none"
+
   paginaPostagem: PaginaPostagem
   idUsuarioLogado = environment.id
-
+  idPostagem = environment.idPostagem
   constructor(
     private postagemService: PostagemService,
     private router: Router
   ) { }
+  
 
   ngOnInit(){
     if(environment.token == '') {

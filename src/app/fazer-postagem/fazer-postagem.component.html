@@ -7,21 +7,32 @@
                 <div class="row">
                 <h1>Olá, {{nomeUsuarioLogado}}</h1>
               </div>
-                    <div class="row">
-                        <div class="col-md-10">
-                          <div class="row">
-                            <div class="form-group align-text-top">
-                                
-                                    <textarea [(ngModel)]='postagem.texto' class="texto" type="text" name="texto" id="postagem" placeholder="No que você está pensando hoje?"></textarea>
+                  <div class="row">
+                    <div class="col-md-10">
+                      <div class="row">
+                        <div class="form-group align-text-top">
+                          
+                          <textarea [(ngModel)]='postagem.texto' class="texto" type="text" name="texto" id="postagem" placeholder="No que você está pensando hoje?"></textarea>
   
-                              </div>
-                              <div class="row">
-                                <div class="col-md-9">
-                                  <div class="">
-                                          
-                                    <input [(ngModel)]='postagem.midia' class="midia" type="text" name="midia" id="postagem" placeholder="Insira o link de uma foto aqui">
-            
+                        </div>
+                              
+                        <div class="row">
+                            <div class="col-md-8">
+                                         
+                              <input [(ngModel)]='postagem.midia' class="midia" type="text" name="midia" id="postagem" placeholder="Insira o link de uma foto aqui">
+                             
                             </div>
+
+                            <div class="col-md-4">
+                            
+                              <select name="" id="" class="form-control" (change)='selecionaMidia($event)'>
+                                    <option>Clique aqui e Selecione o tipo de midia</option>
+                                    <option value="Foto">Foto
+                                    </option>
+                                    <option value="Video">Video</option>
+                                  </select>
+
+                                  
                                 </div>
                               </div>
   

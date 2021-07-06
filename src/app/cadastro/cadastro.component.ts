@@ -12,6 +12,7 @@ export class CadastroComponent implements OnInit {
 
   usuario: Usuario = new Usuario
   confirmaSenha: string
+  tipoUsuario: string
  
   constructor(
     private authService: AuthService,
@@ -28,9 +29,15 @@ export class CadastroComponent implements OnInit {
 
   }
 
+  tipoUser(event: any) {
+    this.tipoUsuario = event.target.value
+  }
+
   cadastrar() {
    // this.usuario.tipoUsuario = this.confirmaSenha
    console.log(this.usuario.email)
+
+   this.usuario.tipo = this.tipoUsuario
 
     if(this.usuario.senha != this.confirmaSenha ){
       alert('As senhas não são iguais')
