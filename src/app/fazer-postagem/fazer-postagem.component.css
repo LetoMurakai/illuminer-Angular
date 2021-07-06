@@ -1,86 +1,104 @@
 #fazerPostagem{
-    height: 300px;
-    background: rgb(106, 231, 231);
-    
-    border-radius: 10px;
+  max-height: 290px;
+  min-height: 290px;
+  background: #fcfcfc;
+  border-radius: 10px;
+}
+.form-group{
+  height: 210px;
+}
+textarea{
+  min-height: 200px;
+  border-radius: 10px 0px 0px 10px;
+  border: none;
+  width: 100%;
+  resize: none;
+}
+input{
+  height: 30px;
+  border: none;
+  border-radius: 10px 0px 0px 10px;
+  width: 133.4%;
+  background-color: #f8f8f8;
+}
+.form-select{
+  height: 30px;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  width: 100%;
+  background-color: #eef6fc;
+  z-index: 999;
+}
+.botaoCancelar{
+  height: 90px;
+  border: none;
+  background: #EB3B3B;
+  border-radius: 0px 20px 0px 0px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.100);
+}
+.botaoCancelar:hover{
+  border: 1px solid #f05050;
+  background: #e24545;
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.100);
+}
+.botaoPublicar{
+  min-height: 150px;
+  border: none;
+  background: #85F4AB;
+  border-radius: 0px 0px 20px 0px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.100);
+}
+.botaoPublicar:hover{
+  border: 1px solid #97e7b3;
+  background: #84e9a8;
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.100);
+}
+
+.row {
+  --bs-gutter-x: 0rem;
+}
+@media (max-width: 767px){
+  #fazerPostagem{
+      max-height: 330px;
+      border-radius: 10px;
   }
   .form-group{
-    height: 200px;
+      height: 120px;
   }
-  select{
-    height: 40px;
-    border-radius: 0px;
-    border: none;
-  }
-  select:hover{
-    cursor: pointer;
-  }
-
   textarea{
-    height: 200px;
-    border-radius: 10px 0px 0px 0px;
-    border: none;
-    width: 100%;
-    resize: none;
+      min-height: 110px;
+      border-radius: 10px 10px 0px 0px;
+      width: 100%;
+      resize: none;
   }
   input{
-    height: 40px;
     width: 100%;
-    border: none;
-    border-radius: 0px 0px 0px 10px;
+    border-radius: 0px;
+    border-radius: 10px 10px 0 0;
+    min-height: 30px;
+  }
+  .form-select{
+    height: 30px;
+    border-radius: 0 0 10px 10px;
+    width: 100%;
+    background-color: #eef6fc;
+    z-index: 999;
+    margin-bottom: 2px;
+  }
+
+  .botaoPublicar{
+      border-radius: 0px 0px 10px 10px;
+      min-height: 25px;
   }
   .botaoCancelar{
-    height: 90px;
-    border: none;
-    border-radius: 0px 10px 0px 0px;
-    background: rgb(255, 47, 47);
+      border-radius: 0px 0px 0px 0px;
+      min-height: 25px;
   }
-  .botaoPublicar{
-    height:150px;
-    border: none;
-    background: rgb(29, 155, 17);
-    border-radius: 0px 0px 10px 0px;
-  }
-  
+
   .row {
-    --bs-gutter-x: 0rem;
+      --bs-gutter-x: 0rem;
   }
-  @media (max-width: 767px){
-    #fazerPostagem{
-        height: 330px;
-        background: rgb(106, 231, 231);
-        border-radius: 10px;
-    }
-    .form-group{
-        height: 120px;
-    }
-    textarea{
-        height: 140px;
-        border-radius: 10px 10px 0px 0px;
-        width: 100%;
-        resize: none;
-    }
-    input{
-      width: 100%;
-      margin-top: 20px;
-      border-radius: 0px;
-      
-      height: 30px;
-    }
-   
-    .botaoPublicar{
-        border-radius: 0px 0px 0px 0px;
-        height: 55px;
-    }
-    .botaoCancelar{
-        border-radius: 0px 0px 10px 10px;
-        height: 55px;
-    }
-    
-    .row {
-        --bs-gutter-x: 0rem;
-    }
-    .h-50{
-        height: 50px!important;
-    }
+  .h-50{
+      height: 50px!important;
   }
+}
