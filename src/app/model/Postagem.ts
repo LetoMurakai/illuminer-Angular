@@ -3,7 +3,6 @@ import { Usuario } from "./Usuario"
 
 export class Postagem {
     public id: number
-    public titulo: string
     public texto: string
     public titulo: any
     public data: any
