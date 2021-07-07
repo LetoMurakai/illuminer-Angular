@@ -24,6 +24,7 @@ import { MiniPerfilComponent } from './mini-perfil/mini-perfil.component';
 import { EngajamentoComponent } from './engajamento/engajamento.component';
 
 import { FazerPostagemComponent } from './fazer-postagem/fazer-postagem.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 
 
@@ -47,7 +48,8 @@ import { FazerPostagemComponent } from './fazer-postagem/fazer-postagem.componen
     PostagemComponent,
     ComentarioComponent,
     EngajamentoComponent,
-    FazerPostagemComponent
+    FazerPostagemComponent,
+    PerfilUsuarioComponent
 
 
   ],
