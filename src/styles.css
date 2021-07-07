@@ -38,6 +38,14 @@ a{
   border-radius: 10px;
 }
 
+.modal-header, .modal-body, .modal-footer{
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  border-top: none;
+  backdrop-filter: blur(10px);
+  /* Note: backdrop-filter has minimal browser support */
+}
+
 .marcador{
   border: 1px solid red;
 }
