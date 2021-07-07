@@ -24,6 +24,7 @@ export class ComentarioComponent implements OnInit {
 
   ngOnInit(){
   }
+  
   findAllComentario(idPostagem: number){
     this.postagemService.getAllComentarios(idPostagem).subscribe((resp: Comentario[])=>{
       this.listaComentario = resp
