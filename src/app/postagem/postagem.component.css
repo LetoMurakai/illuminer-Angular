@@ -209,6 +209,11 @@
   padding-left: 10px;
 }
 
+/* Botões de paginação */
+.page-item:hover {
+  cursor: pointer;
+}
+
 
 /* Responsividade */
 

@@ -1,12 +1,12 @@
     <nav aria-label="..." class="d-flex justify-content-center mt-5">
       <ul class="pagination">
-        <li class="page-item">
+        <li class="page-item" [ngClass]="(paginaPostagem.first) ? 'disabled' : ''">
           <a class="page-link" tabindex="-1" aria-disabled="true" (click)='buscarPaginaPostagem(paginaPostagem.number - 1, 5)'>Anterior</a>
         </li>
         <li class="page-item active" aria-current="page">
           <span class="page-link">{{paginaPostagem.number + 1}}</span>
         </li>
-        <li class="page-item">
+        <li class="page-item" [ngClass]="(paginaPostagem.last) ? 'disabled' : ''">
           <a class="page-link" (click)='buscarPaginaPostagem(paginaPostagem.number + 1, 5)'>Próxima</a>
         </li>
       </ul>

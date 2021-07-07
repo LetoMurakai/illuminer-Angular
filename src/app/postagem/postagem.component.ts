@@ -19,18 +19,18 @@ export class PostagemComponent implements OnInit {
 
   displayComentarios = "none"
 
-  paginaPostagem: PaginaPostagem
+  paginaPostagem: PaginaPostagem = new PaginaPostagem()
   idUsuarioLogado = environment.id
   postagem = new Postagem()
   idPostagem = environment.idPostagem
-  
+
   constructor(
     private postagemService: PostagemService,
     private router: Router,
     public sanitizer: DomSanitizer,
     private dateTipe: DatePipe
   ) { }
-  
+
 
   ngOnInit() {
     if (environment.token == '') {
@@ -47,10 +47,9 @@ export class PostagemComponent implements OnInit {
           item.midia = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia);
         }
         item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')
-        this.paginaPostagem = resp
         this.paginaPostagem.content?.push(item)
-        console.log(resp)
       })
+      this.paginaPostagem = resp
     })
   }
 
@@ -66,7 +65,7 @@ export class PostagemComponent implements OnInit {
   atualizarPostagem() {
     this.postagem.usuario.id = environment.id
     this.postagem.titulo = null
-    if(this.postagem.midia == null || this.postagem.midia == '') {
+    if (this.postagem.midia == null || this.postagem.midia == '') {
       this.postagem.tipoMidia = null
     }
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
