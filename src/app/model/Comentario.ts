@@ -6,6 +6,6 @@ export class Comentario{
     public texto: string
     public data: Date
     public usuario: Usuario
-    public postagem: Postagem[]
+    public postagem: Postagem
 
 }
