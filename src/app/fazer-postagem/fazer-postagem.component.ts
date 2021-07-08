@@ -36,7 +36,7 @@ export class FazerPostagemComponent implements OnInit {
   }
 
   publicar(){
-      
+    this.postagem.usuario = new Usuario()
     this.postagem.usuario.id = environment.id
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
     this.postagem = resp
