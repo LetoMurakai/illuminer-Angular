@@ -43,11 +43,14 @@ export class PostagemComponent implements OnInit {
   ngOnInit() {
     if (environment.token == '') {
       this.router.navigate(['/login'])
+      console.log(environment.id)
+    
     }
+    
     this.postagemService.refreshToken()
     this.buscarPaginaPostagem(0, 5)
   }
-
+  
   buscarPaginaPostagem(pagina: number, size: number) {
     this.postagemService.getPostagemPaginado(pagina, size).subscribe((resp: PaginaPostagem) => {
       resp.content?.forEach((item) => {
@@ -129,6 +132,12 @@ export class PostagemComponent implements OnInit {
     }) 
   }
   
+  definirIdComentario(id:number) {
+    this.comentario.id = id
+    console.log(this.comentario.id)
+    this.obterComentarioPorId(this.comentario.id)
+  }
+  
   atualizarComentario(){
     this.comentario.usuario.id = environment.id
     this.comentarioService.putComentario(this.comentario).subscribe((resp: Comentario)=>{
@@ -141,11 +150,20 @@ export class PostagemComponent implements OnInit {
   }
 
   excluirComentario(){
+  
     this.comentarioService.deleteComentario(this.comentario.id).subscribe(() => {
       alert('Comentário apagado com sucesso!')
+      this.postagemService.getAllComentarios(this.postagem.id).subscribe((resp: Comentario[])=>{
+        this.postagem.comentarios = resp
+      })
       this.comentarioService.refreshToken()
       this.buscarPaginaComentario(0,5)
       this.comentario = new Comentario()
+    })
+  }
+  obterComentarioPorId(id: number) {
+    this.comentarioService.getComentario(id).subscribe((resp: Comentario) => {
+      this.comentario = resp
     })
   }
 

@@ -80,6 +80,9 @@
   padding-left: 0px;
   align-items: flex-start;
 }
+.flex-alinhado-direita{
+  justify-content: end;
+}
 
 /* Estilizando o background do corpo do texto da postagem */
 .bg-texto-postagem {
@@ -106,11 +109,19 @@
 /* Configurando div dos botões de curtidas, ver comentários, curtir e comentar */
 .engajamento, .interacao {
   width: 90%;
-  display: flex;
   justify-content: space-around;
   margin: 1rem auto;
 }
 
+.btns-edit-delete[_ngcontent-nci-c50] {
+  padding: 10px;
+  text-align: right;
+  flex: 1;
+}
+@media (max-width: 400px){
+.btns-edit-delete-responsivo[_ngcontent-erl-c50] {
+    text-align: end;
+}}
 /* Configurações básicas do tamanho dos botões curtidas, ver comentários, curtir e comentar */
 .curtidas {
   font-size: 1.6rem;
