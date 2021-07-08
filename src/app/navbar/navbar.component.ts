@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  textoPesquisa: string
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
+  pesquisar() {
+   environment.textoPesquisaPostagem = this.textoPesquisa
+   this.router.navigate(['/pagina-inicio'])
+   setTimeout(() => {
+     this.router.navigate(['/feed'])
+   }, 1)
+  }
 }

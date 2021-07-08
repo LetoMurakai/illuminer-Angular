@@ -57,6 +57,10 @@ input{
 .row {
   --bs-gutter-x: 0rem;
 }
+
+#displayTituloPesquisa {
+  display: none;
+}
 @media (max-width: 767px){
   #fazerPostagem{
       max-height: 330px;

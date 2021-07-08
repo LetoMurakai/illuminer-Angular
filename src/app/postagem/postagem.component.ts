@@ -44,7 +44,11 @@ export class PostagemComponent implements OnInit {
       this.router.navigate(['/login'])
     }
     this.postagemService.refreshToken()
+    if(environment.textoPesquisaPostagem != '') {
+      this.pesquisar()
+    } else {
     this.buscarPaginaPostagem(0, 5)
+    }
   }
 
   buscarPaginaPostagem(pagina: number, size: number) {
@@ -58,6 +62,21 @@ export class PostagemComponent implements OnInit {
       })
       this.paginaPostagem = resp
     })
+  }
+
+  pesquisar() {
+    this.postagemService.getByTexto(environment.textoPesquisaPostagem, 0, 5)
+    .subscribe((resp: PaginaPostagem) => {
+      resp.content?.forEach((item) => {
+        if(item.tipoMidia == 'video') {
+          item.midia = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia);
+        }
+        item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')
+        this.paginaPostagem.content?.push(item)
+      })
+      this.paginaPostagem = resp
+    })
+    environment.textoPesquisaPostagem = ''
   }
 
   definirIdPostagem(id: number) {
