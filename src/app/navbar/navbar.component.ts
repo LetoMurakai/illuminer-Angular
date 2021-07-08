@@ -25,4 +25,12 @@ export class NavbarComponent implements OnInit {
      this.router.navigate(['/feed'])
    }, 1)
   }
+
+  atualizar(){
+    environment.textoPesquisaPostagem = ''
+   this.router.navigate(['/pagina-inicio'])
+   setTimeout(() => {
+     this.router.navigate(['/feed'])
+   }, 1)
+  }
 }

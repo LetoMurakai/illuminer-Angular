@@ -1,6 +1,13 @@
 <nav class="navbar navbar-light bg-light shadow-sm">
 
   <div class="container-fluid">
+
+    <div class="d-none d-md-block ps-5 pe-0">
+      <a class="btn" (click)='atualizar()'>
+        <img src="../../assets/img/logoIlluminer.svg" width="100" alt="">
+      </a>
+    </div>
+
     <form class="d-flex mx-auto" style="width: 20em;">
       <input [(ngModel)]='textoPesquisa' class="form-control" id="form-search" type="search" placeholder="O que você procura hoje ?"
         aria-label="Search" name="textoPesquisa">
