@@ -45,6 +45,11 @@ a{
   backdrop-filter: blur(10px);
   /* Note: backdrop-filter has minimal browser support */
 }
+.text-white-s{
+  font-size: 1.1em;
+  color: rgb(49, 49, 49);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.150);
+}
 
 .marcador{
   border: 1px solid red;
