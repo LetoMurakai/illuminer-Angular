@@ -153,9 +153,7 @@ export class PostagemComponent implements OnInit {
   
     this.comentarioService.deleteComentario(this.comentario.id).subscribe(() => {
       alert('Comentário apagado com sucesso!')
-      this.postagemService.getAllComentarios(this.postagem.id).subscribe((resp: Comentario[])=>{
-        this.postagem.comentarios = resp
-      })
+      this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
       this.comentarioService.refreshToken()
       this.buscarPaginaComentario(0,5)
       this.comentario = new Comentario()
