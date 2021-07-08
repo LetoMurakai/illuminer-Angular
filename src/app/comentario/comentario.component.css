@@ -1,18 +1,19 @@
 /* Posicionando os botões de editar e apagar*/
 .btns-edit-delete {
-  padding: 10px;
+  padding: 5px;
   text-align: right;
   flex: 1;
 }
 /* Estilizando os botões de editar e apagar*/
 .fa-edit {
   margin-right: 15px;
-  font-size: 1.5rem;
+  font-size: 0.5rem;
+  color: #555;
 }
 
 .fa-trash-alt {
-  font-size: 1.5rem;
-  color: red;
+  font-size: 0.5rem;
+  color: #555;
 }
 
 /* Hover dos botões de editar e apagar*/
@@ -21,11 +22,11 @@
 }
 
 .fa-edit:hover {
-  color: #7c7c7c;
+  color: #888;
 }
 
 .fa-trash-alt:hover {
-  color: rgb(184, 15, 15);
+  color: #888;
 }
 
 /* div do botão de apagar um comentário*/
@@ -36,7 +37,7 @@
 
 /* Diminuindo o tamanho dos icones dos botões de apagar e deletar para caber nos comentários*/
 .btns-edit-delete-menor {
-  font-size: 1.2rem;
+  font-size: .9rem;
 }
 
 /* Usada para determinar que uma div é display flex para os itens ficaram lado a lado */
@@ -54,13 +55,13 @@
 
 /* Estilizando o texto da postagem e do comentário  */
 .texto-postagem-comentario {
-  letter-spacing: .7px;
+  letter-spacing: .3px;
 }
 
 /* Div dos comentários  */
 .comentarios {
   border-top: #000 solid 1px;
-  width: 90%;
+  width: 98%;
   margin: 0 auto;
 }
 
@@ -69,14 +70,15 @@
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
+  margin: 0 3px;
 }
 
 /* Estilizando background do corpo de um comentário */
 .bg-comentario {
-  background-color: #fff;
+  background-color: #f5f5f5;
   width: 90%;
   margin-left: 10px;
-  border-radius: 3%;
+  border-radius: 1px 15px 15px 15px;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -87,34 +89,42 @@
   font-weight: 500;
   margin-bottom: 1px;
 }
+.data-postagem {
+  font-weight: 400;
+  padding-left: 1px;
+}
 
 /* Input de um novo comentário */
 .input-comentario {
   border: none;
   outline: none;
-  padding: 5px;
+  padding: 10px;
   background-color: #fff;
-  width: 76%;
+  width: 68%;
+  border-radius: 30px 0 0 30px;
+   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.100);
 }
 
 /* Div para um novo comentário */
 .fazer-comentario {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 /* Botão de um novo comentário */
 .btn-comentario {
-  border-radius: 10%;
+  border-radius: 0 30px 30px 0;
+  border: none;
   outline: none;
   padding: 10px;
-  background-color: #6efd00;
-  border-color: #6efd00;
+  width: 20%;
+  background-color: #85F4AB;
   color: #fff;
+  font-weight: bold;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.100);
 }
 
 .btn-comentario:hover {
-  background-color: #9fdb71;
-  border-color: #9fdb71;
+  background-color: #99F4AB;
 }

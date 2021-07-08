@@ -1,24 +1,23 @@
-
 /* classe que engloba toda a div de postagem */
 .postagem {
-  border: #000 solid 1px;
-  max-width: 500px;
-  background-color: #EFF3EB;
-  margin: 5rem auto;
-  border-radius: 5px;
+  border: rgba(0, 0, 0, 0.100) solid 1px;
+  max-width: 650px;
+  background-color: #fcfcfc;
+  margin: 3rem auto;
+  border-radius: 10px;
 }
 
 /* Usada para nome do usuário e data da publicação da postagem */
 .postagem-info {
   align-self: center;
-  padding: .5em;
+  padding: .2em .5em;
 }
 
 /* Estilizar foto do autor da postagem */
 .foto-usuario {
   border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
+  width: 60px;
+  height: 60px;
 }
 
 /* Estilizar texto do nome do autor */
@@ -42,12 +41,13 @@
 /* Estilizando os botões de editar e apagar*/
 .fa-edit {
   margin-right: 15px;
-  font-size: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
 }
 
 .fa-trash-alt {
-  font-size: 1.5rem;
-  color: red;
+  font-size: 0.9rem;
+  color: #555;
 }
 
 /* Hover dos botões de editar e apagar*/
@@ -60,7 +60,7 @@
 }
 
 .fa-trash-alt:hover {
-  color: rgb(184, 15, 15);
+  color: #888;
 }
 
 
@@ -161,10 +161,15 @@
   text-decoration: none;
   flex: 1;
   text-align: center;
-} 
+  color: cadetblue;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 
 .comentar:hover {
-  text-decoration: underline;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: rgba(125, 155, 156, 0.400);
+  border-radius: 30px;
 }
 
 /*botão de total de comentários */
@@ -174,11 +179,15 @@
   text-decoration: none;
   flex: 1;
   text-align: center;
+  color: cadetblue;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .ver-comentarios:hover {
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
+  background-color: rgba(125, 155, 156, 0.400);
+  border-radius: 30px;
 }
 
 /* Estilizando foto do autor de uma curtida */
@@ -200,10 +209,15 @@
   padding-left: 10px;
 }
 
+/* Botões de paginação */
+.page-item:hover {
+  cursor: pointer;
+}
+
 
 /* Responsividade */
 
-@media (max-width: 373px) {
+@media (max-width: 400px) {
 .btns-edit-delete-responsivo {
   text-align: start;
 }

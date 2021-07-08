@@ -1,22 +1,36 @@
+    <nav aria-label="..." class="d-flex justify-content-center mt-5">
+      <ul class="pagination">
+        <li class="page-item" [ngClass]="(paginaPostagem.first) ? 'disabled' : ''">
+          <a class="page-link" tabindex="-1" aria-disabled="true" (click)='buscarPaginaPostagem(paginaPostagem.number - 1, 5)'>Anterior</a>
+        </li>
+        <li class="page-item active" aria-current="page">
+          <span class="page-link">{{paginaPostagem.number + 1}}</span>
+        </li>
+        <li class="page-item" [ngClass]="(paginaPostagem.last) ? 'disabled' : ''">
+          <a class="page-link" (click)='buscarPaginaPostagem(paginaPostagem.number + 1, 5)'>Próxima</a>
+        </li>
+      </ul>
+    </nav>
 
 <!-- Div da postagem inteira -->
-<div class="postagem">
-  
-  <!-- Dados da postagem Nome do Usuário/Data e botões de apagar e editar -->
+<div class="postagem" *ngFor='let postagem of paginaPostagem.content'>
+  <!-- Dados da postagem Nome do Usuário/Data e botões de apagar e editar 
+  ''-->
   <div class="flex">
-    <img class="foto-usuario" src="https://media-manager.noticiasaominuto.com/1920/1556264539/naom_5cb7221409201.jpg?crop_params=eyJsYW5kc2NhcGUiOnsiY3JvcFdpZHRoIjozNzYwLCJjcm9wSGVpZ2h0IjoyMTE1LCJjcm9wWCI6MCwiY3JvcFkiOjEzN30sInBvcnRyYWl0Ijp7ImNyb3BXaWR0aCI6MTQ4OSwiY3JvcEhlaWdodCI6MjY0OCwiY3JvcFgiOjExNTksImNyb3BZIjowfX0=" alt="Foto do usuário">
+    <img *ngIf="postagem.usuario.foto != null" class="foto-usuario" src={{postagem.usuario.foto}} alt="Foto do usuário">
+    <img *ngIf="postagem.usuario.foto == null" class="foto-usuario" src="https://thumbs.dreamstime.com/b/%C3%ADcone-do-usu%C3%A1rio-do-vetor-7337510.jpg" alt="Foto do usuário">
     <div class="postagem-info">
-      <h4 class="autor-postagem">Nome do usuário</h4>
-      <h6 class="data-postagem">Data da publicação</h6>
+      <h4 class="autor-postagem">{{postagem.usuario.nome}}</h4>
+      <h6 class="data-postagem">{{postagem.data}}</h6>
     </div>
 
     <!-- Botões de editar e apagar -->
-    <div class="btns-edit-delete btns-edit-delete-responsivo">
+    <div *ngIf='postagem.usuario.id == idUsuarioLogado' class="btns-edit-delete btns-edit-delete-responsivo">
 
-      <a data-bs-toggle="modal" data-bs-target="#editarModal" >
+      <a (click)="definirIdPostagem(postagem.id)" data-bs-toggle="modal" data-bs-target="#editarModal" >
         <i class="fas fa-edit btn-reponsivo"></i>
       </a>
-      <a href="" data-bs-toggle="modal" data-bs-target="#cancelarModal">
+      <a (click)="definirIdPostagem(postagem.id)" href="" data-bs-toggle="modal" data-bs-target="#cancelarModal">
         <i class="fas fa-trash-alt btn-reponsivo"></i>
       </a>
     </div>
@@ -25,9 +39,12 @@
   <!-- Corpo do texto da postagem -->
 
   <div class="bg-texto-postagem">
-    <p class="texto-postagem-comentario">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora voluptatibus accusantium earum nisi recusandae ex explicabo nam deleniti, in eaque, itaque facilis voluptates quasi fugit sequi dolores iure, at magnam maiores nulla enim harum consectetur quidem tenetur? Qui, facilis illum tempore doloremque aperiam officia neque accusantium eaque similique expedita nulla quas rerum ipsam est mollitia quod vel ipsum ullam laboriosam labore reiciendis fuga. Vitae ipsa quos repudiandae facere autem quasi sunt labore. Quasi, autem temporibus cum modi explicabo, ullam, accusamus consequatur eos unde quaerat in veritatis? Laudantium repudiandae fuga deleniti eveniet quas placeat? Et vitae deserunt praesentium maxime eum eius.</p>
-    <div class="midia-postagem">
-      <img src="https://automacaoforadacaixa.files.wordpress.com/2018/06/oo03_01.png" alt="">
+    <p class="texto-postagem-comentario">{{postagem.texto}}</p>
+    <div *ngIf="postagem.midia != '' && postagem.tipoMidia == 'video'">
+      <iframe class="midia-postagem" [src]="postagem.midia"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div *ngIf="postagem.midia != '' && postagem.tipoMidia == 'imagem'" class="midia-postagem">
+      <img src="{{postagem.midia}}">
     </div>
   </div>
 
@@ -36,7 +53,7 @@
   <!-- botões de números de curtidas e números de comentários -->
 
   <div class="engajamento">
-    <a class="comentar" href="#fazerComentario" (click)='comentar()'>
+    <a class="comentar" (click)='comentar()'>
       <i class="far fa-comment-dots"></i> Comentar
     </a>
     <a class="ver-comentarios" (click)='verComentarios()'>
@@ -118,7 +135,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-danger">Apagar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+         (click)="excluirPostagem()">Apagar</button>
       </div>
     </div>
   </div>
@@ -135,20 +153,29 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="mb-3">
+          <div class="form-group mb-3">
             <label for="message-text" class="col-form-label">Texto:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <textarea  class="form-control" id="message-text" required
+            [(ngModel)]='postagem.texto' name="message-text"></textarea>
           </div>
-          <div class="mb-3">
+          <div class="form-group mb-3">
             <label for="recipient-name" class="col-form-label">Midia:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" name="midia" 
+            [(ngModel)]='postagem.midia'>
           </div>
-        </form>
+          <div class="form-group mb-3">
+            <label for="select-opcao">Tipo de mídia:</label>
+            <select [(ngModel)]='postagem.tipoMidia' class="form-select" aria-label=".form-select-lg example" name='select-opcao' id='select-opcao' (change)='definirTipoMidiaPostagem($event)'>
+              <option selected>Selecione uma opção</option>
+              <option value="video">Vídeo</option>
+              <option value="imagem">Imagem</option>
+            </select>
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Atualizar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" 
+        (click)='atualizarPostagem()'>Atualizar</button>
       </div>
     </div>
   </div>
