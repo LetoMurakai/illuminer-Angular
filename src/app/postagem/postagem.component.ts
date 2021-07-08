@@ -158,11 +158,13 @@ export class PostagemComponent implements OnInit {
   }
   
   atualizarComentario(){
+    this.comentario.usuario = new Usuario()
     this.comentario.usuario.id = environment.id
     this.comentarioService.putComentario(this.comentario).subscribe((resp: Comentario)=>{
       this.comentario = resp
       alert('Comentário atualizado com sucesso!')
       this.comentarioService.refreshToken()
+      this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
       this.buscarPaginaComentario(0,5)
       this.comentario = new Comentario()
     })
@@ -183,5 +185,7 @@ export class PostagemComponent implements OnInit {
       this.comentario = resp
     })
   }
+
+  
 
 }
