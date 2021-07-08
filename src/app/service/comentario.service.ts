@@ -1,9 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { Comentario } from '../model/Comentario';
+import { PaginaComentario } from '../model/PaginaComentario';
+import { Postagem } from '../model/Postagem';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,13 @@ export class ComentarioService {
   token ={
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
+  refreshToken(){
+    this.token = {
+      headers: new HttpHeaders().set('Authorization',environment.token)
+    }
+  }
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private http: HttpClient
   ) { }
@@ -30,6 +38,10 @@ export class ComentarioService {
       return this.http.put<Comentario>(`${this.uri}/comentarios`, comentario, this.token)
     }
     deleteComentario(id:number){
-      this.http.delete<Comentario>(`${this.uri}/${id}/comentarios`, this.token)
+      return this.http.delete<Comentario>(`${this.uri}/${id}/comentarios`, this.token)
+    }
+
+    getComentariosPaginado(pagina: number, size: number): Observable<PaginaComentario>{
+      return this.http.get<PaginaComentario>(`${environment.uri}/comentarios/pagina?page=${pagina}&size=${size}&sort=data,desc`, this.token)
     }
 }
