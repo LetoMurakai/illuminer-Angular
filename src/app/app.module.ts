@@ -26,6 +26,8 @@ import { EngajamentoComponent } from './engajamento/engajamento.component';
 
 import { FazerPostagemComponent } from './fazer-postagem/fazer-postagem.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { FerramentasComponent } from './ferramentas/ferramentas.component';
+import { NewslettersComponent } from './newsletters/newsletters.component';
 
 
 
@@ -50,7 +52,9 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     ComentarioComponent,
     EngajamentoComponent,
     FazerPostagemComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    FerramentasComponent,
+    NewslettersComponent
 
 
   ],
