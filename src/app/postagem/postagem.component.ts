@@ -101,10 +101,10 @@ export class PostagemComponent implements OnInit {
   }
 
 
-   /* ========================================================================== */
+  /* ========================================================================== */
   /* ===============================COMENTARIOS================================ */
   
-  
+
   paginaComentario: PaginaComentario = new PaginaComentario()
 
   buscarPaginaComentario(pagina: number, size: number){
