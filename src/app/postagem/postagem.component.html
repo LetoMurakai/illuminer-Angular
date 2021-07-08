@@ -94,25 +94,23 @@
                     <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px" height="30px" /> {{coment.usuario.nome}} comentou: </p>
                   </div>
 
-
-                  <div class="col-md-2 flex-alinhado-direita" *ngIf = 'coment.usuario.id == idUsuarioLogado'>
-
-                    <i (click)='definirIdComentario(coment.id)'class="fas fa-trash-alt btn-reponsivo me-2" data-bs-toggle="modal" data-bs-target="#deletarComentarioModal"></i>
+                  <div class="col" *ngIf = 'coment.usuario.id == idUsuarioLogado'>
+                  <div  class="btn-edit-delete btns-edit-delete-responsivo">
+                    <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal" data-bs-target="#deletarComentarioModal">
+                      <i class="fas fa-trash-alt btn-reponsivo"></i>
+                    </a>
+                  </div>    
+                  </div>
                     
-                  <div class="col">
-                    <div *ngIf='coment.usuario.id == idUsuarioLogado' class="btn-edit-delete btns-edit-delete-responsivo">
+                  <div class="col" *ngIf = 'coment.usuario.id == idUsuarioLogado'>
+                    <div  class="btn-edit-delete btns-edit-delete-responsivo">
                       <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal" data-bs-target="#editarComentarioModal">
                         <i class="fas fa-edit btn-reponsivo"></i>
                       </a>
                     </div>                      
                   </div>
-                  <div class="col">
-                    <i class="fas fa-trash-alt btn-reponsivo"></i>
-                  </div>
+                 </div>
 
-
-
-                </div>
                 <div class="row">
                   <div class="col">
                     <p class="card-text ml-4" aria-describedby="texto">{{coment.texto}} </p>
@@ -141,26 +139,7 @@
   <app-comentario [ngStyle]="{'display': displayComentarios}"></app-comentario>
 </div>
 
-<!-- modal editar comentário-->
-<div class="modal fade" id="editarComentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Comentário</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group mb-3">
-          <label for="message-text" class="col-form-label">Texto:</label>
-          <textarea class="form-control" id="message-text" required [(ngModel)]='comentario.texto' name="message-text"></textarea>
-        </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)='atualizarComentario()'>Atualizar</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <!-- Modal Curtidas -->
 <!-- <div class="modal fade" id="curtidasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -217,7 +196,50 @@
   </div>
 </div>
  -->
-<!-- Modal cancelar Postagem -->
+
+<!-- modal editar comentário-->
+<!-- <div class="modal fade" id="editarComentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Comentário</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group mb-3">
+          <label for="message-text" class="col-form-label">Texto:</label>
+          <textarea class="form-control" id="message-text" required [(ngModel)]='comentario.texto' name="message-text"></textarea>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)='atualizarComentario()'>Atualizar</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="modal fade" id="editarComentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Comentario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group mb-3">
+          <label for="message-text" class="col-form-label">Texto:</label>
+          <textarea class="form-control" id="message-text" required [(ngModel)]='comentario.texto' name="message-text"></textarea>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)='atualizarComentario()'>Atualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <div class="modal fade" id="deletarComentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -237,7 +259,7 @@
   </div>
 </div>
 
-
+<!-- Modal cancelar Postagem -->
 
 <div class="modal fade" id="cancelarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

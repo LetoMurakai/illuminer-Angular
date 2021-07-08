@@ -95,6 +95,7 @@ export class PostagemComponent implements OnInit {
   atualizarPostagem() {
     this.postagem.usuario.id = environment.id
     this.postagem.titulo = null
+    this.postagem.comentarios = []
     if (this.postagem.midia == null || this.postagem.midia == '') {
       this.postagem.tipoMidia = null
     }
