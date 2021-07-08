@@ -6,5 +6,5 @@ export const environment = {
   token: '',
   foto:'',
   tipo:'',
-  idPostagem: 0
+  fotoCapa:''
 };
