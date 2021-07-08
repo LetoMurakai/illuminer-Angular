@@ -12,8 +12,8 @@ import { PostagemService } from '../service/postagem.service';
 })
 export class FazerPostagemComponent implements OnInit {
 
-  postagem: Postagem = new Postagem
-  usuario: Usuario = new Usuario
+  postagem: Postagem = new Postagem()
+  usuario: Usuario = new Usuario()
   nomeUsuarioLogado = environment.nome
   listaPostagem: Postagem[]
   tipoMidia: string
@@ -25,39 +25,50 @@ export class FazerPostagemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(environment.textoPesquisaPostagem != '') {
+    if (environment.textoPesquisaPostagem != '') {
       this.displayDivFazerPostagem = "none"
       this.displayDivTituloPesquisa = "block"
     } else {
       this.displayDivFazerPostagem = "block"
       this.displayDivTituloPesquisa = "none"
     }
+
   }
-  
-  findAllPostagens(){
-    this.postagemService.getAllPostagem().subscribe((resp: Postagem[])=>{
+
+  findAllPostagens() {
+    this.postagemService.getAllPostagem().subscribe((resp: Postagem[]) => {
       this.listaPostagem = resp
     })
   }
-  cancelar(){
-    this.postagem =new Postagem()
+  cancelar() {
+    this.postagem = new Postagem()
   }
 
-  publicar(){
-    this.postagem.usuario = new Usuario()
-    this.postagem.usuario.id = environment.id
-    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
-    this.postagem = resp
-    alert('Postagem feita com sucesso')
-    this.postagem = new Postagem()
-    this.router.navigate(['/pagina-inicio'])
-    setTimeout(() => {
-      this.router.navigate(['/feed'])
-    }, 30);
-  })
-}
-  selecionaMidia(event: any){
+  publicar() {
+    if ((this.postagem.midia != null || this.postagem.midia != undefined) && (this.postagem.tipoMidia == null ||
+      this.postagem.tipoMidia == '')) {
+      alert('selecione um tipo de midia')
+    } else {
+      this.postagem.usuario = new Usuario()
+      this.postagem.usuario.id = environment.id
+      this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
+        this.postagem = resp
+        alert('Postagem feita com sucesso')
+        this.postagem = new Postagem()
+        this.router.navigate(['/pagina-inicio'])
+        setTimeout(() => {
+          this.router.navigate(['/feed'])
+        }, 30);
+      })
+
+    }
+
+  }
+
+  selecionaMidia(event: any) {
     this.tipoMidia = event.target.value
-}
+
+
+  }
 }
 
