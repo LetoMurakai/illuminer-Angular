@@ -29,7 +29,7 @@ export class ComentarioService {
   ) { }
 
     getComentario(idPostagem: number):Observable<Comentario>{
-      return this.http.get<Comentario>(`${this.uri}/:${idPostagem}/comentarios`,this.token)
+      return this.http.get<Comentario>(`${this.uri}/comentarios/${idPostagem}`,this.token)
     }
     postComentario(comentario: Comentario): Observable<Comentario>{
       return this.http.post<Comentario>(`${this.uri}/comentarios`, comentario, this.token)
@@ -38,7 +38,7 @@ export class ComentarioService {
       return this.http.put<Comentario>(`${this.uri}/comentarios`, comentario, this.token)
     }
     deleteComentario(id:number){
-      return this.http.delete<Comentario>(`${this.uri}/${id}/comentarios`, this.token)
+      return this.http.delete<Comentario>(`${this.uri}/comentarios/${id}`, this.token)
     }
 
     getComentariosPaginado(pagina: number, size: number): Observable<PaginaComentario>{

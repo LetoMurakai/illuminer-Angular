@@ -54,24 +54,5 @@ export class ComentarioComponent implements OnInit {
       this.comentario = new Comentario()
     })
   }
-  atualizarComentario(){
-    this.comentario.usuario.id = environment.id
-    this.comentarioService.putComentario(this.comentario).subscribe((resp: Comentario)=>{
-      this.comentario = resp
-      alert('Comentário atualizado com sucesso!')
-      this.comentarioService.refreshToken()
-      this.buscarPaginaComentario(0,5)
-      this.comentario = new Comentario()
-    })
-  }
-
-  excluirComentario(){
-    this.comentarioService.deleteComentario(this.comentario.id).subscribe(() => {
-      alert('Comentário apagado com sucesso!')
-      this.comentarioService.refreshToken()
-      this.buscarPaginaComentario(0,5)
-      this.comentario = new Comentario()
-    })
-  }
 
 }
