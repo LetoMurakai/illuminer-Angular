@@ -3,7 +3,10 @@
     <div class="col-md-3 d-none d-md-block">
         <div class="card">
 
-            <div class="card-header">
+            <div class="card-header position-relative">
+
+                <a><i class="fas fa-pencil-alt rounded-circle position-absolute start-0 m-1 edit" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
+
                 <div class="user-img">
                     <img src="{{foto}}" alt="Foto de perfil do usuário">
                 </div>
@@ -13,12 +16,12 @@
                 <div class="d-flex justify-content-center flex-column">
                     <div class="nome-container">
 
-                        <div class="nome">
+                        <div class="nome text-center">
 
                             <h5 class="text-capitalize">{{nome}}</h5>
 
-                            <div class="tipo">
-                                <h6>{{tipo}}</h6>
+                            <div class="tipo text-center">
+                                <h6 class="text-uppercase small">{{tipo}}</h6>
                             </div>
 
                         </div>
@@ -30,3 +33,24 @@
     </div>
 
 </div>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-info text-white">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
