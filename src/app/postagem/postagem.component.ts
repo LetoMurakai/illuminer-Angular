@@ -90,6 +90,7 @@ export class PostagemComponent implements OnInit {
 
   definirTipoMidiaPostagem(event: any) {
     this.postagem.tipoMidia = event.target.value
+    
   }
 
   atualizarPostagem() {
