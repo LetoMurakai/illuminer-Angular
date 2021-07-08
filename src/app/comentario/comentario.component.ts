@@ -32,6 +32,7 @@ export class ComentarioComponent implements OnInit {
     this.buscarPaginaComentario(0,5)
   }
 
+
   buscarPaginaComentario(pagina: number, size: number){
     this.comentarioService.getComentariosPaginado(pagina,size).subscribe((resp: PaginaComentario) => {
       resp.content?.forEach((item) => {

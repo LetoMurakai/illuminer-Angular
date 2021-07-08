@@ -18,11 +18,10 @@ export class AuthService {
 
   login(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin> {
     return this.http.post<UsuarioLogin>(`${this.uri}/usuarios/login`, usuarioLogin)
-
   }
 
   cadastro(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(`${this.uri}/usuarios`, usuario)
+  } 
 
-  }                                             
 }

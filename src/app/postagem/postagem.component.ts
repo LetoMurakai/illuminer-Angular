@@ -7,6 +7,9 @@ import { Postagem } from '../model/Postagem';
 import { PostagemService } from '../service/postagem.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
+import { Comentario } from '../model/Comentario';
+import { Usuario } from '../model/Usuario';
+import { ComentarioService } from '../service/comentario.service';
 
 
 @Component({
@@ -20,15 +23,19 @@ export class PostagemComponent implements OnInit {
   displayComentarios = "none"
 
   paginaPostagem: PaginaPostagem = new PaginaPostagem()
+  usuario: Usuario = new Usuario()
   idUsuarioLogado = environment.id
   postagem = new Postagem()
   idPostagem = environment.idPostagem
+  comentario: Comentario  = new Comentario()
+  listaComentarios: Comentario[]
 
   constructor(
     private postagemService: PostagemService,
     private router: Router,
     public sanitizer: DomSanitizer,
-    private dateTipe: DatePipe
+    private dateTipe: DatePipe,
+    private comentarioService: ComentarioService
   ) { }
 
 
@@ -83,8 +90,16 @@ export class PostagemComponent implements OnInit {
     })
   }
 
-  comentar() {
-    this.displayComentarios = "block"
+  comentar(id: number) {
+    this.usuario.id = this.idUsuarioLogado
+    this.comentario.usuario = this.usuario
+    this.postagem.id = id
+    this.comentario.postagem = this.postagem
+     this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario) => {
+      this.comentario = resp
+      this.comentario = new Comentario()
+      this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
+    }) 
   }
 
   verComentarios() {
