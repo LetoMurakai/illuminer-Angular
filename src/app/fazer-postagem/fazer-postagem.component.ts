@@ -16,7 +16,7 @@ export class FazerPostagemComponent implements OnInit {
   usuario: Usuario = new Usuario
   nomeUsuarioLogado = environment.nome
   listaPostagem: Postagem[]
-
+  tipoMidia: string
   constructor(
     private router: Router,
     private postagemService: PostagemService
@@ -41,10 +41,15 @@ export class FazerPostagemComponent implements OnInit {
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
     this.postagem = resp
     alert('Postagem feita com sucesso')
-    this.findAllPostagens()
     this.postagem = new Postagem()
-
+    this.router.navigate(['/pagina-inicio'])
+    setTimeout(() => {
+      this.router.navigate(['/feed'])
+    }, 30);
   })
+}
+  selecionaMidia(event: any){
+    this.tipoMidia = event.target.value
 }
 }
 

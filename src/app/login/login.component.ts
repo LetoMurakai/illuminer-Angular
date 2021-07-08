@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.usuarioLogin)
     this.auth.login(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
       this.usuarioLogin=resp
 
