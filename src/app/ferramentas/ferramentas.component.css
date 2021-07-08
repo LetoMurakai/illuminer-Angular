@@ -6,3 +6,10 @@
   border: 0 solid rgba(255, 255, 255, 0);
   border-radius: 120px 0 0 0;
 }
+.svg-anin{
+  filter: sepia(40%);
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.svg-anin:hover{
+  filter: saturate(130%);
+}
