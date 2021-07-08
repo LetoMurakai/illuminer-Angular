@@ -32,6 +32,11 @@ export class PostagemService {
     return this.http.get<PaginaPostagem>(`${environment.uri}/postagens/pagina?page=${pagina}&size=${size}&sort=data,desc`, this.token)
   }
 
+  getByTexto(texto: string, pagina: number, size: number): Observable<PaginaPostagem> {
+    return this.http.get<PaginaPostagem>
+      (`${environment.uri}/postagens/texto/${texto}?page=${pagina}&size=${size}&sort=data,desc`, this.token)
+  }
+
   getById(id: number): Observable<Postagem> {
     return this.http.get<Postagem>(`${environment.uri}/postagens/${id}`, this.token)
   }  

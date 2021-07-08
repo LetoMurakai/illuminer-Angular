@@ -1,0 +1,24 @@
+.fa-facebook, .fa-twitter, .fa-instagram, .fa-youtube{
+  padding: 0;
+  margin: 0;
+  width: 50%;
+  font-size: 30px;
+  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.fa-facebook:hover{
+  margin-right: 2px;
+  color: rgb(48, 96, 136);
+}
+.fa-twitter:hover{
+  margin: 2px;
+  color: rgb(91, 171, 207);
+}
+.fa-instagram:hover{
+  margin: 2px;
+  color: rgb(247, 134, 159);
+}
+.fa-youtube:hover{
+  margin-left: 2px;
+  color: rgb(218, 75, 50);
+}

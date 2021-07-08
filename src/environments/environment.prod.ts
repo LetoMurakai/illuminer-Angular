@@ -7,5 +7,6 @@ export const environment = {
   foto:'',
   tipo:'',
   fotoCapa:'',
-  idPostagem:0
+  idPostagem:0,
+  textoPesquisaPostagem: ''
 };
