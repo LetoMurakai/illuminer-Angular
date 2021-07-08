@@ -40,6 +40,7 @@ export class PostagemService {
   getById(id: number): Observable<Postagem> {
     return this.http.get<Postagem>(`${environment.uri}/postagens/${id}`, this.token)
   }  
+
   getAllPostagem(): Observable<Postagem[]>{
     return this.http.get<Postagem[]>(`${environment.uri}/postagens`, this.token)
   }
@@ -51,8 +52,9 @@ export class PostagemService {
   /* ========================================================================== */
   /* ===============================COMENTARIOS================================ */
   getAllComentarios(idPostagem:number):Observable<Comentario[]>{
-    return this.http.get<Comentario[]>(`${this.uri}/${idPostagem}/comentarios`, this.token)
-  }
+    return this.http.get<Comentario[]>(`${this.uri}/postagens/${idPostagem}/comentarios`, this.token)  }
+
+  
   getComentariosPaginado(idPostagem:number):Observable<Comentario[]>{
     return this.http.get<Comentario[]>(`${this.uri}/${idPostagem}/comentarios/paginado`)
 

@@ -10,6 +10,7 @@ import { DatePipe } from '@angular/common';
 import { Comentario } from '../model/Comentario';
 import { Usuario } from '../model/Usuario';
 import { ComentarioService } from '../service/comentario.service';
+import { PaginaComentario } from '../model/PaginaComentario';
 
 
 @Component({
@@ -42,7 +43,10 @@ export class PostagemComponent implements OnInit {
   ngOnInit() {
     if (environment.token == '') {
       this.router.navigate(['/login'])
+      console.log(environment.id)
+    
     }
+    
     this.postagemService.refreshToken()
     if(environment.textoPesquisaPostagem != '') {
       this.pesquisar()
@@ -50,7 +54,7 @@ export class PostagemComponent implements OnInit {
     this.buscarPaginaPostagem(0, 5)
     }
   }
-
+  
   buscarPaginaPostagem(pagina: number, size: number) {
     this.postagemService.getPostagemPaginado(pagina, size).subscribe((resp: PaginaPostagem) => {
       resp.content?.forEach((item) => {
@@ -91,6 +95,7 @@ export class PostagemComponent implements OnInit {
   atualizarPostagem() {
     this.postagem.usuario.id = environment.id
     this.postagem.titulo = null
+    this.postagem.comentarios = []
     if (this.postagem.midia == null || this.postagem.midia == '') {
       this.postagem.tipoMidia = null
     }
@@ -109,6 +114,32 @@ export class PostagemComponent implements OnInit {
     })
   }
 
+  excluirPostagem() {
+    this.postagemService.deletePostagem(this.postagem.id).subscribe(() => {
+      alert('Postagem apagada com sucesso!')
+      this.postagemService.refreshToken()
+      this.buscarPaginaPostagem(0, 5)
+      this.postagem = new Postagem()
+    })
+  }
+
+
+  /* ========================================================================== */
+  /* ===============================COMENTARIOS================================ */
+  
+
+  paginaComentario: PaginaComentario = new PaginaComentario()
+
+  buscarPaginaComentario(pagina: number, size: number){
+    this.comentarioService.getComentariosPaginado(pagina,size).subscribe((resp: PaginaComentario) => {
+      resp.content?.forEach((item) => {
+        item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')
+        this.paginaComentario.content?.push(item)
+      })
+      this.paginaComentario = resp
+    })
+  }
+
   comentar(id: number) {
     this.usuario.id = this.idUsuarioLogado
     this.comentario.usuario = this.usuario
@@ -120,22 +151,42 @@ export class PostagemComponent implements OnInit {
       this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
     }) 
   }
-
-  verComentarios() {
-    if (this.displayComentarios == "none") {
-      this.displayComentarios = "block"
-    } else {
-      this.displayComentarios = "none"
-    }
+  
+  definirIdComentario(id:number) {
+    this.comentario.id = id
+    console.log(this.comentario.id)
+    this.obterComentarioPorId(this.comentario.id)
   }
-
-  excluirPostagem() {
-    this.postagemService.deletePostagem(this.postagem.id).subscribe(() => {
-      alert('Postagem apagada com sucesso!')
-      this.postagemService.refreshToken()
-      this.buscarPaginaPostagem(0, 5)
-      this.postagem = new Postagem()
+  
+  atualizarComentario(){
+    this.comentario.usuario = new Usuario()
+    this.comentario.usuario.id = environment.id
+    this.comentarioService.putComentario(this.comentario).subscribe((resp: Comentario)=>{
+      this.comentario = resp
+      alert('Comentário atualizado com sucesso!')
+      this.comentarioService.refreshToken()
+      this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
+      this.buscarPaginaComentario(0,5)
+      this.comentario = new Comentario()
     })
   }
+
+  excluirComentario(){
+  
+    this.comentarioService.deleteComentario(this.comentario.id).subscribe(() => {
+      alert('Comentário apagado com sucesso!')
+      this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
+      this.comentarioService.refreshToken()
+      this.buscarPaginaComentario(0,5)
+      this.comentario = new Comentario()
+    })
+  }
+  obterComentarioPorId(id: number) {
+    this.comentarioService.getComentario(id).subscribe((resp: Comentario) => {
+      this.comentario = resp
+    })
+  }
+
+  
 
 }
