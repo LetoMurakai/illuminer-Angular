@@ -42,6 +42,10 @@ export class FazerPostagemComponent implements OnInit {
     this.postagem = resp
     alert('Postagem feita com sucesso')
     this.postagem = new Postagem()
+    this.router.navigate(['/pagina-inicio'])
+    setTimeout(() => {
+      this.router.navigate(['/feed'])
+    }, 30);
   })
 }
   selecionaMidia(event: any){
