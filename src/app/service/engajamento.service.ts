@@ -37,5 +37,9 @@ export class EngajamentoService {
     return this.http.get<PostagemDestaqueComentario>('http://localhost:8080/postagens/engajamento/comentarios', this.token)
   }
 
+  getById(id: number): Observable<UsuarioDestaque>{
+    return this.http.get<UsuarioDestaque>(`http://localhost:8080/usuarios/engajamento/postagens`, this.token)
+
+  }
   
 }
