@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Router } from '@angular/router';
 import { PostagemDestaqueComentario } from '../model/PostagemDestaqueComentario';
 import { UsuarioDestaque } from '../model/UsuarioDestaque';
 import { EngajamentoService } from '../service/engajamento.service';
