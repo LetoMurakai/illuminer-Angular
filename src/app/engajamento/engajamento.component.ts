@@ -35,7 +35,7 @@ export class EngajamentoComponent implements OnInit {
       this.usuarioDestaque = resp
     })
   }
-  
+
   obterUsuarioDestaque(){
     this.engajamentoService.refreshToken()
     this.engajamentoService.usuarioMaisEngajado().subscribe((resp: UsuarioDestaque) => {
@@ -47,9 +47,9 @@ export class EngajamentoComponent implements OnInit {
   obterPostagemDestaqueComentario(){
     this.engajamentoService.postagemDestaque().subscribe((resp: PostagemDestaqueComentario) => {
       this.destaqueComentario = resp
-      
+
     })
 
   }
-  
+
 }
