@@ -94,21 +94,24 @@
                     <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px" height="30px" /> {{coment.usuario.nome}} comentou: </p>
                   </div>
 
+
                   <div class="col" *ngIf = 'coment.usuario.id == idUsuarioLogado'>
-                  <div  class="btn-edit-delete btns-edit-delete-responsivo">
+                    <div  class="text-end btn-edit-delete btns-edit-delete-responsivo">
+                      <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal" data-bs-target="#editarComentarioModal">
+                        <i class="fas fa-edit btn-reponsivo"></i>
+                      </a>
+                    </div>                      
+                  </div>
+
+                  <div class="col" *ngIf = 'coment.usuario.id == idUsuarioLogado || postagem.usuario.id == idUsuarioLogado'>
+                  <div  class="text-end btn-edit-delete btns-edit-delete-responsivo">
                     <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal" data-bs-target="#deletarComentarioModal">
                       <i class="fas fa-trash-alt btn-reponsivo"></i>
                     </a>
                   </div>    
                   </div>
                     
-                  <div class="col" *ngIf = 'coment.usuario.id == idUsuarioLogado'>
-                    <div  class="btn-edit-delete btns-edit-delete-responsivo">
-                      <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal" data-bs-target="#editarComentarioModal">
-                        <i class="fas fa-edit btn-reponsivo"></i>
-                      </a>
-                    </div>                      
-                  </div>
+                  
                  </div>
 
                 <div class="row">
