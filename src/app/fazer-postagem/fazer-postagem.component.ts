@@ -49,8 +49,10 @@ export class FazerPostagemComponent implements OnInit {
       this.postagem.tipoMidia == '')) {
       alert('selecione um tipo de midia')
     } else {
+      this.postagemService.refreshToken()
       this.postagem.usuario = new Usuario()
       this.postagem.usuario.id = environment.id
+      console.log("id autor psotagem" + this.postagem.usuario.id) 
       this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
         this.postagem = resp
         alert('Postagem feita com sucesso')

@@ -34,6 +34,7 @@ export class ComentarioComponent implements OnInit {
 
 
   buscarPaginaComentario(pagina: number, size: number){
+    this.comentarioService.refreshToken()
     this.comentarioService.getComentariosPaginado(pagina,size).subscribe((resp: PaginaComentario) => {
       resp.content?.forEach((item) => {
         item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')
@@ -44,11 +45,13 @@ export class ComentarioComponent implements OnInit {
   }
 
   findAllComentario(idPostagem: number){
+    this.comentarioService.refreshToken()
     this.postagemService.getAllComentarios(idPostagem).subscribe((resp: Comentario[])=>{
       this.listaComentario = resp
     })
   }
   publicarComentario(){
+    this.comentarioService.refreshToken()
     this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario) =>{
       this.comentario = resp
       this.comentario = new Comentario()

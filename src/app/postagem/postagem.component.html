@@ -17,8 +17,8 @@
   <!-- Dados da postagem Nome do Usuário/Data e botões de apagar e editar 
   ''-->
   <div class="flex">
-    <img *ngIf="postagem.usuario.foto != null" class="foto-usuario" src={{postagem.usuario.foto}} alt="Foto do usuário">
-    <img *ngIf="postagem.usuario.foto == null" class="foto-usuario" src="https://thumbs.dreamstime.com/b/%C3%ADcone-do-usu%C3%A1rio-do-vetor-7337510.jpg" alt="Foto do usuário">
+    <img *ngIf="postagem.usuario.foto != ''" class="foto-usuario" src={{postagem.usuario.foto}} alt="Foto do usuário">
+    <img *ngIf="postagem.usuario.foto == ''" class="foto-usuario" src="https://thumbs.dreamstime.com/b/%C3%ADcone-do-usu%C3%A1rio-do-vetor-7337510.jpg" alt="Foto do usuário">
     <div class="postagem-info">
       <h4 class="autor-postagem">{{postagem.usuario.nome}}</h4>
       <h6 class="data-postagem">{{postagem.data}}</h6>
@@ -134,9 +134,6 @@
   </div>
 </div>
 </div>
-
-  <!-- componente dos comentários  -->
-  <app-comentario [ngStyle]="{'display': displayComentarios}"></app-comentario>
 </div>
 
 

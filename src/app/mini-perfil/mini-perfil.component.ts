@@ -48,9 +48,7 @@ export class MiniPerfilComponent implements OnInit {
   }
 
   salvar() {
-   // this.usuario.tipoUsuario = this.confirmaSenha
-   console.log(this.usuario.email)
-
+   // this.usuario.tipoUsuario = this.confirmaSenha 
       this.usuarioService.putUsuario(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
         alert('Usuário atualizado com sucesso!')
@@ -67,7 +65,6 @@ export class MiniPerfilComponent implements OnInit {
           this.router.navigate(['/feed'])
         }, 1);
       })
-
   }
 
   findByIdUsuario(id: number) {

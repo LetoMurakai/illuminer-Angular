@@ -11,9 +11,6 @@ export class EngajamentoComponent implements OnInit {
 
   usuarioDestaque: UsuarioDestaque = new UsuarioDestaque
 
-  
-
-
   constructor(
     private engajamentoService: EngajamentoService,
     private router: Router
@@ -22,15 +19,12 @@ export class EngajamentoComponent implements OnInit {
   ngOnInit() {
     window.scroll(0,0)
     this.obterUsuarioDestaque()
-
-
-    
   }
   
   obterUsuarioDestaque(){
+    this.engajamentoService.refreshToken()
     this.engajamentoService.usuarioMaisEngajado().subscribe((resp: UsuarioDestaque) => {
       this.usuarioDestaque = resp
-      
     })
 
   }
