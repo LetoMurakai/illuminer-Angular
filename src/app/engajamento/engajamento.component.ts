@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { PostagemDestaqueComentario } from '../model/PostagemDestaqueComentario';
 import { UsuarioDestaque } from '../model/UsuarioDestaque';
 import { EngajamentoService } from '../service/engajamento.service';
 @Component({
@@ -10,9 +12,7 @@ import { EngajamentoService } from '../service/engajamento.service';
 export class EngajamentoComponent implements OnInit {
 
   usuarioDestaque: UsuarioDestaque = new UsuarioDestaque
-
-  
-
+  destaqueComentario: PostagemDestaqueComentario = new PostagemDestaqueComentario
 
   constructor(
     private engajamentoService: EngajamentoService,
@@ -24,11 +24,8 @@ export class EngajamentoComponent implements OnInit {
     window.scroll(0,0)
     this.engajamentoService.refreshToken()
     this.obterUsuarioDestaque()
-
     let id = this.route.snapshot.params['id']
-
-
-    
+    this.obterPostagemDestaqueComentario()
   }
 
   findByIdUsusarioDestaque(id: number){
@@ -43,6 +40,13 @@ export class EngajamentoComponent implements OnInit {
     this.engajamentoService.refreshToken()
     this.engajamentoService.usuarioMaisEngajado().subscribe((resp: UsuarioDestaque) => {
       this.usuarioDestaque = resp
+    })
+
+  }
+
+  obterPostagemDestaqueComentario(){
+    this.engajamentoService.postagemDestaque().subscribe((resp: PostagemDestaqueComentario) => {
+      this.destaqueComentario = resp
       
     })
 

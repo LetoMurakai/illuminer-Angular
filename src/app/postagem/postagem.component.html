@@ -17,8 +17,8 @@
   <!-- Dados da postagem Nome do Usuário/Data e botões de apagar e editar 
   ''-->
   <div class="flex">
-    <img *ngIf="postagem.usuario.foto != null" class="foto-usuario" src={{postagem.usuario.foto}} alt="Foto do usuário">
-    <img *ngIf="postagem.usuario.foto == null" class="foto-usuario" src="https://thumbs.dreamstime.com/b/%C3%ADcone-do-usu%C3%A1rio-do-vetor-7337510.jpg" alt="Foto do usuário">
+    <img *ngIf="postagem.usuario.foto != ''" class="foto-usuario" src={{postagem.usuario.foto}} alt="Foto do usuário">
+    <img *ngIf="postagem.usuario.foto == ''" class="foto-usuario" src="https://thumbs.dreamstime.com/b/%C3%ADcone-do-usu%C3%A1rio-do-vetor-7337510.jpg" alt="Foto do usuário">
     <div class="postagem-info">
       <h4 class="autor-postagem">{{postagem.usuario.nome}}</h4>
       <h6 class="data-postagem">{{postagem.data}}</h6>
@@ -94,21 +94,24 @@
                     <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px" height="30px" /> {{coment.usuario.nome}} comentou: </p>
                   </div>
 
+
                   <div class="col" *ngIf = 'coment.usuario.id == idUsuarioLogado'>
-                  <div  class="btn-edit-delete btns-edit-delete-responsivo">
+                    <div  class="text-end btn-edit-delete btns-edit-delete-responsivo">
+                      <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal" data-bs-target="#editarComentarioModal">
+                        <i class="fas fa-edit btn-reponsivo"></i>
+                      </a>
+                    </div>                      
+                  </div>
+
+                  <div class="col" *ngIf = 'coment.usuario.id == idUsuarioLogado || postagem.usuario.id == idUsuarioLogado'>
+                  <div  class="text-end btn-edit-delete btns-edit-delete-responsivo">
                     <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal" data-bs-target="#deletarComentarioModal">
                       <i class="fas fa-trash-alt btn-reponsivo"></i>
                     </a>
                   </div>    
                   </div>
                     
-                  <div class="col" *ngIf = 'coment.usuario.id == idUsuarioLogado'>
-                    <div  class="btn-edit-delete btns-edit-delete-responsivo">
-                      <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal" data-bs-target="#editarComentarioModal">
-                        <i class="fas fa-edit btn-reponsivo"></i>
-                      </a>
-                    </div>                      
-                  </div>
+                  
                  </div>
 
                 <div class="row">
@@ -134,9 +137,6 @@
   </div>
 </div>
 </div>
-
-  <!-- componente dos comentários  -->
-  <app-comentario [ngStyle]="{'display': displayComentarios}"></app-comentario>
 </div>
 
 

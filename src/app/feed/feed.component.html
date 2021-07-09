@@ -7,7 +7,7 @@
     </div>
 
     <div class="col-12 col-lg-6">
-      <app-fazer-postagem></app-fazer-postagem>
+      <app-fazer-postagem *ngIf='auth.professor()'></app-fazer-postagem>
       <app-postagem></app-postagem>
     </div>
 

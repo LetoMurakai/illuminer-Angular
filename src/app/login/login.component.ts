@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
   login() {
     this.auth.login(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
       this.usuarioLogin=resp
-
       environment.token = this.usuarioLogin.token
       environment.nome = this.usuarioLogin.nome
       environment.foto = this.usuarioLogin.foto

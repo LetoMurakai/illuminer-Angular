@@ -28,7 +28,7 @@ export class PostagemComponent implements OnInit {
   idUsuarioLogado = environment.id
   postagem = new Postagem()
   idPostagem = environment.idPostagem
-  comentario: Comentario  = new Comentario()
+  comentario: Comentario = new Comentario()
   listaComentarios: Comentario[]
 
   constructor(
@@ -44,19 +44,22 @@ export class PostagemComponent implements OnInit {
     if (environment.token == '') {
       this.router.navigate(['/login'])
       console.log(environment.id)
-    
+
     }
-    
-    this.postagemService.refreshToken()
-    if(environment.textoPesquisaPostagem != '') {
+
+    if (environment.textoPesquisaPostagem != '') {
+      this.postagemService.refreshToken()
       this.pesquisar()
     } else {
-    this.buscarPaginaPostagem(0, 5)
+      this.postagemService.refreshToken()
+      this.buscarPaginaPostagem(0, 5)
     }
+    console.log(this.paginaPostagem.content)
   }
-  
+
   buscarPaginaPostagem(pagina: number, size: number) {
     this.postagemService.getPostagemPaginado(pagina, size).subscribe((resp: PaginaPostagem) => {
+      console.log(resp)
       resp.content?.forEach((item) => {
         if (item.tipoMidia == 'video') {
           item.midia = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia);
@@ -70,16 +73,16 @@ export class PostagemComponent implements OnInit {
 
   pesquisar() {
     this.postagemService.getByTexto(environment.textoPesquisaPostagem, 0, 5)
-    .subscribe((resp: PaginaPostagem) => {
-      resp.content?.forEach((item) => {
-        if(item.tipoMidia == 'video') {
-          item.midia = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia);
-        }
-        item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')
-        this.paginaPostagem.content?.push(item)
+      .subscribe((resp: PaginaPostagem) => {
+        resp.content?.forEach((item) => {
+          if (item.tipoMidia == 'video') {
+            item.midia = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia);
+          }
+          item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')
+          this.paginaPostagem.content?.push(item)
+        })
+        this.paginaPostagem = resp
       })
-      this.paginaPostagem = resp
-    })
     environment.textoPesquisaPostagem = ''
   }
 
@@ -90,7 +93,7 @@ export class PostagemComponent implements OnInit {
 
   definirTipoMidiaPostagem(event: any) {
     this.postagem.tipoMidia = event.target.value
-    
+
   }
 
   atualizarPostagem() {
@@ -127,12 +130,12 @@ export class PostagemComponent implements OnInit {
 
   /* ========================================================================== */
   /* ===============================COMENTARIOS================================ */
-  
+
 
   paginaComentario: PaginaComentario = new PaginaComentario()
 
-  buscarPaginaComentario(pagina: number, size: number){
-    this.comentarioService.getComentariosPaginado(pagina,size).subscribe((resp: PaginaComentario) => {
+  buscarPaginaComentario(pagina: number, size: number) {
+    this.comentarioService.getComentariosPaginado(pagina, size).subscribe((resp: PaginaComentario) => {
       resp.content?.forEach((item) => {
         item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')
         this.paginaComentario.content?.push(item)
@@ -146,48 +149,51 @@ export class PostagemComponent implements OnInit {
     this.comentario.usuario = this.usuario
     this.postagem.id = id
     this.comentario.postagem = this.postagem
-     this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario) => {
+    this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario) => {
       this.comentario = resp
       this.comentario = new Comentario()
+      this.comentarioService.refreshToken()
       this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
-    }) 
+    })
   }
-  
-  definirIdComentario(id:number) {
+
+  definirIdComentario(id: number) {
     this.comentario.id = id
     console.log(this.comentario.id)
     this.obterComentarioPorId(this.comentario.id)
   }
-  
-  atualizarComentario(){
+
+  atualizarComentario() {
     this.comentario.usuario = new Usuario()
     this.comentario.usuario.id = environment.id
-    this.comentarioService.putComentario(this.comentario).subscribe((resp: Comentario)=>{
+    this.comentarioService.putComentario(this.comentario).subscribe((resp: Comentario) => {
       this.comentario = resp
       alert('Comentário atualizado com sucesso!')
       this.comentarioService.refreshToken()
       this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
-      this.buscarPaginaComentario(0,5)
+      this.comentarioService.refreshToken()
+      this.buscarPaginaComentario(0, 5)
       this.comentario = new Comentario()
     })
   }
 
-  excluirComentario(){
-  
+  excluirComentario() {
+
     this.comentarioService.deleteComentario(this.comentario.id).subscribe(() => {
       alert('Comentário apagado com sucesso!')
       this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
       this.comentarioService.refreshToken()
-      this.buscarPaginaComentario(0,5)
+      this.buscarPaginaComentario(0, 5)
       this.comentario = new Comentario()
     })
   }
   obterComentarioPorId(id: number) {
+    this.comentarioService.refreshToken()
     this.comentarioService.getComentario(id).subscribe((resp: Comentario) => {
       this.comentario = resp
     })
   }
 
-  
+
 
 }
