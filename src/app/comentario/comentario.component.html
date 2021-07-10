@@ -1,6 +1,6 @@
 <div class="comentarios" id="comentarios">
   <!-- Lista de comentários onde cada li é um comentário com nome do usuário, texto e botões de editar e apagar-->
-  <ul class="flex-sem-padding"> 
+  <ul class="flex-sem-padding">
     <li class="flex flex-sem-padding" *ngFor='let comentario of listaComentario'>
       <!-- Foto do usuário autor do comentário -->
       <img class="foto-autor-comentario" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
@@ -21,12 +21,15 @@
       </div>
     </li>
 
-  
+
 
   <!-- Div para fazer um novo comentário -->
-  <div class="fazer-comentario"> 
+  <div class="fazer-comentario">
+
     <img class="foto-autor-comentario" src="{{foto}}" alt="">
-    <input id="fazerComentario" class="input-comentario " type="text" placeholder="Escreva um comentário..." [(ngModel)]='comentario.texto'>
+
+    <input id="fazerComentario" class="input-comentario" type="text" placeholder="Escreva um comentário..." [(ngModel)]='comentario.texto'>
+
     <button class="btn-comentario" (click)='publicarComentario()'>Comentar</button>
   </div>
 

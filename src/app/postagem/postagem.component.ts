@@ -133,6 +133,7 @@ export class PostagemComponent implements OnInit {
 
 
   paginaComentario: PaginaComentario = new PaginaComentario()
+  foto = environment.foto
 
   buscarPaginaComentario(pagina: number, size: number) {
     this.comentarioService.getComentariosPaginado(pagina, size).subscribe((resp: PaginaComentario) => {
