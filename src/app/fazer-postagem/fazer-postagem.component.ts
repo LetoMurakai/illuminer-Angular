@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
+import { AlertaService } from '../service/alerta.service';
 import { PostagemService } from '../service/postagem.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class FazerPostagemComponent implements OnInit {
   displayDivTituloPesquisa: string
   constructor(
     private router: Router,
-    private postagemService: PostagemService
+    private postagemService: PostagemService,
+    private alerta: AlertaService
   ) { }
 
   ngOnInit() {
@@ -47,7 +49,7 @@ export class FazerPostagemComponent implements OnInit {
   publicar() {
     if ((this.postagem.midia != null || this.postagem.midia != undefined) && (this.postagem.tipoMidia == null ||
       this.postagem.tipoMidia == '')) {
-      alert('selecione um tipo de midia')
+      this.alerta.showAlertWarning('selecione um tipo de mídia.')
     } else {
       this.postagemService.refreshToken()
       this.postagem.usuario = new Usuario()
@@ -55,7 +57,7 @@ export class FazerPostagemComponent implements OnInit {
       console.log("id autor psotagem" + this.postagem.usuario.id) 
       this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
         this.postagem = resp
-        alert('Postagem feita com sucesso')
+        this.alerta.showAlertSuccess('Postagem feita com sucesso!')
         this.postagem = new Postagem()
         this.router.navigate(['/pagina-inicio'])
         setTimeout(() => {

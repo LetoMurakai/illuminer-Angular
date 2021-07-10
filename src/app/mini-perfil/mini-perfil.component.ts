@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
+import { AlertaService } from '../service/alerta.service';
 import { UsuarioService } from '../service/usuario.service';
 
 @Component({
@@ -24,7 +25,8 @@ export class MiniPerfilComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
-    private router: Router
+    private router: Router,
+    private alerta: AlertaService
   ) { }
 
   ngOnInit() {
@@ -51,7 +53,7 @@ export class MiniPerfilComponent implements OnInit {
    // this.usuario.tipoUsuario = this.confirmaSenha 
       this.usuarioService.putUsuario(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
-        alert('Usuário atualizado com sucesso!')
+        this.alerta.showAlertSuccess('Usuário atualizado com sucesso!')
         environment.nome = this.usuario.nome
         environment.foto = this.usuario.foto
         
