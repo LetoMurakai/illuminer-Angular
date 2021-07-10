@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PaginaPostagem } from '../model/PaginaPostagem';
 import { PostagemDestaqueComentario } from '../model/PostagemDestaqueComentario';
 import { UsuarioDestaque } from '../model/UsuarioDestaque';
 import { EngajamentoService } from '../service/engajamento.service';
+import { PostagemService } from '../service/postagem.service';
 @Component({
   selector: 'app-engajamento',
   templateUrl: './engajamento.component.html',
@@ -12,9 +14,11 @@ export class EngajamentoComponent implements OnInit {
 
   usuarioDestaque: UsuarioDestaque = new UsuarioDestaque
   destaqueComentario: PostagemDestaqueComentario = new PostagemDestaqueComentario
+  paginaPostagem: PaginaPostagem
 
   constructor(
     private engajamentoService: EngajamentoService,
+    private postagemService: PostagemService,
     private router: Router
   ) { }
 
@@ -38,6 +42,13 @@ export class EngajamentoComponent implements OnInit {
       
     })
 
+  }
+  
+  
+  scroll(id: any) {
+    
+    let ele =document.getElementById(id);
+    ele?.scrollIntoView();
   }
   
 }

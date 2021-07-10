@@ -21,6 +21,8 @@
 
       </div>
 
+
+      <!-- POSTAGEM COM MAIS COMENTARIOS -->
       <div class="row color rounded-pill position-relative shadow-sm mb-3 bg-body rounded"
         style="width: 20.5rem; height: 6rem;">
 
@@ -30,7 +32,7 @@
         </div>
 
         <div class="col-9 d-inline position-absolute top-0 my-2 end-0">
-          <h5>{{destaqueComentario.titulo}}</h5>
+          <a (click)='scroll(destaqueComentario.id)'><h5>{{destaqueComentario.titulo}}</h5></a>
           <h6>{{destaqueComentario.qtdComentarios}}<span> Comentarios</span></h6>
         </div>
 

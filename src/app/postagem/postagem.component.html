@@ -13,10 +13,20 @@
 </nav>
 
 <!-- Div da postagem inteira -->
-<div class="postagem" *ngFor='let postagem of paginaPostagem.content'>
+
+
+<!-- <section id="displayPostagemComentario" [ngStyle]="{'display': displayDivPostagemComentario}" class="container mt-5 mb-2">
+  <h1 class="text-center">Resultado da Pesquisa</h1>
+</section> -->
+
+
+<section id="displayTituloPesquisa" [ngStyle]="{'display': displayDivTituloPesquisa}" class="container mt-5 mb-2">
+  <h1 class="text-center">Resultado da Pesquisa</h1>
+</section>
+<div class="postagem" id={{postagem.id}} *ngFor='let postagem of paginaPostagem.content'>
   <!-- Dados da postagem Nome do Usuário/Data e botões de apagar e editar 
   ''-->
-  <div class="flex">
+  <div class="flex" >
     <img *ngIf="postagem.usuario.foto != ''" class="foto-usuario" src={{postagem.usuario.foto}} alt="Foto do usuário">
     <img *ngIf="postagem.usuario.foto == ''" class="foto-usuario" src="https://thumbs.dreamstime.com/b/%C3%ADcone-do-usu%C3%A1rio-do-vetor-7337510.jpg" alt="Foto do usuário">
     <div class="postagem-info">

@@ -58,9 +58,7 @@ input{
   --bs-gutter-x: 0rem;
 }
 
-#displayTituloPesquisa {
-  display: none;
-}
+
 @media (max-width: 767px){
   #fazerPostagem{
       max-height: 330px;
@@ -96,7 +94,7 @@ input{
   }
   .botaoCancelar{
       border-radius: 0px 0px 0px 0px;
-      min-height: 25px;
+      height: 50px;
   }
 
   .row {

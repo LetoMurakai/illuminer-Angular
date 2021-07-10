@@ -31,6 +31,8 @@ export class PostagemComponent implements OnInit {
   comentario: Comentario = new Comentario()
   listaComentarios: Comentario[]
 
+  displayDivTituloPesquisa: string
+
   constructor(
     private postagemService: PostagemService,
     private router: Router,
@@ -44,6 +46,12 @@ export class PostagemComponent implements OnInit {
     if (environment.token == '') {
       this.router.navigate(['/login'])
       console.log(environment.id)
+    }
+      if (environment.textoPesquisaPostagem != '') {
+        this.displayDivTituloPesquisa = "block"
+      } else {
+        this.displayDivTituloPesquisa = "none"
+      
 
     }
 
