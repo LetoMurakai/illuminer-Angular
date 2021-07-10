@@ -15,15 +15,15 @@ export class PerfilService {
    ) { }
 
    token = {
-     headers: new HttpHeaders().set("Authorization", "Basic ZmFiQG1haWwuY29tOjEyMzQ1Ng==") //enviroment.token
+     headers: new HttpHeaders().set("Authorization", environment.token)
    }
    refreshToken(){
      this.token = {
-       headers:new HttpHeaders().set("Authorization", "Basic ZmFiQG1haWwuY29tOjEyMzQ1Ng==") //enviroment.token
+       headers:new HttpHeaders().set("Authorization", environment.token) 
      }
    }
 
-   getById(id: number): Observable<Usuario>{
+   getByIdPerfil(id: number): Observable<Usuario>{
      return this.http.get<Usuario>(`http://localhost:8080/usuarios/${id}`, this.token)
    }
    

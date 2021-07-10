@@ -28,6 +28,7 @@ import { FazerPostagemComponent } from './fazer-postagem/fazer-postagem.componen
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { FerramentasComponent } from './ferramentas/ferramentas.component';
 import { NewslettersComponent } from './newsletters/newsletters.component';
+import { EquipeCardComponent } from './equipe-card/equipe-card.component';
 
 
 
@@ -54,7 +55,8 @@ import { NewslettersComponent } from './newsletters/newsletters.component';
     FazerPostagemComponent,
     PerfilUsuarioComponent,
     FerramentasComponent,
-    NewslettersComponent
+    NewslettersComponent,
+    EquipeCardComponent
 
 
   ],

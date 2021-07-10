@@ -29,19 +29,19 @@ export class PerfilUsuarioComponent implements OnInit {
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
     }
+    this.perfilService.refreshToken()
 
-    /*let id = this.route.snapshot.params['id']*/
-    this.findByIdUsuario(3)
+    let id = this.route.snapshot.params['id']
+    this.findByIdUsuario(id)
     console.log(this.usuario)
   }
 
   findByIdUsuario(id: number) {
-    this.perfilService.getById(id).subscribe((resp: Usuario) => {
+    this.perfilService.refreshToken()
+    this.perfilService.getByIdPerfil(id).subscribe((resp: Usuario) => {
       console.log(resp)
       this.usuario = resp
     })
   }
-
-  
 
 }

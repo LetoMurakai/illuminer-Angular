@@ -1,7 +1,8 @@
 <nav aria-label="..." class="d-flex justify-content-center mt-5">
   <ul class="pagination">
     <li class="page-item" [ngClass]="(paginaPostagem.first) ? 'disabled' : ''">
-      <a class="page-link" tabindex="-1" aria-disabled="true" (click)='buscarPaginaPostagem(paginaPostagem.number - 1, 5)'>Anterior</a>
+      <a class="page-link" tabindex="-1" aria-disabled="true"
+        (click)='buscarPaginaPostagem(paginaPostagem.number - 1, 5)'>Anterior</a>
     </li>
     <li class="page-item active" aria-current="page">
       <span class="page-link">{{paginaPostagem.number + 1}}</span>
@@ -21,14 +22,15 @@
 
 
 <section id="displayTituloPesquisa" [ngStyle]="{'display': displayDivTituloPesquisa}" class="container mt-5 mb-2">
-  <h1 class="text-center">Resultado da Pesquisa</h1>
+  <h1 class="text-center">Resultado da Pesquisaa</h1>
 </section>
 <div class="postagem" id={{postagem.id}} *ngFor='let postagem of paginaPostagem.content'>
   <!-- Dados da postagem Nome do Usuário/Data e botões de apagar e editar 
   ''-->
   <div class="flex" >
     <img *ngIf="postagem.usuario.foto != ''" class="foto-usuario" src={{postagem.usuario.foto}} alt="Foto do usuário">
-    <img *ngIf="postagem.usuario.foto == ''" class="foto-usuario" src="https://thumbs.dreamstime.com/b/%C3%ADcone-do-usu%C3%A1rio-do-vetor-7337510.jpg" alt="Foto do usuário">
+    <img *ngIf="postagem.usuario.foto == ''" class="foto-usuario"
+      src="https://thumbs.dreamstime.com/b/%C3%ADcone-do-usu%C3%A1rio-do-vetor-7337510.jpg" alt="Foto do usuário">
     <div class="postagem-info">
       <h4 class="autor-postagem">{{postagem.usuario.nome}}</h4>
       <h6 class="data-postagem">{{postagem.data}}</h6>
@@ -51,7 +53,9 @@
   <div class="bg-texto-postagem">
     <p class="texto-postagem-comentario">{{postagem.texto}}</p>
     <div *ngIf="postagem.midia != '' && postagem.tipoMidia == 'video'">
-      <iframe class="midia-postagem" [src]="postagem.midia" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe class="midia-postagem" [src]="postagem.midia" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
     </div>
     <div *ngIf="postagem.midia != '' && postagem.tipoMidia == 'imagem'" class="midia-postagem">
       <img src="{{postagem.midia}}">
@@ -61,93 +65,189 @@
 
 
   <!-- botões de números de curtidas e números de comentários -->
-<div class="row">
-  <div class="col-md-12">
-  <div class="engajamento">
-    <!--  <a class="comentar" (click)='comentar()'>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="engajamento">
+        <!--  <a class="comentar" (click)='comentar()'>
       <i class="far fa-comment-dots"></i> Comentar
     </a>
     <a class="ver-comentarios" (click)='verComentarios()'>
       5 comentários
     </a>-->
-    <!--Comentarios -->
-    <div class="accordion" [attr.id]="'coment' + postagem.id">
+        <!--Comentarios -->
+        <div class="accordion" [attr.id]="'coment' + postagem.id">
 
-      <div class="mt-2" id="headingTwo">
-        <h5 class="mb-0">
-          <button class="btn btn-link collapsed " type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#' + 'comentButton' + postagem.id" aria-expanded="false" aria-controls="collapseTwo">
-            <p class="text-primary font-weight-bold p-fixed">
-              Comentar
-            </p>
-          </button>
-        </h5>
-      </div>
+          <!--Botões de Postagem-->
+          <div class="row">
+            <div class="col-6">
+              <!--Comentar-->
+              <div id="headingTwo">
+                <h5 class="m-0 text-center">
+                  <button class="btn btn-comentar collapsed" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#' + 'comentButton' + postagem.id" aria-expanded="false"
+                    aria-controls="collapseTwo">
+                    <p>
+                      <i class="far fa-comment-dots"> Comentários</i>
+                    </p>
+                  </button>
+                </h5>
+              </div>
 
-      <div [attr.id]="'comentButton' + postagem.id" class="collapse" aria-labelledby="headingTwo" [attr.data-parent]="'#' + 'coment' + postagem.id">
+            </div>
 
-        <div class="row mb-3 d-flex align-items-center">
-          <div class="col-md-9 p-4">
-            <input type="text" class="form-control w-100" id="titulo" aria-describedby="emailHelp" placeholder="Digite aqui seu comentário" [(ngModel)]='comentario.texto'>
+            <div class="col-6">
+              <!--curtir-->
+              <div id="headingTwo">
+                <h5 class="m-0 text-center">
+                  <button class="btn btn-comentar collapsed" type="button">
+                    <p>
+                      <i class="far fa-thumbs-up"> Curtir</i>
+                    </p>
+                  </button>
+                </h5>
+              </div>
+            </div>
           </div>
-        
- 
-          <div class="col-md-3 d-flex justify-content-center">
-            <button class="btn btn-outline-primary " (click)='comentar(postagem.id)'>Comentar</button>
-          </div>
-        </div>
-        <div class="row " *ngFor='let coment of postagem.comentarios'>
-          <div class="col-md-12">
-            <div class="card mb-3 shadow border-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-10 d-flex">
-                    <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px" height="30px" /> {{coment.usuario.nome}} comentou: </p>
-                  </div>
 
+          <!--Corpo de comentarios-->
+          <div [attr.id]="'comentButton' + postagem.id" class="collapse" aria-labelledby="headingTwo"
+            [attr.data-parent]="'#' + 'coment' + postagem.id">
 
-                  <div class="col" *ngIf = 'coment.usuario.id == idUsuarioLogado'>
-                    <div  class="text-end btn-edit-delete btns-edit-delete-responsivo">
-                      <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal" data-bs-target="#editarComentarioModal">
-                        <i class="fas fa-edit btn-reponsivo"></i>
-                      </a>
-                    </div>                      
-                  </div>
+            <!--Escrever comentario-->
+            <div class="row">
+              <div class="fazer-comentario d-flex justify-content-center">
+                <img class="col-2 foto-autor-comentario bg-white" src="{{foto}}" alt="user-foto">
+                <div class="col-10">
+                  <input type="text" class="input-comentario w-75" id="titulo" aria-describedby="emailHelp"
+                    placeholder="Digite aqui seu comentário..." [(ngModel)]='comentario.texto'>
 
-                  <div class="col" *ngIf = 'coment.usuario.id == idUsuarioLogado || postagem.usuario.id == idUsuarioLogado'>
-                  <div  class="text-end btn-edit-delete btns-edit-delete-responsivo">
-                    <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal" data-bs-target="#deletarComentarioModal">
-                      <i class="fas fa-trash-alt btn-reponsivo"></i>
-                    </a>
-                  </div>    
-                  </div>
-                    
-                  
-                 </div>
-
-                <div class="row">
-                  <div class="col">
-                    <p class="card-text ml-4" aria-describedby="texto">{{coment.texto}} </p>
-                  </div>
+                  <button class="btn-comentario w-25" (click)='comentar(postagem.id)'>Comentar</button>
                 </div>
+              </div>
+            </div>
 
-                <hr>
+            <!--Comentario publicado-->
+            <div class="justify-content-center">
+              <div class="flex flex-sem-padding" *ngFor='let coment of postagem.comentarios'>
+                <!-- Foto do usuário autor do comentário -->
+                <img class="foto-autor-comentario" src={{coment.usuario.foto}} width="30px" height="30px" alt="foto">
 
-                <div class="d-flex justify-content-end">
-                  <small id="texto" class="form-text m-0 text-muted text-monospace">
-                    Comentado em {{ coment.data | date:'dd/MM/yyyy'}} às {{coment.data | date:'HH:mm'}}
-                  </small>
-                </div>
+                <!-- Corpo do comentário -->
+                <table class="w-100">
+                  <tbody>
+                    <tr class="bg-comentario flex-column">
+
+                      <td class="align-start">
+                        <!-- Usuario -->
+                        <div class="row">
+
+                          <div class="col-6">
+                            <p class="nome-autor-comentario text-capitalize">{{coment.usuario.nome}}</p>
+                          </div>
+
+                          <!-- Botões de apagar e editar comentário -->
+                          <div class="col-6 align-end h-100" style="justify-content: flex-end;display: flex;">
+                            <div *ngIf='coment.usuario.id == idUsuarioLogado'>
+                              <div>
+                                <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal"
+                                  data-bs-target="#editarComentarioModal">
+                                  <i class="fas fa-edit btn-reponsivo"></i>
+                                </a>
+                              </div>
+                            </div>
+
+                            <div *ngIf='coment.usuario.id == idUsuarioLogado || postagem.usuario.id == idUsuarioLogado'>
+                              <div>
+                                <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal"
+                                  data-bs-target="#deletarComentarioModal">
+                                  <i class="fas fa-trash-alt btn-reponsivo"></i>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </td>
+                      <!-- Texto do comentário -->
+                      <td>
+                        <div class=" m-0 p-0">
+                          <p class="texto-postagem-comentario text-break" aria-describedby="texto">{{coment.texto}}</p>
+                        </div>
+                      </td>
+                      <!-- Data -->
+                      <td class="align-end">
+                        <div class="d-flex justify-content-end">
+                          <small id="texto" class="form-text m-0 text-muted text-monospace">
+                            {{ coment.data | date:'dd/MM/yyyy'}} às {{coment.data | date:'HH:mm'}}
+                          </small>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!--/Comentarios-->
   </div>
 </div>
-</div>
-</div>
+<!--/Comentarios-->
+<!--
+            <div class="row marcador" *ngFor='let coment of postagem.comentarios'>
+              <div class="col-md-12">
+                <div class="card mb-3 shadow border-0">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-10 d-flex">
+                        <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px" height="30px" />
+                          {{coment.usuario.nome}} comentou: </p>
+                      </div>
+
+
+                      <div class="col" *ngIf='coment.usuario.id == idUsuarioLogado'>
+                        <div class="text-end btn-edit-delete btns-edit-delete-responsivo">
+                          <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal"
+                            data-bs-target="#editarComentarioModal">
+                            <i class="fas fa-edit btn-reponsivo"></i>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="col"
+                        *ngIf='coment.usuario.id == idUsuarioLogado || postagem.usuario.id == idUsuarioLogado'>
+                        <div class="text-end btn-edit-delete btns-edit-delete-responsivo">
+                          <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal"
+                            data-bs-target="#deletarComentarioModal">
+                            <i class="fas fa-trash-alt btn-reponsivo"></i>
+                          </a>
+                        </div>
+                      </div>
+
+
+                    </div>
+
+                    <div class="row">
+                      <div class="col">
+                        <p class="card-text ml-4" aria-describedby="texto">{{coment.texto}} </p>
+                      </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="d-flex justify-content-end">
+                      <small id="texto" class="form-text m-0 text-muted text-monospace">
+                        Comentado em {{ coment.data | date:'dd/MM/yyyy'}} às {{coment.data | date:'HH:mm'}}
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+           fim comentarios -->
 
 
 
@@ -237,13 +337,15 @@
       <div class="modal-body">
         <div class="form-group mb-3">
           <label for="message-text" class="col-form-label">Texto:</label>
-          <textarea class="form-control" id="message-text" required [(ngModel)]='comentario.texto' name="message-text"></textarea>
+          <textarea class="form-control" id="message-text" required [(ngModel)]='comentario.texto'
+            name="message-text"></textarea>
         </div>
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)='atualizarComentario()'>Atualizar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+          (click)='atualizarComentario()'>Atualizar</button>
       </div>
     </div>
   </div>
@@ -251,7 +353,8 @@
 
 
 
-<div class="modal fade" id="deletarComentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deletarComentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -263,7 +366,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="excluirComentario()">Apagar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+          (click)="excluirComentario()">Apagar</button>
       </div>
     </div>
   </div>
@@ -302,7 +406,8 @@
       <div class="modal-body">
         <div class="form-group mb-3">
           <label for="message-text" class="col-form-label">Texto:</label>
-          <textarea class="form-control" id="message-text" required [(ngModel)]='postagem.texto' name="message-text"></textarea>
+          <textarea class="form-control" id="message-text" required [(ngModel)]='postagem.texto'
+            name="message-text"></textarea>
         </div>
         <div class="form-group mb-3">
           <label for="recipient-name" class="col-form-label">Midia:</label>
@@ -310,7 +415,8 @@
         </div>
         <div class="form-group mb-3">
           <label for="select-opcao">Tipo de mídia:</label>
-          <select [(ngModel)]='postagem.tipoMidia' class="form-select" aria-label=".form-select-lg example" name='select-opcao' id='select-opcao' (change)='definirTipoMidiaPostagem($event)'>
+          <select [(ngModel)]='postagem.tipoMidia' class="form-select" aria-label=".form-select-lg example"
+            name='select-opcao' id='select-opcao' (change)='definirTipoMidiaPostagem($event)'>
             <option selected>Selecione uma opção</option>
             <option value="video">Vídeo</option>
             <option value="imagem">Imagem</option>
@@ -319,9 +425,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)='atualizarPostagem()'>Atualizar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+          (click)='atualizarPostagem()'>Atualizar</button>
       </div>
     </div>
   </div>
 </div>
-

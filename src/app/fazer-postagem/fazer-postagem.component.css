@@ -9,16 +9,20 @@
 }
 textarea{
   min-height: 200px;
+  padding: 5px;
   border-radius: 10px 0px 0px 10px;
   border: none;
   width: 100%;
   resize: none;
 }
+textarea,input:focus-visible{
+  outline: none!important;
+}
 input{
   height: 30px;
   border: none;
   border-radius: 10px 0px 0px 10px;
-  width: 133.4%;
+  width: 101%;
   background-color: #f8f8f8;
 }
 .form-select{
