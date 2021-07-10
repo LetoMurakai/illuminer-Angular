@@ -24,7 +24,15 @@ export class PerfilService {
    }
 
    getByIdPerfil(id: number): Observable<Usuario>{
-     return this.http.get<Usuario>(`http://localhost:8080/usuarios/${id}`, this.token)
+     return this.http.get<Usuario>(`${environment.uri}/usuarios/${id}`, this.token)
    }
+
+   putUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(`${environment.uri}/usuarios`, usuario, this.token)
+  }
+
+  deleteUsuario(id: number) {
+    return this.http.delete(`${environment.uri}/usuarios/${id}`, this.token)
+  }
    
 }
