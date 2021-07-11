@@ -30,7 +30,6 @@ export class EngajamentoComponent implements OnInit {
     this.obterUsuarioDestaque()
     this.obterPostagemDestaqueComentario()
     environment.textoPesquisaPostagem = ''
-    environment.idDestaqueComentario = 0
   }
 
   findByIdUsusarioDestaque(id: number){
