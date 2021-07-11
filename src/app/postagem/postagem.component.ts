@@ -167,6 +167,7 @@ export class PostagemComponent implements OnInit {
       this.postagemService.refreshToken()
       this.buscarPaginaPostagem(0, 5)
       this.postagem = new Postagem()
+      this.atualizarFeed()
     })
   }
 
@@ -202,14 +203,20 @@ export class PostagemComponent implements OnInit {
         this.buscarPaginaPostagemProfessor(environment.idUsuarioPerfil, this.paginaPostagem.number, 5)
       } else if(environment.idDestaqueComentario != 0){
         this.postagemEngajada(0)
+        this.atualizarFeed()
       } else {
         this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
+        this.atualizarFeed()
       }
-      this.router.navigate(['/pagina-inicio'])
-      setTimeout(() => {
-        this.router.navigate(['/feed'])
-      }, 30);
+     
     })
+  }
+
+  atualizarFeed() {
+    this.router.navigate(['/pagina-inicio'])
+    setTimeout(() => {
+      this.router.navigate(['/feed'])
+    }, 30);
   }
 
   definirIdComentario(id: number) {
@@ -241,6 +248,7 @@ export class PostagemComponent implements OnInit {
       this.comentarioService.refreshToken()
       this.buscarPaginaComentario(0, 5)
       this.comentario = new Comentario()
+      this.atualizarFeed()
     })
   }
   obterComentarioPorId(id: number) {
