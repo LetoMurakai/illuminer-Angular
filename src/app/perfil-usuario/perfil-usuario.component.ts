@@ -33,7 +33,7 @@ export class PerfilUsuarioComponent implements OnInit {
 
     let id = this.route.snapshot.params['id']
     this.findByIdUsuario(id)
-    console.log(this.usuario)
+    environment.idUsuarioPerfil = id
   }
 
   findByIdUsuario(id: number) {

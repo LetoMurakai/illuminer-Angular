@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 import { PaginaPostagem } from '../model/PaginaPostagem';
 import { PostagemDestaqueComentario } from '../model/PostagemDestaqueComentario';
 import { UsuarioDestaque } from '../model/UsuarioDestaque';
@@ -29,6 +30,7 @@ export class EngajamentoComponent implements OnInit {
     this.obterUsuarioDestaque()
     let id = this.route.snapshot.params['id']
     this.obterPostagemDestaqueComentario()
+    environment.textoPesquisaPostagem = ''
   }
 
   findByIdUsusarioDestaque(id: number){

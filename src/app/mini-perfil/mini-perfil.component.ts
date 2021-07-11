@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
+import { AlertaService } from '../service/alerta.service';
 import { UsuarioService } from '../service/usuario.service';
 
 @Component({
@@ -24,22 +25,17 @@ export class MiniPerfilComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
-    private router: Router
+    private router: Router,
+    private alerta: AlertaService
   ) { }
 
   ngOnInit() {
-
     this.usuarioService.refreshToken()
     this.findByIdUsuario(this.id)
-    console.log(this.fotoCapa)
-    console.log(this.usuario.fotoCapa)
-    console.log(this.usuario)
-    if(this.usuario.fotoCapa != undefined){
+    if (this.usuario.fotoCapa != undefined) {
       this.fotoCapa = this.usuario.fotoCapa
       console.log(this.fotoCapa)
     }
-
-
   }
 
   confirmarSenha(event: any) {
@@ -48,10 +44,10 @@ export class MiniPerfilComponent implements OnInit {
   }
 
   salvar() {
-   // this.usuario.tipoUsuario = this.confirmaSenha 
+      this.usuario.postagens = [] 
       this.usuarioService.putUsuario(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
-        alert('Usuário atualizado com sucesso!')
+        this.alerta.showAlertSuccess('Usuário atualizado com sucesso!')
         environment.nome = this.usuario.nome
         environment.foto = this.usuario.foto
         
@@ -65,6 +61,7 @@ export class MiniPerfilComponent implements OnInit {
           this.router.navigate(['/feed'])
         }, 1);
       })
+
   }
 
   findByIdUsuario(id: number) {

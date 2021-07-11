@@ -1,14 +1,21 @@
 <nav aria-label="..." class="d-flex justify-content-center mt-5">
   <ul class="pagination">
     <li class="page-item" [ngClass]="(paginaPostagem.first) ? 'disabled' : ''">
-      <a class="page-link" tabindex="-1" aria-disabled="true"
-        (click)='buscarPaginaPostagem(paginaPostagem.number - 1, 5)'>Anterior</a>
+      <a *ngIf="idUsuarioPerfil != 0" class="page-link" 
+      (click)='buscarPaginaPostagemProfessor(idUsuarioPerfil, paginaPostagem.number - 1, 5)'>Anterior</a>
+      <a *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link" (click)='buscarPaginaPostagem(paginaPostagem.number - 1, 5)'>Anterior</a>
+      <a *ngIf="textoPesquisaPostagem != ''" class="page-link" 
+      (click)='pesquisar(paginaPostagem.number - 1)'>Anterior</a>
     </li>
     <li class="page-item active" aria-current="page">
       <span class="page-link">{{paginaPostagem.number + 1}}</span>
     </li>
     <li class="page-item" [ngClass]="(paginaPostagem.last) ? 'disabled' : ''">
-      <a class="page-link" (click)='buscarPaginaPostagem(paginaPostagem.number + 1, 5)'>Próxima</a>
+      <a *ngIf="idUsuarioPerfil != 0" class="page-link" 
+      (click)='buscarPaginaPostagemProfessor(idUsuarioPerfil, paginaPostagem.number + 1, 5)'>Próxima</a>
+      <a *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link" (click)='buscarPaginaPostagem(paginaPostagem.number + 1, 5)'>Próxima</a>
+      <a *ngIf="textoPesquisaPostagem != ''" class="page-link" 
+      (click)='pesquisar(paginaPostagem.number + 1)'>Próxima</a>
     </li>
   </ul>
 </nav>
@@ -22,7 +29,7 @@
 
 
 <section id="displayTituloPesquisa" [ngStyle]="{'display': displayDivTituloPesquisa}" class="container mt-5 mb-2">
-  <h1 class="text-center">Resultado da Pesquisaa</h1>
+  <h1 class="text-center">Resultado da Pesquisa</h1>
 </section>
 <div class="postagem" id={{postagem.id}} *ngFor='let postagem of paginaPostagem.content'>
   <!-- Dados da postagem Nome do Usuário/Data e botões de apagar e editar 
