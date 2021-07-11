@@ -30,18 +30,12 @@ export class MiniPerfilComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.usuarioService.refreshToken()
     this.findByIdUsuario(this.id)
-    console.log(this.fotoCapa)
-    console.log(this.usuario.fotoCapa)
-    console.log(this.usuario)
-    if(this.usuario.fotoCapa != undefined){
+    if (this.usuario.fotoCapa != undefined) {
       this.fotoCapa = this.usuario.fotoCapa
       console.log(this.fotoCapa)
     }
-
-
   }
 
   confirmarSenha(event: any) {
@@ -50,7 +44,7 @@ export class MiniPerfilComponent implements OnInit {
   }
 
   salvar() {
-   // this.usuario.tipoUsuario = this.confirmaSenha 
+      this.usuario.postagens = [] 
       this.usuarioService.putUsuario(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
         this.alerta.showAlertSuccess('Usuário atualizado com sucesso!')
@@ -67,6 +61,7 @@ export class MiniPerfilComponent implements OnInit {
           this.router.navigate(['/feed'])
         }, 1);
       })
+
   }
 
   findByIdUsuario(id: number) {

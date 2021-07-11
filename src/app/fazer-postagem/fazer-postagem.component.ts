@@ -18,8 +18,6 @@ export class FazerPostagemComponent implements OnInit {
   nomeUsuarioLogado = environment.nome
   listaPostagem: Postagem[]
   tipoMidia: string
-  displayDivFazerPostagem: string
-  displayDivTituloPesquisa: string
   constructor(
     private router: Router,
     private postagemService: PostagemService,
@@ -27,13 +25,7 @@ export class FazerPostagemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (environment.textoPesquisaPostagem != '') {
-      this.displayDivFazerPostagem = "none"
-      this.displayDivTituloPesquisa = "block"
-    } else {
-      this.displayDivFazerPostagem = "block"
-      this.displayDivTituloPesquisa = "none"
-    }
+    
 
   }
 

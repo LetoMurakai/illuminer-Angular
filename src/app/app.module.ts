@@ -25,9 +25,9 @@ import { EngajamentoComponent } from './engajamento/engajamento.component';
 import { FazerPostagemComponent } from './fazer-postagem/fazer-postagem.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { FerramentasComponent } from './ferramentas/ferramentas.component';
-import { NewslettersComponent } from './newsletters/newsletters.component';
+import { NewslettersComponent } from './newsletters/newsletters.component'
 import { AlertaComponent } from './alerta/alerta.component';
-
+import { EquipeCardComponent } from './equipe-card/equipe-card.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
@@ -56,6 +56,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     FerramentasComponent,
     NewslettersComponent,
     AlertaComponent
+    EquipeCardComponent
 
 
   ],

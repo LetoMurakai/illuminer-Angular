@@ -39,7 +39,8 @@ export class ComentarioService {
       return this.http.put<Comentario>(`${this.uri}/comentarios`, comentario, this.token)
     }
     deleteComentario(id:number){
-      return this.http.delete<Comentario>(`${this.uri}/comentarios/${id}`, this.token)    }
+      return this.http.delete<Comentario>(`${this.uri}/comentarios/${id}`, this.token) 
+     }
 
     getComentariosPaginado(pagina: number, size: number): Observable<PaginaComentario>{
       return this.http.get<PaginaComentario>(`${environment.uri}/comentarios/pagina?page=${pagina}&size=${size}&sort=data,desc`, this.token)

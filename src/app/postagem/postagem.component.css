@@ -249,3 +249,114 @@
     font-size: 14px;
   }
 }
+
+/***********Comentarios*************/
+.btn-comentar{
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: cadetblue;
+}
+/* Posicionando os botões de editar e apagar*/
+.btns-edit-delete {
+  padding: 5px;
+  text-align: right;
+  flex: 1;
+}
+
+/* div do botão de apagar um comentário*/
+.btns-edit-delete-comentario {
+  padding: 0px;
+}
+
+
+/* Diminuindo o tamanho dos icones dos botões de apagar e deletar para caber nos comentários*/
+.btns-edit-delete-menor {
+  font-size: .9rem;
+}
+
+/* Usada para determinar que uma div é display flex para os itens ficaram lado a lado */
+.flex {
+  display: flex;
+  padding: 1rem;
+}
+
+/* Tirando o padding de uma div com classe acima flex*/
+.flex-sem-padding {
+  padding-left: 0px;
+  align-items: flex-start;
+}
+
+
+/* Estilizando o texto da postagem e do comentário  */
+.texto-postagem-comentario {
+  letter-spacing: .3px;
+}
+
+/* Div dos comentários  */
+.comentarios {
+  border-top: #000 solid 1px;
+  width: 98%;
+  margin: 0 auto;
+}
+
+/* Estilizando foto do autor de um comentário e de autor de uma curtida */
+.foto-autor-comentario, .foto-autor-curtida {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 3px;
+}
+
+/* Estilizando background do corpo de um comentário */
+.bg-comentario {
+  background-color: #f5f5f5;
+  width: 90%;
+  margin-left: 10px;
+  border-radius: 1px 15px 15px 15px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Estizando nome do autor de um comentário */
+.nome-autor-comentario {
+  font-weight: 500;
+  margin-bottom: 1px;
+}
+.data-postagem {
+  font-weight: 400;
+  padding-left: 1px;
+}
+
+/* Input de um novo comentário */
+.input-comentario {
+  border: none;
+  outline: none;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 30px 0 0 30px;
+   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.100);
+}
+
+/* Div para um novo comentário */
+.fazer-comentario {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+/* Botão de um novo comentário */
+.btn-comentario {
+  border-radius: 0 30px 30px 0;
+  border: none;
+  outline: none;
+  padding: 10px;
+  background-color: #85F4AB;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.100);
+}
+
+.btn-comentario:hover {
+  background-color: #99F4AB;
+}
