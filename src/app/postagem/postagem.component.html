@@ -142,7 +142,7 @@
                         <div class="row">
 
                           <div class="col-6">
-                            <p class="nome-autor-comentario text-capitalize">{{coment.usuario.nome}}</p>
+                            <a [routerLink]="['/perfil', usuario.id]"><p class="nome-autor-comentario text-capitalize">{{coment.usuario.nome}}</p></a>
                           </div>
 
                           <!-- Botões de apagar e editar comentário -->
