@@ -55,7 +55,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     PerfilUsuarioComponent,
     FerramentasComponent,
     NewslettersComponent,
-    AlertaComponent
+    AlertaComponent,
     EquipeCardComponent
 
 
