@@ -48,6 +48,7 @@ export class PostagemComponent implements OnInit {
 
 
   ngOnInit() {
+    
     if (environment.token == '') {
       this.router.navigate(['/login'])
     }
@@ -56,7 +57,10 @@ export class PostagemComponent implements OnInit {
     } else {
       this.displayDivTituloPesquisa = "none"
     }
-
+    if(environment.idDestaqueComentario != 0){
+      this.postagemEngajada(0)
+      console.log(environment.idDestaqueComentario)
+    }
     if(environment.textoPesquisaPostagem != '') {
       this.textoPesquisaPostagem = environment.textoPesquisaPostagem
       this.postagemService.refreshToken()
@@ -69,6 +73,7 @@ export class PostagemComponent implements OnInit {
       this.postagemService.refreshToken()
       this.buscarPaginaPostagem(0, 5)
     }
+    console.log(environment.idDestaqueComentario)
   }
 
   buscarPaginaPostagem(pagina: number, size: number) {
@@ -93,6 +98,19 @@ export class PostagemComponent implements OnInit {
       console.log(resp)
       resp.content?.forEach((item) => {
         if (item.tipoMidia == 'video') {
+          item.midia = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia);
+        }
+        item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')
+        this.paginaPostagem.content?.push(item)
+      })
+      this.paginaPostagem = resp
+    })
+  }
+
+  postagemEngajada(pagina: number){
+    this.postagemService.getByIdPaginado(environment.idDestaqueComentario,pagina,1).subscribe((resp: PaginaPostagem)=>{
+      resp.content?.forEach((item)=>{
+        if(item.tipoMidia =='video'){
           item.midia = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia);
         }
         item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')

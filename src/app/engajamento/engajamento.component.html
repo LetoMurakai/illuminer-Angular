@@ -32,7 +32,7 @@
         </div>
 
         <div class="col-9 d-inline position-absolute top-0 my-2 end-0">
-          <a (click)='scroll(destaqueComentario.id)'><h5>{{destaqueComentario.titulo}}</h5></a>
+          <a (click)='pegarId(destaqueComentario.id)'><h5>{{destaqueComentario.titulo}}</h5></a>
           <h6>{{destaqueComentario.qtdComentarios}}<span> Comentarios</span></h6>
           <h5><button class="btn" [routerLink]="['/perfil', usuarioDestaque.id]">{{usuarioDestaque.nome}}</button></h5>
         </div>

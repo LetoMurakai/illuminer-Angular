@@ -28,9 +28,9 @@ export class EngajamentoComponent implements OnInit {
     window.scroll(0,0)
     this.engajamentoService.refreshToken()
     this.obterUsuarioDestaque()
-    let id = this.route.snapshot.params['id']
     this.obterPostagemDestaqueComentario()
     environment.textoPesquisaPostagem = ''
+    environment.idDestaqueComentario = 0
   }
 
   findByIdUsusarioDestaque(id: number){
@@ -58,10 +58,12 @@ export class EngajamentoComponent implements OnInit {
   }
   
   
-  scroll(id: any) {
-    
-    let ele =document.getElementById(id);
-    ele?.scrollIntoView();
+  pegarId(id: any) {
+    environment.idDestaqueComentario = id
+    this.router.navigate(['/pagina-inicio'])
+    setTimeout(() => {
+      this.router.navigate(['/feed'])
+    }, 1);
   }
   
 }
