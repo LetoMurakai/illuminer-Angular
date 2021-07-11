@@ -15,14 +15,13 @@ import { PerfilService } from '../service/perfil.service';
 export class PerfilUsuarioComponent implements OnInit {
 
   usuario: Usuario = new Usuario()
-  
+
 
 
   constructor(
     private router: Router,
     private perfilService: PerfilService,
     private route: ActivatedRoute
-    
   ) { }
 
   ngOnInit() {

@@ -1,26 +1,43 @@
-<app-navbar></app-navbar>
+<section class="bg-feed">
+  <app-navbar></app-navbar>
 
-<div class="usuario">
-  <div class="top foto-bg">
-    <div class="btn-edit">
-      <button class="button">
-        <a data-bs-toggle="modal" data-bs-target="#editarModal">
-          <i class="fa fa-cog" aria-hidden="true"></i>
-        </a>
-      </button>
+  <div class="usuario">
+    <div class="top foto-bg">
+      <div class="btn-edit">
+        <button class="button">
+          <a data-bs-toggle="modal" data-bs-target="#editarModal">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+          </a>
+        </button>
+      </div>
+
+      <div class="image-container d-flex justify-content-center">
+        <img class="foto-usuario" src="{{ usuario.foto }}" alt="Foto de perfil do usuário" />
+      </div>
     </div>
 
-    <div class="image-container d-flex justify-content-center">
-      <img
-        class="foto-usuario"
-        src="{{ usuario.foto }}"
-        alt="Foto de perfil do usuário"
-      />
+    <div class="bottom">
+      <h4 class="nome text-center">{{ usuario.nome }}</h4>
+      <h5 class="tipo text-center">{{ usuario.tipo }}</h5>
     </div>
   </div>
+  <div class="container">
+    <div class="row">
 
-  <div class="bottom">
-    <h4 class="nome text-center">{{ usuario.nome }}</h4>
-    <h5 class="tipo text-center">{{ usuario.tipo }}</h5>
+      <!--Coluna da esquerda-->
+      <div class="d-none d-md-block col-md-4">
+        <app-engajamento></app-engajamento>
+      </div>
+
+      <!--Coluna da direita do perfil-->
+      <div class="col-12 col-md-8 justify-content-center">
+
+        <!--perfil aluno-->
+        <app-atividade-aluno *ngIf='usuario.tipo == "aluno" '></app-atividade-aluno>
+        <!--perfil professor-->
+        <app-postagem *ngIf='usuario.tipo == "professor" '></app-postagem>
+
+      </div>
+    </div>
   </div>
-</div>
+</section>

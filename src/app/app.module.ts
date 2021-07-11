@@ -29,6 +29,7 @@ import { NewslettersComponent } from './newsletters/newsletters.component'
 import { AlertaComponent } from './alerta/alerta.component';
 import { EquipeCardComponent } from './equipe-card/equipe-card.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AtividadeAlunoComponent } from './atividade-aluno/atividade-aluno.component';
 
 
 
@@ -56,7 +57,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     FerramentasComponent,
     NewslettersComponent,
     AlertaComponent,
-    EquipeCardComponent
+    EquipeCardComponent,
+    AtividadeAlunoComponent
 
 
   ],
