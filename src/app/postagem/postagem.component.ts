@@ -28,6 +28,8 @@ import { CurtidaPK } from '../model/CurtidaPK';
 export class PostagemComponent implements OnInit {
 
   displayComentarios = "none"
+  displaySpinner = "block"
+  displayNavPag = "none"
 
   paginaPostagem: PaginaPostagem = new PaginaPostagem()
   usuario: Usuario = new Usuario()
@@ -64,6 +66,7 @@ export class PostagemComponent implements OnInit {
     } else {
       this.displayDivTituloPesquisa = "none"
     }
+    
     if (environment.idDestaqueComentario != 0) {
       this.postagemEngajada(0)
     } else if (environment.textoPesquisaPostagem != '') {
@@ -78,9 +81,12 @@ export class PostagemComponent implements OnInit {
       this.postagemService.refreshToken()
       this.buscarPaginaPostagem(0, 5)
     }
+    
   }
 
   buscarPaginaPostagem(pagina: number, size: number) {
+    this.displaySpinner = "block"
+    this.displayNavPag = "none"
     this.postagemService.refreshToken()
     this.postagemService.getPostagemPaginado(pagina, size).subscribe((resp: PaginaPostagem) => {
       resp.content?.forEach((item) => {
@@ -92,6 +98,8 @@ export class PostagemComponent implements OnInit {
         this.definirCurtidasUsuarioLogado(item)
       })
       this.paginaPostagem = resp
+      this.displaySpinner = "none"
+      this.displayNavPag = ""
     })
   }
 
@@ -111,14 +119,12 @@ export class PostagemComponent implements OnInit {
       this.curtidaService.refreshToken()
       this.curtidaService.deleteCurtidas(this.curtida.id).subscribe(() => { })
     }
-    this.atualizarFeed()
+    this.redirecionar()
   }
 
   definirCurtidasUsuarioLogado(postagem: Postagem) {
     postagem.curtidas.forEach((item) => {
-      console.log("entrou no foreach")
       if (item.id.usuario.id == environment.id) {
-        console.log(item.id.postagem.texto +  "ta true")
         postagem.isCurtida = true
       }
     })
@@ -126,6 +132,8 @@ export class PostagemComponent implements OnInit {
 
 
   buscarPaginaPostagemProfessor(idProfessor: number, pagina: number, size: number) {
+    this.displaySpinner = "block"
+    this.displayNavPag = "none"
     this.postagemService.refreshToken()
     this.postagemService.getPostagensProfessor(idProfessor, pagina, size).subscribe((resp: PaginaPostagem) => {
       resp.content?.forEach((item) => {
@@ -134,12 +142,17 @@ export class PostagemComponent implements OnInit {
         }
         item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')
         this.paginaPostagem.content?.push(item)
+        this.definirCurtidasUsuarioLogado(item)
       })
       this.paginaPostagem = resp
+      this.displaySpinner = "none"
+      this.displayNavPag = ""
     })
   }
 
   postagemEngajada(pagina: number) {
+    this.displaySpinner = "block"
+    this.displayNavPag = "none"
     this.postagemService.getByIdPaginado(environment.idDestaqueComentario, pagina, 1).subscribe((resp: PaginaPostagem) => {
       resp.content?.forEach((item) => {
         if (item.tipoMidia == 'video') {
@@ -147,13 +160,18 @@ export class PostagemComponent implements OnInit {
         }
         item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')
         this.paginaPostagem.content?.push(item)
+        this.definirCurtidasUsuarioLogado(item)
       })
       this.paginaPostagem = resp
+      this.displaySpinner = "none"
+      this.displayNavPag = ""
     })
   }
 
 
   pesquisar(pagina: number) {
+    this.displaySpinner = "block"
+    this.displayNavPag = "none"
     this.postagemService.getByTexto(this.textoPesquisaPostagem, pagina, 5)
       .subscribe((resp: PaginaPostagem) => {
         resp.content?.forEach((item) => {
@@ -162,8 +180,11 @@ export class PostagemComponent implements OnInit {
           }
           item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')
           this.paginaPostagem.content?.push(item)
+          this.definirCurtidasUsuarioLogado(item)
         })
         this.paginaPostagem = resp
+        this.displaySpinner = "none"
+        this.displayNavPag = ""
       })
   }
 
@@ -188,8 +209,8 @@ export class PostagemComponent implements OnInit {
       this.postagem = resp
       this.alerta.showAlertSuccess('Postagem atualizada com sucesso!')
       this.postagemService.refreshToken()
-      this.buscarPaginaPostagem(0, 5)
       this.postagem = new Postagem()
+      this.redirecionar()
     })
   }
 
@@ -203,9 +224,8 @@ export class PostagemComponent implements OnInit {
     this.postagemService.deletePostagem(this.postagem.id).subscribe(() => {
       this.alerta.showAlertSuccess('Postagem apagada com sucesso!')
       this.postagemService.refreshToken()
-      this.buscarPaginaPostagem(0, 5)
       this.postagem = new Postagem()
-      this.atualizarFeed()
+      this.redirecionar()
     })
   }
 
@@ -237,16 +257,7 @@ export class PostagemComponent implements OnInit {
       this.comentario = resp
       this.comentario = new Comentario()
       this.comentarioService.refreshToken()
-      if (environment.idUsuarioPerfil != 0) {
-        this.buscarPaginaPostagemProfessor(environment.idUsuarioPerfil, this.paginaPostagem.number, 5)
-      } else if (environment.idDestaqueComentario != 0) {
-        this.postagemEngajada(0)
-        this.atualizarFeed()
-      } else {
-        this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
-        this.atualizarFeed()
-      }
-
+      this.redirecionar()
     })
   }
 
@@ -259,7 +270,6 @@ export class PostagemComponent implements OnInit {
 
   definirIdComentario(id: number) {
     this.comentario.id = id
-    console.log(this.comentario.id)
     this.obterComentarioPorId(this.comentario.id)
   }
 
@@ -275,6 +285,7 @@ export class PostagemComponent implements OnInit {
       this.comentarioService.refreshToken()
       this.buscarPaginaComentario(0, 5)
       this.comentario = new Comentario()
+      this.atualizarFeed()
     })
   }
 
@@ -297,5 +308,19 @@ export class PostagemComponent implements OnInit {
   }
 
 
+  redirecionar() {
+    if (environment.idUsuarioPerfil != 0) {
+      this.buscarPaginaPostagemProfessor(environment.idUsuarioPerfil, this.paginaPostagem.number, 5)
+    } else if (environment.idDestaqueComentario != 0) {
+      this.postagemEngajada(0)
+      this.atualizarFeed()
+    } else if(environment.textoPesquisaPostagem != '') {
+      this.pesquisar(0)
+      this.atualizarFeed()
+    } else {
+      this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
+      this.atualizarFeed()
+    }
+  }
 
 }
