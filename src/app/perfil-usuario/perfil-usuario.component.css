@@ -3,6 +3,21 @@
     border:none;
     border-radius: 40px 40px 10 10!important;
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.100);
+
+.bg-feed{
+  background: #f3f4f5;
+}
+
+.usuario {
+    max-width: 1100px;
+    height: 500px;
+    background-color: #ffffff;
+    margin: 5rem auto;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, .3);
   }
   
   .tamanho-card{
@@ -33,6 +48,21 @@
     background-color: rgba(0, 0, 0, 0.350);
     transition: 0.2s ease-in-out;
     cursor: pointer;
+
+  .foto-bg {
+      background-image: url();
+
+  }
+
+
+  .top {
+      background-color: #ffe552;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      height: 250px;
+      background-repeat: no-repeat;
+      background-size: cover;
+
   }
   
   .edit:hover {
@@ -93,7 +123,7 @@
   }
   
   .nome {
-    font-size: 80px;
+    font-size: 4rem;
     font-weight: 700;
     color: #222;
     position: relative;
@@ -114,4 +144,3 @@
     background: none;
     border: none;
   }
-

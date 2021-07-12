@@ -19,7 +19,7 @@ export class PerfilService {
    }
    refreshToken(){
      this.token = {
-       headers:new HttpHeaders().set("Authorization", environment.token) 
+       headers:new HttpHeaders().set("Authorization", environment.token)
      }
    }
 
@@ -34,5 +34,4 @@ export class PerfilService {
   deleteUsuario(id: number) {
     return this.http.delete(`${environment.uri}/usuarios/${id}`, this.token)
   }
-   
 }

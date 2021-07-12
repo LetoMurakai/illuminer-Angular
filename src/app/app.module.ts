@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 import { AppComponent } from './app.component';
@@ -17,18 +18,18 @@ import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
 import { FeedComponent } from './feed/feed.component';
 import { PostagemComponent } from './postagem/postagem.component';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ComentarioComponent } from './comentario/comentario.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MiniPerfilComponent } from './mini-perfil/mini-perfil.component';
-
 import { EngajamentoComponent } from './engajamento/engajamento.component';
-
 import { FazerPostagemComponent } from './fazer-postagem/fazer-postagem.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { FerramentasComponent } from './ferramentas/ferramentas.component';
-import { NewslettersComponent } from './newsletters/newsletters.component';
-
+import { NewslettersComponent } from './newsletters/newsletters.component'
+import { AlertaComponent } from './alerta/alerta.component';
+import { EquipeCardComponent } from './equipe-card/equipe-card.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AtividadeAlunoComponent } from './atividade-aluno/atividade-aluno.component';
 
 
 
@@ -54,7 +55,10 @@ import { NewslettersComponent } from './newsletters/newsletters.component';
     FazerPostagemComponent,
     PerfilUsuarioComponent,
     FerramentasComponent,
-    NewslettersComponent
+    NewslettersComponent,
+    AlertaComponent,
+    EquipeCardComponent,
+    AtividadeAlunoComponent
 
 
   ],
@@ -62,7 +66,8 @@ import { NewslettersComponent } from './newsletters/newsletters.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot()
   ],
   providers: [{
     provide: LocationStrategy,

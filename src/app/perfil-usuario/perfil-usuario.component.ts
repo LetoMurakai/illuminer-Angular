@@ -1,10 +1,12 @@
+import { ComentarioService } from './../service/comentario.service';
+import { PostagemService } from './../service/postagem.service';
+import { EngajamentoService } from './../service/engajamento.service';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PerfilService } from '../service/perfil.service';
+import { Comentario } from '../model/Comentario';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -13,24 +15,26 @@ import { PerfilService } from '../service/perfil.service';
 })
 
 export class PerfilUsuarioComponent implements OnInit {
-
   nome = environment.nome
   foto = environment.foto
   tipo = environment.tipo
   id = environment.id
 
-  fotoCapa = "https://source.unsplash.com/random"
-  usuario: Usuario = new Usuario()
   confirmaSenha: string
   tipoUsuario: string
-  
+  fotoCapa = "https://source.unsplash.com/random"
+  usuario: Usuario = new Usuario()
+  comentario: Comentario = new Comentario()
+
 
 
   constructor(
     private router: Router,
     private perfilService: PerfilService,
+    private postagemService:PostagemService,
+    private comentarioService: ComentarioService,
+    private engajamentoService: EngajamentoService,
     private route: ActivatedRoute
-    
   ) { }
 
   ngOnInit() {
@@ -52,6 +56,8 @@ export class PerfilUsuarioComponent implements OnInit {
 
     let id = this.route.snapshot.params['id']
     this.findByIdUsuario(id)
+
+    environment.idUsuarioPerfil = id
   }
 
   findByIdUsuario(id: number) {
@@ -87,5 +93,4 @@ export class PerfilUsuarioComponent implements OnInit {
          }, 1);
        })
    }
-
 }

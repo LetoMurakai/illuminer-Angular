@@ -1,3 +1,5 @@
+<section class="bg-feed">
+  <app-navbar></app-navbar>
 <div class="row p-4 mt-6">
 
     <div class="col-md-12">
@@ -7,14 +9,16 @@
   
           <a><i class="fas fa-pencil-alt rounded-circle position-absolute end-0 m-1 edit"
               data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
+          
+          
+           <div class="image-container d-flex justify-content-center">
+            <img *ngIf="usuario.foto != '' " class="foto-usuario" src={{usuario.foto}} alt="Foto de perfil do usuário">
+        </div>
+
+        <div *ngIf="usuario.foto == '' " class="image-container d-flex justify-content-center">
+            <img class="foto-usuario" src="../../assets/img/userNone.png" alt="Foto padrão de perfil">
+        </div>
   
-          <div class="user-img">
-            <img *ngIf="foto != '' " src="{{foto}}" alt="Foto padrão de perfil">
-          </div>
-  
-          <div *ngIf="foto == '' " class="user-img">
-            <img src="../../assets/img/userNone.png" alt="Foto de perfil do usuário">
-          </div>
   
         </div>
   
@@ -39,7 +43,8 @@
     </div>
   
 </div>
-  
+
+
 
 
 <!-- Modal -->
@@ -98,9 +103,31 @@
           <button type="button" class="btn btn-info text-white btr me-4" data-bs-dismiss="modal" (click)='salvar()'>Salvar</button>
         </div>
       </div>
+
+       
     </div>
   </div>
+    <div class="bottom">
+        <h4 class="nome text-center text-capitalize">{{usuario.nome}}</h4>
+        <h5 class="tipo text-center text-uppercase">{{usuario.tipo}}</h5>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <!--Coluna da esquerda-->
+      <div class="d-none d-md-block col-md-4">
+        <app-engajamento></app-engajamento>
+      </div>
 
+      <!--Coluna da direita do perfil-->
+      <div class="col-12 col-md-8 justify-content-center">
 
+        <!--perfil aluno-->
+        <app-atividade-aluno></app-atividade-aluno>
+        <!--perfil professor-->
+        <app-postagem *ngIf='usuario.tipo == "professor" '></app-postagem>
 
-
+      </div>
+    </div>
+  </div>
+</section>

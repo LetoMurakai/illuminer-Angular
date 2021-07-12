@@ -14,12 +14,12 @@ import { Postagem } from '../model/Postagem';
 export class PostagemService {
   uri = environment.uri
   idPostagem = environment.idPostagem
-  token ={
+  token = {
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
-  refreshToken(){
+  refreshToken() {
     this.token = {
-      headers: new HttpHeaders().set('Authorization',environment.token)
+      headers: new HttpHeaders().set('Authorization', environment.token)
     }
   }
   postagem: Postagem = new Postagem()
@@ -32,32 +32,39 @@ export class PostagemService {
     return this.http.get<PaginaPostagem>(`${environment.uri}/postagens/pagina?page=${pagina}&size=${size}&sort=data,desc`, this.token)
   }
 
+  getPostagensProfessor(id: number, pagina: number, size: number): Observable<PaginaPostagem> {
+    return this.http.get<PaginaPostagem>(`${environment.uri}/usuarios/${id}/postagens?page=${pagina}&size=${size}&sort=data,desc`, this.token)
+  }
+
   getByTexto(texto: string, pagina: number, size: number): Observable<PaginaPostagem> {
     return this.http.get<PaginaPostagem>
       (`${environment.uri}/postagens/texto/${texto}?page=${pagina}&size=${size}&sort=data,desc`, this.token)
   }
 
+  getByIdPaginado(id:number, pagina:number, size:number): Observable<PaginaPostagem>{
+    return this.http.get<PaginaPostagem>(`${this.uri}/postagens/pagina/${id}?page=${pagina}&size=${size}&sorte=data,desc`, this.token)
+  }
   getById(id: number): Observable<Postagem> {
     return this.http.get<Postagem>(`${environment.uri}/postagens/${id}`, this.token)
-  }  
+  }
 
-  getAllPostagem(): Observable<Postagem[]>{
+  getAllPostagem(): Observable<Postagem[]> {
     return this.http.get<Postagem[]>(`${environment.uri}/postagens`, this.token)
   }
-  
-  postPostagem( postagem: Postagem): Observable<Postagem>{
-    return this.http.post<Postagem>(`${environment.uri}/postagens`, postagem ,this.token)
+
+  postPostagem(postagem: Postagem): Observable<Postagem> {
+    return this.http.post<Postagem>(`${environment.uri}/postagens`, postagem, this.token)
   }
 
   /* ========================================================================== */
   /* ===============================COMENTARIOS================================ */
-  getAllComentarios(idPostagem:number):Observable<Comentario[]>{
-    return this.http.get<Comentario[]>(`${this.uri}/postagens/${idPostagem}/comentarios`, this.token)  }
+  getAllComentarios(idPostagem: number): Observable<Comentario[]> {
+    return this.http.get<Comentario[]>(`${this.uri}/postagens/${idPostagem}/comentarios`, this.token)
+  }
 
-  
-  getComentariosPaginado(idPostagem:number):Observable<Comentario[]>{
+
+  getComentariosPaginado(idPostagem: number): Observable<Comentario[]> {
     return this.http.get<Comentario[]>(`${this.uri}/${idPostagem}/comentarios/paginado`)
-
   }
 
   putPostagem(postagem: Postagem): Observable<Postagem> {
