@@ -50,7 +50,7 @@ export class PostagemComponent implements OnInit {
 
 
   ngOnInit() {
-    
+
     if (environment.token == '') {
       this.router.navigate(['/login'])
     }
@@ -210,7 +210,7 @@ export class PostagemComponent implements OnInit {
         this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
         this.atualizarFeed()
       }
-     
+
     })
   }
 

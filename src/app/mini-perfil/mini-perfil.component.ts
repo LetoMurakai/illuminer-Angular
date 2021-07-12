@@ -19,7 +19,7 @@ export class MiniPerfilComponent implements OnInit {
 
   idUsuarioLogado = environment.id
 
-  fotoCapa = "https://source.unsplash.com/random"
+  fotoCapa = "../../assets/imagem/Sem-Imagem.png"
   usuario: Usuario = new Usuario()
   confirmaSenha: string
   tipoUsuario: string

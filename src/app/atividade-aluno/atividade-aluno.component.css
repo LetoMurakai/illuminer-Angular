@@ -25,3 +25,14 @@
   border-radius: 5px 5px 5px 5px;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.100);
 }
+a.acessar{
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+a.acessar:hover{
+  text-decoration: none;
+  color: rgb(138, 150, 223);
+  border-bottom: 1px solid rgb(138, 150, 223);
+  cursor: pointer;
+}

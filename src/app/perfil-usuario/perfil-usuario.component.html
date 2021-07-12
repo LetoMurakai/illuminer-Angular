@@ -4,13 +4,13 @@
 
     <div class="col-md-12">
       <div class="card d-flex justify-content-center flex-column">
-  
+
         <div class="card-header" [ngStyle]="{'background-image': 'url('+ fotoCapa+')'}">
-  
+
           <a><i class="fas fa-pencil-alt rounded-circle position-absolute end-0 m-1 edit"
               data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
-          
-          
+
+
            <div class="image-container d-flex justify-content-center">
             <img *ngIf="usuario.foto != '' " class="foto-usuario" src={{usuario.foto}} alt="Foto de perfil do usuário">
         </div>
@@ -18,30 +18,30 @@
         <div *ngIf="usuario.foto == '' " class="image-container d-flex justify-content-center">
             <img class="foto-usuario" src="../../assets/img/userNone.png" alt="Foto padrão de perfil">
         </div>
-  
-  
+
+
         </div>
-  
+
         <div class="card-body">
           <div class="d-flex justify-content-center flex-column">
             <div class="nome-container">
-  
+
               <div class="nome text-center">
-  
+
                 <h5 class="text-capitalize">{{nome}}</h5>
-  
+
                 <div class="tipo text-center">
                   <h6 class="text-uppercase small">{{tipo}}</h6>
                 </div>
-  
+
               </div>
-  
+
             </div>
           </div>
         </div>
       </div>
     </div>
-  
+
 </div>
 
 
@@ -56,31 +56,31 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-  
+
           <div class="container ps-4 pe-4">
-  
+
             <div class="d-md-block">
-  
+
               <div class="form-group my-2">
                 <label for="nome" class="text-white text-uppercase">NOME</label>
                 <input [(ngModel)]='usuario.nome' class="form-control bg-form" type="text" name="nome" id="nome">
               </div>
-  
+
              <!--  <div class="form-group my-2">
                 <label for="email" class="text-white text-uppercase px-3">USUARIO</label>
                 <input [(ngModel)]='usuario.email' class="form-control bg-form" type="email" name="email" id="foto">
               </div> -->
-  
+
               <div class="form-group p-0">
                 <label for="foto" class="text-white text-uppercase px-3">LINK FOTO</label>
                 <input [(ngModel)]='usuario.foto' class="form-control bg-form" type="foto" name="foto" id="foto" placeholder="Ponha o link da sua foto aqui! :D">
               </div>
-  
+
               <div class="form-group my-2">
                 <label for="fotoCapa" class="text-white text-uppercase px-3">LINK FOTO DE CAPA</label>
                 <input [(ngModel)]='usuario.fotoCapa' class="form-control bg-form" type="fotoCapa" name="fotoCapa" id="fotoCapa" placeholder="Você pode por o link de uma foto de capa aqui! :D">
               </div>
-  
+
               <!-- <div class="form-group py-2">
                 <label for="senha" class="text-white px-3">SENHA</label>
                 <input (input)='confirmarSenha($event)' class="form-control bg-form" type="password" name="senha"
@@ -90,13 +90,13 @@
                 <label for="confirmarSenha"></label>
                 <input [(ngModel)]='usuario.senha' class="form-control bg-form" type="password" name="confirmarSenha"
                   id="confirmarSenha" placeholder="Confirmar Senha">
-              </div> --> 
-  
+              </div> -->
+
             </div>
-  
+
           </div>
-  
-  
+
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-light btr me-4" data-bs-dismiss="modal">Cancelar</button>
@@ -104,14 +104,14 @@
         </div>
       </div>
 
-       
+
     </div>
   </div>
     <div class="bottom">
         <h4 class="nome text-center text-capitalize">{{usuario.nome}}</h4>
         <h5 class="tipo text-center text-uppercase">{{usuario.tipo}}</h5>
     </div>
-  </div>
+
   <div class="container">
     <div class="row">
       <!--Coluna da esquerda-->
@@ -123,10 +123,10 @@
       <div class="col-12 col-md-8 justify-content-center">
 
         <!--perfil aluno-->
-        <app-atividade-aluno></app-atividade-aluno>
+        <app-atividade-aluno *ngIf='usuario.tipo == "aluno" '></app-atividade-aluno>
         <!--perfil professor-->
         <app-postagem *ngIf='usuario.tipo == "professor" '></app-postagem>
-
+        
       </div>
     </div>
   </div>

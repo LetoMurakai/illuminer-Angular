@@ -1,11 +1,12 @@
-import { PostagemService } from './../service/postagem.service';
-import { PerfilService } from './../service/perfil.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Postagem } from './../model/Postagem';
-import { Comentario } from './../model/Comentario';
+import { PagAtividade } from './../model/PagAtividade';
+import { UsuarioService } from './../service/usuario.service';
 import { Usuario } from './../model/Usuario';
+import { PerfilService } from './../service/perfil.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
+import { AtividadeService } from '../service/atividade.service';
+
 
 @Component({
   selector: 'app-atividade-aluno',
@@ -14,46 +15,58 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class AtividadeAlunoComponent implements OnInit {
 
+  paginaAtividade: PagAtividade = new PagAtividade()
   usuario: Usuario = new Usuario()
-  coment: Comentario = new Comentario()
-  postagem: Postagem = new Postagem()
 
   constructor(
     private router: Router,
     private perfilService: PerfilService,
-    private postagemService: PostagemService,
-    private route: ActivatedRoute
+    private atividadeService: AtividadeService,
+    private usuarioService: UsuarioService
   ) { }
 
   ngOnInit(){
     window.scroll(0,0)
+    this.atividadeService.refreshToken()
+    this.obterAtividadeUsuario(0,5)
+    this.obterUsuario()
+
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
     }
     this.perfilService.refreshToken()
-    this.postagemService.refreshToken()
 
-    let id = this.route.snapshot.params['id']
-    this.findByIdUsuario(id)
-    environment.idUsuarioPerfil = id
   }
 
-  findByIdUsuario(id: number) {
-    this.perfilService.refreshToken()
-    this.perfilService.getByIdPerfil(id).subscribe((resp: Usuario) => {
-      console.log(resp)
+  obterAtividadeUsuario(pagina: number, size: number){
+    this.atividadeService.refreshToken()
+    this.atividadeService.obterAtividadesAluno(environment.idUsuarioPerfil, pagina, size).subscribe((resp: PagAtividade) => {
+      this.paginaAtividade = resp
+    })
+
+  }
+
+  obterUsuario(){
+    this.usuarioService.refreshToken()
+    this.usuarioService.getByIdUsuario(environment.idUsuarioPerfil).subscribe((resp: Usuario) => {
       this.usuario = resp
     })
   }
 
-  definirIdPostagem(id: number) {
-    this.postagem.id = id
-    this.obterPostagemPorId(this.postagem.id)
+  abrirUsuario(idUsuario:number){
+    environment.idUsuarioPerfil = idUsuario
+    this.router.navigate(['/pagina-inicio'])
+        setTimeout(() => {
+          this.router.navigate([`/feed`])
+        }, 30);
   }
 
-  obterPostagemPorId(id: number) {
-    this.postagemService.getById(id).subscribe((resp: Postagem) => {
-      this.postagem = resp
-    })
+  abrirPublicacao(idPerfil:number){
+    environment.idDestaqueComentario = idPerfil
+    this.router.navigate(['/pagina-inicio'])
+        setTimeout(() => {
+          this.router.navigate([`/feed`])
+        }, 30);
   }
+
 }
