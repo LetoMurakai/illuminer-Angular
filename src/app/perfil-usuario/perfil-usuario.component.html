@@ -1,22 +1,24 @@
-<section class="bg-feed">
-  <app-navbar></app-navbar>
-<div class="row p-4 mt-6">
+<app-navbar></app-navbar>
+
+<section class="container-fluid bg-feed">
+<div class="row p-4 mt-6 d-flex align-items-center">
 
     <div class="col-md-12">
-      <div class="card d-flex justify-content-center flex-column">
+      <div class="card d-flex justify-content-center align-items-center ">
   
         <div class="card-header" [ngStyle]="{'background-image': 'url('+ fotoCapa+')'}">
   
-          <a><i class="fas fa-pencil-alt rounded-circle position-absolute end-0 m-1 edit"
+          <a><i class="fas fa-pencil-alt rounded-circle position-absolute end-0 m-4 edit"
               data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
-          
-          
-           <div class="image-container d-flex justify-content-center">
-            <img *ngIf="usuario.foto != '' " class="foto-usuario" src={{usuario.foto}} alt="Foto de perfil do usuário">
-        </div>
 
-        <div *ngIf="usuario.foto == '' " class="image-container d-flex justify-content-center">
-            <img class="foto-usuario" src="../../assets/img/userNone.png" alt="Foto padrão de perfil">
+          
+          
+          
+           
+
+        <div class="d-flex justify-content-center user-img">
+            <img  *ngIf="usuario.foto == undefined " class="foto-usuario" src="../../assets/img/userNone.png" alt="Foto padrão de perfil">
+            <img *ngIf="usuario.foto != undefined " class="foto-usuario" src={{usuario.foto}} alt="Foto de perfil do usuário">
         </div>
   
   
@@ -45,6 +47,7 @@
 </div>
 
 
+</section>
 
 
 <!-- Modal -->
@@ -52,7 +55,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title text-capitalize text-white" id="exampleModalLabel"><i class="far fa-user-circle edit-modal"></i>meus dados</h5>
+          <h5 class="modal-title text-capitalize text-white" id="exampleModalLabel"><i class="far fa-user-circle edit-modal"></i>Meus Dados</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -107,6 +110,7 @@
        
     </div>
   </div>
+
     <div class="bottom">
         <h4 class="nome text-center text-capitalize">{{usuario.nome}}</h4>
         <h5 class="tipo text-center text-uppercase">{{usuario.tipo}}</h5>
@@ -130,4 +134,3 @@
       </div>
     </div>
   </div>
-</section>
