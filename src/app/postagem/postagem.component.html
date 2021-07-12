@@ -158,7 +158,7 @@
             <div class="justify-content-center">
               <div class="flex flex-sem-padding" *ngFor='let coment of postagem.comentarios'>
                 <!-- Foto do usuário autor do comentário -->
-                <img [routerLink]="['/perfil', idUsuarioPerfil]" class="foto-autor-comentario clicavel" src={{coment.usuario.foto}} width="30px" height="30px" alt="foto">
+                <img [routerLink]="['/perfil', coment.usuario.id]" class="foto-autor-comentario clicavel" src={{coment.usuario.foto}} width="30px" height="30px" alt="foto">
 
                 <!-- Corpo do comentário -->
                 <table class="w-100">
@@ -170,7 +170,7 @@
                         <div class="row">
 
                           <div class="col-6">
-                            <a [routerLink]="['/perfil', idUsuarioPerfil]">
+                            <a [routerLink]="['/perfil', coment.usuario.id]">
                               <p class="nome-autor-comentario text-capitalize">{{coment.usuario.nome}}</p>
                             </a>
                           </div>
