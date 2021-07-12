@@ -28,6 +28,8 @@
       border-top-left-radius: 40px;
       border-top-right-radius: 40px;
       height: 250px;
+      background-repeat: no-repeat;
+    background-size: cover;
       
   }
 

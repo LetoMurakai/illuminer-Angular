@@ -14,6 +14,7 @@ import { PerfilService } from '../service/perfil.service';
 
 export class PerfilUsuarioComponent implements OnInit {
 
+  fotoCapa = "https://source.unsplash.com/random"
   usuario: Usuario = new Usuario()
   
 
