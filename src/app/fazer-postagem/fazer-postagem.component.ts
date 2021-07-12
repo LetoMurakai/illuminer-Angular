@@ -46,7 +46,7 @@ export class FazerPostagemComponent implements OnInit {
       this.postagemService.refreshToken()
       this.postagem.usuario = new Usuario()
       this.postagem.usuario.id = environment.id
-      console.log("id autor psotagem" + this.postagem.usuario.id) 
+      console.log("id autor postagem" + this.postagem.usuario.id) 
       this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
         this.postagem = resp
         this.alerta.showAlertSuccess('Postagem feita com sucesso!')

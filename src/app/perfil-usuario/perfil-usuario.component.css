@@ -3,7 +3,7 @@
     border:none;
     border-radius: 40px 40px 10 10!important;
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.100);
-
+}
 .bg-feed{
   background: #f3f4f5;
 }
@@ -48,7 +48,7 @@
     background-color: rgba(0, 0, 0, 0.350);
     transition: 0.2s ease-in-out;
     cursor: pointer;
-
+  }
   .foto-bg {
       background-image: url();
 
