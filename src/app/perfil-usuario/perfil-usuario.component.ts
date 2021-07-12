@@ -89,7 +89,7 @@ export class PerfilUsuarioComponent implements OnInit {
          this.fotoCapa = this.usuario.fotoCapa
          this.router.navigate(['/pagina-inicio'])
          setTimeout(() => {
-           this.router.navigate(['/feed'])
+           this.router.navigate([`/perfil/${environment.idUsuarioPerfil}`])
          }, 1);
        })
    }
