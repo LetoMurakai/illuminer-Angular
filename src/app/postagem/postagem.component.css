@@ -6,6 +6,21 @@
   margin: 3rem auto;
   border-radius: 10px;
 }
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #333;
+}
+.clicavel{
+  cursor: pointer;
+}
+.btn:focus{
+  border: none!important;
+  outline: none;
+  outline-style: none;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
 
 /* Usada para nome do usuário e data da publicação da postagem */
 .postagem-info {
