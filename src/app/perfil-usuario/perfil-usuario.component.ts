@@ -15,10 +15,17 @@ import { Comentario } from '../model/Comentario';
 })
 
 export class PerfilUsuarioComponent implements OnInit {
+  nome = environment.nome
+  foto = environment.foto
+  tipo = environment.tipo
+  id = environment.id
 
+  confirmaSenha: string
+  tipoUsuario: string
   fotoCapa = "https://source.unsplash.com/random"
   usuario: Usuario = new Usuario()
   comentario: Comentario = new Comentario()
+
 
 
   constructor(
@@ -31,13 +38,25 @@ export class PerfilUsuarioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.perfilService.refreshToken()
+    this.findByIdUsuario(this.id)
+    console.log(this.fotoCapa)
+    console.log(this.usuario.fotoCapa)
+    console.log(this.usuario)
+
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
     }
-    this.perfilService.refreshToken()
+
+    if(this.usuario.fotoCapa != undefined){
+      this.fotoCapa = this.usuario.fotoCapa
+      console.log(this.fotoCapa)
+    }
+    
 
     let id = this.route.snapshot.params['id']
     this.findByIdUsuario(id)
+
     environment.idUsuarioPerfil = id
   }
 
@@ -49,5 +68,29 @@ export class PerfilUsuarioComponent implements OnInit {
     })
   }
 
+  confirmarSenha(event: any) {
+    this.confirmaSenha = event.target.value
 
+  }
+
+  salvar() {
+    // this.usuario.tipoUsuario = this.confirmaSenha 
+       this.perfilService.putUsuario(this.usuario).subscribe((resp: Usuario) => {
+         this.usuario = resp
+         alert('Usuário atualizado com sucesso!')
+         environment.nome = this.usuario.nome
+         environment.foto = this.usuario.foto
+         environment.fotoCapa = this.usuario.fotoCapa
+         
+         this.nome = this.usuario.nome
+         console.log(resp)
+         console.log(this.usuario)
+         this.foto = this.usuario.foto
+         this.fotoCapa = this.usuario.fotoCapa
+         this.router.navigate(['/pagina-inicio'])
+         setTimeout(() => {
+           this.router.navigate(['/feed'])
+         }, 1);
+       })
+   }
 }
