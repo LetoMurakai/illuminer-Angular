@@ -1,4 +1,5 @@
 import { Comentario } from "./Comentario"
+import { Curtida } from "./Curtida"
 import { Usuario } from "./Usuario"
 
 export class Postagem {
@@ -10,6 +11,8 @@ export class Postagem {
     public tipoMidia: any
     public localizacao: string
     public comentarios: Comentario[]
+    public curtidas: Curtida[]
     public usuario: Usuario
+    public isCurtida: any
 
 }

@@ -111,8 +111,11 @@
                 <h5 class="m-0 text-center">
                   <button class="btn btn-comentar collapsed" type="button">
                     <p>
-                      
-                      <i class="far fa-thumbs-up"> Curtir</i>
+                      <i *ngIf='postagem.isCurtida' class="fas fa-thumbs-up" 
+                      (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'> Curtir</i>
+                      <i *ngIf='postagem.isCurtida == false || postagem.isCurtida == undefined'
+                       class="far fa-thumbs-up" 
+                        (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'> Curtir</i>
                     </p>
                   </button>
                 </h5>

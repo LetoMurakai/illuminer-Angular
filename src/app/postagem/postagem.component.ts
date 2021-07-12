@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -13,6 +13,9 @@ import { Usuario } from '../model/Usuario';
 import { ComentarioService } from '../service/comentario.service';
 import { PaginaComentario } from '../model/PaginaComentario';
 import { AlertaService } from '../service/alerta.service';
+import { CurtidasService } from '../service/curtidas.service';
+import { Curtida } from '../model/Curtida';
+import { CurtidaPK } from '../model/CurtidaPK';
 
 
 
@@ -35,6 +38,7 @@ export class PostagemComponent implements OnInit {
   idPostagem = environment.idPostagem
   comentario: Comentario = new Comentario()
   listaComentarios: Comentario[]
+  curtida: Curtida = new Curtida()
 
 
   displayDivTituloPesquisa: string
@@ -45,12 +49,13 @@ export class PostagemComponent implements OnInit {
     public sanitizer: DomSanitizer,
     private dateTipe: DatePipe,
     private comentarioService: ComentarioService,
-    private alerta: AlertaService
+    private alerta: AlertaService,
+    private curtidaService: CurtidasService
   ) { }
 
 
   ngOnInit() {
-    
+
     if (environment.token == '') {
       this.router.navigate(['/login'])
     }
@@ -59,9 +64,9 @@ export class PostagemComponent implements OnInit {
     } else {
       this.displayDivTituloPesquisa = "none"
     }
-    if(environment.idDestaqueComentario != 0){
+    if (environment.idDestaqueComentario != 0) {
       this.postagemEngajada(0)
-    } else if(environment.textoPesquisaPostagem != '') {
+    } else if (environment.textoPesquisaPostagem != '') {
       this.textoPesquisaPostagem = environment.textoPesquisaPostagem
       this.postagemService.refreshToken()
       this.pesquisar(0)
@@ -84,10 +89,41 @@ export class PostagemComponent implements OnInit {
         }
         item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')
         this.paginaPostagem.content?.push(item)
+        this.definirCurtidasUsuarioLogado(item)
       })
       this.paginaPostagem = resp
     })
   }
+
+  curtirOuDescurtir(isCurtir: boolean, idPostagem: number) {
+    this.curtida.id = new CurtidaPK()
+    this.curtida.id.usuario = new Usuario()
+    this.curtida.id.usuario.id = environment.id
+    this.curtida.id.postagem = new Postagem()
+    this.curtida.id.postagem.id = idPostagem
+    isCurtir = isCurtir == false || isCurtir == undefined ? true : false
+    if (isCurtir) {
+      this.curtidaService.refreshToken()
+      this.curtidaService.postCurtidas(this.curtida).subscribe((resp: Curtida) => {
+        this.curtida = resp
+      })
+    } else {
+      this.curtidaService.refreshToken()
+      this.curtidaService.deleteCurtidas(this.curtida.id).subscribe(() => { })
+    }
+    this.atualizarFeed()
+  }
+
+  definirCurtidasUsuarioLogado(postagem: Postagem) {
+    postagem.curtidas.forEach((item) => {
+      console.log("entrou no foreach")
+      if (item.id.usuario.id == environment.id) {
+        console.log(item.id.postagem.texto +  "ta true")
+        postagem.isCurtida = true
+      }
+    })
+  }
+
 
   buscarPaginaPostagemProfessor(idProfessor: number, pagina: number, size: number) {
     this.postagemService.refreshToken()
@@ -103,10 +139,10 @@ export class PostagemComponent implements OnInit {
     })
   }
 
-  postagemEngajada(pagina: number){
-    this.postagemService.getByIdPaginado(environment.idDestaqueComentario,pagina,1).subscribe((resp: PaginaPostagem)=>{
-      resp.content?.forEach((item)=>{
-        if(item.tipoMidia =='video'){
+  postagemEngajada(pagina: number) {
+    this.postagemService.getByIdPaginado(environment.idDestaqueComentario, pagina, 1).subscribe((resp: PaginaPostagem) => {
+      resp.content?.forEach((item) => {
+        if (item.tipoMidia == 'video') {
           item.midia = this.sanitizer.bypassSecurityTrustResourceUrl(item.midia);
         }
         item.data = this.dateTipe.transform(item.data, 'dd/MM/yyyy HH:mm')
@@ -201,16 +237,16 @@ export class PostagemComponent implements OnInit {
       this.comentario = resp
       this.comentario = new Comentario()
       this.comentarioService.refreshToken()
-      if(environment.idUsuarioPerfil != 0) {
+      if (environment.idUsuarioPerfil != 0) {
         this.buscarPaginaPostagemProfessor(environment.idUsuarioPerfil, this.paginaPostagem.number, 5)
-      } else if(environment.idDestaqueComentario != 0){
+      } else if (environment.idDestaqueComentario != 0) {
         this.postagemEngajada(0)
         this.atualizarFeed()
       } else {
         this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
         this.atualizarFeed()
       }
-     
+
     })
   }
 
