@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+
 
 import { environment } from 'src/environments/environment.prod';
 import { PaginaPostagem } from '../model/PaginaPostagem';
@@ -114,6 +115,7 @@ export class PostagemComponent implements OnInit {
       this.paginaPostagem = resp
     })
   }
+
 
   pesquisar(pagina: number) {
     this.postagemService.getByTexto(this.textoPesquisaPostagem, pagina, 5)
