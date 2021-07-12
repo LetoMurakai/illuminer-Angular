@@ -1,21 +1,23 @@
 <nav aria-label="..." class="d-flex justify-content-center mt-5">
   <ul class="pagination">
     <li class="page-item" [ngClass]="(paginaPostagem.first) ? 'disabled' : ''">
-      <a *ngIf="idUsuarioPerfil != 0" class="page-link" 
-      (click)='buscarPaginaPostagemProfessor(idUsuarioPerfil, paginaPostagem.number - 1, 5)'>Anterior</a>
-      <a *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link" (click)='buscarPaginaPostagem(paginaPostagem.number - 1, 5)'>Anterior</a>
-      <a *ngIf="textoPesquisaPostagem != ''" class="page-link" 
-      (click)='pesquisar(paginaPostagem.number - 1)'>Anterior</a>
+      <a *ngIf="idUsuarioPerfil != 0" class="page-link"
+        (click)='buscarPaginaPostagemProfessor(idUsuarioPerfil, paginaPostagem.number - 1, 5)'>Anterior</a>
+      <a *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link"
+        (click)='buscarPaginaPostagem(paginaPostagem.number - 1, 5)'>Anterior</a>
+      <a *ngIf="textoPesquisaPostagem != ''" class="page-link"
+        (click)='pesquisar(paginaPostagem.number - 1)'>Anterior</a>
     </li>
     <li class="page-item active" aria-current="page">
       <span class="page-link">{{paginaPostagem.number + 1}}</span>
     </li>
     <li class="page-item" [ngClass]="(paginaPostagem.last) ? 'disabled' : ''">
-      <a *ngIf="idUsuarioPerfil != 0" class="page-link" 
-      (click)='buscarPaginaPostagemProfessor(idUsuarioPerfil, paginaPostagem.number + 1, 5)'>Próxima</a>
-      <a *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link" (click)='buscarPaginaPostagem(paginaPostagem.number + 1, 5)'>Próxima</a>
-      <a *ngIf="textoPesquisaPostagem != ''" class="page-link" 
-      (click)='pesquisar(paginaPostagem.number + 1)'>Próxima</a>
+      <a *ngIf="idUsuarioPerfil != 0" class="page-link"
+        (click)='buscarPaginaPostagemProfessor(idUsuarioPerfil, paginaPostagem.number + 1, 5)'>Próxima</a>
+      <a *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link"
+        (click)='buscarPaginaPostagem(paginaPostagem.number + 1, 5)'>Próxima</a>
+      <a *ngIf="textoPesquisaPostagem != ''" class="page-link"
+        (click)='pesquisar(paginaPostagem.number + 1)'>Próxima</a>
     </li>
   </ul>
 </nav>
@@ -32,14 +34,15 @@
   <h1 class="text-center">Resultado da Pesquisa</h1>
 </section>
 <div class="postagem" id={{postagem.id}} *ngFor='let postagem of paginaPostagem.content'>
-  <!-- Dados da postagem Nome do Usuário/Data e botões de apagar e editar 
+  <!-- Dados da postagem Nome do Usuário/Data e botões de apagar e editar
   ''-->
-  <div class="flex" >
-    <img *ngIf="postagem.usuario.foto != ''" class="foto-usuario" src={{postagem.usuario.foto}} alt="Foto do usuário">
+  <div class="flex">
+    <img [routerLink]="['/perfil', idUsuarioPerfil]" *ngIf="postagem.usuario.foto != ''" class="foto-usuario clicavel"
+      src={{postagem.usuario.foto}} alt="Foto do usuário">
     <img *ngIf="postagem.usuario.foto == ''" class="foto-usuario"
       src="https://thumbs.dreamstime.com/b/%C3%ADcone-do-usu%C3%A1rio-do-vetor-7337510.jpg" alt="Foto do usuário">
     <div class="postagem-info">
-      <h4 class="autor-postagem">{{postagem.usuario.nome}}</h4>
+      <h4 [routerLink]="['/perfil', idUsuarioPerfil]" class="autor-postagem clicavel">{{postagem.usuario.nome}}</h4>
       <h6 class="data-postagem">{{postagem.data}}</h6>
     </div>
 
@@ -90,13 +93,13 @@
               <!--Comentar-->
               <div id="headingTwo">
                 <h5 class="m-0 text-center">
-                  <button class="btn btn-comentar collapsed" type="button" data-bs-toggle="collapse"
+                  <a class="btn btn-comentar collapsed" type="button" data-bs-toggle="collapse"
                     [attr.data-bs-target]="'#' + 'comentButton' + postagem.id" aria-expanded="false"
                     aria-controls="collapseTwo">
                     <p>
                       <i class="far fa-comment-dots"> Comentários</i>
                     </p>
-                  </button>
+                  </a>
                 </h5>
               </div>
 
@@ -137,7 +140,7 @@
             <div class="justify-content-center">
               <div class="flex flex-sem-padding" *ngFor='let coment of postagem.comentarios'>
                 <!-- Foto do usuário autor do comentário -->
-                <img class="foto-autor-comentario" src={{coment.usuario.foto}} width="30px" height="30px" alt="foto">
+                <img [routerLink]="['/perfil', idUsuarioPerfil]" class="foto-autor-comentario clicavel" src={{coment.usuario.foto}} width="30px" height="30px" alt="foto">
 
                 <!-- Corpo do comentário -->
                 <table class="w-100">
@@ -149,7 +152,9 @@
                         <div class="row">
 
                           <div class="col-6">
-                            <a [routerLink]="['/perfil', usuario.id]"><p class="nome-autor-comentario text-capitalize">{{coment.usuario.nome}}</p></a>
+                            <a [routerLink]="['/perfil', idUsuarioPerfil]">
+                              <p class="nome-autor-comentario text-capitalize">{{coment.usuario.nome}}</p>
+                            </a>
                           </div>
 
                           <!-- Botões de apagar e editar comentário -->

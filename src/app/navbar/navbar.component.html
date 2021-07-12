@@ -8,7 +8,7 @@
       </a>
     </div>
 
-    <form class="d-flex mx-auto" style="width: 20em;">
+    <form class="d-flex mx-auto" id="pesquisar">
       <input [(ngModel)]='textoPesquisa' class="form-control" id="form-search" type="search" placeholder="O que você procura hoje ?"
         aria-label="Search" name="textoPesquisa">
       <button class="btn" type="submit" id="btn-search"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"   (click)='pesquisar()'
@@ -19,13 +19,14 @@
         </svg>
       </button>
     </form>
-  
+
     <div class="btn-group mx-auto mx-md-0" role="group">
       <button id="dropdown" type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
         aria-expanded="false"></button>
       <ul class="dropdown-menu float-right">
         <li><a class="dropdown-item text-center" [routerLink]="['/perfil', idUsuarioLogado]">Perfil</a></li>
         <li><a class="dropdown-item text-center" >Destaques</a></li>
+        <li><a class="dropdown-item text-center" (click)='atualizar()'>Feed</a></li>
         <li><a class="dropdown-item text-center" (click)='sair()'>Sair</a></li>
       </ul>
     </div>

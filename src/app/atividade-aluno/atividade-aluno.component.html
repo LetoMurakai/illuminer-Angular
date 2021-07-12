@@ -1,19 +1,72 @@
-<div class="row m-0 mx-md-5">
+<!--curtidas em publicação-->
+<div class="row m-0 mx-md-5 mb-3">
   <div class="col-12">
     <div class="row  bg-atividades shadow-sm">
 
       <div class="col-3">
-        <img class="d-flex rounded-circle" src="https://source.unsplash.com/random" width="60px" height="60px"
-          alt="Foto do usuário">
+        <img class="d-flex rounded-circle" src="{{usuario.foto}}" width="60px" height="60px" alt="Foto do usuário">
       </div>
 
       <div class="col-9">
-        <h5 class="nome-autor-comentario text-capitalize">nome da pessoa</h5>
-        <p class="text-dark m-0 p-0">Comentou na publicação de : <span class="text-capitalize">nome autor <a
-              class="postagem" [routerLink]="['/postagens']"> postagem</a></span>
+        <h5 class="nome-autor-comentario text-capitalize">{{usuario.nome}}</h5>
+        <p class="text-dark m-0 p-0">Curtiu a publicação de : <span class="text-capitalize">{{postagem.usuario.nome}}<a
+              class="postagem text-info" [routerLink]="['/postagens${id}']"> ver mais...</a></span>
         </p>
       </div>
 
     </div>
+  </div>
+</div>
+
+<!--interações com publicação-->
+<div class="row m-0 mx-md-5 mb-3">
+  <div class="col-12">
+    <div class="row bg-atividades shadow-sm">
+
+      <div class="row">
+        <div class="col-2 my-2 d-flex justify-content-center">
+
+          <div>
+            <img class="rounded-circle" src="{{usuario.foto}}" width="60px" height="60px" alt="Foto do usuário">
+          </div>
+
+        </div>
+
+        <div class="col-10">
+          <h5 class="nome-autor-comentario text-capitalize">{{usuario.nome}}</h5>
+          <div class="d-flex justify-content-start">
+            <small id="texto" class="form-text m-0 text-muted text-monospace">
+              {{ coment.data | date:'dd/MM/yyyy'}} às {{coment.data | date:'HH:mm'}}
+            </small>
+          </div>
+
+          <p class="text-dark m-0 p-0">Comentou: </p>
+          <div class="comentario">
+            <p class="text-break p-3">
+              {{coment.texto}} . . .
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+
+        <div class="col-2">
+          <!--aqui deixa vazio mesmo-->
+        </div>
+
+        <div class="col-10">
+          <P class="small">Na publicação de : {{postagem.usuario.nome}}</P>
+          <div class="publicacao">
+            <p class="text-break p-3">
+              {{postagem.texto}}. . .
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>

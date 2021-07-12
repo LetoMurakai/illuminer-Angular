@@ -9,6 +9,11 @@
   border-radius: 0 15px 15px 0;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.100);
 }
+#pesquisar{
+  margin: 0;
+  padding: 0;
+  width: 25em;
+}
 #form-search{
   border: none;
   border-radius: 15px 0 0 15px;
@@ -18,6 +23,9 @@
   left: -8em;
 }
 @media (max-width: 379px){
+  #pesquisar{
+    width: 20em;
+  }
   .float-right{
     left: -4em;
   }
