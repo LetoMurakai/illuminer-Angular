@@ -17,6 +17,8 @@ export class MiniPerfilComponent implements OnInit {
   tipo = environment.tipo
   id = environment.id
 
+  idUsuarioLogado = environment.id
+
   fotoCapa = "https://source.unsplash.com/random"
   usuario: Usuario = new Usuario()
   confirmaSenha: string
@@ -44,13 +46,13 @@ export class MiniPerfilComponent implements OnInit {
   }
 
   salvar() {
-      this.usuario.postagens = [] 
+      this.usuario.postagens = []
       this.usuarioService.putUsuario(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
         this.alerta.showAlertSuccess('Usuário atualizado com sucesso!')
         environment.nome = this.usuario.nome
         environment.foto = this.usuario.foto
-        
+
         this.nome = this.usuario.nome
         console.log(resp)
         console.log(this.usuario)

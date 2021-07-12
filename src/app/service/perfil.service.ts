@@ -19,12 +19,12 @@ export class PerfilService {
    }
    refreshToken(){
      this.token = {
-       headers:new HttpHeaders().set("Authorization", environment.token) 
+       headers:new HttpHeaders().set("Authorization", environment.token)
      }
    }
 
    getByIdPerfil(id: number): Observable<Usuario>{
      return this.http.get<Usuario>(`http://localhost:8080/usuarios/${id}`, this.token)
    }
-   
+
 }

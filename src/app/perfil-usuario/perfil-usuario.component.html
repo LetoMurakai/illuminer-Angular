@@ -1,7 +1,7 @@
-<app-navbar></app-navbar>
-
-<div class="usuario">
-
+<section class="bg-feed">
+  <app-navbar></app-navbar>
+  
+   <div class="usuario">
     <div class="top foto-bg" [ngStyle]="{'background-image': 'url('+ fotoCapa+')'}">
         <div class="btn-edit">
             <button class="button">
@@ -26,10 +26,26 @@
 
     <div class="bottom">
         <h4 class="nome text-center text-capitalize">{{usuario.nome}}</h4>
-    <h5 class="tipo text-center text-uppercase">{{usuario.tipo}}</h5>
+        <h5 class="tipo text-center text-uppercase">{{usuario.tipo}}</h5>
     </div>
-    
-</div>
+  </div>
+  <div class="container">
+    <div class="row">
 
+      <!--Coluna da esquerda-->
+      <div class="d-none d-md-block col-md-4">
+        <app-engajamento></app-engajamento>
+      </div>
 
-<app-postagem></app-postagem>
+      <!--Coluna da direita do perfil-->
+      <div class="col-12 col-md-8 justify-content-center">
+
+        <!--perfil aluno-->
+        <app-atividade-aluno></app-atividade-aluno>
+        <!--perfil professor-->
+        <app-postagem *ngIf='usuario.tipo == "professor" '></app-postagem>
+
+      </div>
+    </div>
+  </div>
+</section>

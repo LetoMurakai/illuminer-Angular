@@ -18,9 +18,9 @@ export class AuthService {
   ) { }
 
   login(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin> {
-    
+
     return this.http.post<UsuarioLogin>(`${this.uri}/usuarios/login`, usuarioLogin)
-    
+
 
   }
 
@@ -34,5 +34,12 @@ export class AuthService {
       professor = false
     }
     return professor
+  }
+  aluno(){
+    let aluno = true
+    if(environment.tipo != 'aluno'){
+      aluno = false
+    }
+    return aluno
   }
 }
