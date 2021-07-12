@@ -8,12 +8,13 @@
         <a><i class="fas fa-pencil-alt rounded-circle position-absolute start-0 m-1 edit"
             data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
 
+
         <div class="user-img clicavel">
           <img [routerLink]="['/perfil', idUsuarioLogado]" *ngIf="foto != '' " src="{{foto}}" alt="Foto padrão de perfil">
         </div>
 
         <div *ngIf="foto == '' " class="user-img">
-          <img src="../../assets/img/userNone.png" alt="Foto de perfil do usuário">
+          <img src="../../assets/img/userNone.png" alt="Foto padrão de perfil">
         </div>
 
       </div>

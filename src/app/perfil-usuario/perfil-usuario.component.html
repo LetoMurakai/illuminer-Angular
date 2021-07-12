@@ -1,24 +1,32 @@
 <section class="bg-feed">
   <app-navbar></app-navbar>
+  
+   <div class="usuario">
+    <div class="top foto-bg" [ngStyle]="{'background-image': 'url('+ fotoCapa+')'}">
+        <div class="btn-edit">
+            <button class="button">
+                <a data-bs-toggle="modal" data-bs-target="#editarModal">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                </a>
 
-  <div class="usuario">
-    <div class="top foto-bg">
-      <div class="btn-edit">
-        <button class="button">
-          <a data-bs-toggle="modal" data-bs-target="#editarModal">
-            <i class="fa fa-cog" aria-hidden="true"></i>
-          </a>
-        </button>
-      </div>
+            </button>
 
-      <div class="image-container d-flex justify-content-center">
-        <img class="foto-usuario" src="{{ usuario.nome }}" alt="Foto de perfil do usuário" />
-      </div>
+            
+        </div>
+
+        <div class="image-container d-flex justify-content-center">
+            <img *ngIf="usuario.foto != '' " class="foto-usuario" src={{usuario.foto}} alt="Foto de perfil do usuário">
+        </div>
+
+        <div *ngIf="usuario.foto == '' " class="image-container d-flex justify-content-center">
+            <img class="foto-usuario" src="../../assets/img/userNone.png" alt="Foto padrão de perfil">
+        </div>
+
     </div>
 
     <div class="bottom">
-      <h4 class="nome text-center">{{ usuario.nome }}</h4>
-      <h5 class="tipo text-center">{{ usuario.tipo }}</h5>
+        <h4 class="nome text-center text-capitalize">{{usuario.nome}}</h4>
+        <h5 class="tipo text-center text-uppercase">{{usuario.tipo}}</h5>
     </div>
   </div>
   <div class="container">

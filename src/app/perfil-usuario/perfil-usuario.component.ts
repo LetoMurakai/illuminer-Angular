@@ -16,6 +16,7 @@ import { Comentario } from '../model/Comentario';
 
 export class PerfilUsuarioComponent implements OnInit {
 
+  fotoCapa = "https://source.unsplash.com/random"
   usuario: Usuario = new Usuario()
   comentario: Comentario = new Comentario()
 
