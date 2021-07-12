@@ -122,20 +122,20 @@
               <!--curtir-->
               <div id="headingTwo">
                 <h5 class="m-0 text-center">
-                  <button class="btn btn-comentar collapsed" type="button">
+                  <a class="btn btn-comentar collapsed" type="button">
                     <p>
-                      <i *ngIf='postagem.isCurtida' class="fas fa-thumbs-up" 
+                      <i *ngIf='postagem.isCurtida' class="fas fa-thumbs-up"
                       (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'> Curtir</i>
                       <i *ngIf='postagem.isCurtida == false || postagem.isCurtida == undefined'
-                       class="far fa-thumbs-up" 
+                       class="far fa-thumbs-up"
                         (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'> Curtir</i>
                     </p>
-                  </button>
+                  </a>
                 </h5>
               </div>
             </div>
           </div>
-          
+
 
           <!--Corpo de comentarios-->
           <div [attr.id]="'comentButton' + postagem.id" class="collapse" aria-labelledby="headingTwo"
