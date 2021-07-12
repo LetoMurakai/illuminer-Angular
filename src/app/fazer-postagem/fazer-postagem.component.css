@@ -33,6 +33,9 @@ input{
   background-color: #eef6fc;
   z-index: 999;
 }
+.form-select option{
+  padding-bottom: 50px;
+}
 .botaoCancelar{
   height: 90px;
   border: none;
@@ -89,8 +92,8 @@ input{
     width: 100%;
     background-color: #eef6fc;
     z-index: 999;
-    margin-bottom: 2px;
   }
+ 
 
   .botaoPublicar{
       border-radius: 0px 0px 10px 10px;
