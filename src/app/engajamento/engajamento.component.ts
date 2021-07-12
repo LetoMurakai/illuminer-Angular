@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import { Curtida } from '../model/Curtida';
+import { CurtidaPK } from '../model/CurtidaPK';
 import { PaginaPostagem } from '../model/PaginaPostagem';
 import { PostagemDestaqueComentario } from '../model/PostagemDestaqueComentario';
+import { PostagemDestaqueCurtida } from '../model/PostagemDestaqueCurtida';
 import { UsuarioDestaque } from '../model/UsuarioDestaque';
 import { EngajamentoService } from '../service/engajamento.service';
 import { PostagemService } from '../service/postagem.service';
@@ -15,6 +18,7 @@ export class EngajamentoComponent implements OnInit {
 
   usuarioDestaque: UsuarioDestaque = new UsuarioDestaque
   destaqueComentario: PostagemDestaqueComentario = new PostagemDestaqueComentario
+  destaqueCurtida: PostagemDestaqueCurtida = new PostagemDestaqueCurtida
   paginaPostagem: PaginaPostagem
 
   constructor(
@@ -29,6 +33,7 @@ export class EngajamentoComponent implements OnInit {
     this.engajamentoService.refreshToken()
     this.obterUsuarioDestaque()
     this.obterPostagemDestaqueComentario()
+    this.obterPostagemDestaqueCurtida()
     environment.textoPesquisaPostagem = ''
   }
 
@@ -55,6 +60,14 @@ export class EngajamentoComponent implements OnInit {
     })
 
   }
+  obterPostagemDestaqueCurtida(){
+    this.engajamentoService.postagemDestaqueCurtida().subscribe((resp: PostagemDestaqueCurtida) =>{
+      this.destaqueCurtida = resp
+    })
+    
+  }
+
+
   
   
   pegarId(id: any) {
