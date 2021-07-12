@@ -9,5 +9,6 @@ export const environment = {
   fotoCapa:'',
   idPostagem:0,
   idUsuarioPerfil: 0,
-  textoPesquisaPostagem: ''
+  textoPesquisaPostagem: '',
+  idDestaqueComentario: 0
 };

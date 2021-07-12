@@ -28,7 +28,6 @@ export class EngajamentoComponent implements OnInit {
     window.scroll(0,0)
     this.engajamentoService.refreshToken()
     this.obterUsuarioDestaque()
-    let id = this.route.snapshot.params['id']
     this.obterPostagemDestaqueComentario()
     environment.textoPesquisaPostagem = ''
   }
@@ -58,10 +57,19 @@ export class EngajamentoComponent implements OnInit {
   }
   
   
-  scroll(id: any) {
-    
-    let ele =document.getElementById(id);
-    ele?.scrollIntoView();
+  pegarId(id: any) {
+    environment.idDestaqueComentario = id
+    environment.textoPesquisaPostagem = ''
+    environment.idUsuarioPerfil = 0
+    this.router.navigate(['/pagina-inicio'])
+    setTimeout(() => {
+      this.router.navigate(['/feed'])
+    }, 1);
   }
   
+
+  prepararAbrirPerfil() {
+    environment.idDestaqueComentario = 0
+    environment.textoPesquisaPostagem = ''
+  }
 }

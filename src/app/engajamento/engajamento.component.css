@@ -6,6 +6,9 @@
   background: #fcfcfc;
 }
 
+a{
+  cursor: pointer;
+}
 .flex-flow{
   flex-flow: row-reverse;
 }

@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
   pesquisar() {
    environment.textoPesquisaPostagem = this.textoPesquisa
    environment.idUsuarioPerfil = 0
+   environment.idDestaqueComentario = 0
    this.router.navigate(['/pagina-inicio'])
    setTimeout(() => {
      this.router.navigate(['/feed'])
@@ -31,6 +32,7 @@ export class NavbarComponent implements OnInit {
   atualizar(){
     environment.textoPesquisaPostagem = ''
     environment.idUsuarioPerfil = 0
+    environment.idDestaqueComentario = 0
    this.router.navigate(['/pagina-inicio'])
    setTimeout(() => {
      this.router.navigate(['/feed'])
@@ -40,7 +42,7 @@ export class NavbarComponent implements OnInit {
   sair() {
     environment.textoPesquisaPostagem = ''
     environment.idUsuarioPerfil = 0
-    
+    environment.idDestaqueComentario = 0
     this.router.navigate(['/login'])
   }
 }

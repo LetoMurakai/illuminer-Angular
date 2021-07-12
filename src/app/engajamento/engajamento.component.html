@@ -15,7 +15,7 @@
         </div>
 
         <div class="col-9 d-inline position-absolute top-0 my-2 end-0">
-          <p class="m-0 p-0"><a class="link-usuario" [routerLink]="['/perfil', usuarioDestaque.id]"> {{usuarioDestaque.nome}}</a></p>
+          <p class="m-0 p-0"><a class="link-usuario" (click)='prepararAbrirPerfil()' [routerLink]="['/perfil', usuarioDestaque.id]"> {{usuarioDestaque.nome}}</a></p>
           <p>{{usuarioDestaque.qtdPostagens}}<span><strong> Publicações</strong></span></p>
         </div>
 
@@ -33,7 +33,7 @@
 
         <div class="col-9 d-inline position-absolute top-0 my-2 end-0">
           <p class="m-0 p-0"><a class="link-usuario" [routerLink]="['/perfil', usuarioDestaque.id]"> {{usuarioDestaque.nome}}</a></p>
-          <a class="link-usuario" (click)='scroll(destaqueComentario.id)'><p class="text-break p-0 m-0" aria-describedby="texto">{{destaqueComentario.titulo}}. . .</p></a>
+          <a class="link-usuario" (click)='pegarId(destaqueComentario.id)'><p class="text-break p-0 m-0" aria-describedby="texto">{{destaqueComentario.titulo}}. . .</p></a>
           <p class="p-0 m-0">{{destaqueComentario.qtdComentarios}}<span><strong> Comentarios</strong></span></p>
         </div>
 
