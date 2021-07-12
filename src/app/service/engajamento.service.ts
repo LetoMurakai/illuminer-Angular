@@ -17,11 +17,11 @@ import { UsuarioDestaque } from '../model/UsuarioDestaque';
 export class EngajamentoService {
 
 
-  
+
   constructor(
 
     private http: HttpClient
-    
+
   ) { }
 
   token = {
@@ -33,7 +33,7 @@ export class EngajamentoService {
     }
   }
 
- 
+
 
   usuarioMaisEngajado(): Observable<UsuarioDestaque>{
     return this.http.get<UsuarioDestaque>('http://localhost:8080/usuarios/engajamento/postagens', this.token)
@@ -52,7 +52,4 @@ export class EngajamentoService {
     return this.http.get<UsuarioDestaque>(`http://localhost:8080/usuarios/engajamento/postagens`, this.token)
 
   }
-
-
-  
 }

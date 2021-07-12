@@ -1,6 +1,6 @@
-<div class="row p-4 m-0 mt-6 sticky-top">
+<div class="row p-0 p-md-4 m-0 mt-6 sticky-top">
 
-  <div class="col-md-3 d-none d-md-block">
+  <div class="col-md-4 d-none d-md-block">
     <div class="card">
 
       <div class="card-header position-relative" [ngStyle]="{'background-image': 'url('+ fotoCapa+')'}">
@@ -8,12 +8,13 @@
         <a><i class="fas fa-pencil-alt rounded-circle position-absolute start-0 m-1 edit"
             data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
 
-        <div class="user-img">
-          <img *ngIf="foto != '' " src="{{foto}}" alt="Foto padrão de perfil">
+
+        <div class="user-img clicavel">
+          <img [routerLink]="['/perfil', idUsuarioLogado]" *ngIf="foto != '' " src="{{foto}}" alt="Foto padrão de perfil">
         </div>
 
         <div *ngIf="foto == '' " class="user-img">
-          <img src="../../assets/img/userNone.png" alt="Foto de perfil do usuário">
+          <img src="../../assets/img/userNone.png" alt="Foto padrão de perfil">
         </div>
 
       </div>
@@ -24,7 +25,7 @@
 
             <div class="nome text-center">
 
-              <h5 class="text-capitalize">{{nome}}</h5>
+              <h5 [routerLink]="['/perfil', idUsuarioLogado]" class="text-capitalize clicavel">{{nome}}</h5>
 
               <div class="tipo text-center">
                 <h6 class="text-uppercase small">{{tipo}}</h6>
@@ -86,7 +87,7 @@
               <label for="confirmarSenha"></label>
               <input [(ngModel)]='usuario.senha' class="form-control bg-form" type="password" name="confirmarSenha"
                 id="confirmarSenha" placeholder="Confirmar Senha">
-            </div> --> 
+            </div> -->
 
           </div>
 

@@ -8,6 +8,6 @@ export class Usuario{
     public foto: string
     public tipo: string
     public fotoCapa: string
-    public postagens: Postagem[] 
+    public postagens: Postagem[]
 
 }
