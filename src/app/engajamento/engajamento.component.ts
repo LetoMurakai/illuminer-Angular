@@ -29,7 +29,6 @@ export class EngajamentoComponent implements OnInit {
     this.engajamentoService.refreshToken()
     this.obterUsuarioDestaque()
     this.obterPostagemDestaqueComentario()
-    environment.textoPesquisaPostagem = ''
   }
 
   findByIdUsusarioDestaque(id: number){
