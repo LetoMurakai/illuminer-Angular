@@ -320,17 +320,30 @@ export class PostagemComponent implements OnInit {
   redirecionar() {
     if (environment.idUsuarioPerfil != 0) {
       this.buscarPaginaPostagemProfessor(environment.idUsuarioPerfil, this.paginaPostagem.number, 5)
+      
+      this.displayLoader ="block"
+      setTimeout(() => {
+        this.router.navigate(['/feed'])
+        setTimeout(() => {
+          this.router.navigate([`/perfil/${this.idUsuarioPerfil}`])
+          this.displayLoader ="none"
+        }, 1);
+      }, 1000);
+      
     } else if (environment.idDestaqueComentario != 0) {
       this.postagemEngajada(0)
+      this.displayLoader ="block"
       this.atualizarFeed()
     } else if(environment.textoPesquisaPostagem != '') {
       this.pesquisar(0)
+      this.displayLoader ="block"
       this.atualizarFeed()
     } else {
       this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
+      this.displayLoader ="block"
       this.atualizarFeed()
     }
-    this.displayLoader ="block"
+    
   }
 
   abrirUsuario(idUsuario:number){
@@ -342,3 +355,4 @@ export class PostagemComponent implements OnInit {
   }
 
 }
+

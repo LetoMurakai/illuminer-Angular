@@ -42,7 +42,7 @@ export class PerfilUsuarioComponent implements OnInit {
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
     }
-    
+
 
     let id = this.route.snapshot.params['id']
     this.findByIdUsuario(id)
@@ -71,7 +71,6 @@ export class PerfilUsuarioComponent implements OnInit {
          alert('Usuário atualizado com sucesso!')
          environment.nome = this.usuario.nome
          environment.foto = this.usuario.foto
-         environment.fotoCapa = this.usuario.fotoCapa
          
          this.nome = this.usuario.nome
          console.log(resp)
