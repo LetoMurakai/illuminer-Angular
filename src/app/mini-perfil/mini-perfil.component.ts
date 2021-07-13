@@ -18,8 +18,8 @@ export class MiniPerfilComponent implements OnInit {
   id = environment.id
 
   idUsuarioLogado = environment.id
-
   fotoCapa = environment.fotoCapa
+
   usuario: Usuario = new Usuario()
   confirmaSenha: string
   tipoUsuario: string
