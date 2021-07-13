@@ -5,12 +5,12 @@
 
       <div class="card-header position-relative">
 
-        <div class="card-header" *ngIf="usuario.fotoCapa == '' ">
+        <div class="card-header" *ngIf="usuario.fotoCapa == null ">
           <img class="tam-fotoCapa" src="../../assets/imagem/Sem-Imagem.png" alt="Foto banner">
         </div>
 
         <div class="card-header">
-          <img class="card-header tam-fotoCapa" *ngIf="usuario.fotoCapa != '' " src="{{usuario.fotoCapa}}" alt="Foto banner">
+          <img class="card-header tam-fotoCapa" *ngIf="usuario.fotoCapa != null " src="{{usuario.fotoCapa}}" alt="Foto banner">
         </div>
 
         <a><i class="fas fa-pencil-alt rounded-circle position-absolute start-0 m-1 edit" data-bs-toggle="modal"
@@ -18,11 +18,11 @@
 
 
         <div class="user-img clicavel">
-          <img [routerLink]="['/perfil', idUsuarioLogado]" *ngIf="foto != '' " src="{{foto}}"
+          <img [routerLink]="['/perfil', idUsuarioLogado]" *ngIf="foto != null " src="{{foto}}"
             alt="Foto padrão de perfil">
         </div>
 
-        <div *ngIf="foto == '' " class="user-img">
+        <div *ngIf="foto == null " class="user-img">
           <img src="../../assets/imagem/Sem-foto-perfil.png" alt="Foto padrão de perfil">
         </div>
 
