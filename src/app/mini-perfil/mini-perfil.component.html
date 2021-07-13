@@ -3,18 +3,27 @@
   <div class="col-md-4 d-none d-md-block">
     <div class="card">
 
-      <div class="card-header position-relative" [ngStyle]="{'background-image': 'url('+ fotoCapa+')'}">
+      <div class="card-header position-relative">
 
-        <a><i class="fas fa-pencil-alt rounded-circle position-absolute start-0 m-1 edit"
-            data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
+        <div *ngIf="usuario.fotoCapa == '' ">
+          <img class="card-header" src="../../assets/imagem/Sem-Imagem.png" alt="Foto banner">
+        </div>
+
+        <div *ngIf="usuario.fotoCapa != '' ">
+          <img class="card-header" src="{{fotoCapa}}" alt="Foto banner">
+        </div>
+
+        <a><i class="fas fa-pencil-alt rounded-circle position-absolute start-0 m-1 edit" data-bs-toggle="modal"
+            data-bs-target="#exampleModal"></i></a>
 
 
         <div class="user-img clicavel">
-          <img [routerLink]="['/perfil', idUsuarioLogado]" *ngIf="foto != '' " src="{{foto}}" alt="Foto padrão de perfil">
+          <img [routerLink]="['/perfil', idUsuarioLogado]" *ngIf="foto != '' " src="{{foto}}"
+            alt="Foto padrão de perfil">
         </div>
 
         <div *ngIf="foto == '' " class="user-img">
-          <img src="../../assets/img/userNone.png" alt="Foto padrão de perfil">
+          <img src="../../assets/imagem/Sem-foto-perfil.png" alt="Foto padrão de perfil">
         </div>
 
       </div>
@@ -48,7 +57,8 @@
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title text-capitalize text-white" id="exampleModalLabel"><i class="far fa-user-circle edit-modal"></i>meus dados</h5>
+        <h5 class="modal-title text-capitalize text-white" id="exampleModalLabel"><i
+            class="far fa-user-circle edit-modal"></i>meus dados</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -62,19 +72,21 @@
               <input [(ngModel)]='usuario.nome' class="form-control bg-form" type="text" name="nome" id="nome">
             </div>
 
-           <!--  <div class="form-group my-2">
+            <!--  <div class="form-group my-2">
               <label for="email" class="text-white text-uppercase px-3">USUARIO</label>
               <input [(ngModel)]='usuario.email' class="form-control bg-form" type="email" name="email" id="foto">
             </div> -->
 
             <div class="form-group p-0">
               <label for="foto" class="text-white text-uppercase px-3">LINK FOTO</label>
-              <input [(ngModel)]='usuario.foto' class="form-control bg-form" type="foto" name="foto" id="foto" placeholder="Ponha o link da sua foto aqui! :D">
+              <input [(ngModel)]='usuario.foto' class="form-control bg-form" type="foto" name="foto" id="foto"
+                placeholder="Ponha o link da sua foto aqui! :D">
             </div>
 
             <div class="form-group my-2">
               <label for="fotoCapa" class="text-white text-uppercase px-3">LINK FOTO DE CAPA</label>
-              <input [(ngModel)]='usuario.fotoCapa' class="form-control bg-form" type="fotoCapa" name="fotoCapa" id="fotoCapa" placeholder="Você pode por o link de uma foto de capa aqui! :D">
+              <input [(ngModel)]='usuario.fotoCapa' class="form-control bg-form" type="fotoCapa" name="fotoCapa"
+                id="fotoCapa" placeholder="Você pode por o link de uma foto de capa aqui! :D">
             </div>
 
             <!-- <div class="form-group py-2">
@@ -97,7 +109,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-light btr me-4" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-info text-white btr me-4" data-bs-dismiss="modal" (click)='salvar()'>Salvar</button>
+        <button type="button" class="btn btn-info text-white btr me-4" data-bs-dismiss="modal"
+          (click)='salvar()'>Salvar</button>
       </div>
     </div>
   </div>

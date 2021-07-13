@@ -53,7 +53,7 @@
     <img [routerLink]="['/perfil', postagem.usuario.id]" *ngIf="postagem.usuario.foto != ''" class="foto-usuario clicavel"
       src={{postagem.usuario.foto}} alt="Foto do usuário">
     <img *ngIf="postagem.usuario.foto == ''" class="foto-usuario"
-      src="https://thumbs.dreamstime.com/b/%C3%ADcone-do-usu%C3%A1rio-do-vetor-7337510.jpg" alt="Foto do usuário">
+      src="../../assets/imagem/Sem-foto-perfil.png" alt="Foto do usuário">
     <div class="postagem-info">
       <h4 [routerLink]="['/perfil', postagem.usuario.id]" class="autor-postagem clicavel">{{postagem.usuario.nome}}</h4>
       <h6 class="data-postagem">{{postagem.data}}</h6>
@@ -463,6 +463,6 @@
 </div>
 
 <div class="load" [ngStyle]="{'display': displayLoader}">
-  
+
   <hr/><hr/><hr/><hr/>
 </div>

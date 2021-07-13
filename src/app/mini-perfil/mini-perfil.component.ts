@@ -19,7 +19,7 @@ export class MiniPerfilComponent implements OnInit {
 
   idUsuarioLogado = environment.id
 
-  fotoCapa = "../../assets/imagem/Sem-Imagem.png"
+  fotoCapa = environment.fotoCapa
   usuario: Usuario = new Usuario()
   confirmaSenha: string
   tipoUsuario: string
@@ -52,6 +52,7 @@ export class MiniPerfilComponent implements OnInit {
         this.alerta.showAlertSuccess('Usuário atualizado com sucesso!')
         environment.nome = this.usuario.nome
         environment.foto = this.usuario.foto
+        environment.fotoCapa = this.usuario.fotoCapa
 
         this.nome = this.usuario.nome
         console.log(resp)
