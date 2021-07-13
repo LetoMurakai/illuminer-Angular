@@ -74,7 +74,7 @@
   <!-- Corpo do texto da postagem -->
 
   <div class="bg-texto-postagem">
-    <p class="texto-postagem-comentario">{{postagem.texto}}</p>
+    <p class="texto-postagem-comentario text-break">{{postagem.texto}}</p>
     <div *ngIf="postagem.midia != '' && postagem.tipoMidia == 'video'">
       <iframe class="midia-postagem" [src]="postagem.midia" title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
