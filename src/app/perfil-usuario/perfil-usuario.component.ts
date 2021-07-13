@@ -38,19 +38,12 @@ export class PerfilUsuarioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.perfilService.refreshToken()
-    this.findByIdUsuario(this.id)
-    console.log(this.fotoCapa)
-    console.log(this.usuario.fotoCapa)
-    console.log(this.usuario)
-
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
     }
 
     if(this.usuario.fotoCapa != undefined){
       this.fotoCapa = this.usuario.fotoCapa
-      console.log(this.fotoCapa)
     }
     
 

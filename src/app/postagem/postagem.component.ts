@@ -333,4 +333,12 @@ export class PostagemComponent implements OnInit {
     this.displayLoader ="block"
   }
 
+  abrirUsuario(idUsuario:number){
+    environment.idUsuarioPerfil = idUsuario
+    this.router.navigate(['/feed'])
+        setTimeout(() => {
+          this.router.navigate([`/perfil/${idUsuario}`])
+        }, 30);
+  }
+
 }

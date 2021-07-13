@@ -55,9 +55,9 @@ export class AtividadeAlunoComponent implements OnInit {
 
   abrirUsuario(idUsuario:number){
     environment.idUsuarioPerfil = idUsuario
-    this.router.navigate(['/pagina-inicio'])
+    this.router.navigate(['/feed'])
         setTimeout(() => {
-          this.router.navigate([`/feed`])
+          this.router.navigate([`/perfil/${idUsuario}`])
         }, 30);
   }
 

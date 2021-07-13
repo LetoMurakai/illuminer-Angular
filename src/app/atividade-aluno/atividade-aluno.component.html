@@ -60,7 +60,10 @@
           </div>
 
           <div class="col-10">
-            <P class="small">Na publicação de : {{atividade.nomeAutorPostagem}}</P>
+            <p class="small">Na publicação de :
+              <a class="text-capitalize acessar" [routerLink]="['/perfil', atividade.idAutorPostagem]"
+              (click)="abrirUsuario(atividade.idAutorPostagem)">{{atividade.nomeAutorPostagem}}</a>
+            </p>
             <a class="acessar"(click)="abrirPublicacao(atividade.idPostagem)">
               <div class="publicacao">
                 <p class="text-break p-3">

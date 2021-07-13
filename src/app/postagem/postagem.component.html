@@ -50,12 +50,12 @@
   <!-- Dados da postagem Nome do Usuário/Data e botões de apagar e editar
   ''-->
   <div class="flex">
-    <img [routerLink]="['/perfil', postagem.usuario.id]" *ngIf="postagem.usuario.foto != ''" class="foto-usuario clicavel"
+    <img (click)='abrirUsuario(postagem.usuario.id)' [routerLink]="['/perfil', postagem.usuario.id]" *ngIf="postagem.usuario.foto != ''" class="foto-usuario clicavel"
       src={{postagem.usuario.foto}} alt="Foto do usuário">
     <img *ngIf="postagem.usuario.foto == ''" class="foto-usuario"
       src="../../assets/imagem/Sem-foto-perfil.png" alt="Foto do usuário">
     <div class="postagem-info">
-      <h4 [routerLink]="['/perfil', postagem.usuario.id]" class="autor-postagem clicavel">{{postagem.usuario.nome}}</h4>
+      <h4 (click)='abrirUsuario(postagem.usuario.id)' [routerLink]="['/perfil', postagem.usuario.id]" class="autor-postagem clicavel">{{postagem.usuario.nome}}</h4>
       <h6 class="data-postagem">{{postagem.data}}</h6>
     </div>
 
@@ -158,7 +158,7 @@
             <div class="justify-content-center">
               <div class="flex flex-sem-padding" *ngFor='let coment of postagem.comentarios'>
                 <!-- Foto do usuário autor do comentário -->
-                <img [routerLink]="['/perfil', coment.usuario.id]" class="foto-autor-comentario clicavel" src={{coment.usuario.foto}} width="30px" height="30px" alt="foto">
+                <img (click)='abrirUsuario(coment.usuario.id)' [routerLink]="['/perfil', coment.usuario.id]" class="foto-autor-comentario clicavel" src={{coment.usuario.foto}} width="30px" height="30px" alt="foto">
 
                 <!-- Corpo do comentário -->
                 <table class="w-100">
@@ -170,7 +170,7 @@
                         <div class="row">
 
                           <div class="col-6">
-                            <a [routerLink]="['/perfil', coment.usuario.id]">
+                            <a (click)='abrirUsuario(coment.usuario.id)' [routerLink]="['/perfil', coment.usuario.id]">
                               <p class="nome-autor-comentario text-capitalize">{{coment.usuario.nome}}</p>
                             </a>
                           </div>
