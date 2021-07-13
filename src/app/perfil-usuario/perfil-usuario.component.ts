@@ -7,6 +7,7 @@ import { Usuario } from '../model/Usuario';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PerfilService } from '../service/perfil.service';
 import { Comentario } from '../model/Comentario';
+import { AlertaService } from '../service/alerta.service';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -35,7 +36,8 @@ export class PerfilUsuarioComponent implements OnInit {
     private postagemService:PostagemService,
     private comentarioService: ComentarioService,
     private engajamentoService: EngajamentoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alerta: AlertaService
   ) { }
 
   ngOnInit() {
@@ -64,11 +66,10 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   salvar() {
-    // this.usuario.tipoUsuario = this.confirmaSenha
-      this.usuario.postagens = [] 
-       this.perfilService.putUsuario(this.usuario).subscribe((resp: Usuario) => {
+         this.usuario.postagens = []
+         this.perfilService.putUsuario(this.usuario).subscribe((resp: Usuario) => {
          this.usuario = resp
-         alert('Usuário atualizado com sucesso!')
+         this.alerta.showAlertSuccess('Usuário atualizado com sucesso!')
          environment.nome = this.usuario.nome
          environment.foto = this.usuario.foto
          

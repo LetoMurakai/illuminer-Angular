@@ -10,6 +10,13 @@ width: 280px;
 min-width: 200px;
 }
 
+.tam-fotoCapa {
+  max-width: 280px;
+  max-height: 160px;
+  border-radius: 15px 15px 0 0!important;
+  background-repeat: no-repeat;
+}
+
 .card .card-header {
   /*background-image: url(https://source.unsplash.com/random)!important;*/
   padding: 0 !important;
