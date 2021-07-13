@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Usuario } from '../model/Usuario';
 import { AlertaService } from '../service/alerta.service';
@@ -14,15 +15,28 @@ export class CadastroComponent implements OnInit {
   usuario: Usuario = new Usuario
   confirmaSenha: string
   tipoUsuario: string
+  formulario: FormGroup
  
   constructor(
     private authService: AuthService,
     private router:Router,
-    private alerta: AlertaService
+    private alerta: AlertaService,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
     window.scroll(0,0)
+   /* this.formulario = new FormGroup({
+      nome: new FormControl(null),
+      email: new FormControl(null)
+    });*/
+
+    this.formulario = this.formBuilder.group({
+      nome: [null],
+      email: [null],
+      confirmaSenha: [null],
+      foto: [null]
+    });
     
   }
 

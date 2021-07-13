@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 
@@ -30,6 +30,7 @@ import { AlertaComponent } from './alerta/alerta.component';
 import { EquipeCardComponent } from './equipe-card/equipe-card.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AtividadeAlunoComponent } from './atividade-aluno/atividade-aluno.component';
+import { CadastroFormModule } from './cadastro-form/cadastro-form.module';
 
 
 
@@ -39,7 +40,6 @@ import { AtividadeAlunoComponent } from './atividade-aluno/atividade-aluno.compo
     MenuComponent,
     LoginComponent,
     FooterComponent,
-    CadastroComponent,
     EstudarFazBemComponent,
     ContatosComponent,
     SobreComponent,
@@ -67,6 +67,8 @@ import { AtividadeAlunoComponent } from './atividade-aluno/atividade-aluno.compo
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+    CadastroFormModule,
     ModalModule.forRoot()
   ],
   providers: [{
