@@ -45,7 +45,6 @@ export class PerfilUsuarioComponent implements OnInit {
     if(this.usuario.fotoCapa != undefined){
       this.fotoCapa = this.usuario.fotoCapa
     }
-    
 
     let id = this.route.snapshot.params['id']
     this.findByIdUsuario(id)

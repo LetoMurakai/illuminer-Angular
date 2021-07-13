@@ -17,10 +17,16 @@
           
            
 
-        <div class="d-flex justify-content-center user-img">
-            <img  *ngIf="usuario.foto == undefined " class="foto-usuario" src="../../assets/img/userNone.png" alt="Foto padrão de perfil">
-            <img *ngIf="usuario.foto != undefined " class="foto-usuario" src={{usuario.foto}} alt="Foto de perfil do usuário">
+        <div class="d-flex justify-content-center user-img" *ngIf = "usuario.foto == '' ">
+          
+            <img  class="foto-usuario" src="../../assets/img/userNone.png" alt="Foto padrão de perfil">
+            
         </div>
+        <div class="d-flex justify-content-center user-img" *ngIf = "usuario.foto != '' " > 
+          <img  class="foto-usuario" src={{usuario.foto}} alt="Foto de perfil do usuário">
+        </div>
+
+        
   
   
         </div>
