@@ -122,7 +122,7 @@
               <!--curtir-->
               <div id="headingTwo">
                 <h5 class="m-0 text-center">
-                  <a class="btn btn-comentar collapsed" type="button">
+                  <button class="btn btn-comentar collapsed" type="button">
                     <p>
                       <i *ngIf='postagem.isCurtida' class="fas fa-thumbs-up"
                       (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'> Curtir</i>
@@ -130,7 +130,7 @@
                        class="far fa-thumbs-up"
                         (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'> Curtir</i>
                     </p>
-                  </a>
+                  </button>
                 </h5>
               </div>
             </div>
@@ -462,3 +462,7 @@
   </div>
 </div>
 
+<div class="load" [ngStyle]="{'display': displayLoader}">
+  
+  <hr/><hr/><hr/><hr/>
+</div>

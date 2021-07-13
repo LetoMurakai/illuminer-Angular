@@ -30,6 +30,7 @@ export class PostagemComponent implements OnInit {
   displayComentarios = "none"
   displaySpinner = "block"
   displayNavPag = "none"
+  displayLoader = "none"
 
   paginaPostagem: PaginaPostagem = new PaginaPostagem()
   usuario: Usuario = new Usuario()
@@ -114,10 +115,13 @@ export class PostagemComponent implements OnInit {
       this.curtidaService.refreshToken()
       this.curtidaService.postCurtidas(this.curtida).subscribe((resp: Curtida) => {
         this.curtida = resp
+        this.curtida.id.postagem.isCurtida = true
       })
     } else {
       this.curtidaService.refreshToken()
-      this.curtidaService.deleteCurtidas(this.curtida.id).subscribe(() => { })
+      this.curtidaService.deleteCurtidas(this.curtida.id).subscribe(() => { 
+        this.curtida.id.postagem.isCurtida = false
+      })
     }
     this.redirecionar()
   }
@@ -248,6 +252,7 @@ export class PostagemComponent implements OnInit {
   }
 
   comentar(id: number) {
+    this.displayLoader = "none"
     this.usuario.id = this.idUsuarioLogado
     this.comentario.usuario = this.usuario
     this.postagem.id = id
@@ -262,10 +267,14 @@ export class PostagemComponent implements OnInit {
   }
 
   atualizarFeed() {
+    setTimeout(() => {
+      
+   
     this.router.navigate(['/pagina-inicio'])
     setTimeout(() => {
       this.router.navigate(['/feed'])
-    }, 30);
+    }, 1);
+  }, 1000);
   }
 
   definirIdComentario(id: number) {
@@ -281,11 +290,11 @@ export class PostagemComponent implements OnInit {
       this.comentario = resp
       this.alerta.showAlertSuccess('Comentário atualizado com sucesso!')
       this.comentarioService.refreshToken()
-      this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
+      //this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
       this.comentarioService.refreshToken()
-      this.buscarPaginaComentario(0, 5)
+     // this.buscarPaginaComentario(0, 5)
       this.comentario = new Comentario()
-      this.atualizarFeed()
+      this.redirecionar()
     })
   }
 
@@ -293,11 +302,11 @@ export class PostagemComponent implements OnInit {
     this.comentarioService.refreshToken()
     this.comentarioService.deleteComentario(this.comentario.id).subscribe(() => {
       this.alerta.showAlertSuccess('Comentário apagado com sucesso!')
-      this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
+     // this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
       this.comentarioService.refreshToken()
-      this.buscarPaginaComentario(0, 5)
+      //this.buscarPaginaComentario(0, 5)
       this.comentario = new Comentario()
-      this.atualizarFeed()
+      this.redirecionar()
     })
   }
   obterComentarioPorId(id: number) {
@@ -321,6 +330,7 @@ export class PostagemComponent implements OnInit {
       this.buscarPaginaPostagem(this.paginaPostagem.number, 5)
       this.atualizarFeed()
     }
+    this.displayLoader ="block"
   }
 
 }
