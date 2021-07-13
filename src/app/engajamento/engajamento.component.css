@@ -26,3 +26,7 @@ a{
   color: #333;
   cursor: pointer;
 }
+.large{
+  align-self: center;
+  font-size: 3.5rem;
+}
