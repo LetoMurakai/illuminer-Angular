@@ -10,8 +10,16 @@
         style="width: 20.5rem; height: 6rem;">
 
         <div class="col-3 position-absolute top-50 start-0 translate-middle-y">
+          <div *ngIf="usuarioDestaque.foto == '' || usuarioDestaque.foto == null || usuarioDestaque.foto == undefined">
+          <a>
+            <img class="rounded-circle" width="80px" height="80px" src="../../assets/imagem/Sem-Imagem.png"
+            alt="foto usuario destaque">
+          </a>
+        </div>
+        <div *ngIf="usuarioDestaque.foto !=''">
           <a [routerLink]="['/perfil', usuarioDestaque.id]"><img class="rounded-circle" width="80px" height="80px" src="{{usuarioDestaque.foto}}"
             alt="foto usuario destaque"></a>
+          </div>
         </div>
 
         <div class="col-9 d-inline position-absolute top-0 my-3 end-0 ps-4">
@@ -30,12 +38,12 @@
           <a [routerLink]="['/perfil', usuarioDestaque.id]"><img class="rounded-circle" width="80px" height="80px" src="{{usuarioDestaque.foto}}"
             alt="foto usuario destaque"></a>
         </div>-->
-        <div class="col-1 position-absolute top-50 start-0 translate-middle-y my-2">
-          <i class="far fa-comments large cor" style="width: 80px; height: 80px;"></i>
+        <div class="col-3 position-absolute top-50 start-0 translate-middle-y">
+          <i class="far fa-comments large cor" style="width: 80px;height: 80px;display: flex;align-items: center; justify-content: center;"></i>
 
         </div>
 
-        <div class="col-11 d-inline position-absolute top-0 my-1 end-0 ps-5">
+        <div class="col-9 d-inline position-absolute top-0 my-3 end-0 ps-4">
           <h5 class="h6 cor m-0">Publicação mais comentadas</h5>
           <a class="link-usuario" (click)='pegarId(destaqueComentario.id)'><p class="p-0 m-0" aria-describedby="texto">{{destaqueComentario.titulo}}. . .</p></a>
           <p class="p-0 m-0">{{destaqueComentario.qtdComentarios}}<span> Comentarios</span></p>
@@ -51,12 +59,12 @@
         <img class="rounded-circle " width="80px" height="80px" src="{{usuarioDestaque.foto}}"
           alt="foto usuario destaque">
       </div>-->
-      <div class="col-1 position-absolute top-50 start-0 translate-middle-y my-2">
-        <i class="far fa-thumbs-up large cor" style="width: 80px; height: 80px;"></i>
+      <div class="col-3 position-absolute top-50 start-0 translate-middle-y">
+        <i class="far fa-thumbs-up large cor" style="width: 80px;height: 80px;display: flex;align-items: center; justify-content: center;"></i>
 
       </div>
 
-      <div class="col-11 d-inline position-absolute top-0 my-1 ps-5 end-0">
+      <div class="col-9 d-inline position-absolute top-0 my-3 end-0 ps-4">
         <h5 class="h6 cor m-0">A mais curtida</h5>
         <a (click)='pegarId(destaqueCurtida.id)'> <p class="m-0">{{destaqueCurtida.titulo}}. . .</p></a>
         <p>{{destaqueCurtida.qtdCurtidas}} <span> Curtidas</span></p>

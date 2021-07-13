@@ -9,12 +9,12 @@
 
           <div class="card-header">
 
-            <div class="tamanho-fotoCapa" *ngIf="usuario.fotoCapa == '' ">
+            <div class="tamanho-fotoCapa" *ngIf="usuario.fotoCapa == null ">
               <img class="card-header" src="../../assets/imagem/Sem-Imagem.png" alt="Foto banner">
             </div>
 
             
-              <img class="tamanho-fotoCapa" *ngIf="usuario.fotoCapa != '' " src="{{usuario.fotoCapa}}"
+              <img class="tamanho-fotoCapa" *ngIf="usuario.fotoCapa != null " src="{{usuario.fotoCapa}}"
                 alt="Foto banner">
             
 
