@@ -6,24 +6,35 @@
     <div class="col-md-12">
       <div class="card d-flex justify-content-center align-items-center ">
 
+        
   
-        <div class="card-header" [ngStyle]="{'background-image': 'url('+ fotoCapa+')'}">
+        <div class="card-header">
+
+          <div class="tamanho-fotoCapa" *ngIf="usuario.fotoCapa == '' ">
+            <img class="card-header" src="../../assets/imagem/Sem-Imagem.png" alt="Foto banner">
+          </div>
   
-          <a><i class="fas fa-pencil-alt rounded-circle position-absolute end-0 m-4 edit"
+          <div class="tamanho-fotoCapa">
+            <img class="card-header" *ngIf="usuario.fotoCapa != '' " src="{{usuario.fotoCapa}}" alt="Foto banner">
+          </div>
+
+          <!--o meu
+
+          <div *ngIf="usuario.fotoCapa == '' ">
+            <img class="card-header" src="../../assets/imagem/Sem-Imagem.png" alt="Foto banner">
+          </div>
+  
+          <div *ngIf="usuario.fotoCapa != '' ">
+            <img class="card-header" src="{{fotoCapa}}" alt="Foto banner">
+          </div>-->
+  
+          <a *ngIf="usuario.id == id"><i class="fas fa-pencil-alt rounded-circle position-absolute end-0 m-4 edit"
               data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
 
-          
-          
-          
-           
+        <div class="d-flex justify-content-center user-img">
+            <img  *ngIf="usuario.foto == undefined " class="foto-usuario" src="../../assets/imagem/Sem-foto-perfil.png" alt="Foto padrão de perfil">
+            <img *ngIf="usuario.foto != undefined " class="foto-usuario" src={{usuario.foto}} alt="Foto de perfil do usuário">
 
-        <div class="d-flex justify-content-center user-img" *ngIf = "usuario.foto == '' ">
-          
-            <img  class="foto-usuario" src="../../assets/img/userNone.png" alt="Foto padrão de perfil">
-            
-        </div>
-        <div class="d-flex justify-content-center user-img" *ngIf = "usuario.foto != '' " > 
-          <img  class="foto-usuario" src={{usuario.foto}} alt="Foto de perfil do usuário">
         </div>
 
         

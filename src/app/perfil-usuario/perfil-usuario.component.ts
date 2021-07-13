@@ -20,9 +20,10 @@ export class PerfilUsuarioComponent implements OnInit {
   tipo = environment.tipo
   id = environment.id
 
+
+
   confirmaSenha: string
   tipoUsuario: string
-  fotoCapa = "https://source.unsplash.com/random"
   usuario: Usuario = new Usuario()
   comentario: Comentario = new Comentario()
 
@@ -42,9 +43,6 @@ export class PerfilUsuarioComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
 
-    if(this.usuario.fotoCapa != undefined){
-      this.fotoCapa = this.usuario.fotoCapa
-    }
 
     let id = this.route.snapshot.params['id']
     this.findByIdUsuario(id)
@@ -66,19 +64,18 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   salvar() {
-    // this.usuario.tipoUsuario = this.confirmaSenha 
+    // this.usuario.tipoUsuario = this.confirmaSenha
+      this.usuario.postagens = [] 
        this.perfilService.putUsuario(this.usuario).subscribe((resp: Usuario) => {
          this.usuario = resp
          alert('Usuário atualizado com sucesso!')
          environment.nome = this.usuario.nome
          environment.foto = this.usuario.foto
-         environment.fotoCapa = this.usuario.fotoCapa
          
          this.nome = this.usuario.nome
          console.log(resp)
          console.log(this.usuario)
          this.foto = this.usuario.foto
-         this.fotoCapa = this.usuario.fotoCapa
          this.router.navigate(['/pagina-inicio'])
          setTimeout(() => {
            this.router.navigate([`/perfil/${environment.idUsuarioPerfil}`])
