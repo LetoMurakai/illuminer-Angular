@@ -20,7 +20,7 @@ export class AlertaService {
   showAlertDanger(message: string) {
     this.showAlert(message, 'danger')
   }
-  
+
   showAlertSuccess(message: string) {
     this.showAlert(message, 'success')
   }

@@ -7,11 +7,13 @@
   border-radius: 10px;
 }
 a{
-    text-decoration: none;
-    cursor: pointer;
-    color: #333;
+  font-family: 'Baloo 2', cursive;
+  text-decoration: none;
+  cursor: pointer;
+  color: #333;
 }
 .clicavel{
+  font-family: 'Baloo 2', cursive;
   cursor: pointer;
 }
 .btn:focus{
