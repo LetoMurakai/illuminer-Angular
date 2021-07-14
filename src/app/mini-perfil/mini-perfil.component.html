@@ -6,7 +6,7 @@
       <div class="card-header position-relative">
 
         <div class="card-header" *ngIf="usuario.fotoCapa == null || usuario.fotoCapa == ''">
-          <img class="tam-fotoCapa" src="../../assets/imagem/Sem-Imagem.png" alt="Foto banner">
+          <img class="tam-fotoCapa" src="../../assets/imagem/Sem-Imagem.png" alt="">
         </div>
 
        
@@ -18,12 +18,12 @@
 
 
         <div class="user-img clicavel">
-          <img [routerLink]="['/perfil', idUsuarioLogado]" *ngIf="foto != null " src="{{foto}}"
-            alt="Foto padrão de perfil">
+          <img [routerLink]="['/perfil', idUsuarioLogado]" *ngIf="foto != null && foto != '' " src="{{foto}}"
+            alt="">
         </div>
 
         <div *ngIf="foto == null || foto == ''" class="user-img">
-          <img src="../../assets/imagem/Sem-foto-perfil.png" alt="Foto padrão de perfil">
+          <img src="../../assets/imagem/Sem-foto-perfil.png" alt="">
         </div>
 
       </div>

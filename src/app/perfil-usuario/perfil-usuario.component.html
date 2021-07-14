@@ -9,13 +9,13 @@
 
           <div class="card-header">
 
-            <div class="tamanho-fotoCapa" *ngIf="usuario.fotoCapa == null ">
-              <img class="card-header" src="../../assets/imagem/Sem-Imagem.png" alt="Foto banner">
+            <div class="tamanho-fotoCapa" *ngIf="usuario.fotoCapa == null || usuario.fotoCapa == ''">
+              <img class="card-header" src="../../assets/imagem/Sem-Imagem.png" alt="">
             </div>
 
             
-              <img class="tamanho-fotoCapa" *ngIf="usuario.fotoCapa != null " src="{{usuario.fotoCapa}}"
-                alt="Foto banner">
+              <img class="tamanho-fotoCapa" *ngIf="usuario.fotoCapa != null && usuario.fotoCapa != ''" src="{{usuario.fotoCapa}}"
+                alt="">
             
 
             <!--o meu
@@ -33,9 +33,9 @@
                 data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
 
             <div class="d-flex justify-content-center user-img">
-              <img *ngIf="usuario.foto == undefined " class="foto-usuario" src="../../assets/imagem/Sem-foto-perfil.png"
+              <img *ngIf="usuario.foto == null || usuario.foto == ''" class="foto-usuario" src="../../assets/imagem/Sem-foto-perfil.png"
                 alt="Foto padrão de perfil">
-              <img *ngIf="usuario.foto != undefined " class="foto-usuario" src={{usuario.foto}}
+              <img *ngIf="usuario.foto != null && usuario.foto != '' " class="foto-usuario" src={{usuario.foto}}
                 alt="Foto de perfil do usuário">
 
             </div>
