@@ -27,7 +27,6 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
 import { FerramentasComponent } from './ferramentas/ferramentas.component';
 import { NewslettersComponent } from './newsletters/newsletters.component'
 import { AlertaComponent } from './alerta/alerta.component';
-import { EquipeCardComponent } from './equipe-card/equipe-card.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AtividadeAlunoComponent } from './atividade-aluno/atividade-aluno.component';
 
@@ -58,7 +57,6 @@ import { AtividadeAlunoComponent } from './atividade-aluno/atividade-aluno.compo
     FerramentasComponent,
     NewslettersComponent,
     AlertaComponent,
-    EquipeCardComponent,
     AtividadeAlunoComponent
 
 
