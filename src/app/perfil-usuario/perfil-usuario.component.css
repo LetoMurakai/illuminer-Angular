@@ -4,10 +4,11 @@
     border:none;
     border-radius:40px 40px 10px 10px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.100);
+    background-color: #fcfcfc;
 }
 
 .bg-feed{
-  background: #fcfcfc;
+  background: #fffef8;
 }
 
 .usuario {
@@ -20,12 +21,14 @@
 
   .tamanho-fotoCapa {
     width: 100%;
-    height: 300px;
+    height: 450px;
     border-radius: 40px 40px 0 0;
+    background-position-x: center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
-  
+
   .card .card-header {
     /*background-image: url(https://source.unsplash.com/random)!important;*/
     padding: 0 !important;
@@ -33,14 +36,14 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: transparent;
+    background-color: #fcfcfc;
     height:300px;
     width: 100%;
     display: flex;
     justify-content: center;
     border-radius: 40px 40px 0 0;
   }
-  
+
   .edit {
     padding: 11px;
     font-size: 10pt;
@@ -64,24 +67,24 @@
     padding: 19px;
     background-color: rgba(0, 0, 0, 0.450);
   }
-  
+
   .edit-modal {
     color: #fcfcfc;
     margin-right: 0.5rem;
   }
-  
+
   .bg-form{
     background: rgba(255, 255, 255, 0.5);
     box-shadow: 1px 2px 50px rgba(0, 0, 0, 0.05);
     border-radius: 50px;
     border: none;
   }
-  
+
    .btr {
         border-radius: 20px;
-  
+
     }
-  
+
   .card .card-body {
     padding-top: 65px !important;
     background-color: #fcfcfc;
@@ -92,7 +95,7 @@
     height: 280px;
     z-index: 3;
   }
-  
+
   .user-img {
     border: 5px solid #fcfcfc;
     border-radius: 50%;
@@ -102,19 +105,19 @@
     position: absolute;
     bottom: 170px;
   }
-  
+
   .user-img img{
     height: 230px;
     width: 230px;
     border-radius: 50%;
     background-color: #fcfcfc;
   }
-  
+
   .nome-container {
     display: flex;
     justify-content: center;
   }
-  
+
   .nome {
     margin-top: 85px;
     font-size: 40px;
@@ -122,18 +125,18 @@
     color: #222;
     position: relative;
   }
-  
+
   .tipo {
     display: flex;
     justify-content: center;
     font-size: 20px;
     color: #888;
   }
-  
+
   .mt-6{
     margin-top: 1rem;
   }
-  
+
   .modal-content{
     background: none;
     border: none;
@@ -147,4 +150,3 @@
     border: none;
   }
 
- 
