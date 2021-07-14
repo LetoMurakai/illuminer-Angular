@@ -68,7 +68,7 @@
     position: relative;
     display: inline-block;
     color: #111;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 10px;
     background: #fff;
     margin-top: 10px;
@@ -92,7 +92,7 @@
         height: 350px;
     }
     .card .content{
-        text-align: justify;
+        text-align:justify;
         width: 92%;
         left: 0%;
         padding: 20px 0px 20px 80px;
