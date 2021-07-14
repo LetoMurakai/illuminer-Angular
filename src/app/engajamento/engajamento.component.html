@@ -43,9 +43,9 @@
 
         </div>
 
-        <div class="col-9 d-inline position-absolute top-0 my-3 end-0 ps-4">
+        <div class="col-9 d-inline position-absolute top-0 end-0 ps-4">
           <h5 class="h6 cor m-0">Publicação mais comentadas</h5>
-          <a class="link-usuario" (click)='pegarId(destaqueComentario.id)'><p class="p-0 m-0" aria-describedby="texto">{{destaqueComentario.titulo}}. . .</p></a>
+          <a class="link-usuario" (click)='pegarId(destaqueComentario.id)'><p class="p-0 m-0  text-break" aria-describedby="texto">{{destaqueComentario.titulo}}. . .</p></a>
           <p class="p-0 m-0">{{destaqueComentario.qtdComentarios}}<span> Comentarios</span></p>
         </div>
 
@@ -64,9 +64,9 @@
 
       </div>
 
-      <div class="col-9 d-inline position-absolute top-0 my-3 end-0 ps-4">
+      <div class="col-9 d-inline position-absolute top-0 end-0 ps-4">
         <h5 class="h6 cor m-0">A mais curtida</h5>
-        <a (click)='pegarId(destaqueCurtida.id)'> <p class="m-0">{{destaqueCurtida.titulo}}. . .</p></a>
+        <a (click)='pegarId(destaqueCurtida.id)'> <p class="m-0 text-break">{{destaqueCurtida.titulo}}. . .</p></a>
         <p>{{destaqueCurtida.qtdCurtidas}} <span> Curtidas</span></p>
       </div>
 
