@@ -17,39 +17,67 @@
                 </div>
                 <h3 class="text-center text-white m-0">CADASTRO</h3>
 
-                <div class="form-group" [formGroup]="formulario">
-                  <label for="nome" class="text-white px-3">USUARIO</label>
-                  <input  class="form-control bg-form" type="text" formControlName="nome" id="nome"
-                    placeholder="Nome">
+                <div class="d-flex" novalidate>
+
+                  <div class="form-group w-50 pe-1">
+                    <label for="nome" class="text-white px-3">NOME</label>
+                    <input [(ngModel)]='usuario.nome' class="form-control bg-form" type="text" name="nome" id="nome"
+                      placeholder="Nome" required (keyup)='validaNome($event)'>
+                      <div class="invalid-feedback">
+                        informe um nome que tenha mais que 3 caracteres
+                      </div>
+                  </div>
+
+                  <div class="form-group w-50 ps-1">
+                    <label for="usuario"></label>
+                    <label for="nome" class="text-white px-3">USUARIO</label>
+                    <input [(ngModel)]='usuario.email' class="form-control bg-form" type="text" name="usuario"
+                      id="usuario" placeholder="usuario@exemplo.com" required (keyup)="validaEmail($event)">
+
+                      <div class="invalid-feedback">
+                        informe um e-mail neste formato:"ana@gmail.com"
+                      </div>
+                  </div>
+
                 </div>
 
-                <div class="form-group px-3" [formGroup]="formulario">
-                  <label for="usuario"></label>
-                  <input  class="form-control bg-form" type="text" formControlName="usuario"
-                    id="usuario" placeholder="usuario@exemplo.com">
-                </div>
 
-                <div class="form-group px-3" [formGroup]="formulario">
-                  <label for="foto"></label>
-                  <input  class="form-control bg-form" type="foto" formControlName="foto" id="foto"
-                    placeholder="Link da foto">
+                <div class="form-group">
+                  <label for="foto" class="text-white px-3">FOTO PERFIL</label>
+                  <input [(ngModel)]='usuario.foto' class="form-control bg-form" type="foto" name="foto" id="foto"
+                    placeholder="Link da foto" required (keyup)="validaFoto($event)">
+
+                    <div class="invalid-feedback">
+                      informe um link com "https"
+                    </div>
                 </div>
 
                 <div class="form-group py-2">
                   <label for="senha" class="text-white px-3">SENHA</label>
-                  <input (input)='confirmarSenha($event)' class="form-control bg-form" type="password" name="senha"
+                  <input (input)='confirmSenha($event)' class="form-control bg-form" type="password" name="senha"
                     id="senha" placeholder="Senha">
                 </div>
 
-                <div class="form-group px-3" [formGroup]="formulario">
-                  <label for="confirmarSenha"></label>
-                  <input  class="form-control bg-form" type="password" formControlName="confirmarSenha"
-                    id="confirmarSenha" placeholder="Confirmar Senha">
+                <div class="form-group">
+                  <label for="confirmarSenha" class="text-white px-3">CONFIRMAR SENHA</label>
+                  <input [(ngModel)]='usuario.senha' class="form-control bg-form" type="password" name="confirmarSenha"
+                    id="confirmarSenha" placeholder="Confirmar Senha" required (keyup)="validarSenha($event)">
+                    <div class="invalid-feedback">
+                      as senhas não são iguais
+
+                    </div>
+
+                   
                 </div>
 
                 <div class="form-group py-2">
                   <label for="tipo" class="text-white px-3">TIPO DE USUARIO</label>
-                  <select class="form-control bg-form" name="tipo" id="tipo" (change)='tipoUser($event)'>
+                  <select class="form-control bg-form" name="tipo" id="tipo" (change)='tipoUser($event)' required (change)="validarTipoUsario($event)">
+
+                    <div class="invalid-feedback">
+                      selecione um tipo de usário
+                    </div>
+
                     <option>Selecione um tipo de usuario:</option>
                     <option value="aluno">Aluno</option>
                     <option value="professor">Professor</option>
@@ -59,7 +87,7 @@
                 <div class="mt-4 d-flex justify-content-center">
                   <button routerLink="/login" type="submit"
                     class="btn btn-outline-light rounded-pill me-4">Cancelar</button>
-                  <button type="submit" class="btn btn-login rounded-pill ms-4" (ngSubmit)='cadastrar()'>Cadastrar</button>
+                  <button type="submit" class="btn btn-login rounded-pill ms-4" (click)='cadastrar()'>Cadastrar</button>
                 </div>
 
               </div>

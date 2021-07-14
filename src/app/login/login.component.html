@@ -19,13 +19,21 @@
               <form class="py-2 px-3">
                 <div>
                   <label for="usuario" class="text-white px-3">USUARIO</label>
-                  <input [(ngModel)]='usuarioLogin.email' name="email" type="email" class="form-control bg-form"
-                    id="usuario" placeholder="usuario@exemplo.com">
+                  <input  [(ngModel)]='usuarioLogin.email' name="email" type="email" class="form-control bg-form"
+                    id="usuario" placeholder="usuario@exemplo.com" required (keyup)="validaEmail($event)">
+                    <div class="invalid-feedback">
+                      informe um e-mail neste formato:"ana@gmail.com"
+                    </div>
                 </div>
                 <div class="py-2">
                   <label for="senha" class="text-white px-3">SENHA</label>
                   <input [(ngModel)]='usuarioLogin.senha' name="senha" type="password" class="form-control bg-form"
-                    id="senha" placeholder="Senha">
+                    id="senha" placeholder="Senha"  required (keyup)="validaSenha($event)">
+                    <div class="invalid-feedback">
+                      senha incorreta
+                    </div>
+
+
                 </div>
 
               </form>

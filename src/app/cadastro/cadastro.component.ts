@@ -13,45 +13,45 @@ import { AuthService } from '../service/auth.service';
 export class CadastroComponent implements OnInit {
 
   usuario: Usuario = new Usuario
-  confirmaSenha: string
+  confirmaSenha: string 
   tipoUsuario: string
-  formulario: FormGroup
+  nomeValido: boolean = false
+  emailValido: boolean =false
+  fotoValida: boolean = false
+  validarUsuario : boolean = false
+  senhaValida: boolean =false
+  
+  
+
  
   constructor(
     private authService: AuthService,
     private router:Router,
     private alerta: AlertaService,
-    private formBuilder: FormBuilder
+   
   ) { }
 
   ngOnInit() {
     window.scroll(0,0)
-   /* this.formulario = new FormGroup({
-      nome: new FormControl(null),
-      email: new FormControl(null)
-    });*/
-
-    this.formulario = this.formBuilder.group({
-      nome: [null],
-      email: [null],
-      confirmaSenha: [null],
-      foto: [null]
-    });
+   
     
-  }
-
-  confirmarSenha(event: any) {
-    this.confirmaSenha = event.target.value
-
   }
 
   tipoUser(event: any) {
     this.tipoUsuario = event.target.value
   }
+  
+
+  
+  confirmSenha(event: any) {
+    this.confirmaSenha = event.target.value
+  }
 
   cadastrar() {
    // this.usuario.tipoUsuario = this.confirmaSenha
-   console.log(this.usuario.email)
+   console.log(JSON.stringify(this.usuario))
+
+   console.log(this.confirmaSenha)
 
    this.usuario.tipo = this.tipoUsuario
 
@@ -68,5 +68,42 @@ export class CadastroComponent implements OnInit {
     }
 
   }
+
+  validaNome(event: any) {
+    this.nomeValido = this.validacao(event.target.value.length < 3, event);
+  }
+
+  validaEmail(event: any) {
+    this.emailValido = this.validacao(event.target.value.indexOf('@') == -1 || event.target.value.indexOf('.com') == -1, event);
+
+  }
+  validaFoto(event: any){
+    this.fotoValida = this.validacao(event.target.value.indexOf('https://') == -1, event)
+  }
+
+  
+  validarTipoUsario ( event: any){
+    this.validarUsuario = this.validacao(event.target.value.indexOf('Selecione um tipo de usuario:') == 0, event)
+
+  }
+
+  validarSenha (event: any){
+    this.senhaValida =  this.validacao(event.target.value != this.confirmaSenha, event)
+  }
+
+  validacao(condicao: boolean, event: any) {
+    let valid = false;
+    if (condicao) {
+      event.target.classList.remove('is-valid');
+      event.target.classList.add('is-invalid');
+    } else {
+      event.target.classList.remove('is-invalid');
+      event.target.classList.add('is-valid');
+      valid = true;
+    }
+    return valid;
+  }
+
+
 
 }

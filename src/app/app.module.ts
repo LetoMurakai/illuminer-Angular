@@ -30,7 +30,7 @@ import { AlertaComponent } from './alerta/alerta.component';
 import { EquipeCardComponent } from './equipe-card/equipe-card.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AtividadeAlunoComponent } from './atividade-aluno/atividade-aluno.component';
-import { CadastroFormModule } from './cadastro-form/cadastro-form.module';
+
 
 
 
@@ -39,6 +39,7 @@ import { CadastroFormModule } from './cadastro-form/cadastro-form.module';
     AppComponent,
     MenuComponent,
     LoginComponent,
+    CadastroComponent,
     FooterComponent,
     EstudarFazBemComponent,
     ContatosComponent,
@@ -67,8 +68,6 @@ import { CadastroFormModule } from './cadastro-form/cadastro-form.module';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    CadastroFormModule,
     ModalModule.forRoot()
   ],
   providers: [{
