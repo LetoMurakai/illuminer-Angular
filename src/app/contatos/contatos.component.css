@@ -4,26 +4,26 @@
     box-sizing: border-box;
 }
 .corFundo{
-    background: linear-gradient(135deg, #65C1E5,#afe6fb,#e6f8ff, rgb(255, 253, 133));
-    box-shadow: 0 2px 25px 20px rgba(0, 0, 0, 0.150);
+  background: linear-gradient(121.45deg, #acdef1 40.08%, #FFFFFF 46.78%, #f8f1cd 51.37%, #fae56c 70.37%);
+  box-shadow: 0 2px 25px 20px rgba(0, 0, 0, 0.150);
 }
 .container{
     margin-left: auto;
     margin-right: auto;
 }
-
-
 .card{
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.493);
     position: relative;
-    width: 450px;
-    height: 300px;
+    width: 390px;
+    height: 265px;
     margin: 20px ;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #2f77b3,#52ebde,rgb(236, 230, 139));
+    border: none;
+    border-radius: 15px 15px 5px 5px;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 .card img{
     position: absolute;
@@ -32,11 +32,20 @@
     transform: translateX(-50%);
     height: 300px;
     transition: 0.5s;
+    border-radius: 20%;
+    filter: grayscale(100%);
 }
 .card:hover img{
-    left: 90%;
-    height: 350px;
-
+  left: 90%;
+  height: 320px;
+  border-radius: 100%;
+  box-shadow: 1px 2px rgba(17, 17, 17, 0.200);
+  filter: none;
+   /* backdrop-filter*/
+   background: rgba(255, 255, 255, 0.2);
+   box-shadow: 1px 2px rgba(17, 17, 17, 0.200);
+   backdrop-filter: blur(5px);
+   /* Note: backdrop-filter has minimal browser support */
 }
 .card .content{
     position: relative;
@@ -60,39 +69,56 @@
     font-size: 2em;
     line-height: 1em;
     cursor: default;
-
 }
 .card .content p{
-    text-align: justify;
-    color: #fff;
-
+    color: #ffffff;
 }
 .fa-linkedin{
-    color: rgb(0, 0, 0);
+    color: #ffffff;
 }
 .fa-github{
-    color: #000000;
+    color: #ffffff;
 }
 .fa-linkedin:hover{
-    color: #aaaaaa;
+    color: #5f77ff;
 }
 .fa-github:hover{
-    color: #aaaaaa;
+    color: #292929;
 }
 .card .content a{
     position: relative;
     display: inline-block;
-    color: #111;
+    color: rgb(255, 255, 255);
     padding: 5px 10px;
     border-radius: 10px;
     background: rgba(255, 86, 86, 0);
     margin-top: 10px;
     text-decoration: none;
-
-
 }
 .fs-3{
     font-size: 13px;
+}
+.shadow-text{
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.150);
+}
+/**************************Cores Card*************/
+.card.card-esmeralda{
+  background-image: url(../../assets/card/esmeralda.png);
+}
+.card.card-vermelho{
+  background-image: url(../../assets/card/vermelho.png);
+}
+.card.azul-marinho{
+  background-image: url(../../assets/card/azul-marinho.png);
+}
+.card.rosa-verde-amarelo{
+  background-image: url(../../assets/card/rosa-verde-amarelo.png);
+}
+.card.preto{
+  background-image: url(../../assets/card/preto.png);
+}
+.card.roxo-vermelho-azul{
+  background-image: url(../../assets/card/roxo-vermelho-azul.png);
 }
 
 @media(max-width: 1200px){
@@ -103,8 +129,8 @@
         transition: 0.5s;
     }
     .card:hover{
-        height: 600px;
-
+        height: 450px;
+        background-size: cover;
     }
     .card:hover img{
         left: 50%;
@@ -114,7 +140,7 @@
         text-align:justify;
         width: 100%;
         left: -20%;
-        padding: 20px 0px 20px 80px;
+        padding: 10px 10px 10px 120px;
         cursor: default;
     }
 }
