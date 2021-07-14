@@ -12,7 +12,7 @@
         <div class="col-3 position-absolute top-50 start-0 translate-middle-y">
           <div *ngIf="usuarioDestaque.foto == '' || usuarioDestaque.foto == null || usuarioDestaque.foto == undefined">
           <a>
-            <img class="rounded-circle" width="80px" height="80px" src="../../assets/imagem/Sem-Imagem.png"
+            <img class="rounded-circle" width="80px" height="80px" src="../../assets/imagem/Sem-foto-perfil.png"
             alt="foto usuario destaque">
           </a>
         </div>
@@ -23,7 +23,7 @@
         </div>
 
         <div class="col-9 d-inline position-absolute top-0 my-3 end-0 ps-4">
-          <h5 class="h6 cor m-0">Professor mais engajado</h5>
+          <h5 class="h6 cor m-0">Professore mais engajade</h5>
           <p class="m-0 p-0"><a class="link-usuario" (click)='prepararAbrirPerfil()' [routerLink]="['/perfil', usuarioDestaque.id]"> {{usuarioDestaque.nome}}</a></p>
           <p>{{usuarioDestaque.qtdPostagens}}<span> Publicações</span></p>
         </div>
@@ -43,9 +43,9 @@
 
         </div>
 
-        <div class="col-9 d-inline position-absolute top-0 my-3 end-0 ps-4">
-          <h5 class="h6 cor m-0">Publicação mais comentadas</h5>
-          <a class="link-usuario" (click)='pegarId(destaqueComentario.id)'><p class="p-0 m-0" aria-describedby="texto">{{destaqueComentario.titulo}}. . .</p></a>
+        <div class="col-9 d-inline position-absolute top-0 end-0 ps-4">
+          <h5 class="h6 cor m-0">Publicação mais comentada</h5>
+          <a class="link-usuario" (click)='pegarId(destaqueComentario.id)'><p class="p-0 m-0  text-break" aria-describedby="texto">{{destaqueComentario.titulo}}. . .</p></a>
           <p class="p-0 m-0">{{destaqueComentario.qtdComentarios}}<span> Comentarios</span></p>
         </div>
 
@@ -64,9 +64,9 @@
 
       </div>
 
-      <div class="col-9 d-inline position-absolute top-0 my-3 end-0 ps-4">
+      <div class="col-9 d-inline position-absolute top-0 end-0 ps-4">
         <h5 class="h6 cor m-0">A mais curtida</h5>
-        <a (click)='pegarId(destaqueCurtida.id)'> <p class="m-0">{{destaqueCurtida.titulo}}. . .</p></a>
+        <a (click)='pegarId(destaqueCurtida.id)'> <p class="m-0 text-break">{{destaqueCurtida.titulo}}. . .</p></a>
         <p>{{destaqueCurtida.qtdCurtidas}} <span> Curtidas</span></p>
       </div>
 

@@ -13,6 +13,8 @@ import { AuthService } from '../service/auth.service';
 export class LoginComponent implements OnInit {
 
   usuarioLogin: UsuarioLogin = new UsuarioLogin
+  emailValido: boolean =false
+  senhaValido: boolean = false
 
   constructor(
     private auth: AuthService,
@@ -41,5 +43,28 @@ export class LoginComponent implements OnInit {
       }
     })
     
+  }
+
+  validaEmail(event: any) {
+    this.emailValido = this.validacao(event.target.value.indexOf('@') == -1 || event.target.value.indexOf('.com') == -1, event);
+
+  }
+
+  validaSenha(event: any) {
+    this.senhaValido = this.validacao( event.target.value.indexOf('SENHA') == this.usuarioLogin, event);
+
+  }
+
+  validacao(condicao: boolean, event: any) {
+    let valid = false;
+    if (condicao) {
+      event.target.classList.remove('is-valid');
+      event.target.classList.add('is-invalid');
+    } else {
+      event.target.classList.remove('is-invalid');
+      event.target.classList.add('is-valid');
+      valid = true;
+    }
+    return valid;
   }
 }
