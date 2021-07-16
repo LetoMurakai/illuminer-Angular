@@ -73,4 +73,9 @@ export class MiniPerfilComponent implements OnInit {
     })
   }
 
+  abrirUsuario(){
+    environment.textoPesquisaPostagem = ''
+    environment.idDestaqueComentario = 0
+    this.router.navigate([`/perfil/${this.idUsuarioLogado}`])
+  }
 }

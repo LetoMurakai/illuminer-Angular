@@ -63,6 +63,7 @@ export class AtividadeAlunoComponent implements OnInit {
 
   abrirPublicacao(idPerfil:number){
     environment.idDestaqueComentario = idPerfil
+    environment.idUsuarioPerfil = 0
     this.router.navigate(['/pagina-inicio'])
         setTimeout(() => {
           this.router.navigate([`/feed`])

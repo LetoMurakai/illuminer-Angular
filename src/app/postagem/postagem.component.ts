@@ -354,6 +354,8 @@ export class PostagemComponent implements OnInit {
 
   abrirUsuario(idUsuario:number){
     environment.idUsuarioPerfil = idUsuario
+    environment.textoPesquisaPostagem = ''
+    environment.idDestaqueComentario = 0
     this.router.navigate(['/feed'])
         setTimeout(() => {
           this.router.navigate([`/perfil/${idUsuario}`])
