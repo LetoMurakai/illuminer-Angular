@@ -324,6 +324,7 @@ export class PostagemComponent implements OnInit {
 
 
   redirecionar() {
+    environment.posicaoScroll = window.scrollY
     if (environment.idUsuarioPerfil != 0) {
       this.buscarPaginaPostagemProfessor(environment.idUsuarioPerfil, this.paginaPostagem.number, 5)
 
