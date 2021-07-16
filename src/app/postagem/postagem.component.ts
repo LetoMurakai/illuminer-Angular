@@ -42,6 +42,7 @@ export class PostagemComponent implements OnInit {
   comentario: Comentario = new Comentario()
   listaComentarios: Comentario[]
   curtida: Curtida = new Curtida()
+  curtidas: Curtida[]
 
 
   displayDivTituloPesquisa: string
@@ -82,7 +83,6 @@ export class PostagemComponent implements OnInit {
       this.postagemService.refreshToken()
       this.buscarPaginaPostagem(0, 5)
     }
-    
   }
 
   buscarPaginaPostagem(pagina: number, size: number) {
@@ -233,6 +233,12 @@ export class PostagemComponent implements OnInit {
     })
   }
 
+  getCurtidasPostagem(idPostagem: number) {
+    this.postagemService.refreshToken()
+    this.postagemService.getCurtidasPostagem(idPostagem).subscribe((resp: Curtida[]) => {
+      this.curtidas = resp
+    })
+  }
 
   /* ========================================================================== */
   /* ===============================COMENTARIOS================================ */

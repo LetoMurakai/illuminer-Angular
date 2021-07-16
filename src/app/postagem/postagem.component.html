@@ -3,7 +3,7 @@
 </section>
 
 <div class="d-flex justify-content-center mt-5">
-  <div  [ngStyle]="{'display': displaySpinner}" class="spinner-border" role="status">
+  <div [ngStyle]="{'display': displaySpinner}" class="spinner-border" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>
@@ -11,23 +11,17 @@
 <nav aria-label="..." class="d-flex justify-content-center mt-5">
   <ul [ngStyle]="{'display': displayNavPag}" class="pagination">
     <li class="page-item" [ngClass]="(paginaPostagem.first) ? 'disabled' : ''">
-      <a *ngIf="idUsuarioPerfil != 0" class="page-link"
-        (click)='buscarPaginaPostagemProfessor(idUsuarioPerfil, paginaPostagem.number - 1, 5)'>Anterior</a>
-      <a *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link"
-        (click)='buscarPaginaPostagem(paginaPostagem.number - 1, 5)'>Anterior</a>
-      <a *ngIf="textoPesquisaPostagem != ''" class="page-link"
-        (click)='pesquisar(paginaPostagem.number - 1)'>Anterior</a>
+      <a *ngIf="idUsuarioPerfil != 0" class="page-link" (click)='buscarPaginaPostagemProfessor(idUsuarioPerfil, paginaPostagem.number - 1, 5)'>Anterior</a>
+      <a *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link" (click)='buscarPaginaPostagem(paginaPostagem.number - 1, 5)'>Anterior</a>
+      <a *ngIf="textoPesquisaPostagem != ''" class="page-link" (click)='pesquisar(paginaPostagem.number - 1)'>Anterior</a>
     </li>
     <li class="page-item active" aria-current="page">
       <span class="page-link">{{paginaPostagem.number + 1}}</span>
     </li>
     <li class="page-item" [ngClass]="(paginaPostagem.last) ? 'disabled' : ''">
-      <a *ngIf="idUsuarioPerfil != 0" class="page-link"
-        (click)='buscarPaginaPostagemProfessor(idUsuarioPerfil, paginaPostagem.number + 1, 5)'>Próxima</a>
-      <a *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link"
-        (click)='buscarPaginaPostagem(paginaPostagem.number + 1, 5)'>Próxima</a>
-      <a *ngIf="textoPesquisaPostagem != ''" class="page-link"
-        (click)='pesquisar(paginaPostagem.number + 1)'>Próxima</a>
+      <a *ngIf="idUsuarioPerfil != 0" class="page-link" (click)='buscarPaginaPostagemProfessor(idUsuarioPerfil, paginaPostagem.number + 1, 5)'>Próxima</a>
+      <a *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link" (click)='buscarPaginaPostagem(paginaPostagem.number + 1, 5)'>Próxima</a>
+      <a *ngIf="textoPesquisaPostagem != ''" class="page-link" (click)='pesquisar(paginaPostagem.number + 1)'>Próxima</a>
     </li>
   </ul>
 </nav>
@@ -51,11 +45,9 @@
   ''-->
   <div class="flex">
 
-    <img (click)='abrirUsuario(postagem.usuario.id)' [routerLink]="['/perfil', postagem.usuario.id]" *ngIf="postagem.usuario.foto != null && postagem.usuario.foto != ''" class="foto-usuario clicavel"
-      src={{postagem.usuario.foto}} alt="Foto do usuário">
+    <img (click)='abrirUsuario(postagem.usuario.id)' [routerLink]="['/perfil', postagem.usuario.id]" *ngIf="postagem.usuario.foto != null && postagem.usuario.foto != ''" class="foto-usuario clicavel" src={{postagem.usuario.foto}} alt="Foto do usuário">
 
-    <img *ngIf="postagem.usuario.foto == null || postagem.usuario.foto == ''" class="foto-usuario"
-      src="../../assets/imagem/Sem-foto-perfil.png" alt="Foto do usuário">
+    <img *ngIf="postagem.usuario.foto == null || postagem.usuario.foto == ''" class="foto-usuario" src="../../assets/imagem/Sem-foto-perfil.png" alt="Foto do usuário">
 
     <div class="postagem-info">
       <h4 (click)='abrirUsuario(postagem.usuario.id)' [routerLink]="['/perfil', postagem.usuario.id]" class="autor-postagem clicavel">{{postagem.usuario.nome}}</h4>
@@ -79,9 +71,7 @@
   <div class="bg-texto-postagem">
     <p class="texto-postagem-comentario text-break">{{postagem.texto}}</p>
     <div *ngIf="postagem.midia != '' && postagem.tipoMidia == 'video'">
-      <iframe class="midia-postagem" [src]="postagem.midia" title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+      <iframe class="midia-postagem" [src]="postagem.midia" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div *ngIf="postagem.midia != '' && postagem.tipoMidia == 'imagem'" class="midia-postagem">
       <img src="{{postagem.midia}}">
@@ -109,11 +99,13 @@
               <!--Comentar-->
               <div id="headingTwo">
                 <h5 class="m-0 text-center">
-                  <a class="btn btn-comentar collapsed" type="button" data-bs-toggle="collapse"
-                    [attr.data-bs-target]="'#' + 'comentButton' + postagem.id" aria-expanded="false"
-                    aria-controls="collapseTwo">
+                  <a class="btn btn-comentar collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#' + 'comentButton' + postagem.id" aria-expanded="false" aria-controls="collapseTwo">
                     <p>
-                      <i class="far fa-comment-dots"> Comentários</i>
+                      <i *ngIf="postagem.comentarios.length == 0" class="far fa-comment-dots"> Comentários</i>
+                      <i *ngIf="postagem.comentarios.length == 1" class="far fa-comment-dots">
+                        {{postagem.comentarios.length}} Comentário</i>
+                      <i *ngIf="postagem.comentarios.length > 1" class="far fa-comment-dots">
+                        {{postagem.comentarios.length}} Comentários</i>
                     </p>
                   </a>
                 </h5>
@@ -127,13 +119,14 @@
                 <h5 class="m-0 text-center">
                   <button class="btn btn-comentar collapsed" type="button">
                     <p>
-                      <i *ngIf='postagem.isCurtida' class="fas fa-thumbs-up"
-                      (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'> Curtir</i>
-                      <i *ngIf='postagem.isCurtida == false || postagem.isCurtida == undefined'
-                       class="far fa-thumbs-up"
-                        (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'> Curtir</i>
+                      <i *ngIf='postagem.isCurtida' class="fas fa-thumbs-up" (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'> Curtir</i>
+                      <i *ngIf='postagem.isCurtida == false || postagem.isCurtida == undefined' class="far fa-thumbs-up" (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'> Curtir</i>
                     </p>
                   </button>
+                  <a *ngIf="postagem.curtidas.length == 1" href="" data-bs-toggle="modal" data-bs-target="#curtidasModal" (click)=" getCurtidasPostagem(postagem.id)">
+                    {{postagem.curtidas.length}} Curtida</a>
+                  <a *ngIf="postagem.curtidas.length > 1" href="" data-bs-toggle="modal" data-bs-target="#curtidasModal" (click)=" getCurtidasPostagem(postagem.id)">
+                    {{postagem.curtidas.length}} Curtidas</a>
                 </h5>
               </div>
             </div>
@@ -141,19 +134,17 @@
 
 
           <!--Corpo de comentarios-->
-          <div [attr.id]="'comentButton' + postagem.id" class="collapse" aria-labelledby="headingTwo"
-            [attr.data-parent]="'#' + 'coment' + postagem.id">
+          <div [attr.id]="'comentButton' + postagem.id" class="collapse" aria-labelledby="headingTwo" [attr.data-parent]="'#' + 'coment' + postagem.id">
 
             <!--Escrever comentario-->
             <div class="row">
               <div class="fazer-comentario d-flex justify-content-center">
 
-                <img class="col-2 foto-autor-comentario bg-white" *ngIf="foto != null && foto !=''"src="{{foto}}" alt="">
+                <img class="col-2 foto-autor-comentario bg-white" *ngIf="foto != null && foto !=''" src="{{foto}}" alt="">
 
-                <img class="col-2 foto-autor-comentario bg-white" *ngIf="foto == null || foto == ''"src="../../assets/imagem/Sem-foto-perfil.png" alt="">
+                <img class="col-2 foto-autor-comentario bg-white" *ngIf="foto == null || foto == ''" src="../../assets/imagem/Sem-foto-perfil.png" alt="">
                 <div class="col-10">
-                  <input type="text" class="input-comentario w-75" id="titulo" aria-describedby="emailHelp"
-                    placeholder="Digite aqui seu comentário..." [(ngModel)]='comentario.texto'>
+                  <input type="text" class="input-comentario w-75" id="titulo" aria-describedby="emailHelp" placeholder="Digite aqui seu comentário..." [(ngModel)]='comentario.texto'>
 
                   <button class="btn-comentario w-25" (click)='comentar(postagem.id)'>Comentar</button>
                 </div>
@@ -165,16 +156,16 @@
               <div class="flex flex-sem-padding" *ngFor='let coment of postagem.comentarios'>
                 <!-- Foto do usuário autor do comentário -->
 
-                <img *ngIf="coment.usuario.foto != null && coment.usuario.foto != ''"(click)='abrirUsuario(coment.usuario.id)' [routerLink]="['/perfil', coment.usuario.id]" class="foto-autor-comentario clicavel" src={{coment.usuario.foto}} width="30px" height="30px" alt="foto">
+                <img *ngIf="coment.usuario.foto != null && coment.usuario.foto != ''" (click)='abrirUsuario(coment.usuario.id)' [routerLink]="['/perfil', coment.usuario.id]" class="foto-autor-comentario clicavel" src={{coment.usuario.foto}} width="30px" height="30px" alt="foto">
 
-                <img *ngIf="coment.usuario.foto == null || coment.usuario.foto == ''"(click)='abrirUsuario(coment.usuario.id)' [routerLink]="['/perfil', coment.usuario.id]" class="foto-autor-comentario clicavel" src="../../assets/imagem/Sem-foto-perfil.png" width="30px" height="30px" alt="foto">
+                <img *ngIf="coment.usuario.foto == null || coment.usuario.foto == ''" (click)='abrirUsuario(coment.usuario.id)' [routerLink]="['/perfil', coment.usuario.id]" class="foto-autor-comentario clicavel" src="../../assets/imagem/Sem-foto-perfil.png" width="30px" height="30px" alt="foto">
 
                 <!-- Corpo do comentário -->
                 <table class="w-100">
                   <tbody>
                     <tr class="bg-comentario flex-column">
 
-                      <td class="align-start">
+                      <td class="align-start height-td">
                         <!-- Usuario -->
                         <div class="row">
 
@@ -188,8 +179,7 @@
                           <div class="col-6 align-end h-100" style="justify-content: flex-end;display: flex;">
                             <div *ngIf='coment.usuario.id == idUsuarioLogado'>
                               <div>
-                                <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal"
-                                  data-bs-target="#editarComentarioModal">
+                                <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal" data-bs-target="#editarComentarioModal">
                                   <i class="fas fa-edit btn-reponsivo"></i>
                                 </a>
                               </div>
@@ -197,8 +187,7 @@
 
                             <div *ngIf='coment.usuario.id == idUsuarioLogado || postagem.usuario.id == idUsuarioLogado'>
                               <div>
-                                <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal"
-                                  data-bs-target="#deletarComentarioModal">
+                                <a (click)="definirIdComentario(coment.id)" data-bs-toggle="modal" data-bs-target="#deletarComentarioModal">
                                   <i class="fas fa-trash-alt btn-reponsivo"></i>
                                 </a>
                               </div>
@@ -291,7 +280,7 @@
 
 
 <!-- Modal Curtidas -->
-<!-- <div class="modal fade" id="curtidasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="curtidasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -300,41 +289,18 @@
       </div>
       <div class="modal-body">
         <ul class="flex-sem-padding">
-          <li class="flex flex-sem-padding">
-            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
-            <p class="nome-autor-curtida">Nome do usuário</p>
-          </li>
-          <li class="flex flex-sem-padding">
-            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
-            <p class="nome-autor-curtida">Nome do usuário</p>
-          </li>
-          <li class="flex flex-sem-padding">
-            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
-            <p class="nome-autor-curtida">Nome do usuário</p>
-          </li>
-          <li class="flex flex-sem-padding">
-            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
-            <p class="nome-autor-curtida">Nome do usuário</p>
-          </li>
-          <li class="flex flex-sem-padding">
-            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
-            <p class="nome-autor-curtida">Nome do usuário</p>
-          </li>
-          <li class="flex flex-sem-padding">
-            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
-            <p class="nome-autor-curtida">Nome do usuário</p>
-          </li>
-          <li class="flex flex-sem-padding">
-            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
-            <p class="nome-autor-curtida">Nome do usuário</p>
-          </li>
-          <li class="flex flex-sem-padding">
-            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
-            <p class="nome-autor-curtida">Nome do usuário</p>
-          </li>
-          <li class="flex flex-sem-padding">
-            <img class="foto-autor-curtida" src="https://blog.unyleya.edu.br/wp-content/uploads/2017/12/saiba-como-a-educacao-ajuda-voce-a-ser-uma-pessoa-melhor.jpeg" alt="Foto autor do comentário">
-            <p class="nome-autor-curtida">Nome do usuário</p>
+          <li class="flex flex-sem-padding" *ngFor='let curtida of curtidas'>
+            <a href="" data-bs-dismiss="modal" (click)='abrirUsuario(curtida.id.usuario.id)'
+            [routerLink]="['/perfil', curtida.id.usuario.id]">
+              <img class="foto-autor-curtida" src="{{curtida.id.usuario.foto}}" alt="Foto autor do comentário">
+            </a>
+            <div>
+              <a href="" data-bs-dismiss="modal" (click)='abrirUsuario(curtida.id.usuario.id)'
+               [routerLink]="['/perfil', curtida.id.usuario.id]">
+                <p class="nome-autor-curtida">{{curtida.id.usuario.nome}}</p>
+              </a>
+              <p class="nome-autor-curtida">{{curtida.id.usuario.tipo}}</p>
+            </div>
           </li>
         </ul>
       </div>
@@ -344,7 +310,6 @@
     </div>
   </div>
 </div>
- -->
 
 <!-- modal editar comentário-->
 <!-- <div class="modal fade" id="editarComentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -376,15 +341,13 @@
       <div class="modal-body">
         <div class="form-group mb-3">
           <label for="message-text" class="col-form-label">Texto:</label>
-          <textarea class="form-control" id="message-text" required [(ngModel)]='comentario.texto'
-            name="message-text"></textarea>
+          <textarea class="form-control" id="message-text" required [(ngModel)]='comentario.texto' name="message-text"></textarea>
         </div>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-          (click)='atualizarComentario()'>Atualizar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)='atualizarComentario()'>Atualizar</button>
       </div>
     </div>
   </div>
@@ -392,8 +355,7 @@
 
 
 
-<div class="modal fade" id="deletarComentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+<div class="modal fade" id="deletarComentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -405,8 +367,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-          (click)="excluirComentario()">Apagar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="excluirComentario()">Apagar</button>
       </div>
     </div>
   </div>
@@ -445,8 +406,7 @@
       <div class="modal-body">
         <div class="form-group mb-3">
           <label for="message-text" class="col-form-label">Texto:</label>
-          <textarea class="form-control" id="message-text" required [(ngModel)]='postagem.texto'
-            name="message-text"></textarea>
+          <textarea class="form-control" id="message-text" required [(ngModel)]='postagem.texto' name="message-text"></textarea>
         </div>
         <div class="form-group mb-3">
           <label for="recipient-name" class="col-form-label">Midia:</label>
@@ -454,8 +414,7 @@
         </div>
         <div class="form-group mb-3">
           <label for="select-opcao">Tipo de mídia:</label>
-          <select [(ngModel)]='postagem.tipoMidia' class="form-select" aria-label=".form-select-lg example"
-            name='select-opcao' id='select-opcao' (change)='definirTipoMidiaPostagem($event)'>
+          <select [(ngModel)]='postagem.tipoMidia' class="form-select" aria-label=".form-select-lg example" name='select-opcao' id='select-opcao' (change)='definirTipoMidiaPostagem($event)'>
             <option selected>Selecione uma opção</option>
             <option value="video">Vídeo</option>
             <option value="imagem">Imagem</option>
@@ -464,8 +423,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-          (click)='atualizarPostagem()'>Atualizar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)='atualizarPostagem()'>Atualizar</button>
       </div>
     </div>
   </div>
@@ -473,5 +431,8 @@
 
 <div class="load" [ngStyle]="{'display': displayLoader}">
 
-  <hr/><hr/><hr/><hr/>
+  <hr />
+  <hr />
+  <hr />
+  <hr />
 </div>

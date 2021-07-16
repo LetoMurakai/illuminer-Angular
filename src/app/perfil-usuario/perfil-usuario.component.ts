@@ -45,7 +45,7 @@ export class PerfilUsuarioComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
 
-
+    window.scroll(0, 0)
     let id = this.route.snapshot.params['id']
     this.findByIdUsuario(id)
 
