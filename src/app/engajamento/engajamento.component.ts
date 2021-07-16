@@ -29,7 +29,6 @@ export class EngajamentoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
     this.engajamentoService.refreshToken()
     this.obterUsuarioDestaque()
     this.obterPostagemDestaqueComentario()
