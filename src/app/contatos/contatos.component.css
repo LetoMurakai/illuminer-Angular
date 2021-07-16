@@ -4,8 +4,14 @@
     box-sizing: border-box;
 }
 .corFundo{
-  background: linear-gradient(121.45deg, #acdef1 40.08%, #FFFFFF 46.78%, #f8f1cd 51.37%, #fae56c 70.37%);
-  box-shadow: 0 2px 25px 20px rgba(0, 0, 0, 0.150);
+  background: linear-gradient(121.45deg, #93d2eb 32.08%, #FFFFFF 48.78%, #f8f1cd 70.37%, #fae56c 85.37%);
+  border: none;
+}
+@media only screen and (max-width: 767px) {
+  .corFundo{
+    background: linear-gradient(121.45deg, #93d2eb 4.08%, #FFFFFF 15.78%, #f8f1cd 50.37%, #f8ea9a 85.37%);
+    border: none;
+  }
 }
 .container{
     margin-left: auto;
@@ -109,7 +115,7 @@
   background-image: url(../../assets/card/vermelho.png);
 }
 .card.azul-marinho{
-  background-image: url(../../assets/card/azul-marinho.png);
+  background-image: url(../../assets/card/azul-roxo.png);
 }
 .card.rosa-verde-amarelo{
   background-image: url(../../assets/card/rosa-verde-amarelo.png);
