@@ -18,7 +18,7 @@
 
 
         <div class="user-img clicavel">
-          <img [routerLink]="['/perfil', idUsuarioLogado]" *ngIf="foto != null && foto != '' " src="{{foto}}"
+          <img (click)='abrirUsuario()' [routerLink]="['/perfil', idUsuarioLogado]" *ngIf="foto != null && foto != '' " src="{{foto}}"
             alt="">
         </div>
 
@@ -34,7 +34,7 @@
 
             <div class="nome text-center">
 
-              <h5 [routerLink]="['/perfil', idUsuarioLogado]" class="text-capitalize clicavel">{{nome}}</h5>
+              <h5 (click)='abrirUsuario()' [routerLink]="['/perfil', idUsuarioLogado]" class="text-capitalize clicavel">{{nome}}</h5>
 
               <div class="tipo text-center">
                 <h6 class="text-uppercase small">{{tipo}}</h6>
