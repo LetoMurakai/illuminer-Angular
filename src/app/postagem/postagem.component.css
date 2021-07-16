@@ -379,7 +379,9 @@ a{
 }
 
 
-
+.height-td {
+  height: 1.5rem;
+}
 
 .load{
   padding: 5px;

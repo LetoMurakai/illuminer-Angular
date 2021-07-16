@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment.prod';
 import { PaginaPostagem } from '../model/PaginaPostagem';
 import { Comentario } from '../model/Comentario';
 import { Postagem } from '../model/Postagem';
+import { Curtida } from '../model/Curtida';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +55,10 @@ export class PostagemService {
 
   postPostagem(postagem: Postagem): Observable<Postagem> {
     return this.http.post<Postagem>(`${environment.uri}/postagens`, postagem, this.token)
+  }
+
+  getCurtidasPostagem(idPostagem: number): Observable<Curtida[]> {
+    return this.http.get<Curtida[]>(`${environment.uri}/postagens/${idPostagem}/curtidas`, this.token)
   }
 
   /* ========================================================================== */
