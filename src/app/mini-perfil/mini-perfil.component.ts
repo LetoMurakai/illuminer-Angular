@@ -11,7 +11,7 @@ import { UsuarioService } from '../service/usuario.service';
   styleUrls: ['./mini-perfil.component.css']
 })
 export class MiniPerfilComponent implements OnInit {
-
+  darkMode = environment.darkMode
   nome = environment.nome
   foto = environment.foto
   tipo = environment.tipo

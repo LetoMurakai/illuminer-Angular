@@ -5,9 +5,9 @@
   <div class="row w-100 h-100">
 
     <div class="col-12">
-
-      <div class="row color rounded-pill position-relative shadow-sm mb-3 bg-body rounded border-color"
+      <div class="row color rounded-pill position-relative shadow-sm mb-3 rounded border-color" [ngClass]="(darkMode)? 'engajamento-bg-pill-darkMode' : 'engajamento-bg-pill-lightMode'"
         style="width: 20.5rem; height: 6rem;" *ngIf="usuarioDestaque.qtdPostagens > 0">
+
 
         <div class="col-3 position-absolute top-50 start-0 translate-middle-y">
           <div *ngIf="usuarioDestaque.foto == '' || usuarioDestaque.foto == null || usuarioDestaque.foto == undefined">
@@ -17,50 +17,53 @@
           </a>
         </div>
         <div *ngIf="usuarioDestaque.foto !=''">
-          <a [routerLink]="['/perfil', usuarioDestaque.id]"><img class="rounded-circle" width="80px" height="80px" src="{{usuarioDestaque.foto}}"
+          <a [routerLink]="['/perfil', usuarioDestaque.id]">
+            <img class="rounded-circle" [ngClass]="(darkMode)? 'engajamento-imgUsuario-darkMode': 'engajamento-imgUsuario-lightMode'" width="80px" height="80px" src="{{usuarioDestaque.foto}}"
             alt="foto usuario destaque"></a>
           </div>
         </div>
 
-        <div class="col-9 d-inline position-absolute top-0 my-3 end-0 ps-4">
+        <div class="col-9 d-inline position-absolute top-0 end-0 ps-4">
           <h5 class="h6 cor m-0">Professore mais engajade</h5>
-          <p class="m-0 p-0"><a class="link-usuario" (click)='prepararAbrirPerfil()' [routerLink]="['/perfil', usuarioDestaque.id]"> {{usuarioDestaque.nome}}</a></p>
+          <p class="m-0 p-0"><a class="link-usuario" [ngClass]="(darkMode)? 'engajamento-linkUsuario-darkMode' : 'engajamento-linkUsuario-lightMode'" (click)='prepararAbrirPerfil()' [routerLink]="['/perfil', usuarioDestaque.id]"> {{usuarioDestaque.nome}}</a></p>
           <p>{{usuarioDestaque.qtdPostagens}}<span> Publicações</span></p>
         </div>
 
       </div>
 
       <!-- POSTAGEM COM MAIS COMENTARIOS -->
-      <div class="row color rounded-pill position-relative shadow-sm mb-3 bg-body rounded border-verde"
+      <div class="row color rounded-pill position-relative shadow-sm mb-3 rounded border-verde" [ngClass]="(darkMode)? 'engajamento-bg-pill-darkMode' : 'engajamento-bg-pill-lightMode'"
         style="width: 20.5rem; height: 6rem;" *ngIf="destaqueComentario.qtdComentarios > 0">
+
 
        <!-- <div class="col-3 position-absolute top-50 start-0 translate-middle-y">
           <a [routerLink]="['/perfil', usuarioDestaque.id]"><img class="rounded-circle" width="80px" height="80px" src="{{usuarioDestaque.foto}}"
             alt="foto usuario destaque"></a>
         </div>-->
         <div class="col-3 position-absolute top-50 start-0 translate-middle-y">
-          <i class="far fa-comments large cor" style="width: 80px;height: 80px;display: flex;align-items: center; justify-content: center;"></i>
+          <i class="far fa-comments large cor" [ngClass]="(darkMode)? 'engajamento-publicacao-comentarios-darkMode':'engajamento-publicacao-comentarios-lightMode'" style="width: 80px;height: 80px;display: flex;align-items: center; justify-content: center;"></i>
 
         </div>
 
         <div class="col-9 d-inline position-absolute top-0 end-0 ps-4">
           <h5 class="h6 cor m-0">Publicação mais comentada</h5>
-          <a class="link-usuario" (click)='pegarId(destaqueComentario.id)'><p class="p-0 m-0  text-break" aria-describedby="texto">{{destaqueComentario.titulo}}. . .</p></a>
+          <a class="link-usuario" [ngClass]="(darkMode)? 'engajamento-linkUsuario-darkMode' : 'engajamento-linkUsuario-lightMode'" (click)='pegarId(destaqueComentario.id)'><p class="p-0 m-0  text-break" aria-describedby="texto">{{destaqueComentario.titulo}}. . .</p></a>
           <p class="p-0 m-0">{{destaqueComentario.qtdComentarios}}<span> Comentarios</span></p>
         </div>
 
       </div>
 
       <!--POSTAGEM COM MAIS CURTIDAS-->
-      <div class="row color rounded-pill position-relative shadow-sm mb-3 bg-body rounded border-azul"
+      <div class="row color rounded-pill position-relative shadow-sm mb-3 rounded border-azul" [ngClass]="(darkMode)? 'engajamento-bg-pill-darkMode' : 'engajamento-bg-pill-lightMode'"
       style="width: 20.5rem; height: 6rem;" *ngIf="destaqueCurtida.qtdCurtidas > 0">
+
 
       <!--<div class="col-3 position-absolute top-50 start-0 translate-middle-y">
         <img class="rounded-circle " width="80px" height="80px" src="{{usuarioDestaque.foto}}"
           alt="foto usuario destaque">
       </div>-->
       <div class="col-3 position-absolute top-50 start-0 translate-middle-y">
-        <i class="far fa-thumbs-up large cor" style="width: 80px;height: 80px;display: flex;align-items: center; justify-content: center;"></i>
+        <i class="far fa-thumbs-up large cor" [ngClass]="(darkMode)? 'engajamento-publicacao-curtidas-darkMode': 'engajamento-publicacao-curtidas-lightMode'" style="width: 80px;height: 80px;display: flex;align-items: center; justify-content: center;"></i>
 
       </div>
 

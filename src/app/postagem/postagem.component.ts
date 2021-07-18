@@ -26,7 +26,7 @@ import { CurtidaPK } from '../model/CurtidaPK';
   providers: [DatePipe]
 })
 export class PostagemComponent implements OnInit {
-
+  darkMode = environment.darkMode
   displayComentarios = "none"
   displaySpinner = "block"
   displayNavPag = "none"

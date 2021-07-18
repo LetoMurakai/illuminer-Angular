@@ -65,7 +65,6 @@ min-width: 200px;
 
 .card .card-body {
   padding-top: 65px !important;
-  background-color: #fcfcfc;
   border-radius: 25px 25px 15px 15px !important;
   position: absolute;
   bottom: -120px;

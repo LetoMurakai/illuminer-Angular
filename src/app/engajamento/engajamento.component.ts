@@ -15,7 +15,7 @@ import { PostagemService } from '../service/postagem.service';
   styleUrls: ['./engajamento.component.css']
 })
 export class EngajamentoComponent implements OnInit {
-
+  darkMode = environment.darkMode
   usuarioDestaque: UsuarioDestaque = new UsuarioDestaque
   destaqueComentario: PostagemDestaqueComentario = new PostagemDestaqueComentario
   destaqueCurtida: PostagemDestaqueCurtida = new PostagemDestaqueCurtida

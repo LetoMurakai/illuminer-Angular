@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="container-fluid bg-feed">
+<div class="container-fluid" [ngClass]="(darkMode)? 'feed-background-coresEscuras' : 'feed-background-coresClaras'">
 
   <div class="row">
     <div class="col-3 d-none d-lg-block">

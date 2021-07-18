@@ -1,4 +1,4 @@
-<div class="row p-0 p-md-4 m-0 mt-6 sticky-top">
+<div class="row p-0 p-md-4 m-0 mt-6 sticky-top" >
 
   <div class="col-md-4 d-none d-md-block">
     <div class="card">
@@ -28,13 +28,14 @@
 
       </div>
 
-      <div class="card-body">
+      <div class="card-body" [ngClass]="(darkMode)? 'mini-perfil-card-coresEscuras' : 'mini-perfil-card-coresClaras'">
         <div class="d-flex justify-content-center flex-column">
           <div class="nome-container">
 
             <div class="nome text-center">
 
-              <h5 (click)='abrirUsuario()' [routerLink]="['/perfil', idUsuarioLogado]" class="text-capitalize clicavel">{{nome}}</h5>
+              <h5 (click)='abrirUsuario()' [routerLink]="['/perfil', idUsuarioLogado]"
+              [ngClass]="(darkMode)? 'mini-perfil-card-nome-darkMode' : 'mini-perfil-card-nome-lightMode'" class="text-capitalize clicavel">{{nome}}</h5>
 
               <div class="tipo text-center">
                 <h6 class="text-uppercase small">{{tipo}}</h6>

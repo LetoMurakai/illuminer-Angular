@@ -1,6 +1,5 @@
 /* classe que engloba toda a div de postagem */
 .postagem {
-  border: rgba(0, 0, 0, 0.100) solid 1px;
   max-width: 650px;
   background-color: #fcfcfc;
   margin: 3rem auto;
@@ -109,7 +108,7 @@ a{
 
 /* Estilizando o background do corpo do texto da postagem */
 .bg-texto-postagem {
-  background-color: #fff;
+  
   width: 95%;
   margin: 0 auto;
   border-radius: 3%;
@@ -127,7 +126,9 @@ a{
   height: 50vh;
   border-radius: 5px;
 }
-
+textarea{
+  resize: none;
+}
 
 /* Configurando div dos botões de curtidas, ver comentários, curtir e comentar */
 .engajamento, .interacao {
@@ -334,8 +335,7 @@ a{
 
 /* Estilizando background do corpo de um comentário */
 .bg-comentario {
-  background-color: #f5f5f5;
-  width: 90%;
+  width: 95%;
   margin-left: 10px;
   border-radius: 1px 15px 15px 15px;
   padding: 10px;
@@ -344,9 +344,15 @@ a{
 }
 
 /* Estizando nome do autor de um comentário */
-.nome-autor-comentario {
+.nome-autor-comentario-darkMode {
   font-weight: 500;
   margin-bottom: 1px;
+  color: #ffffff;
+}
+.nome-autor-comentario-lightMode {
+  font-weight: 500;
+  margin-bottom: 1px;
+  color: #353535;
 }
 .data-postagem {
   font-weight: 400;
@@ -358,7 +364,6 @@ a{
   border: none;
   outline: none;
   padding: 10px;
-  background-color: #fff;
   border-radius: 30px 0 0 30px;
    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.100);
 }
@@ -372,18 +377,18 @@ a{
 
 /* Botão de um novo comentário */
 .btn-comentario {
-  border-radius: 0 30px 30px 0;
+  border-radius: 0px 10px 10px 0px;
   border: none;
   outline: none;
   padding: 10px;
-  background-color: #85F4AB;
-  color: #fff;
+  background-color: #9bea5e;
+  color: #353535;
   font-weight: bold;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.100);
 }
 
 .btn-comentario:hover {
-  background-color: #99F4AB;
+  background-color: #99f850;
 }
 
 

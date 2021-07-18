@@ -55,3 +55,219 @@ a{
 .marcador{
   border: 1px solid red!important;
 }
+
+/* CSS NAVBAR */
+.nav-bar-coresClaras{
+  transition: 1s;
+  background: rgb(170, 170, 170);
+  color: rgb(29, 29, 29);
+}
+.nav-bar-coresEscuras{
+  transition: 1s;
+  background: rgb(44, 44, 44);
+  color: white;
+}
+.nav-bar-coresEscuras #dropdown{
+  color: rgb(179, 179, 179);
+}
+
+/* CSS FEED */
+.feed-background-coresEscuras{
+  transition: 1s;
+  background: #111b22;
+  color: white;
+}
+.feed-background-coresClaras{
+  transition: 1s;
+  background: rgb(221, 221, 221);
+}
+
+/* CSS MINI-PERFIL */
+.mini-perfil-card-coresEscuras{
+  background: #1f1f1f;
+  color: white;
+}
+.mini-perfil-card-coresClaras{
+  background: rgb(255, 255, 255);
+  color: black;
+}
+.mini-perfil-card-nome-lightMode{
+  color: black;
+}
+.mini-perfil-card-nome-darkMode{
+  color: white!important;
+}
+
+/* CSS FAZER-POSTAGEM-COMPONENTE */
+.fazer-postagem-textArea-coresClaras{
+    min-height: 210px;
+    padding: 5px;
+    border-radius: 10px 0px 0px 0px;
+    border: none;
+    width: 100%;
+    resize: none;
+    background: #212121;
+    
+}
+.fazer-postagem-textArea-coresEscuras{
+  min-height: 210px;
+  padding: 5px;
+  border-radius: 10px 0px 0px 0px;
+  border: none;
+  width: 100%;
+  resize: none;
+  background: white;
+}
+.fazer-postagem-input-lightMode{
+  background-color: #f8f8f8!important;
+}
+.fazer-postagem-input-darkMode{
+  background-color: #212121!important;
+  color: white!important;
+}
+.fazer-postagem-formSelect-lightMode{
+  background-color: #eef6fc;
+  color: rgb(0, 0, 0);
+}
+.fazer-postagem-formSelect-darkMode{
+  background: #212121!important;
+  color: white!important;
+}
+
+/* CSS POSTAGENS */
+
+.postagem-postagem-darkMode{
+  border: 1px white solid;
+  background-color: #1f1f1f!important;
+  color: white;
+}
+.postagem-postagem-lightMode{
+  border: 1px #353535 solid;
+  background: #fcfcfc;
+}
+.postagem-bg-texto-postagem-lightMode{
+  border: 1px #35353567 solid;
+  background: #fcfcfc;
+}
+.postagem-bg-texto-postagem-darkMode{
+  border: 1px rgba(255, 255, 255, 0.582) solid;
+  background: #353535;
+}
+.postagem-input-comentario-lightMode{
+  background: white;
+  color: #353535;
+}
+.postagem-input-comentario-darkMode{
+  background: #353535;
+  color: white;
+}
+.postagem-bg-comentario-lightMode{
+  background: white;
+  color: #353535;
+}
+.postagem-bg-comentario-darkMode{
+  background: #353535;
+  color: white;
+}
+
+.postagem-modal-curtidas-darkMode{
+  border-radius: 10px;
+  padding: 10px;
+  background: rgb(64 64 64)!important;
+  color: white;
+}
+
+.postagem-modal-comentarios-darkMode{
+  border-radius: 10px;
+  padding: 10px;
+  background: rgb(16 16 16)!important;
+}
+.postagem-nomeUsuario-darkMode{
+  color: white;
+}
+.postagem-nomeUsuario-lightMode{
+  color: #353535;
+}
+
+/* CSS ENGAJAMENTO */
+.engajamento-bg-pill-darkMode{
+  background: #353535;
+  color: white;
+}
+.engajamento-bg-pill-lightMode{
+  background: white;
+  color: #353535;
+}
+
+.engajamento-imgUsuario-lightMode{
+  background: rgb(47, 103, 255);
+}
+.engajamento-imgUsuario-darkMode{
+  background: turquoise;
+}
+
+
+.engajamento-publicacao-comentarios-lightMode{
+  color: #000000;
+  background: rgb(200, 59, 255);
+  border-radius: 50%;
+}
+.engajamento-publicacao-comentarios-darkMode{
+  color: #35d9df;
+  background: rgb(255 243 134);
+  border-radius: 50%;
+}
+
+
+.engajamento-publicacao-curtidas-lightMode{
+  color: #000000;
+  background: rgb(255, 241, 51);
+  border-radius: 50%;
+}
+.engajamento-publicacao-curtidas-darkMode{
+  color: #00bbc2;
+  background: rgb(225 101 101);
+  border-radius: 50%;
+}
+.engajamento-linkUsuario-lightMode{
+  color: #333;
+}
+.engajamento-linkUsuario-darkMode{
+  color: white
+}
+
+/* CSS PERFIL USUARIO */
+.perfil-usuario-bg-darkMode{
+  background: rgb(17 27 34);
+}
+.perfil-usuario-bg-lightMode{
+  background: wheat;
+}
+.perfil-usuario-card-darkMode{
+  background: #1f1f1f!important;
+  color: white;
+}
+.perfil-usuario-card-lightMode{
+  background: white;
+  color: #1f1f1f;
+}
+
+
+.atividadeAluno-bg-lightMode{
+  background: white;
+  color: #000000;
+}
+.atividadeAluno-bg-darkMode{
+  background: #212121!important;
+  color: white!important;
+}
+.atividadeAluno-info-darkMode{
+  color: white!important;
+}
+.atividadeAluno-acessar-darkMode{
+  color: #5e69ff!important;
+  text-decoration: none;
+}
+.atividadeAluno-acessar-lightMode{
+  color: #1b1c2e;
+}
