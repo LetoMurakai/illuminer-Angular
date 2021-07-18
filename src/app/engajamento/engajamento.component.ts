@@ -29,7 +29,6 @@ export class EngajamentoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
     this.engajamentoService.refreshToken()
     this.obterUsuarioDestaque()
     this.obterPostagemDestaqueComentario()
@@ -63,12 +62,12 @@ export class EngajamentoComponent implements OnInit {
     this.engajamentoService.postagemDestaqueCurtida().subscribe((resp: PostagemDestaqueCurtida) =>{
       this.destaqueCurtida = resp
     })
-    
+
   }
 
 
-  
-  
+
+
   pegarId(id: any) {
     environment.idDestaqueComentario = id
     environment.textoPesquisaPostagem = ''
@@ -78,7 +77,7 @@ export class EngajamentoComponent implements OnInit {
       this.router.navigate(['/feed'])
     }, 1);
   }
-  
+
 
   prepararAbrirPerfil() {
     environment.idDestaqueComentario = 0

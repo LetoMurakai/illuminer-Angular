@@ -1,5 +1,10 @@
 #bg {
-  background: conic-gradient(from 204.99deg at 100% -46.03%, #FFFFFF -2.89deg, #85CCE9 10.82deg, #FFFFFF 357.11deg, #85CCE9 370.82deg);
+  background: conic-gradient(from 204.99deg at 100% -57.03%, #FFFFFF -2.89deg, #85CCE9 10.82deg, #FFFFFF 357.11deg, #85CCE9 370.82deg);
+  }
+  @media only screen and (max-width: 767px) {
+    #bg {
+      background: conic-gradient(from 204.99deg at 100% -14.03%, #FFFFFF -2.89deg, #85CCE9 10.82deg, #FFFFFF 357.11deg, #85CCE9 370.82deg);
+      }
   }
 h1{
     font-size: 54px;

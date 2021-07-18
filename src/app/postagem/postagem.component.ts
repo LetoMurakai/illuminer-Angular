@@ -119,7 +119,7 @@ export class PostagemComponent implements OnInit {
       })
     } else {
       this.curtidaService.refreshToken()
-      this.curtidaService.deleteCurtidas(this.curtida.id).subscribe(() => { 
+      this.curtidaService.deleteCurtidas(this.curtida.id).subscribe(() => {
         this.curtida.id.postagem.isCurtida = false
       })
     }
@@ -274,8 +274,8 @@ export class PostagemComponent implements OnInit {
 
   atualizarFeed() {
     setTimeout(() => {
-      
-   
+
+
     this.router.navigate(['/pagina-inicio'])
     setTimeout(() => {
       this.router.navigate(['/feed'])
@@ -324,9 +324,10 @@ export class PostagemComponent implements OnInit {
 
 
   redirecionar() {
+    environment.posicaoScroll = window.scrollY
     if (environment.idUsuarioPerfil != 0) {
       this.buscarPaginaPostagemProfessor(environment.idUsuarioPerfil, this.paginaPostagem.number, 5)
-      
+
       this.displayLoader ="block"
       setTimeout(() => {
         this.router.navigate(['/feed'])
@@ -335,7 +336,7 @@ export class PostagemComponent implements OnInit {
           this.displayLoader ="none"
         }, 1);
       }, 1000);
-      
+
     } else if (environment.idDestaqueComentario != 0) {
       this.postagemEngajada(0)
       this.displayLoader ="block"
@@ -349,7 +350,7 @@ export class PostagemComponent implements OnInit {
       this.displayLoader ="block"
       this.atualizarFeed()
     }
-    
+
   }
 
   abrirUsuario(idUsuario:number){

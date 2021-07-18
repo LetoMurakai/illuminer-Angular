@@ -10,11 +10,11 @@ import { AuthService } from '../service/auth.service';
 export class FeedComponent implements OnInit {
   darkMode = environment.darkMode
   constructor(
-    public auth:AuthService
+    public auth: AuthService
   ) { }
-    
+
+
   ngOnInit() {
-    
   }
 
  

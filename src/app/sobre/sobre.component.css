@@ -3,7 +3,12 @@
   padding: 0;
 }
 .bg-linear{
-  background: linear-gradient(126deg, #CEEAF6 9.53%, #FFFFFF 19.42%, #FCF1B0 43.19%, #F6D61E 91.37%);
+  background: linear-gradient(126deg, #b1dff1 3.53%, #FFFFFF 18.42%, #FCF1B0 43.19%, #F6D61E 89.37%);
+}
+@media only screen and (max-width: 767px) {
+  .bg-linear{
+    background: linear-gradient(126deg, #FCF1B0 43.19%, #F6D61E 89.37%);
+  }
 }
 .t-justify{
   text-align: justify;
