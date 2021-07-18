@@ -14,7 +14,7 @@ import { AtividadeService } from '../service/atividade.service';
   styleUrls: ['./atividade-aluno.component.css']
 })
 export class AtividadeAlunoComponent implements OnInit {
-
+  darkMode = environment.darkMode
   paginaAtividade: PagAtividade = new PagAtividade()
   usuario: Usuario = new Usuario()
 

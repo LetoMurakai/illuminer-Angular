@@ -12,7 +12,7 @@ import { PostagemService } from '../service/postagem.service';
   styleUrls: ['./fazer-postagem.component.css']
 })
 export class FazerPostagemComponent implements OnInit {
-
+  darkMode = environment.darkMode
   postagem: Postagem = new Postagem()
   usuario: Usuario = new Usuario()
   nomeUsuarioLogado = environment.nome

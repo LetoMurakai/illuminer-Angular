@@ -1,13 +1,13 @@
-<div class="bg-feed">
+<div [ngClass]="(darkMode)? 'perfil-usuario-bg-darkMode' : 'perfil-usuario-bg-lightMode'">
   <app-navbar></app-navbar>
 
   <section class="container-fluid">
     <div class="row p-4 mt-6 d-flex align-items-center">
 
       <div class="col-md-12">
-        <div class="card d-flex justify-content-center align-items-center ">
+        <div class="card d-flex justify-content-center align-items-center" [ngClass]="(darkMode)?'perfil-usuario-card-darkMode':'perfil-usuario-card-lightMode' ">
 
-          <div class="card-header">
+          <div class="card-header" >
 
             <div class="tamanho-fotoCapa" *ngIf="usuario.fotoCapa == null || usuario.fotoCapa == ''">
               <img class="card-header" src="../../assets/imagem/Sem-Imagem.png" alt="">
@@ -42,13 +42,13 @@
 
           </div>
 
-          <div class="card-body">
+          <div class="card-body" [ngClass]="(darkMode)?'perfil-usuario-card-darkMode':'perfil-usuario-card-lightMode' ">
             <div class="d-flex justify-content-center flex-column">
               <div class="nome-container">
 
                 <div class="text-center">
 
-                  <h5 class="nome text-capitalize">{{usuario.nome}}</h5>
+                  <h5 class="nome text-capitalize" [ngClass]="(darkMode)? 'mini-perfil-card-nome-darkMode' : 'mini-perfil-card-nome-lightMode'">{{usuario.nome}}</h5>
 
                   <div class="tipo text-center">
                     <h6 class="text-uppercase small">{{usuario.tipo}}</h6>

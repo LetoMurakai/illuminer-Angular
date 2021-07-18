@@ -10,5 +10,6 @@ export const environment = {
   idPostagem:0,
   idUsuarioPerfil: 0,
   textoPesquisaPostagem: '',
-  idDestaqueComentario: 0
+  idDestaqueComentario: 0,
+  darkMode : false
 };

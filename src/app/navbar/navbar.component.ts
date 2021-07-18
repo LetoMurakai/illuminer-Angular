@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  darkMode = environment.darkMode
   textoPesquisa: string
   idUsuarioLogado = environment.id
 
@@ -44,5 +44,19 @@ export class NavbarComponent implements OnInit {
     environment.idUsuarioPerfil = 0
     environment.idDestaqueComentario = 0
     this.router.navigate(['/login'])
+  }
+  trocarCor(){
+    if(this.darkMode == false){
+      environment.darkMode = true
+      this.darkMode = environment.darkMode
+    }
+    else{
+      environment.darkMode = false
+      this.darkMode = environment.darkMode
+    }
+    this.router.navigate(['/pagina-inicio'])
+    setTimeout(() => {
+      this.router.navigate(['/feed'])
+    }, 1);
   }
 }

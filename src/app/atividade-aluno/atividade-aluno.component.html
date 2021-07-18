@@ -2,7 +2,7 @@
   <!--curtidas em publicação-->
   <div class="row m-0 mx-md-5 mb-4" *ngIf="atividade.tipo == 'curtida' ">
     <div class="col-12">
-      <div class="row  bg-atividades shadow">
+      <div class="row  bg-atividades shadow" [ngClass]="(darkMode)? 'atividadeAluno-bg-darkMode' : 'atividadeAluno-bg-lightMode'">
 
         <div class="col-3">
           <img class="d-flex rounded-circle" src="{{usuario.foto}}" width="60px" height="60px" alt="Foto do usuário">
@@ -10,10 +10,10 @@
 
         <div class="col-9">
           <h5 class="nome-autor-comentario text-capitalize">{{usuario.nome}}</h5>
-          <p class="text-dark m-0 p-0">Curtiu a <a class="postagem acessar"
+          <p [ngClass]="(darkMode)? 'atividadeAluno-info-darkMode' : 'text-dark'"class="m-0 p-0">Curtiu a <a  [ngClass]="(darkMode)? 'atividadeAluno-acessar-darkMode' : 'atividadeAluno-acessar-lightMode'" class="postagem"
               (click)="abrirPublicacao(atividade.idPostagem)">
               publicação</a> de :
-            <a class="text-capitalize acessar" [routerLink]="['/perfil', atividade.idAutorPostagem]"
+            <a [ngClass]="(darkMode)? 'atividadeAluno-acessar-darkMode' : 'atividadeAluno-acessar-lightMode'" class="text-capitalize " [routerLink]="['/perfil', atividade.idAutorPostagem]"
               (click)="abrirUsuario(atividade.idAutorPostagem)">{{atividade.nomeAutorPostagem}}</a>
           </p>
         </div>

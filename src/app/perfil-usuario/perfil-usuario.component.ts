@@ -20,7 +20,7 @@ export class PerfilUsuarioComponent implements OnInit {
   foto = environment.foto
   tipo = environment.tipo
   id = environment.id
-
+  darkMode = environment.darkMode
 
 
   confirmaSenha: string

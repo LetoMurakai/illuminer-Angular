@@ -2,9 +2,6 @@
   margin-top: 15vh;/*alterar tamanho, conforme height da navbar*/
 }
 
-.bg-branco{
-  background: #fcfcfc;
-}
 
 a{
   cursor: pointer;
@@ -13,9 +10,7 @@ a{
   flex-flow: row-reverse;
 }
 
-.cor{
-  color: cadetblue;
-}
+
 .z-index{
   z-index: 2;
 }
@@ -23,7 +18,6 @@ a{
   text-decoration: none;
   padding: 0;
   margin: 0;
-  color: #333;
   cursor: pointer;
 }
 .large{
