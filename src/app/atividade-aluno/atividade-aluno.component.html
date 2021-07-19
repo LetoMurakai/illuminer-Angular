@@ -4,11 +4,11 @@
     <div class="col-12">
       <div class="row  bg-atividades shadow" [ngClass]="(darkMode)? 'atividadeAluno-bg-darkMode' : 'atividadeAluno-bg-lightMode'">
 
-        <div class="col-3">
+        <div class="col-2">
           <img class="d-flex rounded-circle" src="{{usuario.foto}}" width="60px" height="60px" alt="Foto do usuário">
         </div>
 
-        <div class="col-9">
+        <div class="col-10 ps-2">
           <h5 class="nome-autor-comentario text-capitalize">{{usuario.nome}}</h5>
           <p [ngClass]="(darkMode)? 'text-white' : 'text-dark'" class="m-0 p-0">Curtiu a <a  [ngClass]="(darkMode)? 'atividadeAluno-acessar-darkMode' : 'atividadeAluno-acessar-lightMode'" class="postagem"
               (click)="abrirPublicacao(atividade.idPostagem)">
