@@ -192,6 +192,7 @@ export class PostagemComponent implements OnInit {
       })
   }
 
+
   definirIdPostagem(id: number) {
     this.postagem.id = id
     this.obterPostagemPorId(this.postagem.id)
