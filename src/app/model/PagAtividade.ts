@@ -1,4 +1,4 @@
-import { Atividade } from "./atividade"
+import { Atividade } from './Atividade';
 
 export class PagAtividade {
   content?: Atividade[]
