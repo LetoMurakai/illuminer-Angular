@@ -56,7 +56,7 @@
       *ngIf="postagem.usuario.foto != null && postagem.usuario.foto != ''" class="foto-usuario clicavel"
       src={{postagem.usuario.foto}} alt="Foto do usuário">
 
-    <img *ngIf="postagem.usuario.foto == null || postagem.usuario.foto == ''" class="foto-usuario"
+    <img (click)='abrirUsuario(postagem.usuario.id)' [routerLink]="['/perfil', postagem.usuario.id]" *ngIf="postagem.usuario.foto == null || postagem.usuario.foto == ''" class="foto-usuario clicavel"
       src="../../assets/imagem/Sem-foto-perfil.png" alt="Foto do usuário">
 
     <div class="postagem-info">
