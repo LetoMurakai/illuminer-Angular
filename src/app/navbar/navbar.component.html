@@ -25,7 +25,7 @@
         aria-expanded="false"></button>
       <ul class="dropdown-menu float-right" [ngClass]="(darkMode)? 'nav-bar-coresEscuras' : 'nav-bar-coresClaras'">
         <li>
-        <a [ngClass]="(darkMode)? 'nav-bar-dropdown-coresEscuras' : 'dropdown-item'" class="dropdown-item text-center" [routerLink]="['/perfil', idUsuarioLogado]">Perfil</a></li>
+        <a [ngClass]="(darkMode)? 'nav-bar-dropdown-coresEscuras' : 'dropdown-item'" class="dropdown-item text-center" (click)='perfilUsuarioLogado()'>Perfil</a></li>
         <li *ngIf = 'darkMode == false'>
         <a [ngClass]="(darkMode)? 'nav-bar-dropdown-coresEscuras' : 'dropdown-item'" class="dropdown-item text-center"(click)='trocarCor()'> Dark Mode </a></li>
         <li *ngIf = 'darkMode == true'>

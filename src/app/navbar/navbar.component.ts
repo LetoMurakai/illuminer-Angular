@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
   darkMode = environment.darkMode
   textoPesquisa: string
   idUsuarioLogado = environment.id
+  
   constructor(
     private router: Router,
     private route: ActivatedRoute
@@ -82,4 +83,18 @@ export class NavbarComponent implements OnInit {
       }, 1);
     }
   }
-}
+
+  perfilUsuarioLogado(){
+      environment.idUsuarioPerfil = 0
+      environment.textoPesquisaPostagem = ''
+      environment.idDestaqueComentario = 0
+      environment.posicaoScroll = 0
+      this.router.navigate(['/feed'])
+          setTimeout(() => {
+            this.router.navigate([`/perfil/${environment.id}`])
+          }, 30);
+    }
+
+  }
+
+
