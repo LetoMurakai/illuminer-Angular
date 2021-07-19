@@ -2,7 +2,6 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
-import { Atividade } from '../model/atividade';
 import { PagAtividade } from '../model/PagAtividade';
 
 @Injectable({
