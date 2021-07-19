@@ -23,6 +23,7 @@ export class NavbarComponent implements OnInit {
    environment.textoPesquisaPostagem = this.textoPesquisa
    environment.idUsuarioPerfil = 0
    environment.idDestaqueComentario = 0
+   environment.posicaoScroll = 0
    this.router.navigate(['/pagina-inicio'])
    setTimeout(() => {
      this.router.navigate(['/feed'])
@@ -33,6 +34,7 @@ export class NavbarComponent implements OnInit {
     environment.textoPesquisaPostagem = ''
     environment.idUsuarioPerfil = 0
     environment.idDestaqueComentario = 0
+    environment.posicaoScroll = 0
    this.router.navigate(['/pagina-inicio'])
    setTimeout(() => {
      this.router.navigate(['/feed'])
@@ -43,10 +45,11 @@ export class NavbarComponent implements OnInit {
     environment.textoPesquisaPostagem = ''
     environment.idUsuarioPerfil = 0
     environment.idDestaqueComentario = 0
+    environment.posicaoScroll = 0
     this.router.navigate(['/login'])
   }
   trocarCor(){
-    
+    environment.posicaoScroll = 0
     let id = this.route.snapshot.params['id']
     console.log(id)
     if(id == 0 || id == null || id == '' || id == undefined){

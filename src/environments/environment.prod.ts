@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
-  uri: "http://localhost:8080",
+  //uri: "http://localhost:8080",
+  uri: "https://illuminer.herokuapp.com",
   id: 0,
   nome: '',
   token: '',

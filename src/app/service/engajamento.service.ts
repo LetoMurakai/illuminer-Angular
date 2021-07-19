@@ -36,20 +36,20 @@ export class EngajamentoService {
 
 
   usuarioMaisEngajado(): Observable<UsuarioDestaque>{
-    return this.http.get<UsuarioDestaque>('http://localhost:8080/usuarios/engajamento/postagens', this.token)
+    return this.http.get<UsuarioDestaque>(`${environment.uri}/usuarios/engajamento/postagens`, this.token)
   }
 
   postagemDestaque(): Observable<PostagemDestaqueComentario>{
-    return this.http.get<PostagemDestaqueComentario>('http://localhost:8080/postagens/engajamento/comentarios', this.token)
+    return this.http.get<PostagemDestaqueComentario>(`${environment.uri}/postagens/engajamento/comentarios`, this.token)
   }
 
   postagemDestaqueCurtida(): Observable<PostagemDestaqueCurtida>{
-    return this.http.get<PostagemDestaqueCurtida>('http://localhost:8080/postagens/engajamento/curtidas', this.token)
+    return this.http.get<PostagemDestaqueCurtida>(`${environment.uri}/postagens/engajamento/curtidas`, this.token)
   }
 	
 
   getById(id: number): Observable<UsuarioDestaque>{
-    return this.http.get<UsuarioDestaque>(`http://localhost:8080/usuarios/engajamento/postagens`, this.token)
+    return this.http.get<UsuarioDestaque>(`${environment.uri}/usuarios/engajamento/postagens`, this.token)
 
   }
 }

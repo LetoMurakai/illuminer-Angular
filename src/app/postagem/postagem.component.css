@@ -440,14 +440,14 @@ textarea{
   border: none;
 }
 .fa-trash-alt{
-  color: rgb(255, 39, 39);
+  color: rgb(255, 100, 100);
 }
 .fa-trash-alt:hover{
-  color: #ff4f4d;
+  color: #ff8886;
 }
 .fa-edit{
-  color: rgb(0, 162, 255);
+  color: rgb(122, 206, 255);
 }
 .fa-edit:hover{
-  color: rgb(71, 187, 255);
+  color: rgb(160, 220, 255);
 }
