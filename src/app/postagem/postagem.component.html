@@ -46,7 +46,8 @@
   <h4 class="text-center m-5">Nenhuma postagem encontrada!</h4>
 </div>
 
-<div class="postagem" [ngClass]="(darkMode)? 'postagem-postagem-darkMode':'postagem-postagem-lightMode'" id={{postagem.id}} *ngFor='let postagem of paginaPostagem.content'>
+<div class="postagem shadow-sm" [ngClass]="(darkMode)? 'postagem-postagem-darkMode':'postagem-postagem-lightMode'"
+  id={{postagem.id}} *ngFor='let postagem of paginaPostagem.content'>
   <!-- Dados da postagem Nome do Usuário/Data e botões de apagar e editar
   ''-->
   <div class="flex">
@@ -78,7 +79,8 @@
 
   <!-- Corpo do texto da postagem -->
 
-  <div class="bg-texto-postagem" [ngClass]="(darkMode)? 'postagem-bg-texto-postagem-darkMode': 'postagem-bg-texto-postagem-lightMode'">
+  <div class="bg-texto-postagem border-bottom"
+    [ngClass]="(darkMode)? 'postagem-bg-texto-postagem-darkMode': 'postagem-bg-texto-postagem-lightMode'">
     <p class="texto-postagem-comentario text-break">{{postagem.texto}}</p>
     <div *ngIf="postagem.midia != '' && postagem.tipoMidia == 'video'">
       <iframe class="midia-postagem" [src]="postagem.midia" title="YouTube video player" frameborder="0"
@@ -103,11 +105,46 @@
       5 comentários
     </a>-->
         <!--Comentarios -->
+
+          <!--Ver Comentarios-->
+          <div class="d-inline me-2 mb-0 m-0">
+
+            <h6 class="align-center d-inline">
+              <a class="ver-curtidas collapsed" type="button" data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#' + 'comentButton' + postagem.id" aria-expanded="false"
+                aria-controls="collapseTwo">
+                <a>
+                  <p *ngIf="postagem.comentarios.length == 0">Comentários</p>
+                  <p *ngIf="postagem.comentarios.length == 1">{{postagem.comentarios.length}} Comentário</p>
+                  <p *ngIf="postagem.comentarios.length > 1">{{postagem.comentarios.length}} Comentários</p>
+                </a>
+              </a>
+            </h6>
+
+          </div>
+
+          <!--Ver curtidas-->
+          <div class="d-inline ms-2 mb-0 m-0">
+
+            <h6 class="align-center d-inline">
+              <a *ngIf="postagem.curtidas.length == 1" class="ver-curtidas" href="" data-bs-toggle="modal"
+                data-bs-target="#curtidasModal" (click)=" getCurtidasPostagem(postagem.id)">
+                {{postagem.curtidas.length}} Curtida</a>
+            </h6>
+            <h6 class="align-center d-inline">
+              <a *ngIf="postagem.curtidas.length > 1" class="ver-curtidas" href="" data-bs-toggle="modal"
+                data-bs-target="#curtidasModal" (click)=" getCurtidasPostagem(postagem.id)">
+                {{postagem.curtidas.length}} Curtidas</a>
+            </h6>
+
+          </div>
+
         <div class="accordion m-0" [attr.id]="'coment' + postagem.id">
 
           <!--Botões de Postagem-->
           <div class="row">
-            <div class="col-6">
+            <hr>
+            <div class="col-6 m-0">
               <!--Comentar-->
               <div id="headingTwo m-0 p-0">
                 <h5 class="m-0 text-center">
@@ -115,76 +152,43 @@
                     [attr.data-bs-target]="'#' + 'comentButton' + postagem.id" aria-expanded="false"
                     aria-controls="collapseTwo">
                     <p>
-                      <i *ngIf="postagem.comentarios.length == 0" class="far fa-comment-dots"> <p>Comentários</p></i>
-                      <i *ngIf="postagem.comentarios.length == 1" class="far fa-comment-dots">
-                       <p>{{postagem.comentarios.length}} Comentário</p></i>
-                      <i *ngIf="postagem.comentarios.length > 1" class="far fa-comment-dots">
-                        <p>{{postagem.comentarios.length}} Comentários</p></i>
+                      <i  class="far fa-comment-dots">
+                        <p> Comentar</p>
+                      </i>
                     </p>
                   </a>
                 </h5>
               </div>
-
             </div>
 
-            <div class="col-6">
+            <div class="col-6 m-0">
               <!--curtir-->
               <div id="headingTwo m-0 p-0">
                 <h5 class="m-0 text-center">
                   <a class="btn-comentar collapsed m-0 p-0" type="button">
                     <p class="m-0 p-0">
                       <i *ngIf='postagem.isCurtida' class="fas fa-thumbs-up"
-                        (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'> <p>Descurtir</p></i>
+                        (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'>
+                        <p>Descurtir</p>
+                      </i>
                       <i *ngIf='postagem.isCurtida == false || postagem.isCurtida == undefined' class="far fa-thumbs-up"
-                        (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'> <p>Curtir</p></i>
+                        (click)='curtirOuDescurtir(postagem.isCurtida, postagem.id)'>
+                        <p>Curtir</p>
+                      </i>
                     </p>
-                    <div class="position-relative m-0 p-0">
 
-                      <h6 class="align-center p-0 m-0">
-                        <a *ngIf="postagem.curtidas.length == 1" class="ver-curtidas" href="" data-bs-toggle="modal"
-                          data-bs-target="#curtidasModal" (click)=" getCurtidasPostagem(postagem.id)">
-                          {{postagem.curtidas.length}} Curtida</a>
-                      </h6>
-                      <h6 class="align-center p-0 m-0">
-                        <a *ngIf="postagem.curtidas.length > 1" class="ver-curtidas" href="" data-bs-toggle="modal"
-                          data-bs-target="#curtidasModal" (click)=" getCurtidasPostagem(postagem.id)">
-                          {{postagem.curtidas.length}} Curtidas</a>
-                      </h6>
-
-                    </div>
                   </a>
                 </h5>
               </div>
             </div>
           </div>
 
-
           <!--Corpo de comentarios-->
           <div [attr.id]="'comentButton' + postagem.id" class="collapse" aria-labelledby="headingTwo"
             [attr.data-parent]="'#' + 'coment' + postagem.id">
 
-            <!--Escrever comentario-->
-            <div class="row">
-              <div class="fazer-comentario d-flex justify-content-center">
-
-                <img class="col-2 foto-autor-comentario bg-white" *ngIf="foto != null && foto !=''" src="{{foto}}"
-                  alt="">
-
-                <img class="col-2 foto-autor-comentario bg-white" *ngIf="foto == null || foto == ''"
-                  src="../../assets/imagem/Sem-foto-perfil.png" alt="">
-                <div class="col-10">
-
-                  <input type="text" [ngClass]="(darkMode)? 'postagem-input-comentario-darkMode' : 'postagem-input-comentario-lightMode'" 
-                  class="input-comentario w-75" id="titulo" aria-describedby="emailHelp" placeholder="Digite aqui seu comentário..." 
-                  [(ngModel)]='comentario.texto'>
-
-                  <button class="btn-comentario w-25" (click)='comentar(postagem.id)'>OK</button>
-                </div>
-              </div>
-            </div>
-
             <!--Comentario publicado-->
-            <div class="justify-content-center">
+            <div class="justify-content-center border-top">
               <div class="flex flex-sem-padding" *ngFor='let coment of postagem.comentarios'>
                 <!-- Foto do usuário autor do comentário -->
 
@@ -201,7 +205,8 @@
                 <!-- Corpo do comentário -->
                 <table class="w-100">
                   <tbody>
-                    <tr class="bg-comentario flex-column" [ngClass]="(darkMode)? 'postagem-bg-comentario-darkMode': 'postagem-bg-comentario-lightMode'">
+                    <tr class="bg-comentario flex-column border-bottom shadow-sm"
+                      [ngClass]="(darkMode)? 'postagem-bg-comentario-darkMode': 'postagem-bg-comentario-lightMode'">
 
                       <td class="align-start height-td">
                         <!-- Usuario -->
@@ -209,7 +214,8 @@
 
                           <div class="col-6">
                             <a (click)='abrirUsuario(coment.usuario.id)' [routerLink]="['/perfil', coment.usuario.id]">
-                              <p [ngClass]="(darkMode)? 'nome-autor-comentario-darkMode' : 'nome-autor-comentario-lightMode'" class="text-capitalize">{{coment.usuario.nome}}</p>
+                              <p [ngClass]="(darkMode)? 'nome-autor-comentario-darkMode' : 'nome-autor-comentario-lightMode'"
+                                class="text-capitalize">{{coment.usuario.nome}}</p>
                             </a>
                           </div>
 
@@ -254,6 +260,26 @@
                     </tr>
                   </tbody>
                 </table>
+              </div>
+            </div>
+            <!--Escrever comentario-->
+            <div class="row">
+              <div class="fazer-comentario d-flex justify-content-center">
+
+                <img class="col-2 foto-autor-comentario bg-white" *ngIf="foto != null && foto !=''" src="{{foto}}"
+                  alt="">
+
+                <img class="col-2 foto-autor-comentario bg-white" *ngIf="foto == null || foto == ''"
+                  src="../../assets/imagem/Sem-foto-perfil.png" alt="">
+                <div class="col-10">
+
+                  <input type="text"
+                    [ngClass]="(darkMode)? 'postagem-input-comentario-darkMode' : 'postagem-input-comentario-lightMode'"
+                    class="input-comentario w-75" id="titulo" aria-describedby="emailHelp"
+                    placeholder="Digite aqui seu comentário..." [(ngModel)]='comentario.texto'>
+
+                  <button class="btn-comentario w-25" (click)='comentar(postagem.id)'>Comentar</button>
+                </div>
               </div>
             </div>
           </div>
@@ -322,28 +348,30 @@
 <!-- Modal Curtidas -->
 <div class="modal fade" id="curtidasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content" [ngClass]="(darkMode)? 'postagem-modal-curtidas-darkMode' : 'postagem-modal-curtidas-lightMode'">
+    <div class="modal-content">
       <div class="modal-header">
 
-        <h5 class="modal-title" id="exampleModalLabel" style="align-self: center;">Curtida por:</h5>
+        <h5 class="modal-title text-capitalize text-white" id="exampleModalLabel" style="align-self: center;">Curtida
+          por:</h5>
 
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <ul class="flex-sem-padding">
-          <li class="flex flex-sem-padding bg-white rounded-3 border-bottom mb-1 shadow-sm" *ngFor='let curtida of curtidas'>
+          <li class="flex flex-sem-padding rounded-3 border-bottom mb-1 shadow-sm" *ngFor='let curtida of curtidas'
+            [ngClass]="(darkMode)? 'postagem-modal-curtidas-darkMode' : 'postagem-modal-curtidas-lightMode'">
             <a href="" data-bs-dismiss="modal" (click)='abrirUsuario(curtida.id.usuario.id)'
               [routerLink]="['/perfil', curtida.id.usuario.id]">
               <img class="foto-autor-curtida" src="{{curtida.id.usuario.foto}}" alt="Foto autor do comentário">
             </a>
-            <div >
-              <a href="" data-bs-dismiss="modal" (click)='abrirUsuario(curtida.id.usuario.id)'
+            <div class="mt-0 mb-0">
+              <p class="nome-autor-curtida text-capitalize">
+                <a [ngClass]="(darkMode)?'text-white' : 'text-dark'" data-bs-dismiss="modal"
+                  (click)='abrirUsuario(curtida.id.usuario.id)'
+                  [routerLink]="['/perfil', curtida.id.usuario.id]">{{curtida.id.usuario.nome}}</a>
 
-               [routerLink]="['/perfil', curtida.id.usuario.id]">
-                <p class="nome-autor-curtida" [ngClass]="(darkMode)? 'postagem-nomeUsuario-darkMode' : 'postagem-nomeUsuario-lightMode'">{{curtida.id.usuario.nome}}</p>
-
-              </a>
-              <p class="nome-autor-curtida">{{curtida.id.usuario.tipo}}</p>
+              </p>
+              <p class="nome-autor-curtida text-uppercase small">{{curtida.id.usuario.tipo}}</p>
             </div>
             <hr>
           </li>
@@ -378,7 +406,8 @@
 </div> -->
 <div class="modal fade" id="editarComentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content" [ngClass]="(darkMode)? 'postagem-modal-comentarios-darkMode' : 'postagem-modal-comentarios-lightMode'">
+    <div class="modal-content"
+      [ngClass]="(darkMode)? 'postagem-modal-comentarios-darkMode' : 'postagem-modal-comentarios-lightMode'">
       <div class="modal-header">
         <h5 class="modal-title text-capitalize text-white" id="exampleModalLabel">Editar Comentario</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -405,7 +434,8 @@
 <div class="modal fade" id="deletarComentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content" [ngClass]="(darkMode)? 'postagem-modal-comentarios-darkMode' : 'postagem-modal-comentarios-lightMode'">
+    <div class="modal-content"
+      [ngClass]="(darkMode)? 'postagem-modal-comentarios-darkMode' : 'postagem-modal-comentarios-lightMode'">
       <div class="modal-header">
         <h5 class="modal-title text-capitalize text-white" id="exampleModalLabel">Apagar comentario</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -426,7 +456,8 @@
 
 <div class="modal fade" id="cancelarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content" [ngClass]="(darkMode)? 'postagem-modal-comentarios-darkMode' : 'postagem-modal-comentarios-lightMode'">
+    <div class="modal-content"
+      [ngClass]="(darkMode)? 'postagem-modal-comentarios-darkMode' : 'postagem-modal-comentarios-lightMode'">
       <div class="modal-header">
         <h5 class="modal-title text-capitalize text-white" id="exampleModalLabel">Apagar postagem</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -436,7 +467,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal" (click)="excluirPostagem()">Apagar</button>
+        <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal"
+          (click)="excluirPostagem()">Apagar</button>
       </div>
     </div>
   </div>
@@ -447,7 +479,8 @@
 
 <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content" [ngClass]="(darkMode)? 'postagem-modal-comentarios-darkMode' : 'postagem-modal-comentarios-lightMode'">
+    <div class="modal-content"
+      [ngClass]="(darkMode)? 'postagem-modal-comentarios-darkMode' : 'postagem-modal-comentarios-lightMode'">
       <div class="modal-header">
         <h5 class="modal-title text-white text-capitalize" id="exampleModalLabel">Editar Postagem</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

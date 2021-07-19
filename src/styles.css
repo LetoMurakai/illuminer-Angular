@@ -59,13 +59,13 @@ a{
 /* CSS NAVBAR */
 .nav-bar-coresClaras{
   transition: 1s;
-  background: rgb(170, 170, 170);
-  color: rgb(29, 29, 29);
+  background: #f2f2f2;
+  color: #353535;
 }
 .nav-bar-coresEscuras{
   transition: 1s;
-  background: rgb(44, 44, 44);
-  color: white;
+  background: #090E12;
+  color: #f1f1f1;
 }
 .nav-bar-coresEscuras #dropdown{
   color: rgb(179, 179, 179);
@@ -74,17 +74,24 @@ a{
 /* CSS FEED */
 .feed-background-coresEscuras{
   transition: 1s;
-  background: #111b22;
+  background: #111B22;
   color: white;
 }
 .feed-background-coresClaras{
   transition: 1s;
-  background: rgb(221, 221, 221);
+  background: #f1f1f1;
 }
 
 /* CSS MINI-PERFIL */
+.mini-perfil-foto-coresEscuras{
+  border: 3px solid #1F1F1F;
+}
+.mini-perfil-foto-coresEscuras{
+  border: 3px solid #fcfcfc;
+}
+
 .mini-perfil-card-coresEscuras{
-  background: #1f1f1f;
+  background: #1F1F1F;
   color: white;
 }
 .mini-perfil-card-coresClaras{
@@ -107,7 +114,7 @@ a{
     width: 100%;
     resize: none;
     background: #212121;
-    
+
 }
 .fazer-postagem-textArea-coresEscuras{
   min-height: 210px;
@@ -137,21 +144,17 @@ a{
 /* CSS POSTAGENS */
 
 .postagem-postagem-darkMode{
-  border: 1px white solid;
   background-color: #1f1f1f!important;
   color: white;
 }
 .postagem-postagem-lightMode{
-  border: 1px #353535 solid;
   background: #fcfcfc;
 }
 .postagem-bg-texto-postagem-lightMode{
-  border: 1px #35353567 solid;
-  background: #fcfcfc;
+  background: #fafafa;
 }
 .postagem-bg-texto-postagem-darkMode{
-  border: 1px rgba(255, 255, 255, 0.582) solid;
-  background: #353535;
+  background: #222222;
 }
 .postagem-input-comentario-lightMode{
   background: white;
@@ -162,7 +165,7 @@ a{
   color: white;
 }
 .postagem-bg-comentario-lightMode{
-  background: white;
+  background: #f8f8f8;
   color: #353535;
 }
 .postagem-bg-comentario-darkMode{
@@ -171,19 +174,19 @@ a{
 }
 
 .postagem-modal-curtidas-darkMode{
-  border-radius: 10px;
-  padding: 10px;
-  background: rgb(64 64 64)!important;
-  color: white;
+  background-color: #1F1F1F;
+  color: white!important;
+}
+.postagem-modal-curtidas-lightMode{
+  background-color: #f2f2f2;
+  color: #333!important;
 }
 
 .postagem-modal-comentarios-darkMode{
-  border-radius: 10px;
-  padding: 10px;
-  background: rgb(16 16 16)!important;
+
 }
 .postagem-nomeUsuario-darkMode{
-  color: white;
+  color: rgb(255, 255, 255);
 }
 .postagem-nomeUsuario-lightMode{
   color: #353535;
@@ -191,7 +194,7 @@ a{
 
 /* CSS ENGAJAMENTO */
 .engajamento-bg-pill-darkMode{
-  background: #353535;
+  background: #1F1F1F;
   color: white;
 }
 .engajamento-bg-pill-lightMode{
@@ -200,33 +203,33 @@ a{
 }
 
 .engajamento-imgUsuario-lightMode{
-  background: rgb(47, 103, 255);
+  /*background: rgb(47, 103, 255);*/
 }
 .engajamento-imgUsuario-darkMode{
-  background: turquoise;
+  /*background: turquoise;*/
 }
 
 
 .engajamento-publicacao-comentarios-lightMode{
-  color: #000000;
-  background: rgb(200, 59, 255);
+  color: #4f9999;
+  /*background: rgb(200, 59, 255);*/
   border-radius: 50%;
 }
 .engajamento-publicacao-comentarios-darkMode{
   color: #35d9df;
-  background: rgb(255 243 134);
+  /*background: rgb(255 243 134);*/
   border-radius: 50%;
 }
 
 
 .engajamento-publicacao-curtidas-lightMode{
-  color: #000000;
-  background: rgb(255, 241, 51);
+  color: #4f9999;
+  /*background: rgb(255, 241, 51);*/
   border-radius: 50%;
 }
 .engajamento-publicacao-curtidas-darkMode{
   color: #00bbc2;
-  background: rgb(225 101 101);
+  /*background: rgb(225 101 101);*/
   border-radius: 50%;
 }
 .engajamento-linkUsuario-lightMode{

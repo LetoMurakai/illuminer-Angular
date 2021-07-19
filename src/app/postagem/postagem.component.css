@@ -9,7 +9,6 @@ a{
   font-family: 'Baloo 2', cursive;
   text-decoration: none;
   cursor: pointer;
-  color: #333;
 }
 .clicavel{
   font-family: 'Baloo 2', cursive;
@@ -108,7 +107,7 @@ a{
 
 /* Estilizando o background do corpo do texto da postagem */
 .bg-texto-postagem {
-  
+
   width: 95%;
   margin: 0 auto;
   border-radius: 3%;
@@ -377,18 +376,18 @@ textarea{
 
 /* Botão de um novo comentário */
 .btn-comentario {
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 0px 30px 30px 0px;
   border: none;
   outline: none;
   padding: 10px;
-  background-color: #9bea5e;
-  color: #353535;
+  background-color: #aae97a;
+  color: #ffffff;
   font-weight: bold;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.100);
 }
 
 .btn-comentario:hover {
-  background-color: #99f850;
+  background-color: #91e252;
 }
 
 

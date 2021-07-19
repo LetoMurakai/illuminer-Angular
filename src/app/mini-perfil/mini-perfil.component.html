@@ -9,9 +9,9 @@
           <img class="tam-fotoCapa" src="../../assets/imagem/Sem-Imagem.png" alt="">
         </div>
 
-       
+
           <img class="card-header tam-fotoCapa" *ngIf="usuario.fotoCapa != null || usuario.fotoCapa != ''" src="{{usuario.fotoCapa}}" alt="">
-        
+
 
         <a><i class="fas fa-pencil-alt rounded-circle position-absolute start-0 m-1 edit" data-bs-toggle="modal"
             data-bs-target="#exampleModal"></i></a>
@@ -22,7 +22,7 @@
             alt="">
         </div>
 
-        <div *ngIf="foto == null || foto == ''" class="user-img">
+        <div *ngIf="foto == null || foto == ''" class="user-img" [ngClass]="(darkMode)? 'mini-perfil-foto-coresEscuras' : 'mini-perfil-foto-coresClaras'">
           <img src="../../assets/imagem/Sem-foto-perfil.png" alt="">
         </div>
 
