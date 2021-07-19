@@ -1,57 +1,62 @@
-<section class="container mt-3 mb-2" [ngClass]= "(darkMode) ? 'fazer-postagem-background-coresEscuras': 'fazer-postagem-background-coresClaras'">
+<section class="container mt-3 mb-2"
+  [ngClass]="(darkMode) ? 'fazer-postagem-background-coresEscuras': 'fazer-postagem-background-coresClaras'">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row mt-1">
+        <h4>Olá, {{nomeUsuarioLogado}}</h4>
+      </div>
       <div class="row">
-        <div class="col-md-12">
-          <div class="row mt-1">
-            <h4>Olá, {{nomeUsuarioLogado}}</h4>
-          </div>
+        <div class="col-md-10">
           <div class="row">
-            <div class="col-md-10">
-              <div class="row">
-                <div class="form-group align-text-top">
+            <div class="form-group align-text-top">
 
-                  <textarea [ngClass]="(darkMode)? 'fazer-postagem-textArea-coresClaras':'fazer-postagem-textArea-coresEscuras'" [(ngModel)]='postagem.texto' class="texto" type="text" name="texto" id="postagem"
-                    placeholder="No que você está pensando hoje?"></textarea>
+              <textarea
+                [ngClass]="(darkMode)? 'fazer-postagem-textArea-coresClaras':'fazer-postagem-textArea-coresEscuras'"
+                [(ngModel)]='postagem.texto' class="texto" type="text" name="texto" id="postagem"
+                placeholder="No que você está pensando hoje?"></textarea>
 
-                </div>
-
-                <div class="row">
-                  <div class="col-md-8">
-
-                    <input [ngClass]="(darkMode)? 'fazer-postagem-input-darkMode' : 'fazer-postagem-input-lightMode'" [(ngModel)]='postagem.midia' class="midia" type="text" name="midia" id="postagem"
-                      placeholder="Insira o link de uma foto aqui">
-
-                  </div>
-
-                  <div class="col-md-4">
-
-                    <select [ngClass]="(darkMode)? 'fazer-postagem-formSelect-darkMode' : 'fazer-postagem-formSelect-lightMode'" [(ngModel)]='postagem.tipoMidia' class="form-select" aria-label=".form-select-lg example"
-                      name='select-opcao' id='select-opcao' (change)='selecionaMidia($event)'>
-                      <option disabled selected>Selecione uma opção</option>
-                      <option value="video">Vídeo</option>
-                      <option value="imagem">Imagem</option>
-                   </select>
-
-
-                  </div>
-                </div>
-
-              </div>
             </div>
 
-            <div class="col-md-2 h-100">
-              <div class="row d-flex justify-content-center h-50">
-                <button class="botaoCancelar btn btn-danger" (click)='cancelar()'>Cancelar</button>
+            <div class="row">
+              <div class="col-md-8">
+
+                <input [ngClass]="(darkMode)? 'fazer-postagem-input-darkMode' : 'fazer-postagem-input-lightMode'"
+                  [(ngModel)]='postagem.midia' class="midia" type="text" name="midia" id="postagem"
+                  placeholder="Insira o link de uma foto/vídeo aqui: ">
+
               </div>
 
-              <div class="row d-flex justify-content-center h-50">
-                <button class="botaoPublicar btn btn-success" (click)='publicar()'>
-                  Publicar
-                </button>
+              <div class="col-md-4">
+
+                <select
+                  [ngClass]="(darkMode)? 'fazer-postagem-formSelect-darkMode' : 'fazer-postagem-formSelect-lightMode'"
+                  [(ngModel)]='postagem.tipoMidia' class="form-select selected" aria-label="disabled selected"
+                  name='select-opcao' id='select-opcao' (change)='selecionaMidia($event)'>
+                  <option selected disabled>Tipo mídia</option>
+                  <option value="video">Vídeo</option>
+                  <option value="imagem">Imagem</option>
+                </select>
 
               </div>
             </div>
 
           </div>
-</div></div>
-  </section>
+        </div>
 
+        <div class="col-md-2 h-100">
+          <div class="row d-flex justify-content-center h-50">
+            <button class="botaoCancelar btn btn-danger" (click)='cancelar()'>Cancelar</button>
+          </div>
+
+          <div class="row d-flex justify-content-center h-50">
+            <button class="botaoPublicar btn btn-success" (click)='publicar()'>
+              Publicar
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

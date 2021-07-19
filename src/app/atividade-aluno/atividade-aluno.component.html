@@ -10,7 +10,7 @@
 
         <div class="col-9">
           <h5 class="nome-autor-comentario text-capitalize">{{usuario.nome}}</h5>
-          <p [ngClass]="(darkMode)? 'atividadeAluno-info-darkMode' : 'text-dark'" class="m-0 p-0">Curtiu a <a  [ngClass]="(darkMode)? 'atividadeAluno-acessar-darkMode' : 'atividadeAluno-acessar-lightMode'" class="postagem"
+          <p [ngClass]="(darkMode)? 'text-white' : 'text-dark'" class="m-0 p-0">Curtiu a <a  [ngClass]="(darkMode)? 'atividadeAluno-acessar-darkMode' : 'atividadeAluno-acessar-lightMode'" class="postagem"
               (click)="abrirPublicacao(atividade.idPostagem)">
               publicação</a> de :
             <a [ngClass]="(darkMode)? 'atividadeAluno-acessar-darkMode' : 'atividadeAluno-acessar-lightMode'" class="text-capitalize " [routerLink]="['/perfil', atividade.idAutorPostagem]"
@@ -61,12 +61,12 @@
 
           <div class="col-10">
             <p class="small">Na publicação de :
-              <a class="text-capitalize acessar" [routerLink]="['/perfil', atividade.idAutorPostagem]"
-              (click)="abrirUsuario(atividade.idAutorPostagem)">{{atividade.nomeAutorPostagem}}</a>
+              <a class="text-capitalize" [routerLink]="['/perfil', atividade.idAutorPostagem]"
+              (click)="abrirUsuario(atividade.idAutorPostagem)" [ngClass]="(darkMode)? 'atividadeAluno-acessar-darkMode' : 'atividadeAluno-acessar-lightMode'">{{atividade.nomeAutorPostagem}}</a>
             </p>
             <a class="acessar"(click)="abrirPublicacao(atividade.idPostagem)">
               <div class="publicacao">
-                <p class="text-break p-3">
+                <p class="text-break p-3" [ngClass]="(darkMode)? 'atividadeAluno-acessar-darkMode' : 'atividadeAluno-acessar-lightMode'">
                   {{atividade.textoPost}}. . .
                 </p>
               </div>
