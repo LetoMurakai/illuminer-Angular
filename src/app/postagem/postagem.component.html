@@ -362,7 +362,12 @@
             [ngClass]="(darkMode)? 'postagem-modal-curtidas-darkMode' : 'postagem-modal-curtidas-lightMode'">
             <a href="" data-bs-dismiss="modal" (click)='abrirUsuario(curtida.id.usuario.id)'
               [routerLink]="['/perfil', curtida.id.usuario.id]">
-              <img class="foto-autor-curtida" src="{{curtida.id.usuario.foto}}" alt="Foto autor do comentário">
+
+              <img *ngIf="curtida.id.usuario.foto == null || curtida.id.usuario.foto == ''" class="foto-autor-curtida" src="../../assets/imagem/Sem-foto-perfil.png"
+                alt="Foto padrão de perfil">
+
+              <img *ngIf="curtida.id.usuario.foto != null && curtida.id.usuario.foto != '' " class="foto-autor-curtida" src="{{curtida.id.usuario.foto}}" alt="Foto autor do comentário">
+
             </a>
             <div class="mt-0 mb-0">
               <p class="nome-autor-curtida text-capitalize">
