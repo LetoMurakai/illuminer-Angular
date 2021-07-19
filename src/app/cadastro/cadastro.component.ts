@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Usuario } from '../model/Usuario';
 import { AlertaService } from '../service/alerta.service';
@@ -13,36 +12,36 @@ import { AuthService } from '../service/auth.service';
 export class CadastroComponent implements OnInit {
 
   usuario: Usuario = new Usuario
-  confirmaSenha: string 
+  confirmaSenha: string
   tipoUsuario: string
   nomeValido: boolean = false
   emailValido: boolean =false
   fotoValida: boolean = false
   validarUsuario : boolean = false
   senhaValida: boolean =false
-  
-  
 
- 
+
+
+
   constructor(
     private authService: AuthService,
     private router:Router,
     private alerta: AlertaService,
-   
+
   ) { }
 
   ngOnInit() {
     window.scroll(0,0)
-   
-    
+
+
   }
 
   tipoUser(event: any) {
     this.tipoUsuario = event.target.value
   }
-  
 
-  
+
+
   confirmSenha(event: any) {
     this.confirmaSenha = event.target.value
   }
@@ -77,7 +76,7 @@ export class CadastroComponent implements OnInit {
     this.fotoValida = this.validacao(event.target.value.indexOf('https://') == -1, event)
   }
 
-  
+
   validarTipoUsario ( event: any){
     this.validarUsuario = this.validacao(event.target.value.indexOf('Selecione um tipo de usuario:') == 0, event)
 

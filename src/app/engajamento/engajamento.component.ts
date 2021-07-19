@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
-import { Curtida } from '../model/Curtida';
-import { CurtidaPK } from '../model/CurtidaPK';
 import { PaginaPostagem } from '../model/PaginaPostagem';
 import { PostagemDestaqueComentario } from '../model/PostagemDestaqueComentario';
 import { PostagemDestaqueCurtida } from '../model/PostagemDestaqueCurtida';

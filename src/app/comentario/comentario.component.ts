@@ -1,6 +1,5 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Comentario } from '../model/Comentario';
@@ -58,6 +57,6 @@ export class ComentarioComponent implements OnInit {
     })
   }
 
-  
+
 
 }
