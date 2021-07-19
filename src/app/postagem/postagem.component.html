@@ -42,7 +42,7 @@
 
 
 <!-- Caso não tenha postagens exibir mensagem para o usuário-->
-<div *ngIf='paginaPostagem.content?.length == 0'>
+<div *ngIf='paginaPostagem.content?.length == 0' [ngClass]="(darkMode)? 'text-white':'text-dark'">
   <h4 class="text-center m-5">Nenhuma postagem encontrada!</h4>
 </div>
 
