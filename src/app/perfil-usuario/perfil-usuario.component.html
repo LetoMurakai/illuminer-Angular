@@ -32,7 +32,7 @@
             <a *ngIf="usuario.id == id"><i class="fas fa-pencil-alt rounded-circle position-absolute end-0 m-4 edit"
                 data-bs-toggle="modal" data-bs-target="#exampleModal"></i></a>
 
-            <div class="d-flex justify-content-center user-img">
+            <div class="d-flex justify-content-center user-img" [ngClass]="(darkMode)? 'mini-perfil-foto-coresEscuras border-5' : 'mini-perfil-foto-coresClaras border-5'">
               <img *ngIf="usuario.foto == null || usuario.foto == ''" class="foto-usuario" src="../../assets/imagem/Sem-foto-perfil.png"
                 alt="Foto padrão de perfil">
               <img *ngIf="usuario.foto != null && usuario.foto != '' " class="foto-usuario" src={{usuario.foto}}

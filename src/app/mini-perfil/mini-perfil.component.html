@@ -17,7 +17,7 @@
             data-bs-target="#exampleModal"></i></a>
 
 
-        <div class="user-img clicavel">
+        <div class="user-img clicavel" [ngClass]="(darkMode)? 'mini-perfil-foto-coresEscuras' : 'mini-perfil-foto-coresClaras'">
           <img (click)='abrirUsuario()' [routerLink]="['/perfil', idUsuarioLogado]" *ngIf="foto != null && foto != '' " src="{{foto}}"
             alt="">
         </div>
@@ -59,7 +59,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title text-capitalize text-white" id="exampleModalLabel"><i
-            class="far fa-user-circle edit-modal"></i>meus dados</h5>
+            class="far fa-user-circle edit-modal me-2"></i>meus dados</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
