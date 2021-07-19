@@ -357,11 +357,11 @@ export class PostagemComponent implements OnInit {
     environment.idUsuarioPerfil = idUsuario
     environment.textoPesquisaPostagem = ''
     environment.idDestaqueComentario = 0
+    environment.posicaoScroll = 0
     this.router.navigate(['/feed'])
         setTimeout(() => {
           this.router.navigate([`/perfil/${idUsuario}`])
         }, 30);
   }
-
 }
 
