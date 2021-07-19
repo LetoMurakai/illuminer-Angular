@@ -58,27 +58,29 @@ a{
 
 /* CSS NAVBAR */
 .nav-bar-coresClaras{
-  transition: 1s;
   background: #f2f2f2;
   color: #353535;
 }
 .nav-bar-coresEscuras{
-  transition: 1s;
-  background: #090E12;
+  background: #090E12!important;
   color: #f1f1f1;
 }
 .nav-bar-coresEscuras #dropdown{
   color: rgb(179, 179, 179);
 }
+.nav-bar-dropdown-coresEscuras{
+  color: #f1f1f1!important;
+}
+.nav-bar-dropdown-coresEscuras:hover{
+  background: #2ca0ff!important;
+}
 
 /* CSS FEED */
 .feed-background-coresEscuras{
-  transition: 1s;
   background: #111B22;
   color: white;
 }
 .feed-background-coresClaras{
-  transition: 1s;
   background: #f1f1f1;
 }
 
@@ -182,9 +184,7 @@ a{
   color: #333!important;
 }
 
-.postagem-modal-comentarios-darkMode{
 
-}
 .postagem-nomeUsuario-darkMode{
   color: rgb(255, 255, 255);
 }
@@ -273,4 +273,7 @@ a{
 }
 .atividadeAluno-acessar-lightMode{
   color: #1b1c2e;
+}
+.atividadeAluno-comentario-darkMode{
+  background: #262626;
 }

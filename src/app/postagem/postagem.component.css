@@ -439,3 +439,15 @@ textarea{
   background: none;
   border: none;
 }
+.fa-trash-alt{
+  color: rgb(255, 39, 39);
+}
+.fa-trash-alt:hover{
+  color: #ff4f4d;
+}
+.fa-edit{
+  color: rgb(0, 162, 255);
+}
+.fa-edit:hover{
+  color: rgb(71, 187, 255);
+}
