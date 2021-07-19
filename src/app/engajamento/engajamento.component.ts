@@ -79,8 +79,14 @@ export class EngajamentoComponent implements OnInit {
   }
 
 
-  prepararAbrirPerfil() {
-    environment.idDestaqueComentario = 0
+  abrirPerfil(idUsuario: number) {
+    environment.idUsuarioPerfil = idUsuario
     environment.textoPesquisaPostagem = ''
+    environment.idDestaqueComentario = 0
+    this.router.navigate(['/feed'])
+        setTimeout(() => {
+          this.router.navigate([`/perfil/${idUsuario}`])
+        }, 30);
   }
-}
+  }
+

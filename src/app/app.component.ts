@@ -19,7 +19,6 @@ export class AppComponent {
         window.clearInterval(scroll);
       }
     }, 1);
-    // }
   }
 
 }
