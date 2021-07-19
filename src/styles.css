@@ -116,7 +116,7 @@ a{
     width: 100%;
     resize: none;
     background: #212121;
-
+    color: white !important
 }
 .fazer-postagem-textArea-coresEscuras{
   min-height: 210px;
