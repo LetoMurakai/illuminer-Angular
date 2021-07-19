@@ -150,7 +150,7 @@
                 <h5 class="m-0 text-center">
                   <a class="btn-comentar collapsed m-0 p-0" type="button" data-bs-toggle="collapse"
                     [attr.data-bs-target]="'#' + 'comentButton' + postagem.id" aria-expanded="false"
-                    aria-controls="collapseTwo">
+                    aria-controls="collapseTwo" (click)="focarInputComentario(postagem.id)">
                     <p>
                       <i  class="far fa-comment-dots">
                         <p> Comentar</p>
@@ -275,7 +275,7 @@
 
                   <input type="text"
                     [ngClass]="(darkMode)? 'postagem-input-comentario-darkMode' : 'postagem-input-comentario-lightMode'"
-                    class="input-comentario w-75" id="titulo" aria-describedby="emailHelp"
+                    class="input-comentario w-75" id="titulo{{postagem.id}}" aria-describedby="emailHelp"
                     placeholder="Digite aqui seu comentário..." [(ngModel)]='comentario.texto'>
 
                   <button class="btn-comentario w-25" (click)='comentar(postagem.id)'>Comentar</button>
