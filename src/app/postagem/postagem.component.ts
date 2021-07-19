@@ -364,5 +364,10 @@ export class PostagemComponent implements OnInit {
           this.router.navigate([`/perfil/${idUsuario}`])
         }, 30);
   }
+
+  focarInputComentario(idPostagem: number) {
+    
+    document.getElementById(`titulo${idPostagem}`)?.focus();
+  }
 }
 

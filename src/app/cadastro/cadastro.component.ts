@@ -49,11 +49,7 @@ export class CadastroComponent implements OnInit {
 
   cadastrar() {
    // this.usuario.tipoUsuario = this.confirmaSenha
-   console.log(JSON.stringify(this.usuario))
-
-   console.log(this.confirmaSenha)
-
-   this.usuario.tipo = this.tipoUsuario
+      this.usuario.tipo = this.tipoUsuario
 
     if(this.usuario.senha != this.confirmaSenha ){
       this.alerta.showAlertWarning('As senhas não são iguais')

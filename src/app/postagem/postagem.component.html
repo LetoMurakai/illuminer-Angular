@@ -42,7 +42,7 @@
 
 
 <!-- Caso não tenha postagens exibir mensagem para o usuário-->
-<div *ngIf='paginaPostagem.content?.length == 0'>
+<div *ngIf='paginaPostagem.content?.length == 0' [ngClass]="(darkMode)? 'text-white':'text-dark'">
   <h4 class="text-center m-5">Nenhuma postagem encontrada!</h4>
 </div>
 
@@ -150,7 +150,7 @@
                 <h5 class="m-0 text-center">
                   <a class="btn-comentar collapsed m-0 p-0" type="button" data-bs-toggle="collapse"
                     [attr.data-bs-target]="'#' + 'comentButton' + postagem.id" aria-expanded="false"
-                    aria-controls="collapseTwo">
+                    aria-controls="collapseTwo" (click)="focarInputComentario(postagem.id)">
                     <p>
                       <i  class="far fa-comment-dots">
                         <p> Comentar</p>
@@ -275,7 +275,7 @@
 
                   <input type="text"
                     [ngClass]="(darkMode)? 'postagem-input-comentario-darkMode' : 'postagem-input-comentario-lightMode'"
-                    class="input-comentario w-75" id="titulo" aria-describedby="emailHelp"
+                    class="input-comentario w-75" id="titulo{{postagem.id}}" aria-describedby="emailHelp"
                     placeholder="Digite aqui seu comentário..." [(ngModel)]='comentario.texto'>
 
                   <button class="btn-comentario w-25" (click)='comentar(postagem.id)'>Comentar</button>
@@ -362,7 +362,12 @@
             [ngClass]="(darkMode)? 'postagem-modal-curtidas-darkMode' : 'postagem-modal-curtidas-lightMode'">
             <a href="" data-bs-dismiss="modal" (click)='abrirUsuario(curtida.id.usuario.id)'
               [routerLink]="['/perfil', curtida.id.usuario.id]">
-              <img class="foto-autor-curtida" src="{{curtida.id.usuario.foto}}" alt="Foto autor do comentário">
+
+              <img *ngIf="curtida.id.usuario.foto == null || curtida.id.usuario.foto == ''" class="foto-autor-curtida" src="../../assets/imagem/Sem-foto-perfil.png"
+                alt="Foto padrão de perfil">
+
+              <img *ngIf="curtida.id.usuario.foto != null && curtida.id.usuario.foto != '' " class="foto-autor-curtida" src="{{curtida.id.usuario.foto}}" alt="Foto autor do comentário">
+
             </a>
             <div class="mt-0 mb-0">
               <p class="nome-autor-curtida text-capitalize">

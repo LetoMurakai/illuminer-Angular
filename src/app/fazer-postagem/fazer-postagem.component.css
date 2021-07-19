@@ -4,6 +4,7 @@
   min-height: 290px;
   border-radius: 10px;
   background: #1f1f1f;
+  color: white;
 }
 .fazer-postagem-background-coresClaras{
   max-height: 290px;
@@ -31,6 +32,8 @@ input{
   border-radius: 10px 0 0 10px;
   width: 100%;
   z-index: 999;
+  padding: 1px 1px 1px 6px !important;
+  text-align: center;
 }
 select:invalid {
   color: gray;
