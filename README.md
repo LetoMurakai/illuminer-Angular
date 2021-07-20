@@ -1,27 +1,43 @@
 # Illuminer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
+https://illuminer.netlify.app
 
-## Development server
+# Sobre o projeto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Illuminer é uma aplicação front-end desenvolvida durante o bootcamp realizado pela [Generation Brasil](https://brazil.generation.org). É uma rede social pensada para conectar alunos dispostos a aprender além da sala de aula, e professores locais dispostos a ajudá-los. O principal objetivo é introduzir matérias que não são passadas nas escolas públicas e reforçar as que já estão na grade curricular. A illuminer é uma forma descontraída de adquirir e distribuir conhecimento, conforme o seu próprio ritmo.
 
-## Code scaffolding
+## Modelo Lógico
+![Logico](https://github.com/fabriciio95/arquivos-read-me/blob/master/arquivos-rep-illuminer/modelo-logico.jpg)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Tecnologias utilizadas
+- HTML
+- CSS
+- Bootstrap
+- Typescript
+- Angular
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# Back-end
+[Illuminer - Back-end](https://github.com/DavidCostaBKE/Projeto-Integrador)
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Como executar o projeto localmente
+Pré-requisitos: npm
 
-## Running end-to-end tests
+```bash
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+# clonar repositório
+git clone https://github.com/LetoMurakai/illuminer-Angular.git
 
-## Further help
+# Entre na pasta raiz do projeto:
+cd illuminer-Angular
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Baixe as dependências necessárias (isso pode levar alguns minutos):
+npm install
+
+# Inicialize o servidor (isso também pode levar alguns minutos):
+ng serve
+
+# Vá para o browser e digite a url:
+http://localhost:4200
+```
