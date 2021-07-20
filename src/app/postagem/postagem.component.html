@@ -11,7 +11,7 @@
 <nav aria-label="..." class="d-flex justify-content-center mt-5">
   <ul [ngStyle]="{'display': displayNavPag}" class="pagination">
     <li class="page-item" [ngClass]="(paginaPostagem.first) ? 'disabled' : ''">
-      <a *ngIf="idUsuarioPerfil != 0" class="page-link"
+      <a [ngClass]="(darkMode)? 'postagem-paginacao-darkMode' : 'postagem-paginacao-lightMode'" *ngIf="idUsuarioPerfil != 0" class="page-link"
         (click)='buscarPaginaPostagemProfessor(idUsuarioPerfil, paginaPostagem.number - 1, 5)'>Anterior</a>
       <a *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link"
         (click)='buscarPaginaPostagem(paginaPostagem.number - 1, 5)'>Anterior</a>
