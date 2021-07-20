@@ -68,8 +68,8 @@
       </div>
 
       <div class="col-9 d-inline position-absolute top-0 end-0 ps-4">
-        <h5 class="h6 cor m-0">A mais curtida</h5>
-        <a (click)='pegarId(destaqueCurtida.id)'> <p class="m-0 text-break">{{destaqueCurtida.titulo}}. . .</p></a>
+        <h5 class="h6 cor m-0">Publicação mais curtida</h5>
+        <a class="link-usuario" [ngClass]="(darkMode)? 'engajamento-linkUsuario-darkMode' : 'engajamento-linkUsuario-lightMode'" (click)='pegarId(destaqueCurtida.id)'> <p class="m-0 text-break">{{destaqueCurtida.titulo}}. . .</p></a>
         <p>{{destaqueCurtida.qtdCurtidas}} <span> Curtidas</span></p>
       </div>
 

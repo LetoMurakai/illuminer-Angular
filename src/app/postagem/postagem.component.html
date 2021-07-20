@@ -357,7 +357,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <ul class="flex-sem-padding">
+        <div class="d-flex justify-content-center ps-4 pe-4">
+          <div [ngStyle]="{'display': displaySpinnerCurtidas}" class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <ul [ngStyle]="{'display': displayListaCurtidas}" class="flex-sem-padding">
           <li class="flex flex-sem-padding rounded-3 border-bottom mb-1 shadow-sm" *ngFor='let curtida of curtidas'
             [ngClass]="(darkMode)? 'postagem-modal-curtidas-darkMode' : 'postagem-modal-curtidas-lightMode'">
             <a href="" data-bs-dismiss="modal" (click)='abrirUsuario(curtida.id.usuario.id)'

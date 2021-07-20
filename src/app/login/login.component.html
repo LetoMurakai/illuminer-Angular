@@ -19,19 +19,17 @@
               <form class="py-2 px-3">
                 <div>
                   <label for="usuario" class="text-white px-3">USUARIO</label>
-                  <input  [(ngModel)]='usuarioLogin.email' name="email" type="email" class="form-control bg-form"
-                    id="usuario" placeholder="usuario@exemplo.com" required (keyup)="validaEmail($event)">
-                    <div class="invalid-feedback">
-                      informe um e-mail neste formato:"ana@gmail.com"
-                    </div>
+                  <input [(ngModel)]='usuarioLogin.email' name="email" type="email" class="form-control bg-form" id="usuario" placeholder="usuario@exemplo.com" required (keyup)="validaEmail($event)">
+                  <div class="invalid-feedback">
+                    informe um e-mail neste formato:"ana@gmail.com"
+                  </div>
                 </div>
                 <div class="py-2">
                   <label for="senha" class="text-white px-3">SENHA</label>
-                  <input [(ngModel)]='usuarioLogin.senha' name="senha" type="password" class="form-control bg-form"
-                    id="senha" placeholder="Senha"  required (keyup)="validaSenha($event)">
-                    <div class="invalid-feedback">
-                      senha incorreta
-                    </div>
+                  <input [(ngModel)]='usuarioLogin.senha' name="senha" type="password" class="form-control bg-form" id="senha" placeholder="Senha" required (keyup)="validaSenha($event)">
+                  <div class="invalid-feedback">
+                    senha incorreta
+                  </div>
 
 
                 </div>
@@ -50,8 +48,17 @@
                 </div>
                 -->
                 <div class="col-12 px-5 mb-3">
-                  <button (click)='login()' class="btn btn-login text-white w-100"
-                    type="submit">entrar</button>
+                  <button (click)='login()' class="btn btn-login text-white w-100" type="submit">
+                    <div class="d-flex justify-content-center">
+                      <div [ngStyle]="{'display': displaySpinner}" class="spinner-border" role="status"
+                      style="width: 1.5rem; height: 1.5rem;">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
+                    </div>
+                    <div [ngStyle]="{'display': displayTextoEntrar}">
+                      entrar
+                    </div>
+                  </button>
                 </div>
 
               </div>

@@ -93,7 +93,17 @@
                 <div class="mt-4 d-flex justify-content-center">
                   <button routerLink="/login" type="submit"
                     class="btn btn-outline-light rounded-pill me-4">Cancelar</button>
-                  <button type="submit" class="btn btn-login rounded-pill ms-4" (click)='cadastrar()'>Cadastrar</button>
+                  <button type="submit" class="btn btn-login rounded-pill ms-4" (click)='cadastrar()'>
+                    <div class="d-flex justify-content-center ps-4 pe-4">
+                      <div [ngStyle]="{'display': displaySpinner}" class="spinner-border" role="status"
+                      style="width: 1.5rem; height: 1.5rem;">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
+                    </div>
+                    <div [ngStyle]="{'display': displayTextoCadastrar}">
+                      Cadastrar
+                    </div>
+                  </button>
                 </div>
 
               </div>

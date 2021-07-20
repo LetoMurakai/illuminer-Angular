@@ -20,6 +20,9 @@ export class CadastroComponent implements OnInit {
   validarUsuario : boolean = false
   senhaValida: boolean =false
 
+  displaySpinner = "none"
+  displayTextoCadastrar = "block"
+
 
 
 
@@ -54,10 +57,17 @@ export class CadastroComponent implements OnInit {
       this.alerta.showAlertWarning('As senhas não são iguais')
 
     } else {
+      this.displaySpinner = "block"
+      this.displayTextoCadastrar = "none"
       this.authService.cadastro(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
-        this.router.navigate(['/login'])
         this.alerta.showAlertSuccess('Usuário cadastrado com sucesso!')
+        this.displaySpinner = "none"
+        this.displayTextoCadastrar = "block"
+        this.router.navigate(['/login'])
+      }, () => {
+        this.displaySpinner = "none"
+        this.displayTextoCadastrar = "block"
       })
 
     }

@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   usuarioLogin: UsuarioLogin = new UsuarioLogin
   emailValido: boolean =false
   senhaValido: boolean = false
+  displaySpinner = "none"
+  displayTextoEntrar = "block"
 
   constructor(
     private auth: AuthService,
@@ -28,6 +30,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.displaySpinner = "block"
+    this.displayTextoEntrar = "none"
     this.auth.login(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
       this.usuarioLogin=resp
       environment.token = this.usuarioLogin.token
@@ -35,14 +39,16 @@ export class LoginComponent implements OnInit {
       environment.foto = this.usuarioLogin.foto
       environment.id = this.usuarioLogin.id
       environment.tipo = this.usuarioLogin.tipo
+      this.displaySpinner = "none"
+      this.displayTextoEntrar = "block"
       this.router.navigate(['/feed'])
     }, erro => {
       if(erro.status=401) {
         this.alerta.showAlertWarning('Usuário ou Senha incorretos!')
-
+        this.displaySpinner = "none"
+        this.displayTextoEntrar = "block"
       }
     })
-    
   }
 
   validaEmail(event: any) {

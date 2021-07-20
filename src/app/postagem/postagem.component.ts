@@ -31,6 +31,8 @@ export class PostagemComponent implements OnInit {
   displaySpinner = "block"
   displayNavPag = "none"
   displayLoader = "none"
+  displayListaCurtidas = "none"
+  displaySpinnerCurtidas = "block"
 
   paginaPostagem: PaginaPostagem = new PaginaPostagem()
   usuario: Usuario = new Usuario()
@@ -235,9 +237,13 @@ export class PostagemComponent implements OnInit {
   }
 
   getCurtidasPostagem(idPostagem: number) {
+    this.displayListaCurtidas = "none"
+    this.displaySpinnerCurtidas = "block"
     this.postagemService.refreshToken()
     this.postagemService.getCurtidasPostagem(idPostagem).subscribe((resp: Curtida[]) => {
       this.curtidas = resp
+      this.displayListaCurtidas = "block"
+      this.displaySpinnerCurtidas = "none"
     })
   }
 

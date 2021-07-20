@@ -22,6 +22,9 @@ export class PerfilUsuarioComponent implements OnInit {
   id = environment.id
   darkMode = environment.darkMode
 
+  displaySpinnerPerfil = "block"
+  displayPerfil = "none"
+  alturaDivSpinnerPerfil = "100vh"
 
   confirmaSenha: string
   tipoUsuario: string
@@ -53,10 +56,14 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   findByIdUsuario(id: number) {
+    this.displaySpinnerPerfil = "block"
+    this.displayPerfil = "none"
     this.perfilService.refreshToken()
     this.perfilService.getByIdPerfil(id).subscribe((resp: Usuario) => {
-      console.log(resp)
       this.usuario = resp
+      this.displaySpinnerPerfil = "none"
+      this.alturaDivSpinnerPerfil = "0vh"
+      this.displayPerfil = "block"
     })
   }
 
