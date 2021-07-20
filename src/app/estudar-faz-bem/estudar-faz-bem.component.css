@@ -1,8 +1,8 @@
-#bg {
+.bg {
   background: conic-gradient(from 204.99deg at 100% -57.03%, #FFFFFF -2.89deg, #85CCE9 10.82deg, #FFFFFF 357.11deg, #85CCE9 370.82deg);
   }
   @media only screen and (max-width: 767px) {
-    #bg {
+    .bg {
       background: conic-gradient(from 204.99deg at 100% -14.03%, #FFFFFF -2.89deg, #85CCE9 10.82deg, #FFFFFF 357.11deg, #85CCE9 370.82deg);
       }
   }
