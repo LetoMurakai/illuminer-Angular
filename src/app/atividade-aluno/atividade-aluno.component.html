@@ -5,7 +5,9 @@
       <div class="row  bg-atividades shadow" [ngClass]="(darkMode)? 'atividadeAluno-bg-darkMode' : 'atividadeAluno-bg-lightMode'">
 
         <div class="col-2">
-          <img class="d-flex rounded-circle" src="{{usuario.foto}}" width="60px" height="60px" alt="Foto do usuário">
+          <img *ngIf="usuario.foto == null || usuario.foto == '' " class="d-flex rounded-circle" src="../../assets/imagem/Sem-foto-perfil.png" width="60px" height="60px" alt="Foto padrão do usuario">
+
+          <img *ngIf="usuario.foto != null && usuario.foto != '' " class="d-flex rounded-circle" src="{{usuario.foto}}" width="60px" height="60px" alt="Foto do usuário">
         </div>
 
         <div class="col-10 ps-2">
@@ -30,7 +32,9 @@
           <div class="col-2 my-2 d-flex justify-content-center">
 
             <div>
-              <img class="rounded-circle" src="{{usuario.foto}}" width="60px" height="60px" alt="Foto do usuário">
+              <img *ngIf="usuario.foto == null || usuario.foto == '' " class="rounded-circle" src="../../assets/imagem/Sem-foto-perfil.png" width="60px" height="60px" alt="Foto padrão do usuario">
+
+              <img *ngIf="usuario.foto != null && usuario.foto != '' " class="rounded-circle" src="{{usuario.foto}}" width="60px" height="60px" alt="Foto do usuário">
             </div>
 
           </div>
