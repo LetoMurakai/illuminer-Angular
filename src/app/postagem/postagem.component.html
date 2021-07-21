@@ -35,7 +35,7 @@
       <a [ngClass]="(darkMode)? 'postagem-paginacao-darkMode' : 'postagem-paginacao-lightMode'" *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link"
         (click)='buscarPaginaPostagem(paginaPostagem.number + 1, 5)'>Próxima</a>
         
-      <a *ngIf="textoPesquisaPostagem != ''" class="page-link"
+      <a [ngClass]="(darkMode)? 'postagem-paginacao-darkMode' : 'postagem-paginacao-lightMode'" *ngIf="textoPesquisaPostagem != ''" class="page-link"
         (click)='pesquisar(paginaPostagem.number + 1)'>Próxima</a>
     </li>
 
@@ -368,8 +368,17 @@
       </div>
       <div class="modal-body" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         <ul class="flex-sem-padding">
+          <div class="d-flex justify-content-center ps-4 pe-4">
+            <div [ngStyle]="{'display': displaySpinnerCurtidas}" class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+          <ul [ngStyle]="{'display': displayListaCurtidas}" class="flex-sem-padding">
           <li class="flex flex-sem-padding rounded-3 border-bottom mb-1 shadow-sm" *ngFor='let curtida of curtidas'
             [ngClass]="(darkMode)? 'postagem-modal-EditareDeletar-darkMode' : 'postagem-modal-EditareDeletar-lightMode'">
+            <div [ngStyle]="{'display': displaySpinnerCurtidas}" class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
             <a href="" data-bs-dismiss="modal" (click)='abrirUsuario(curtida.id.usuario.id)'
               [routerLink]="['/perfil', curtida.id.usuario.id]">
 
@@ -390,6 +399,7 @@
             </div>
             <hr>
           </li>
+          </ul>
         </ul>
       </div>
       <div class="modal-footer" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
