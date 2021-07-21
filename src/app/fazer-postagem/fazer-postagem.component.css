@@ -92,7 +92,7 @@ select:invalid {
   }
   .form-select{
     height: 30px;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0px;
     width: 100%;
     z-index: 999;
   }

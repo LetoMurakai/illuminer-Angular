@@ -69,7 +69,7 @@
               (click)="abrirUsuario(atividade.idAutorPostagem)" [ngClass]="(darkMode)? 'atividadeAluno-acessar-darkMode' : 'atividadeAluno-acessar-lightMode'">{{atividade.nomeAutorPostagem}}</a>
             </p>
             <a class="acessar"(click)="abrirPublicacao(atividade.idPostagem)">
-              <div class="publicacao">
+              <div class="publicacao" [ngClass]="(darkMode)? 'atividadeAluno-comentario-darkMode' : 'text-dark'">
                 <p class="text-break p-3" [ngClass]="(darkMode)? 'atividadeAluno-acessar-darkMode' : 'atividadeAluno-acessar-lightMode'">
                   {{atividade.textoPost}}. . .
                 </p>

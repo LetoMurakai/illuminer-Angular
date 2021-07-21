@@ -73,7 +73,7 @@ a{
 }
 .nav-bar-dropdown-coresEscuras:hover{
   background: #2ca0ff!important;
-  box-shadow: 2px 2px 10px rgb(0, 255, 234);
+  box-shadow:2px 2px 10px #2ca0ff;
 }
 
 /* CSS FEED */
@@ -176,12 +176,18 @@ a{
   background: #353535;
   color: white;
 }
-
-.postagem-modal-curtidas-darkMode{
-  background-color: #1F1F1F;
+.postagem-modal-header-body-footer-darkmode{
+  background: transparent!important;
+}
+.postagem-modal-EditareDeletar-darkMode{
+  background-color: #1F1F1F!important;
   color: white!important;
 }
-.postagem-modal-curtidas-lightMode{
+.postagem-modal-text-area-darkMode{
+  background: #2c2c2c!important;
+  color: white!important;
+}
+.postagem-modal-EditareDeletar-lightMode{
   background-color: #f2f2f2;
   color: #333!important;
 }
@@ -192,6 +198,7 @@ a{
 .postagem-nomeUsuario-lightMode{
   color: #353535;
 }
+
 .postagem-paginacao-darkMode{
   color: white!important;
   background: #212121!important;
@@ -199,6 +206,14 @@ a{
 .postagem-paginacao-lightMode{
   color: black;
   background: white;
+}
+.postagem-paginacao-numeracao-darkMode{
+  color: #ffffff!important;
+  border-color: white!important;
+  background: #1b213b!important;
+}
+.postagem-paginacao-darkMode:hover{
+  background:#0c0c0c!important ;
 }
 
 /* CSS ENGAJAMENTO */
@@ -211,12 +226,12 @@ a{
   color: #353535;
 }
 
-.engajamento-imgUsuario-lightMode{
-  /*background: rgb(47, 103, 255);*/
+/* .engajamento-imgUsuario-lightMode{
+  background: rgb(47, 103, 255);
 }
 .engajamento-imgUsuario-darkMode{
-  /*background: turquoise;*/
-}
+  background: turquoise;
+} */
 
 
 .engajamento-publicacao-comentarios-lightMode{
@@ -282,7 +297,8 @@ a{
   color: #444570!important;
 }
 .atividadeAluno-comentario-darkMode{
-  background-color: #262626;
+  color: white;
+  background-color: #262626!important;
   border: none;
   border-radius: 0 15px 15px 15px!important;
 }

@@ -10,25 +10,35 @@
 
 <nav aria-label="..." class="d-flex justify-content-center mt-5">
   <ul [ngStyle]="{'display': displayNavPag}" class="pagination">
-    <li class="page-item" [ngClass]="(paginaPostagem.first) ? 'disabled' : ''">
+
+    <li [ngClass]="(darkMode)? 'postagem-paginacao-darkMode' : 'postagem-paginacao-lightMode'" class="page-item" [ngClass]="(paginaPostagem.first) ? 'disabled' : ''">
+
       <a [ngClass]="(darkMode)? 'postagem-paginacao-darkMode' : 'postagem-paginacao-lightMode'" *ngIf="idUsuarioPerfil != 0" class="page-link"
         (click)='buscarPaginaPostagemProfessor(idUsuarioPerfil, paginaPostagem.number - 1, 5)'>Anterior</a>
-      <a *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link"
+
+      <a [ngClass]="(darkMode)? 'postagem-paginacao-darkMode' : 'postagem-paginacao-lightMode'" *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link"
         (click)='buscarPaginaPostagem(paginaPostagem.number - 1, 5)'>Anterior</a>
-      <a *ngIf="textoPesquisaPostagem != ''" class="page-link"
+
+      <a [ngClass]="(darkMode)? 'postagem-paginacao-darkMode' : 'postagem-paginacao-lightMode'" *ngIf="textoPesquisaPostagem != ''" class="page-link"
         (click)='pesquisar(paginaPostagem.number - 1)'>Anterior</a>
     </li>
+
     <li class="page-item active" aria-current="page">
-      <span class="page-link">{{paginaPostagem.number + 1}}</span>
+      <span [ngClass]="(darkMode)? 'postagem-paginacao-numeracao-darkMode' : 'page-link'" class="page-link">{{paginaPostagem.number + 1}}</span>
     </li>
-    <li class="page-item" [ngClass]="(paginaPostagem.last) ? 'disabled' : ''">
-      <a *ngIf="idUsuarioPerfil != 0" class="page-link"
+
+    <li [ngClass]="(darkMode)? 'postagem-paginacao-darkMode' : 'postagem-paginacao-lightMode'" class="page-item" [ngClass]="(paginaPostagem.last) ? 'disabled' : ''">
+
+      <a [ngClass]="(darkMode)? 'postagem-paginacao-darkMode' : 'postagem-paginacao-lightMode'" *ngIf="idUsuarioPerfil != 0" class="page-link"
         (click)='buscarPaginaPostagemProfessor(idUsuarioPerfil, paginaPostagem.number + 1, 5)'>Próxima</a>
-      <a *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link"
+
+      <a [ngClass]="(darkMode)? 'postagem-paginacao-darkMode' : 'postagem-paginacao-lightMode'" *ngIf="textoPesquisaPostagem == '' && idUsuarioPerfil == 0 " class="page-link"
         (click)='buscarPaginaPostagem(paginaPostagem.number + 1, 5)'>Próxima</a>
+        
       <a *ngIf="textoPesquisaPostagem != ''" class="page-link"
         (click)='pesquisar(paginaPostagem.number + 1)'>Próxima</a>
     </li>
+
   </ul>
 </nav>
 
@@ -348,23 +358,18 @@
 <!-- Modal Curtidas -->
 <div class="modal fade" id="curtidasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
+    <div class="modal-content"  [ngClass]="(darkMode)? 'postagem-modal-EditareDeletar-darkMode' : 'postagem-modal-EditareDeletar-lightMode'">
+      <div class="modal-header" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
 
         <h5 class="modal-title text-capitalize text-white" id="exampleModalLabel" style="align-self: center;">Curtida
           por:</h5>
 
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <div class="d-flex justify-content-center ps-4 pe-4">
-          <div [ngStyle]="{'display': displaySpinnerCurtidas}" class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-        </div>
-        <ul [ngStyle]="{'display': displayListaCurtidas}" class="flex-sem-padding">
+      <div class="modal-body" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
+        <ul class="flex-sem-padding">
           <li class="flex flex-sem-padding rounded-3 border-bottom mb-1 shadow-sm" *ngFor='let curtida of curtidas'
-            [ngClass]="(darkMode)? 'postagem-modal-curtidas-darkMode' : 'postagem-modal-curtidas-lightMode'">
+            [ngClass]="(darkMode)? 'postagem-modal-EditareDeletar-darkMode' : 'postagem-modal-EditareDeletar-lightMode'">
             <a href="" data-bs-dismiss="modal" (click)='abrirUsuario(curtida.id.usuario.id)'
               [routerLink]="['/perfil', curtida.id.usuario.id]">
 
@@ -387,7 +392,7 @@
           </li>
         </ul>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
@@ -417,20 +422,21 @@
 <div class="modal fade" id="editarComentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content"
-      [ngClass]="(darkMode)? 'postagem-modal-comentarios-darkMode' : 'postagem-modal-comentarios-lightMode'">
-      <div class="modal-header">
+      [ngClass]="(darkMode)? 'postagem-modal-EditareDeletar-darkMode' : 'postagem-modal-EditareDeletar-lightMode'">
+
+      <div class="modal-header" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         <h5 class="modal-title text-capitalize text-white" id="exampleModalLabel">Editar Comentario</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         <div class="form-group mb-3">
-          <label for="message-text" class="col-form-label text-capitalize text-white">Texto:</label>
+          <label for="message-text" class="col-form-label text-capitalize text-white" >Texto:</label>
           <textarea class="form-control" id="message-text" required [(ngModel)]='comentario.texto'
             name="message-text"></textarea>
         </div>
 
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-primary rounded-pill" data-bs-dismiss="modal"
           (click)='atualizarComentario()'>Atualizar</button>
@@ -445,15 +451,15 @@
   aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content"
-      [ngClass]="(darkMode)? 'postagem-modal-comentarios-darkMode' : 'postagem-modal-comentarios-lightMode'">
-      <div class="modal-header">
+      [ngClass]="(darkMode)? 'postagem-modal-EditareDeletar-darkMode' : 'postagem-modal-EditareDeletar-lightMode'">
+      <div class="modal-header" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         <h5 class="modal-title text-capitalize text-white" id="exampleModalLabel">Apagar comentario</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body text-white">
+      <div class="modal-body text-white" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         Você tem certeza que deseja apagar esse comentario?
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal"
           (click)="excluirComentario()">Apagar</button>
@@ -467,15 +473,15 @@
 <div class="modal fade" id="cancelarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content"
-      [ngClass]="(darkMode)? 'postagem-modal-comentarios-darkMode' : 'postagem-modal-comentarios-lightMode'">
-      <div class="modal-header">
+      [ngClass]="(darkMode)? 'postagem-modal-EditareDeletar-darkMode' : 'postagem-modal-EditareDeletar-lightMode'">
+      <div class="modal-header" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         <h5 class="modal-title text-capitalize text-white" id="exampleModalLabel">Apagar postagem</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body text-white">
+      <div class="modal-body text-white" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         Você tem certeza que deseja apagar essa postagem?
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal"
           (click)="excluirPostagem()">Apagar</button>
@@ -490,24 +496,24 @@
 <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content"
-      [ngClass]="(darkMode)? 'postagem-modal-comentarios-darkMode' : 'postagem-modal-comentarios-lightMode'">
-      <div class="modal-header">
+      [ngClass]="(darkMode)? 'postagem-modal-EditareDeletar-darkMode' : 'postagem-modal-EditareDeletar-lightMode'">
+      <div class="modal-header" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         <h5 class="modal-title text-white text-capitalize" id="exampleModalLabel">Editar Postagem</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         <div class="form-group mb-3">
           <label for="message-text" class="col-form-label text-white text-capitalize">Texto:</label>
-          <textarea class="form-control" id="message-text" required [(ngModel)]='postagem.texto'
+          <textarea class="form-control" [ngClass]="(darkMode)? 'postagem-modal-text-area-darkMode' : ''" id="message-text" required [(ngModel)]='postagem.texto'
             name="message-text"></textarea>
         </div>
         <div class="form-group mb-3">
           <label for="recipient-name" class="col-form-label text-white text-capitalize">Midia:</label>
-          <input type="text" class="form-control" id="recipient-name" name="midia" [(ngModel)]='postagem.midia'>
+          <input type="text" [ngClass]="(darkMode)? 'postagem-modal-text-area-darkMode' : ''" class="form-control" id="recipient-name" name="midia" [(ngModel)]='postagem.midia'>
         </div>
-        <div class="form-group mb-3 text-white">
+        <div class="form-group mb-3 text-white" >
           <label for="select-opcao">Tipo de mídia:</label>
-          <select [(ngModel)]='postagem.tipoMidia' class="form-select" aria-label=".form-select-lg example"
+          <select [(ngModel)]='postagem.tipoMidia' [ngClass]="(darkMode)? 'postagem-modal-text-area-darkMode' : ''" class="form-select" aria-label=".form-select-lg example"
             name='select-opcao' id='select-opcao' (change)='definirTipoMidiaPostagem($event)'>
             <option selected>Selecione uma opção</option>
             <option value="video">Vídeo</option>
@@ -515,7 +521,7 @@
           </select>
         </div>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" [ngClass]="(darkMode)? 'postagem-modal-header-body-footer-darkmode' : 'postagem-modal-header-body-footer-lightMode'">
         <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-primary rounded-pill" data-bs-dismiss="modal"
           (click)='atualizarPostagem()'>Atualizar</button>

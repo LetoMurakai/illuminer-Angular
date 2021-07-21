@@ -37,11 +37,15 @@
     .float-right{
         float: right;
     }
-    .botao-login,.botaoCadastro{
+    /* .botao-login,.botaoCadastro{
         transform: translateY(-200%);
         margin-bottom: 10px;
+    } */
+    .nav-item-botao-login{
+        padding-bottom: 5px;
     }
     .botao-login  {
+        
         margin-left: 18px;
     }
     .navbar-collapse, .collapsing{
