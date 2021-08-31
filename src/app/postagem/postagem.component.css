@@ -1,4 +1,9 @@
 /* classe que engloba toda a div de postagem */
+@media (max-width: 400px) {
+  .postagem {
+    margin: 1rem auto;
+  }
+}
 .postagem {
   max-width: 650px;
   background-color: #fcfcfc;

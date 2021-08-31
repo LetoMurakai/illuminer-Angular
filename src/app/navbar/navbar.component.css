@@ -26,8 +26,7 @@ a{
 .float-right{
   left: -8em;
 }
-@media only screen and (max-width: 600px){
-
+@media only screen and (max-width: 650px){
   #pesquisar{
     width: 16em;
   }
